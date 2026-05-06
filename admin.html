@@ -60,6 +60,12 @@ body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:10
 .empty{text-align:center;padding:44px;color:#bbb;font-size:15px;background:#fff;border-radius:8px}
 .toast{position:fixed;bottom:20px;right:20px;background:var(--teal);color:#fff;padding:13px 22px;border-radius:8px;font-size:14px;font-weight:600;z-index:9000;opacity:0;transition:opacity .4s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .toast.show{opacity:1}
+/* Sync status indicator */
+.sync-badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:12px;font-weight:600}
+.sync-badge.ok{background:rgba(255,255,255,.18);color:#fff}
+.sync-badge.err{background:rgba(255,80,80,.3);color:#ffd0d0}
+.sync-badge.loading{background:rgba(255,255,255,.12);color:rgba(255,255,255,.7)}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:currentColor}
 @media(max-width:700px){
   .stats{grid-template-columns:repeat(2,1fr)}
   .tc-top{flex-direction:column}
@@ -92,6 +98,8 @@ body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:10
   <div class="adm-hd">
     <h1>🐾 GOCAF Admin — Testimonial Manager</h1>
     <div class="adm-hd-links">
+      <!-- Sync status shown in header -->
+      <span class="sync-badge loading" id="syncBadge"><span class="sync-dot"></span> <span id="syncTxt">Connecting…</span></span>
       <a href="index.html" target="_blank">View Website ↗</a>
       <a class="danger" onclick="doLogout()">Sign Out</a>
     </div>
@@ -120,9 +128,25 @@ body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:10
 <div class="toast" id="toast"></div>
 
 <script>
+/* ================================================================
+   JSONBIN.IO CONFIGURATION
+   Bin ID  : 69fb1bf436566621a82fdb56
+   API Key : $2a$10$h.qmoyJkvOHlbC4Ok2zZ7.7YyBI9JwmGsXM3KZysyIkxlrldtfOra
+   Docs    : https://jsonbin.io/api-reference
+   ================================================================ */
+const JSONBIN_ID  = '69fb1bf436566621a82fdb56';
+const JSONBIN_KEY = '$2a$10$h.qmoyJkvOHlbC4Ok2zZ7.7YyBI9JwmGsXM3KZysyIkxlrldtfOra';
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_ID}`;
+
+/* ----------------------------------------------------------------
+   ADMIN CREDENTIALS
+   ---------------------------------------------------------------- */
 const ADMIN_EMAIL = 'admin@gocaf.global';
 const ADMIN_PASS  = 'gocaf2025';
 
+/* ----------------------------------------------------------------
+   DEFAULT SEED DATA (used only if bin is empty / first load)
+   ---------------------------------------------------------------- */
 const DEFAULTS = [
   {id:'t1',name:'Priya Sharma',role:'Resident, Kondapur',email:'priya@example.com',rating:5,text:'I called GOCAF at midnight when I found an injured puppy. They arrived within 40 minutes. The professionalism and compassion was unlike anything I had seen. The puppy fully recovered. GOCAF gives me hope that Hyderabad can be a humane city.',status:'approved',date:'12/01/2025'},
   {id:'t2',name:'Mohammed Rafiq',role:'Community Feeder, Old City',email:'rafiq@example.com',rating:5,text:'As a feeder for 8 years, I was always alone and afraid of legal trouble. GOCAF gave me legal protection, a feeding schedule, and a community. I am no longer a lone wolf. We are an army of compassion now.',status:'approved',date:'15/01/2025'},
@@ -131,14 +155,109 @@ const DEFAULTS = [
   {id:'t5',name:'Vikram Nair',role:'RWA Member, Gachibowli',email:'vikram@example.com',rating:4,text:'Our apartment complex had conflicts with feeders for years. GOCAF mediated, created a structured feeding zone, and now everyone is happy. Problem solved in 2 weeks!',status:'pending',date:'16/04/2025'}
 ];
 
-function getAll(){
+/* ================================================================
+   JSONBIN.IO — READ  (GET latest record)
+   ================================================================ */
+async function binGet(){
+  setSyncBadge('loading','Syncing…');
+  try{
+    const r = await fetch(JSONBIN_URL+'/latest',{
+      headers:{
+        'X-Master-Key': JSONBIN_KEY,
+        'X-Bin-Meta'  : 'false'          // return only the JSON data, no metadata wrapper
+      }
+    });
+    if(!r.ok) throw new Error('GET '+r.status);
+    const data = await r.json();
+    /* JSONBin stores whatever we PUT. We store { testimonials: [...] }  */
+    const arr = Array.isArray(data) ? data
+              : (data.testimonials ? data.testimonials : null);
+    if(!arr){
+      /* Bin exists but has no testimonials key yet — seed it */
+      await binPut(DEFAULTS);
+      setSyncBadge('ok','Live ✓');
+      return DEFAULTS;
+    }
+    setSyncBadge('ok','Live ✓');
+    return arr;
+  }catch(e){
+    console.warn('JSONBin GET failed, falling back to localStorage:',e);
+    setSyncBadge('err','Offline');
+    /* Graceful fallback — use localStorage so the admin can still work */
+    return lsGet();
+  }
+}
+
+/* ================================================================
+   JSONBIN.IO — WRITE  (PUT full array)
+   ================================================================ */
+async function binPut(arr){
+  setSyncBadge('loading','Saving…');
+  try{
+    const r = await fetch(JSONBIN_URL,{
+      method : 'PUT',
+      headers:{
+        'Content-Type': 'application/json',
+        'X-Master-Key': JSONBIN_KEY
+      },
+      body: JSON.stringify({ testimonials: arr })
+    });
+    if(!r.ok) throw new Error('PUT '+r.status);
+    setSyncBadge('ok','Saved ✓');
+    /* Mirror to localStorage as offline cache */
+    lsSave(arr);
+    return true;
+  }catch(e){
+    console.warn('JSONBin PUT failed, saving to localStorage only:',e);
+    setSyncBadge('err','Offline – local save only');
+    lsSave(arr);
+    return false;
+  }
+}
+
+/* ================================================================
+   SYNC BADGE HELPER
+   ================================================================ */
+function setSyncBadge(state, txt){
+  const b = document.getElementById('syncBadge');
+  const t = document.getElementById('syncTxt');
+  if(!b||!t) return;
+  b.className = 'sync-badge ' + state;
+  t.textContent = txt;
+}
+
+/* ================================================================
+   LOCALSTORAGE FALLBACK
+   (kept from original code — used as offline cache)
+   ================================================================ */
+function lsGet(){
   try{const d=localStorage.getItem('gocaf_testimonials');return d?JSON.parse(d):DEFAULTS;}
   catch(e){return DEFAULTS;}
 }
-function saveAll(arr){
+function lsSave(arr){
   try{localStorage.setItem('gocaf_testimonials',JSON.stringify(arr));}catch(e){}
 }
 
+/* ----------------------------------------------------------------
+   getAll / saveAll — now JSONBin-first with localStorage fallback
+   ---------------------------------------------------------------- */
+/* In-memory cache so UI renders instantly after first load */
+let _cache = null;
+
+async function getAll(){
+  if(_cache) return _cache;
+  _cache = await binGet();
+  return _cache;
+}
+
+async function saveAll(arr){
+  _cache = arr;
+  await binPut(arr);
+}
+
+/* ================================================================
+   LOGIN / LOGOUT
+   ================================================================ */
 function doLogin(){
   const e=document.getElementById('aEmail').value.trim();
   const p=document.getElementById('aPass').value.trim();
@@ -153,6 +272,7 @@ function doLogin(){
 }
 function doLogout(){
   sessionStorage.removeItem('gocaf_admin');
+  _cache = null;
   document.getElementById('loginWrap').style.display='flex';
   document.getElementById('dash').style.display='none';
 }
@@ -162,6 +282,9 @@ if(sessionStorage.getItem('gocaf_admin')){
   setTimeout(()=>render('pending'),10);
 }
 
+/* ================================================================
+   TABS
+   ================================================================ */
 let curTab='pending';
 function showTab(tab,btn){
   curTab=tab;
@@ -170,8 +293,12 @@ function showTab(tab,btn){
   render(tab);
 }
 
-function render(tab){
-  const all=getAll();
+/* ================================================================
+   RENDER
+   ================================================================ */
+async function render(tab){
+  document.getElementById('list').innerHTML='<div class="empty">Loading…</div>';
+  const all = await getAll();
   const p=all.filter(t=>t.status==='pending');
   const a=all.filter(t=>t.status==='approved');
   const d=all.filter(t=>t.status==='denied');
@@ -205,12 +332,15 @@ function render(tab){
   `).join('');
 }
 
-function setStatus(id,status){
-  const all=getAll();
+/* ================================================================
+   SET STATUS / DELETE
+   ================================================================ */
+async function setStatus(id,status){
+  const all = await getAll();
   const idx=all.findIndex(t=>t.id===id);
   if(idx===-1)return;
   all[idx].status=status;
-  saveAll(all);
+  await saveAll(all);
   showToast(
     status==='approved'?'✅ Approved! Now live on the website.':'❌ Denied. Hidden from website.',
     status==='approved'?'#38A169':'#E53E3E'
@@ -218,13 +348,17 @@ function setStatus(id,status){
   render(curTab);
 }
 
-function delEntry(id){
+async function delEntry(id){
   if(!confirm('Permanently delete this testimonial?'))return;
-  saveAll(getAll().filter(t=>t.id!==id));
+  const all = await getAll();
+  await saveAll(all.filter(t=>t.id!==id));
   showToast('🗑️ Testimonial deleted.','#718096');
   render(curTab);
 }
 
+/* ================================================================
+   TOAST
+   ================================================================ */
 function showToast(msg,bg='#2E8B7A'){
   const t=document.getElementById('toast');
   t.textContent=msg;t.style.background=bg;
@@ -232,8 +366,16 @@ function showToast(msg,bg='#2E8B7A'){
   setTimeout(()=>t.classList.remove('show'),3500);
 }
 
-/* Auto-refresh every 5s — picks up new submissions from index.html */
-setInterval(()=>{if(sessionStorage.getItem('gocaf_admin'))render(curTab);},5000);
+/* ================================================================
+   AUTO-REFRESH every 5s — picks up new submissions from index.html
+   Now fetches fresh data from JSONBin so both pages stay in sync
+   ================================================================ */
+setInterval(async ()=>{
+  if(sessionStorage.getItem('gocaf_admin')){
+    _cache = null;          // clear cache so next render fetches fresh
+    render(curTab);
+  }
+},5000);
 </script>
 </body>
 </html>

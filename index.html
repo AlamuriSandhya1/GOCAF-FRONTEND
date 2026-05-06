@@ -2313,9 +2313,19 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
      JAVASCRIPT
      ================================================================ -->
 <script>
+/* ================================================================
+   JSONBIN.IO CONFIGURATION
+   Bin ID  : 69fb1bf436566621a82fdb56
+   API Key : $2a$10$h.qmoyJkvOHlbC4Ok2zZ7.7YyBI9JwmGsXM3KZysyIkxlrldtfOra
+   Docs    : https://jsonbin.io/api-reference
+   ================================================================ */
+const JSONBIN_ID  = '69fb1bf436566621a82fdb56';
+const JSONBIN_KEY = '$2a$10$h.qmoyJkvOHlbC4Ok2zZ7.7YyBI9JwmGsXM3KZysyIkxlrldtfOra';
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_ID}`;
+
 /* ----------------------------------------------------------------
-   TESTIMONIAL DATA (localStorage, shared with admin.html)
-   Key: gocaf_testimonials
+   TESTIMONIAL DATA — now backed by JSONBin.io (cloud), shared with admin.html
+   Key: gocaf_testimonials  (also mirrored in localStorage as offline cache)
    Each entry: { id, name, role, email, rating, text, status, date }
    status: 'pending' | 'approved' | 'denied'
    ---------------------------------------------------------------- */
@@ -2325,23 +2335,94 @@ const DEFAULT_TESTIMONIALS = [
   {id:'t3',name:'The Reddy Family',role:'Adopters, Banjara Hills',email:'reddy@example.com',rating:5,text:"We adopted Bruno from GOCAF after seeing his story. He was hit by a vehicle; they saved his life. Now he runs around our garden every morning. GOCAF changes whole families' lives.",status:'approved',date:'20/01/2025'},
 ];
 
-function getTestis(){
+/* ================================================================
+   JSONBIN.IO — READ  (GET latest record)
+   Returns the testimonials array from the bin, or DEFAULT_TESTIMONIALS
+   if bin is empty / unreachable
+   ================================================================ */
+async function binGet(){
+  try{
+    const r = await fetch(JSONBIN_URL+'/latest',{
+      headers:{
+        'X-Master-Key': JSONBIN_KEY,
+        'X-Bin-Meta'  : 'false'          // return only JSON data, no metadata wrapper
+      }
+    });
+    if(!r.ok) throw new Error('GET '+r.status);
+    const data = await r.json();
+    /* JSONBin stores { testimonials: [...] } */
+    const arr = Array.isArray(data) ? data
+              : (data.testimonials ? data.testimonials : null);
+    if(!arr){
+      /* Bin exists but is empty — seed defaults */
+      await binPut(DEFAULT_TESTIMONIALS);
+      return DEFAULT_TESTIMONIALS;
+    }
+    return arr;
+  }catch(e){
+    console.warn('JSONBin GET failed, falling back to localStorage:',e);
+    /* Graceful fallback — use localStorage offline cache */
+    return lsGetTestis();
+  }
+}
+
+/* ================================================================
+   JSONBIN.IO — WRITE  (PUT full array)
+   ================================================================ */
+async function binPut(arr){
+  try{
+    const r = await fetch(JSONBIN_URL,{
+      method : 'PUT',
+      headers:{
+        'Content-Type': 'application/json',
+        'X-Master-Key': JSONBIN_KEY
+      },
+      body: JSON.stringify({ testimonials: arr })
+    });
+    if(!r.ok) throw new Error('PUT '+r.status);
+    /* Mirror to localStorage as offline cache */
+    lsSaveTestis(arr);
+    return true;
+  }catch(e){
+    console.warn('JSONBin PUT failed, saving to localStorage only:',e);
+    lsSaveTestis(arr);
+    return false;
+  }
+}
+
+/* ================================================================
+   LOCALSTORAGE FALLBACK
+   (kept from original code — used as offline cache when JSONBin
+    is unreachable)
+   ================================================================ */
+function lsGetTestis(){
   try{
     const d=localStorage.getItem('gocaf_testimonials');
     return d?JSON.parse(d):DEFAULT_TESTIMONIALS;
   }catch(e){return DEFAULT_TESTIMONIALS;}
 }
-function saveTestis(arr){
+function lsSaveTestis(arr){
   try{localStorage.setItem('gocaf_testimonials',JSON.stringify(arr));}catch(e){}
+}
+
+/* ----------------------------------------------------------------
+   getTestis / saveTestis — public API used throughout this file
+   ---------------------------------------------------------------- */
+async function getTestis(){
+  return await binGet();
+}
+async function saveTestis(arr){
+  return await binPut(arr);
 }
 
 /* ----------------------------------------------------------------
    RENDER APPROVED TESTIMONIALS ON PAGE
    ---------------------------------------------------------------- */
-function renderTestis(){
+async function renderTestis(){
   const grid=document.getElementById('testiGrid');
   if(!grid)return;
-  const approved=getTestis().filter(t=>t.status==='approved');
+  const all = await getTestis();
+  const approved = all.filter(t=>t.status==='approved');
   if(!approved.length){
     grid.innerHTML='<p class="testi-empty">No testimonials yet. Be the first to share your experience!</p>';
     return;
@@ -2359,9 +2440,9 @@ function renderTestis(){
 }
 
 /* ----------------------------------------------------------------
-   FEEDBACK FORM SUBMIT → save to localStorage as pending
+   FEEDBACK FORM SUBMIT → save to JSONBin as pending
    ---------------------------------------------------------------- */
-function submitFeedback(){
+async function submitFeedback(){
   const fname  = document.getElementById('fb-fname').value.trim();
   const lname  = document.getElementById('fb-lname').value.trim();
   const email  = document.getElementById('fb-email').value.trim();
@@ -2386,9 +2467,11 @@ function submitFeedback(){
     status:'pending',
     date:new Date().toLocaleDateString('en-IN')
   };
-  const all=getTestis();
+
+  /* Fetch current list from JSONBin, append new entry, save back */
+  const all = await getTestis();
   all.push(entry);
-  saveTestis(all);
+  await saveTestis(all);
 
   ['fb-fname','fb-lname','fb-email','fb-role','fb-msg']
     .forEach(id=>document.getElementById(id).value='');
@@ -2537,7 +2620,7 @@ document.querySelectorAll('img').forEach(img=>{
 });
 
 /* ----------------------------------------------------------------
-   INIT
+   INIT — renderTestis() is now async (fetches from JSONBin)
    ---------------------------------------------------------------- */
 renderTestis();
 </script>
