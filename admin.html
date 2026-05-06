@@ -8,12 +8,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:100vh}
-:root{--teal:#2E8B7A;--teal-dark:#1F6B5C;--teal-light:#E8F5F2;--orange:#F4821F;--red:#E53E3E;--green:#38A169;--gray:#F5F5F5}
-
-/* LOGIN */
+:root{--teal:#2E8B7A;--teal-dark:#1F6B5C;--teal-light:#E8F5F2;--orange:#F4821F;--red:#E53E3E;--green:#38A169}
 .lw{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%)}
 .lb{background:#fff;border-radius:12px;padding:46px 40px;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.2);text-align:center}
-.lb img{height:76px;margin:0 auto 18px}
+.lb img{height:76px;margin:0 auto 18px;display:block}
 .lb h1{font-size:23px;font-weight:900;color:var(--teal);margin-bottom:5px}
 .lb p{font-size:13px;color:#999;margin-bottom:26px}
 .lg-g{margin-bottom:14px;text-align:left}
@@ -22,52 +20,29 @@ body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:10
 .lg-g input:focus{border-color:var(--teal)}
 .login-btn{width:100%;padding:13px;background:var(--teal);color:#fff;border:0;border-radius:6px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .2s;margin-top:6px}
 .login-btn:hover{background:var(--teal-dark)}
-.login-err{color:var(--red);font-size:13px;margin-top:10px;display:none}
-.login-hint{font-size:11px;color:#ccc;margin-top:14px}
-
-/* DASHBOARD */
+.login-err{color:var(--red);font-size:13px;margin-top:12px;display:none}
 #dash{display:none}
-.adm-hd{background:var(--teal);color:#fff;padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.adm-hd{background:var(--teal);color:#fff;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 .adm-hd h1{font-size:17px;font-weight:700}
 .adm-hd-links{display:flex;align-items:center;gap:10px}
-.adm-hd-links a{color:rgba(255,255,255,.85);font-size:13px;text-decoration:none;background:rgba(255,255,255,.14);padding:6px 16px;border-radius:4px;transition:background .2s}
+.adm-hd-links a{color:rgba(255,255,255,.85);font-size:13px;text-decoration:none;background:rgba(255,255,255,.14);padding:6px 16px;border-radius:4px;transition:background .2s;cursor:pointer}
 .adm-hd-links a:hover{background:rgba(255,255,255,.25)}
-.adm-hd-links a.danger{background:rgba(255,0,0,.18)}
-
+.adm-hd-links a.danger{background:rgba(255,0,0,.2)}
 .adm-body{max-width:1080px;margin:28px auto;padding:0 22px}
-
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
 .sc{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.07);text-align:center;border-top:4px solid var(--teal)}
-.sc.o{border-top-color:var(--orange)}
-.sc.g{border-top-color:var(--green)}
-.sc.r{border-top-color:var(--red)}
-.sc-num{font-size:36px;font-weight:900;margin-bottom:4px;color:var(--black,#111)}
+.sc.o{border-top-color:var(--orange)}.sc.g{border-top-color:var(--green)}.sc.r{border-top-color:var(--red)}
+.sc-num{font-size:36px;font-weight:900;margin-bottom:4px;color:#111}
 .sc-lbl{font-size:12px;color:#999;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
-
-/* BANNER */
 .banner{background:var(--teal-light);border:2px solid var(--teal);border-radius:8px;padding:14px 18px;margin-bottom:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .banner p{font-size:14px;color:var(--teal);font-weight:600}
 .banner a{background:var(--teal);color:#fff;padding:7px 16px;border-radius:4px;font-size:13px;font-weight:700;text-decoration:none}
-
-/* SETUP BOX */
-.setup-box{background:#fff;border-radius:8px;padding:24px;margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.07);border-left:4px solid var(--orange)}
-.setup-box h3{font-size:16px;font-weight:700;color:var(--orange);margin-bottom:10px}
-.setup-box ol{padding-left:20px;font-size:14px;line-height:2;color:#444}
-.setup-box ol li code{background:#f0f0f0;padding:2px 6px;border-radius:3px;font-family:monospace;font-size:13px}
-.setup-box a{color:var(--teal);font-weight:600}
-
-/* TABS */
 .tabs{display:flex;margin-bottom:22px;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)}
 .tab{flex:1;padding:13px;border:0;background:transparent;font-size:14px;font-weight:700;cursor:pointer;color:#999;transition:all .2s;font-family:inherit}
 .tab.on{background:var(--teal);color:#fff}
 .tab:hover:not(.on){background:var(--teal-light);color:var(--teal)}
-
-/* CARDS */
 .tc{background:#fff;border-radius:8px;padding:22px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.07);border-left:4px solid #e0e0e0}
-.tc.pending{border-left-color:var(--orange)}
-.tc.approved{border-left-color:var(--green)}
-.tc.denied{border-left-color:var(--red)}
+.tc.pending{border-left-color:var(--orange)}.tc.approved{border-left-color:var(--green)}.tc.denied{border-left-color:var(--red)}
 .tc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .tc-meta{flex:1}
 .tc-name{font-size:17px;font-weight:700;color:var(--teal);margin-bottom:2px}
@@ -75,23 +50,16 @@ body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:10
 .tc-email{font-size:13px;color:#666;margin-bottom:5px}
 .tc-stars{color:var(--orange);font-size:17px;margin-bottom:3px}
 .tc-date{font-size:12px;color:#bbb}
-.tc-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 12px;border-radius:12px}
-.bp{background:#FFF3E0;color:#E65100}
-.ba{background:#E8F5E9;color:#2E7D32}
-.bd{background:#FFEBEE;color:#C62828}
+.tc-badge{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 12px;border-radius:12px;white-space:nowrap}
+.bp{background:#FFF3E0;color:#E65100}.ba{background:#E8F5E9;color:#2E7D32}.bd{background:#FFEBEE;color:#C62828}
 .tc-msg{font-size:14px;line-height:1.75;color:#444;margin:12px 0;padding:12px 14px;background:#F8F9FA;border-radius:6px;font-style:italic;border-left:3px solid var(--teal)}
 .tc-acts{display:flex;gap:8px;flex-wrap:wrap}
-.ba-btn{padding:8px 20px;color:#fff;border:0;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .2s;display:inline-flex;align-items:center;gap:5px}
+.ba-btn{padding:8px 20px;color:#fff;border:0;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity .2s}
 .ba-btn:hover{opacity:.82}
-.btn-acc{background:var(--green)}
-.btn-den{background:var(--red)}
-.btn-del{background:#718096}
+.btn-acc{background:var(--green)}.btn-den{background:var(--red)}.btn-del{background:#718096}
 .empty{text-align:center;padding:44px;color:#bbb;font-size:15px;background:#fff;border-radius:8px}
-
-/* TOAST */
 .toast{position:fixed;bottom:20px;right:20px;background:var(--teal);color:#fff;padding:13px 22px;border-radius:8px;font-size:14px;font-weight:600;z-index:9000;opacity:0;transition:opacity .4s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2)}
 .toast.show{opacity:1}
-
 @media(max-width:700px){
   .stats{grid-template-columns:repeat(2,1fr)}
   .tc-top{flex-direction:column}
@@ -101,74 +69,50 @@ body{font-family:'Roboto',sans-serif;background:#F0F4F8;color:#333;min-height:10
 </head>
 <body>
 
-<!-- LOGIN -->
 <div class="lw" id="loginWrap">
   <div class="lb">
-    <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF Logo">
     <h1>GOCAF Admin Dashboard</h1>
-    <p>Sign in to manage testimonials and website content</p>
+    <p>Sign in to manage testimonials</p>
     <div class="lg-g">
       <label>Admin Email</label>
       <input type="email" id="aEmail" placeholder="admin@gocaf.global" value="admin@gocaf.global">
     </div>
     <div class="lg-g">
       <label>Password</label>
-      <input type="password" id="aPass" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
+      <input type="password" id="aPass" placeholder="Enter password"
+             onkeydown="if(event.key==='Enter')doLogin()">
     </div>
     <button class="login-btn" onclick="doLogin()">Sign In →</button>
-    <div class="login-err" id="lErr">⚠️ Incorrect credentials. Default: admin@gocaf.global / gocaf2025</div>
-    <!-- <p class="login-hint">Default credentials: admin@gocaf.global | gocaf2025</p> -->
+    <div class="login-err" id="lErr">⚠️ Incorrect credentials. Please try again.</div>
   </div>
 </div>
 
-<!-- DASHBOARD -->
 <div id="dash">
   <div class="adm-hd">
     <h1>🐾 GOCAF Admin — Testimonial Manager</h1>
     <div class="adm-hd-links">
       <a href="index.html" target="_blank">View Website ↗</a>
-      <a href="#" onclick="doLogout()" class="danger">Sign Out</a>
+      <a class="danger" onclick="doLogout()">Sign Out</a>
     </div>
   </div>
-
   <div class="adm-body">
-
-    <!-- STATS -->
     <div class="stats">
       <div class="sc o"><div class="sc-num" id="cP">0</div><div class="sc-lbl">Pending Review</div></div>
       <div class="sc g"><div class="sc-num" id="cA">0</div><div class="sc-lbl">Approved (Live)</div></div>
       <div class="sc r"><div class="sc-num" id="cD">0</div><div class="sc-lbl">Denied</div></div>
-      <div class="sc"><div class="sc-num" id="cT">0</div><div class="sc-lbl">Total Submitted</div></div>
+      <div class="sc" ><div class="sc-num" id="cT">0</div><div class="sc-lbl">Total Submitted</div></div>
     </div>
-
-    <!-- EMAILJS SETUP INSTRUCTIONS -->
-    <!-- <div class="setup-box">
-      <h3>⚙️ EmailJS Setup Instructions (5 minutes — to activate email notifications)</h3>
-      <ol>
-        <li>Go to <a href="https://www.emailjs.com" target="_blank">emailjs.com</a> → Sign up free (use your Google account)</li>
-        <li>Click <strong>Email Services</strong> → <strong>Add Service</strong> → choose <strong>Gmail</strong> → authorise with your Google account → copy the <code>Service ID</code></li>
-        <li>Click <strong>Email Templates</strong> → <strong>Create Template</strong> → add <code>{{from_name}}</code>, <code>{{message}}</code>, <code>{{rating}}</code>, <code>{{role}}</code>, <code>{{admin_url}}</code> → copy the <code>Template ID</code></li>
-        <li>Go to <strong>Account → API Keys</strong> → copy your <code>Public Key</code></li>
-        <li>In <code>index.html</code> replace: <code>YOUR_EMAILJS_PUBLIC_KEY</code>, <code>YOUR_SERVICE_ID</code>, <code>YOUR_TEMPLATE_ID_FEEDBACK</code>, <code>YOUR_TEMPLATE_ID_CONTACT</code></li>
-      </ol>
-      <p style="font-size:13px;color:#888;margin-top:12px">✅ Testimonials and the admin dashboard work right now even without EmailJS. Email notifications will activate once you add your keys.</p>
-    </div> -->
-
-    <!-- LIVE BANNER -->
     <div class="banner">
-      <p>✅ <strong>Approved</strong> testimonials appear live on the website immediately after you click Accept.</p>
-      <a href="index.html#testimonials" target="_blank">Preview Live →</a>
+      <p>✅ <strong>Approved</strong> testimonials appear live on the website immediately.</p>
+      <a href="index.html#testimonials" target="_blank">Preview Live Section ↗</a>
     </div>
-
-    <!-- TABS -->
     <div class="tabs">
       <button class="tab on" onclick="showTab('pending',this)">⏳ Pending <span id="bP"></span></button>
-      <button class="tab" onclick="showTab('approved',this)">✅ Approved</button>
-      <button class="tab" onclick="showTab('denied',this)">❌ Denied</button>
-      <button class="tab" onclick="showTab('all',this)">📋 All</button>
+      <button class="tab"    onclick="showTab('approved',this)">✅ Approved</button>
+      <button class="tab"    onclick="showTab('denied',this)">❌ Denied</button>
+      <button class="tab"    onclick="showTab('all',this)">📋 All</button>
     </div>
-
-    <!-- LIST -->
     <div id="list"></div>
   </div>
 </div>
@@ -182,16 +126,18 @@ const ADMIN_PASS  = 'gocaf2025';
 const DEFAULTS = [
   {id:'t1',name:'Priya Sharma',role:'Resident, Kondapur',email:'priya@example.com',rating:5,text:'I called GOCAF at midnight when I found an injured puppy. They arrived within 40 minutes. The professionalism and compassion was unlike anything I had seen. The puppy fully recovered. GOCAF gives me hope that Hyderabad can be a humane city.',status:'approved',date:'12/01/2025'},
   {id:'t2',name:'Mohammed Rafiq',role:'Community Feeder, Old City',email:'rafiq@example.com',rating:5,text:'As a feeder for 8 years, I was always alone and afraid of legal trouble. GOCAF gave me legal protection, a feeding schedule, and a community. I am no longer a lone wolf. We are an army of compassion now.',status:'approved',date:'15/01/2025'},
-  {id:'t3',name:'The Reddy Family',role:'Adopters, Banjara Hills',email:'reddy@example.com',rating:5,text:'We adopted Bruno from GOCAF after seeing his story. He was hit by a vehicle; they saved his life. Now he runs around our garden every morning. GOCAF changes whole families\' lives.',status:'approved',date:'20/01/2025'},
+  {id:'t3',name:'The Reddy Family',role:'Adopters, Banjara Hills',email:'reddy@example.com',rating:5,text:"We adopted Bruno from GOCAF after seeing his story. He was hit by a vehicle; they saved his life. Now he runs around our garden every morning. GOCAF changes whole families' lives.",status:'approved',date:'20/01/2025'},
   {id:'t4',name:'Sunita Rao',role:'Volunteer, Madhapur',email:'sunita@example.com',rating:5,text:'I joined GOCAF as a volunteer 6 months ago. The training they gave me is incredible — I now know animal first aid, legal rights, and how to document cases. Every weekend rescue mission gives me purpose. This organisation truly lives its values.',status:'pending',date:'14/04/2025'},
-  {id:'t5',name:'Vikram Nair',role:'RWA Member, Gachibowli',email:'vikram@example.com',rating:4,text:'Our apartment complex had conflicts with feeders for years. GOCAF mediated, created a structured feeding zone, and now everyone is happy. Problem solved in 2 weeks!',status:'pending',date:'16/04/2025'},
+  {id:'t5',name:'Vikram Nair',role:'RWA Member, Gachibowli',email:'vikram@example.com',rating:4,text:'Our apartment complex had conflicts with feeders for years. GOCAF mediated, created a structured feeding zone, and now everyone is happy. Problem solved in 2 weeks!',status:'pending',date:'16/04/2025'}
 ];
 
 function getAll(){
   try{const d=localStorage.getItem('gocaf_testimonials');return d?JSON.parse(d):DEFAULTS;}
   catch(e){return DEFAULTS;}
 }
-function saveAll(arr){try{localStorage.setItem('gocaf_testimonials',JSON.stringify(arr));}catch(e){}}
+function saveAll(arr){
+  try{localStorage.setItem('gocaf_testimonials',JSON.stringify(arr));}catch(e){}
+}
 
 function doLogin(){
   const e=document.getElementById('aEmail').value.trim();
@@ -201,7 +147,7 @@ function doLogin(){
     document.getElementById('dash').style.display='block';
     sessionStorage.setItem('gocaf_admin','1');
     render('pending');
-  } else {
+  }else{
     document.getElementById('lErr').style.display='block';
   }
 }
@@ -210,8 +156,6 @@ function doLogout(){
   document.getElementById('loginWrap').style.display='flex';
   document.getElementById('dash').style.display='none';
 }
-
-// Auto-login if session exists
 if(sessionStorage.getItem('gocaf_admin')){
   document.getElementById('loginWrap').style.display='none';
   document.getElementById('dash').style.display='block';
@@ -228,20 +172,17 @@ function showTab(tab,btn){
 
 function render(tab){
   const all=getAll();
-  const p=all.filter(t=>t.status==='pending').length;
-  const a=all.filter(t=>t.status==='approved').length;
-  const d=all.filter(t=>t.status==='denied').length;
-  document.getElementById('cP').textContent=p;
-  document.getElementById('cA').textContent=a;
-  document.getElementById('cD').textContent=d;
+  const p=all.filter(t=>t.status==='pending');
+  const a=all.filter(t=>t.status==='approved');
+  const d=all.filter(t=>t.status==='denied');
+  document.getElementById('cP').textContent=p.length;
+  document.getElementById('cA').textContent=a.length;
+  document.getElementById('cD').textContent=d.length;
   document.getElementById('cT').textContent=all.length;
-  document.getElementById('bP').textContent=p>0?`(${p})`:'';
-
+  document.getElementById('bP').textContent=p.length>0?`(${p.length})`:'';
   const items=tab==='all'?all:all.filter(t=>t.status===tab);
   const el=document.getElementById('list');
-
-  if(!items.length){el.innerHTML=`<div class="empty">No ${tab} testimonials.</div>`;return;}
-
+  if(!items.length){el.innerHTML=`<div class="empty">No ${tab} testimonials found.</div>`;return;}
   el.innerHTML=[...items].reverse().map(t=>`
     <div class="tc ${t.status}" id="card_${t.id}">
       <div class="tc-top">
@@ -249,16 +190,16 @@ function render(tab){
           <div class="tc-name">${t.name}</div>
           <div class="tc-role">${t.role||'Not specified'}</div>
           <div class="tc-email">📧 ${t.email||'Not provided'}</div>
-          <div class="tc-stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)} &nbsp;(${t.rating}/5)</div>
+          <div class="tc-stars">${'★'.repeat(t.rating)}${'☆'.repeat(5-t.rating)}&nbsp;(${t.rating}/5)</div>
           <div class="tc-date">Submitted: ${t.date||'Unknown'}</div>
         </div>
         <span class="tc-badge ${t.status==='pending'?'bp':t.status==='approved'?'ba':'bd'}">${t.status.toUpperCase()}</span>
       </div>
       <div class="tc-msg">"${t.text}"</div>
       <div class="tc-acts">
-        ${t.status!=='approved'?`<button class="ba-btn btn-acc" onclick="setStatus('${t.id}','approved')">✅ Accept — Show on Website</button>`:''}
+        ${t.status!=='approved'?`<button class="ba-btn btn-acc" onclick="setStatus('${t.id}','approved')">✅ Approve — Show on Website</button>`:''}
         ${t.status!=='denied'?`<button class="ba-btn btn-den" onclick="setStatus('${t.id}','denied')">❌ Deny — Hide from Website</button>`:''}
-        <button class="ba-btn btn-del" onclick="del('${t.id}')">🗑️ Delete</button>
+        <button class="ba-btn btn-del" onclick="delEntry('${t.id}')">🗑️ Delete</button>
       </div>
     </div>
   `).join('');
@@ -270,27 +211,29 @@ function setStatus(id,status){
   if(idx===-1)return;
   all[idx].status=status;
   saveAll(all);
-  const msg=status==='approved'?'✅ Approved! Testimonial is now live on the website.':'❌ Denied. Testimonial hidden from website.';
-  toast(msg,status==='approved'?'#38A169':'#E53E3E');
+  showToast(
+    status==='approved'?'✅ Approved! Now live on the website.':'❌ Denied. Hidden from website.',
+    status==='approved'?'#38A169':'#E53E3E'
+  );
   render(curTab);
 }
 
-function del(id){
+function delEntry(id){
   if(!confirm('Permanently delete this testimonial?'))return;
   saveAll(getAll().filter(t=>t.id!==id));
-  toast('🗑️ Testimonial deleted.','#718096');
+  showToast('🗑️ Testimonial deleted.','#718096');
   render(curTab);
 }
 
-function toast(msg,bg='#2E8B7A'){
+function showToast(msg,bg='#2E8B7A'){
   const t=document.getElementById('toast');
   t.textContent=msg;t.style.background=bg;
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3500);
 }
 
-// Auto-refresh every 10s (picks up new submissions from index.html)
-setInterval(()=>{if(sessionStorage.getItem('gocaf_admin'))render(curTab)},10000);
+/* Auto-refresh every 5s — picks up new submissions from index.html */
+setInterval(()=>{if(sessionStorage.getItem('gocaf_admin'))render(curTab);},5000);
 </script>
 </body>
 </html>

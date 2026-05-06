@@ -6,7 +6,7 @@
 <title>GOCAF – Global Organization For Community Animal Freedom Foundation</title>
 <meta name="description" content="GOCAF is a global initiative redefining how urban communities manage and protect community animals through structure, compassion, and technology.">
 <!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
@@ -2314,91 +2314,15 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
      ================================================================ -->
 <script>
 /* ----------------------------------------------------------------
-   FORMSPREE ENDPOINTS  (replace with your actual Formspree form IDs)
-   Go to formspree.io → sign up with alamurisandhya22@gmail.com
-   → New Form → get endpoint URL like https://formspree.io/f/xxxxxxxx
-   ---------------------------------------------------------------- */
-const FORMSPREE_CONTACT    = 'https://formspree.io/f/xpwrjndq'; /* Contact form */
-const FORMSPREE_FEEDBACK   = 'https://formspree.io/f/xpwrjndq'; /* Testimonial form — create a 2nd form and replace */
-const ADMIN_EMAIL          = 'palatideepthika24@gmail.com';
-
-/* ----------------------------------------------------------------
-   FEEDBACK FORM SUBMIT → Formspree
-   ---------------------------------------------------------------- */
-async function submitFeedback(){
-  const fname  = document.getElementById('fb-fname').value.trim();
-  const lname  = document.getElementById('fb-lname').value.trim();
-  const email  = document.getElementById('fb-email').value.trim();
-  const role   = document.getElementById('fb-role').value.trim();
-  const msg    = document.getElementById('fb-msg').value.trim();
-  const rEl    = document.querySelector('input[name="fbRating"]:checked');
-  const rating = rEl ? parseInt(rEl.value) : 0;
-
-  if(!fname||!email||!msg||!rating){
-    showToast('  Please fill in all required fields and select a star rating.','#C0392B');
-    return;
-  }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    showToast('  Please enter a valid email address.','#C0392B');
-    return;
-  }
-
-  const btn=document.getElementById('fbBtn');
-  const txt=document.getElementById('fbBtnTxt');
-  btn.disabled=true; txt.textContent='Sending…';
-
-  // Save to localStorage as pending for admin dashboard
-  const entry={
-    id:'tf_'+Date.now(),
-    name:fname+' '+lname,role,rating,text:msg,email,
-    status:'pending',
-    date:new Date().toLocaleDateString('en-IN')
-  };
-  const all=getTestis(); all.push(entry); saveTestis(all);
-
-  try{
-    const res = await fetch(FORMSPREE_FEEDBACK,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        _subject: 'GOCAF New Testimonial [PENDING REVIEW] – '+fname+' '+lname,
-        _replyto: email,
-        name    : fname+' '+lname,
-        email   : email,
-        role    : role||'Not specified',
-        rating  : rating+' / 5 stars',
-        message : msg,
-        status  : 'PENDING – Review at admin.html',
-        submitted: new Date().toLocaleDateString('en-IN'),
-      })
-    });
-
-    if(res.ok){
-      ['fb-fname','fb-lname','fb-email','fb-role','fb-msg'].forEach(id=>document.getElementById(id).value='');
-      if(rEl) rEl.checked=false;
-      closeFbModal();
-      showToast('✅  Testimonial submitted! It goes live after admin approval.','var(--teal)');
-    } else {
-      throw new Error('Formspree error');
-    }
-  } catch(err){
-    // Fallback: still saved locally, open mailto
-    const sub=encodeURIComponent('GOCAF New Testimonial – '+fname);
-    const body=encodeURIComponent('Name: '+fname+' '+lname+'\nEmail: '+email+'\nRole: '+(role||'N/A')+'\nRating: '+rating+'/5\n\nTestimonial:\n'+msg);
-    window.open('mailto:'+ADMIN_EMAIL+'?subject='+sub+'&body='+body);
-    showToast('✅  Saved locally. Email app opened as backup.','var(--teal)');
-  } finally{
-    btn.disabled=false; txt.textContent='Submit Testimonial →';
-  }
-}
-
-/* ----------------------------------------------------------------
    TESTIMONIAL DATA (localStorage, shared with admin.html)
+   Key: gocaf_testimonials
+   Each entry: { id, name, role, email, rating, text, status, date }
+   status: 'pending' | 'approved' | 'denied'
    ---------------------------------------------------------------- */
 const DEFAULT_TESTIMONIALS = [
-  {id:'t1',name:'Priya Sharma',role:'Resident, Kondapur',rating:5,text:'I called GOCAF at midnight when I found an injured puppy. They arrived within 40 minutes. The professionalism and compassion was unlike anything I had seen. The puppy fully recovered. GOCAF gives me hope that Hyderabad can be a humane city.',status:'approved',date:'12/01/2025'},
-  {id:'t2',name:'Mohammed Rafiq',role:'Community Feeder, Old City',rating:5,text:'As a feeder for 8 years, I was always alone and afraid of legal trouble. GOCAF gave me legal protection, a feeding schedule, and a community. I am no longer a lone wolf. We are an army of compassion now.',status:'approved',date:'15/01/2025'},
-  {id:'t3',name:'The Reddy Family',role:'Adopters, Banjara Hills',rating:5,text:'We adopted Bruno from GOCAF after seeing his story. He was hit by a vehicle; they saved his life. Now he runs around our garden every morning. GOCAF changes whole families\' lives.',status:'approved',date:'20/01/2025'},
+  {id:'t1',name:'Priya Sharma',role:'Resident, Kondapur',email:'priya@example.com',rating:5,text:'I called GOCAF at midnight when I found an injured puppy. They arrived within 40 minutes. The professionalism and compassion was unlike anything I had seen. The puppy fully recovered. GOCAF gives me hope that Hyderabad can be a humane city.',status:'approved',date:'12/01/2025'},
+  {id:'t2',name:'Mohammed Rafiq',role:'Community Feeder, Old City',email:'rafiq@example.com',rating:5,text:'As a feeder for 8 years, I was always alone and afraid of legal trouble. GOCAF gave me legal protection, a feeding schedule, and a community. I am no longer a lone wolf. We are an army of compassion now.',status:'approved',date:'15/01/2025'},
+  {id:'t3',name:'The Reddy Family',role:'Adopters, Banjara Hills',email:'reddy@example.com',rating:5,text:"We adopted Bruno from GOCAF after seeing his story. He was hit by a vehicle; they saved his life. Now he runs around our garden every morning. GOCAF changes whole families' lives.",status:'approved',date:'20/01/2025'},
 ];
 
 function getTestis(){
@@ -2407,8 +2331,13 @@ function getTestis(){
     return d?JSON.parse(d):DEFAULT_TESTIMONIALS;
   }catch(e){return DEFAULT_TESTIMONIALS;}
 }
-function saveTestis(arr){ try{localStorage.setItem('gocaf_testimonials',JSON.stringify(arr));}catch(e){} }
+function saveTestis(arr){
+  try{localStorage.setItem('gocaf_testimonials',JSON.stringify(arr));}catch(e){}
+}
 
+/* ----------------------------------------------------------------
+   RENDER APPROVED TESTIMONIALS ON PAGE
+   ---------------------------------------------------------------- */
 function renderTestis(){
   const grid=document.getElementById('testiGrid');
   if(!grid)return;
@@ -2430,8 +2359,45 @@ function renderTestis(){
 }
 
 /* ----------------------------------------------------------------
-   FEEDBACK FORM SUBMIT  → EmailJS → Admin Dashboard
+   FEEDBACK FORM SUBMIT → save to localStorage as pending
    ---------------------------------------------------------------- */
+function submitFeedback(){
+  const fname  = document.getElementById('fb-fname').value.trim();
+  const lname  = document.getElementById('fb-lname').value.trim();
+  const email  = document.getElementById('fb-email').value.trim();
+  const role   = document.getElementById('fb-role').value.trim();
+  const msg    = document.getElementById('fb-msg').value.trim();
+  const rEl    = document.querySelector('input[name="fbRating"]:checked');
+  const rating = rEl ? parseInt(rEl.value) : 0;
+
+  if(!fname||!email||!msg||!rating){
+    showToast('Please fill in all required fields and select a star rating.','#C0392B');
+    return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    showToast('Please enter a valid email address.','#C0392B');
+    return;
+  }
+
+  const entry={
+    id:'tf_'+Date.now(),
+    name:fname+' '+lname,
+    role, email, rating, text:msg,
+    status:'pending',
+    date:new Date().toLocaleDateString('en-IN')
+  };
+  const all=getTestis();
+  all.push(entry);
+  saveTestis(all);
+
+  ['fb-fname','fb-lname','fb-email','fb-role','fb-msg']
+    .forEach(id=>document.getElementById(id).value='');
+  if(rEl) rEl.checked=false;
+
+  closeFbModal();
+  showToast('✅ Testimonial submitted! It goes live after admin approval.','var(--teal)');
+}
+
 /* ----------------------------------------------------------------
    MODAL OPEN / CLOSE
    ---------------------------------------------------------------- */
@@ -2442,60 +2408,6 @@ function openFbModal(){
 function closeFbModal(){
   document.getElementById('fbModalBg').classList.remove('show');
   document.body.style.overflow='';
-}
-
-/* ----------------------------------------------------------------
-   CONTACT FORM SUBMIT → Formspree
-   ---------------------------------------------------------------- */
-async function submitContact(){
-  const fname  = document.getElementById('c-fname').value.trim();
-  const lname  = document.getElementById('c-lname').value.trim();
-  const email  = document.getElementById('c-email').value.trim();
-  const phone  = document.getElementById('c-phone').value.trim();
-  const reason = document.getElementById('c-reason').value;
-  const msg    = document.getElementById('c-msg').value.trim();
-
-  if(!fname||!email||!reason||!msg){
-    showToast('  Please fill in all required fields.','#C0392B');
-    return;
-  }
-
-  const btn=document.getElementById('cBtn');
-  const txt=document.getElementById('cBtnTxt');
-  btn.disabled=true; txt.textContent='Sending…';
-
-  try{
-    const res = await fetch(FORMSPREE_CONTACT,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        _subject : 'GOCAF Contact: '+reason+' – '+fname+' '+lname,
-        _replyto : email,
-        name     : fname+' '+lname,
-        email    : email,
-        phone    : phone||'Not provided',
-        reason   : reason,
-        message  : msg,
-        submitted: new Date().toLocaleString('en-IN'),
-      })
-    });
-
-    if(res.ok){
-      ['c-fname','c-lname','c-email','c-phone','c-msg'].forEach(id=>document.getElementById(id).value='');
-      document.getElementById('c-reason').value='';
-      showToast('  Message sent! We will reply within 24 hours.','var(--teal)');
-    } else {
-      throw new Error('Formspree error');
-    }
-  } catch(err){
-    // Fallback mailto
-    const sub=encodeURIComponent('GOCAF Contact: '+reason+' – '+fname+' '+lname);
-    const body=encodeURIComponent('Name: '+fname+' '+lname+'\nEmail: '+email+'\nPhone: '+(phone||'N/A')+'\nReason: '+reason+'\n\nMessage:\n'+msg);
-    window.open('mailto:'+ADMIN_EMAIL+'?subject='+sub+'&body='+body);
-    showToast('📧  Opening email app as backup. Please send the email that opens.','#C0392B');
-  } finally{
-    btn.disabled=false; txt.textContent='Send Message →';
-  }
 }
 
 /* ----------------------------------------------------------------
@@ -2514,7 +2426,7 @@ const LB_SRCS=[
   'https://images.pexels.com/photos/1350591/pexels-photo-1350591.jpeg?auto=compress&cs=tinysrgb&w=1400',
   'https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=1400',
   'https://images.pexels.com/photos/3756163/pexels-photo-3756163.jpeg?auto=compress&cs=tinysrgb&w=1400',
-  'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1400', /* #NoProofNoCatch — replace with real poster URL */
+  'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1400',
 ];
 let lbCur=0;
 function lbOpen(i){
@@ -2593,12 +2505,11 @@ document.querySelectorAll('.ci-num[data-target]').forEach(el=>{
 });
 
 /* ----------------------------------------------------------------
-   MEGA MENU POSITION (tracks header height on scroll)
+   MEGA MENU POSITION
    ---------------------------------------------------------------- */
 function fixMegaPos(){
   const h=document.getElementById('header').getBoundingClientRect().bottom;
   document.querySelectorAll('.mega,.gdrop').forEach(m=>m.style.top=h+'px');
-  // Keep ticker banner sticky just below the header
   const ticker=document.querySelector('.service-ticker');
   if(ticker) ticker.style.top=document.getElementById('header').offsetHeight+'px';
 }
