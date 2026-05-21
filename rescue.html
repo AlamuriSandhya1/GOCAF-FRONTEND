@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rescue &amp; Success Stories – GOCAF</title>
+<meta name="description" content="Read GOCAF's rescue and success stories — real animals saved, real lives changed through structured, compassionate animal welfare in Hyderabad and across India.">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;color:#333;background:#fff;overflow-x:hidden}
+a{text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+ul{list-style:none}
+:root{
+  --teal:#2E8B7A;--teal-dark:#1F6B5C;--teal-light:#E8F5F2;
+  --orange:#F4821F;--orange-dark:#D96A0E;
+  --purple:#7B4F9E;
+  --gray-light:#F5F5F5;--gray:#CCCCCC;--gray-dark:#555;
+  --black:#111;--white:#fff;
+  --shadow:0 4px 20px rgba(0,0,0,.1);
+}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;padding:11px 28px;font-size:16px;font-weight:700;line-height:1.2;text-transform:uppercase;cursor:pointer;border:0;transition:all .25s;font-family:inherit;letter-spacing:.5px;border-radius:2px}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal-dark);color:#fff}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:var(--orange-dark);color:#fff}
+.btn-outline-teal{background:transparent;border:2px solid var(--teal);color:var(--teal);padding:9px 26px}.btn-outline-teal:hover{background:var(--teal);color:#fff}
+.btn-white{background:#fff;color:var(--teal)}.btn-white:hover{background:var(--teal-light)}
+
+/* HEADER (same as index) */
+#header{position:sticky;top:0;background:#fff;z-index:3000;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.topbar{background:var(--teal);color:#fff;height:36px}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:36px}
+.topbar-left{font-size:13px;color:rgba(255,255,255,.9)}
+.topbar-center{display:flex}
+.topbar-center a{color:rgba(255,255,255,.85);font-size:13px;height:36px;line-height:36px;padding:0 14px;transition:background .2s}
+.topbar-center a:hover{background:rgba(255,255,255,.15);color:#fff}
+.topbar-social{display:flex;gap:4px;align-items:center}
+.soc-ico{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:rgba(255,255,255,.85);transition:background .2s}
+.soc-ico:hover{background:rgba(255,255,255,.2);color:#fff}
+.soc-ico svg{width:14px;height:14px;fill:currentColor}
+.header-main{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo-wrap img{height:72px;width:auto}
+.desktop-nav{display:flex}
+.nav-item{position:relative}
+.nav-link{display:flex;align-items:center;gap:4px;height:84px;padding:0 18px;font-size:16px;color:var(--black);cursor:pointer;font-weight:500;white-space:nowrap;position:relative}
+.nav-link::after{content:'';position:absolute;bottom:0;left:18px;right:18px;height:3px;background:var(--teal);transform:scaleX(0);transition:transform .3s;border-radius:2px 2px 0 0}
+.nav-item:hover .nav-link{color:var(--teal);font-weight:700}
+.nav-item:hover .nav-link::after{transform:scaleX(1)}
+.nav-arrow{font-size:9px;color:var(--gray-dark)}
+.mega{display:none;position:fixed;left:0;right:0;background:#fff;border-top:3px solid var(--teal);border-bottom:1px solid var(--gray);padding:30px 0 36px;z-index:4000;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.nav-item:hover .mega{display:block}
+.mega-wrap{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;gap:24px}
+.mega-4{grid-template-columns:repeat(4,1fr)}
+.mega-2{grid-template-columns:repeat(2,1fr)}
+.mega-hd{font-size:13px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--teal-light)}
+.mega-hd a{color:var(--teal)}
+.mega-lk{display:block;font-size:14px;color:#444;padding:4px 0;line-height:1.45;transition:color .2s}
+.mega-lk:hover{color:var(--teal);padding-left:6px}
+.h-right{display:flex;align-items:center;gap:8px}
+.search-btn{background:none;border:0;cursor:pointer;color:var(--gray-dark);padding:6px;display:flex;align-items:center}
+.search-btn svg{width:24px;height:24px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:4px}
+.hamburger span{display:block;width:26px;height:3px;background:var(--black);border-radius:2px}
+.mob-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:5000}
+.mob-ov.show{display:block}
+#mob-menu{display:none;position:fixed;top:0;right:0;width:84%;max-width:360px;height:100%;background:#fff;z-index:5001;overflow-y:auto}
+#mob-menu.show{display:block}
+.mob-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--teal)}
+.mob-head img{height:44px}
+.mob-close{font-size:28px;cursor:pointer;background:none;border:0;color:#fff}
+.mob-toggle{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--gray);font-size:15px;color:var(--black);cursor:pointer;font-weight:600}
+.mob-sub{display:none;background:var(--gray-light)}
+.mob-sub.open{display:block}
+.mob-sub a{display:block;padding:10px 28px;font-size:14px;color:#444;border-bottom:1px solid #e0e0e0}
+.mob-link{display:block;padding:14px 18px;border-bottom:1px solid var(--gray);font-size:15px;color:var(--black)}
+.mob-btns{padding:18px;display:flex;flex-direction:column;gap:10px}
+
+/* SEARCH */
+.search-ov{display:none;position:fixed;inset:0;background:rgba(46,139,122,.92);z-index:6000;align-items:center;justify-content:center}
+.search-ov.show{display:flex}
+.search-box{width:90%;max-width:620px;text-align:center}
+.search-box h2{color:#fff;font-size:44px;font-weight:900;margin-bottom:20px}
+.search-row{display:flex;border-radius:3px;overflow:hidden}
+.search-row input{flex:1;padding:14px 18px;font-size:17px;border:0;outline:none;font-family:inherit}
+.search-row button{padding:14px 22px;background:var(--orange);border:0;cursor:pointer;color:#fff;font-size:22px}
+.search-close{position:absolute;top:24px;right:32px;background:none;border:0;color:#fff;font-size:36px;cursor:pointer}
+
+/* PAGE HERO */
+.page-hero{position:relative;overflow:hidden}
+.page-hero img{width:100%;height:420px;object-fit:cover;display:block}
+.page-hero-ov{position:absolute;inset:0;background:linear-gradient(to right,rgba(46,139,122,.88) 0%,rgba(0,0,0,.4) 100%);display:flex;align-items:center}
+.page-hero-txt{color:#fff;padding:0 60px;max-width:760px}
+.page-hero-txt .tag{display:inline-block;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 14px;border-radius:2px;margin-bottom:16px}
+.page-hero-txt h1{font-size:52px;font-weight:900;line-height:1.1;margin-bottom:14px}
+.page-hero-txt p{font-size:20px;line-height:1.5;color:rgba(255,255,255,.92);margin-bottom:22px}
+.breadcrumb{padding:14px 0;background:var(--gray-light);border-bottom:1px solid var(--gray)}
+.breadcrumb a{color:var(--teal);font-size:14px}
+.breadcrumb span{color:#888;font-size:14px;margin:0 8px}
+
+/* STATS BAR */
+.stats-bar{background:var(--teal);color:#fff;padding:32px 0}
+.stats-inner{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:42px;font-weight:900;color:#fff;line-height:1}
+.stat-lbl{font-size:14px;color:rgba(255,255,255,.85);margin-top:4px}
+
+/* FEATURED RESCUE */
+.featured-rescue{background:#fff;padding:64px 0}
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.12)}
+.feat-img img{width:100%;height:460px;object-fit:cover;display:block}
+.feat-content{padding:48px 52px;background:var(--teal-light);display:flex;flex-direction:column;justify-content:center}
+.feat-tag{display:inline-block;background:var(--teal);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:4px 12px;border-radius:2px;margin-bottom:14px}
+.feat-content h2{font-size:34px;font-weight:900;color:var(--black);margin-bottom:14px;line-height:1.2}
+.feat-content p{font-size:16px;line-height:1.8;color:#555;margin-bottom:18px}
+.feat-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.feat-meta-item{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--teal);font-weight:600}
+.outcome-box{background:var(--teal);color:#fff;padding:16px 20px;border-radius:4px;margin-bottom:22px}
+.outcome-box p{font-size:15px;line-height:1.6}
+
+/* RESCUE GRID */
+.rescue-sec{background:var(--gray-light);padding:64px 0}
+.rescue-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:36px}
+.rescue-card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
+.rescue-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(0,0,0,.15)}
+.rc-img{height:220px;overflow:hidden;position:relative}
+.rc-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s;display:block}
+.rescue-card:hover .rc-img img{transform:scale(1.07)}
+.rc-status{position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:4px 10px;border-radius:12px}
+.status-rescued{background:var(--teal);color:#fff}
+.status-ongoing{background:var(--orange);color:#fff}
+.status-adopted{background:var(--purple);color:#fff}
+.rc-body{padding:20px}
+.rc-body h3{font-size:20px;font-weight:700;margin-bottom:8px;color:var(--black);line-height:1.3}
+.rc-body h3 a{color:var(--black)}.rc-body h3 a:hover{color:var(--teal)}
+.rc-body p{font-size:14px;line-height:1.65;color:#555;margin-bottom:14px}
+.rc-meta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.rc-meta span{font-size:12px;color:var(--teal);font-weight:600;background:var(--teal-light);padding:3px 10px;border-radius:12px}
+.rc-hr{border:none;border-top:1px solid var(--gray);margin:10px 0}
+.rc-more{font-size:14px;color:var(--teal);font-weight:700}
+.rc-more:hover{text-decoration:underline}
+
+/* HOW WE RESCUE */
+.how-sec{background:#fff;padding:64px 0}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:32px}
+.how-step{text-align:center;padding:28px 20px;background:var(--gray-light);border-radius:8px;position:relative;border-top:4px solid var(--teal)}
+.how-num{width:48px;height:48px;background:var(--teal);color:#fff;font-size:22px;font-weight:900;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.how-ico{font-size:40px;margin-bottom:12px}
+.how-step h3{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--black)}
+.how-step p{font-size:14px;line-height:1.65;color:#555}
+
+/* IMPACT NUMBERS */
+.impact-sec{background:var(--teal-light);padding:64px 0}
+.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:28px}
+.impact-item{text-align:center;background:#fff;padding:32px 20px;border-radius:8px;box-shadow:var(--shadow)}
+.impact-ico{font-size:48px;margin-bottom:12px}
+.impact-num{font-size:44px;font-weight:900;color:var(--teal);line-height:1;margin-bottom:8px}
+.impact-lbl{font-size:15px;color:#555;line-height:1.4}
+
+/* TIMELINE */
+.timeline-sec{background:#fff;padding:64px 0}
+.timeline{position:relative;max-width:800px;margin:32px auto 0;padding:0 20px}
+.timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--teal-light);transform:translateX(-50%)}
+.tl-item{display:flex;gap:24px;margin-bottom:40px;position:relative}
+.tl-item:nth-child(even){flex-direction:row-reverse}
+.tl-dot{position:absolute;left:50%;top:0;transform:translateX(-50%);width:18px;height:18px;background:var(--teal);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 3px var(--teal);z-index:1}
+.tl-content{flex:1;background:var(--gray-light);padding:20px 24px;border-radius:6px;border-left:4px solid var(--teal)}
+.tl-item:nth-child(even) .tl-content{border-left:none;border-right:4px solid var(--orange)}
+.tl-date{font-size:13px;color:var(--teal);font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.tl-content h3{font-size:18px;font-weight:700;margin-bottom:6px;color:var(--black)}
+.tl-content p{font-size:14px;line-height:1.65;color:#555}
+
+/* CTA BAND */
+.cta-band{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);padding:64px 0;text-align:center;color:#fff}
+.cta-band h2{font-size:40px;font-weight:900;margin-bottom:14px}
+.cta-band p{font-size:20px;color:rgba(255,255,255,.9);max-width:640px;margin:0 auto 28px;line-height:1.5}
+.cta-band-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* TESTIMONIALS */
+.testi-sec{background:var(--gray-light);padding:64px 0}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+.testi-card{background:#fff;padding:28px;border-radius:8px;box-shadow:var(--shadow);position:relative}
+.testi-card::before{content:'"';font-size:80px;color:var(--teal-light);position:absolute;top:-10px;left:16px;line-height:1;font-family:Georgia,serif}
+.testi-txt{font-size:15px;line-height:1.75;color:#444;font-style:italic;margin-bottom:18px;position:relative;z-index:1}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:46px;height:46px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:22px}
+.testi-name{font-weight:700;font-size:15px;color:var(--black)}
+.testi-role{font-size:13px;color:#888}
+
+/* FOOTER */
+footer{background:#1a1a1a;padding:48px 0 20px;text-align:center}
+.footer-logo img{height:60px;margin:0 auto 20px}
+.footer-hr{border:none;border-top:1px solid #333;width:88%;margin:0 auto 20px}
+.footer-cities{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-bottom:18px}
+.footer-cities a{font-size:14px;color:#aaa;transition:color .2s}.footer-cities a:hover{color:var(--teal)}
+.footer-addr{font-size:14px;color:#888;margin-bottom:16px;line-height:2}
+.footer-addr a{color:var(--teal)}
+.footer-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-bottom:12px}
+.footer-legal a{font-size:13px;color:#777}
+.footer-copy{font-size:12px;color:#555}
+
+/* STICKY MOB */
+.sticky-mob{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:2500}
+.sticky-mob a{display:block;width:50%;text-align:center;padding:14px;font-size:16px;font-weight:700;text-transform:uppercase;color:#fff}
+
+/* SCROLL TOP */
+#go-top{position:fixed;bottom:50px;right:32px;width:42px;height:42px;background:var(--teal);color:#fff;border:0;cursor:pointer;font-size:18px;line-height:42px;text-align:center;opacity:0;transition:opacity .3s;z-index:1000;border-radius:50%}
+#go-top.show{opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .topbar{display:none}.desktop-nav{display:none}.hamburger{display:flex}
+  .page-hero img{height:340px}.page-hero-txt h1{font-size:34px}.page-hero-txt{padding:0 28px}
+  .featured-grid{grid-template-columns:1fr}.feat-img{order:-1}
+  .rescue-grid{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}.testi-grid{grid-template-columns:1fr}
+  .timeline::before{left:20px}.tl-item,.tl-item:nth-child(even){flex-direction:column;padding-left:50px}
+  .tl-dot{left:12px}.sticky-mob{display:flex}.stats-inner{gap:24px}
+}
+@media(max-width:600px){
+  .rescue-grid{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}
+  .impact-grid{grid-template-columns:repeat(2,1fr)}.page-hero img{height:280px}
+  .page-hero-txt h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-ov" id="searchOv">
+  <button class="search-close" onclick="closeSearch()">&#x2715;</button>
+  <div class="search-box">
+    <h2>Search GOCAF</h2>
+    <div class="search-row">
+      <input type="text" placeholder="Search rescue stories, campaigns...">
+      <button>🔍</button>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
+<div id="mob-menu">
+  <div class="mob-head">
+    <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    <button class="mob-close" onclick="closeMob()">&#x2715;</button>
+  </div>
+  <div class="mob-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Campaigns &amp; Topics ▾</div>
+  <div class="mob-sub">
+    <a href="rescue.html">Rescue &amp; Success Stories</a>
+    <a href="#">#EndAbandonment</a><a href="#">#StructuredFeeding</a>
+    <a href="#">All Campaigns</a>
+  </div>
+  <a class="mob-link" href="index.html">Home</a>
+  <a class="mob-link" href="index.html#services">Services</a>
+  <a class="mob-link" href="index.html#founder">Founder</a>
+  <a class="mob-link" href="index.html#contact">Contact</a>
+  <div class="mob-btns">
+    <a href="index.html#contact" class="btn btn-orange" style="width:100%;text-align:center">Donate</a>
+    <a href="index.html#contact" class="btn btn-teal" style="width:100%;text-align:center">Volunteer</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">🌍 GOCAF International – Hyderabad, Telangana, India</div>
+      <div class="topbar-center">
+        <a href="#">Jobs</a><a href="#">Press</a><a href="#">FAQ</a>
+        <a href="index.html#contact">Newsletter</a><a href="index.html#contact">Contact</a>
+      </div>
+      <div class="topbar-social">
+        <a href="#" class="soc-ico" aria-label="Instagram"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+        <a href="#" class="soc-ico" aria-label="Facebook"><svg viewBox="0 0 320 512"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4.4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></a>
+        <a href="#" class="soc-ico" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="container header-main">
+    <a href="index.html" class="logo-wrap">
+      <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF Logo">
+    </a>
+    <nav class="desktop-nav">
+      <div class="nav-item"><a href="index.html" class="nav-link">Home</a></div>
+      <div class="nav-item">
+        <span class="nav-link">Campaigns &amp; Topics <span class="nav-arrow">▾</span></span>
+        <div class="mega">
+          <div class="mega-wrap mega-2">
+            <div>
+              <div class="mega-hd">Campaigns</div>
+              <a class="mega-lk" href="#">#EndAbandonment</a>
+              <a class="mega-lk" href="#">#StructuredFeeding</a>
+              <a class="mega-lk" href="#">#HumaneCoexistence</a>
+              <a class="mega-lk" href="#">#ProtectFeeders</a>
+              <a class="mega-lk" href="#">Spay &amp; Neuter Drive</a>
+            </div>
+            <div>
+              <div class="mega-hd">More to Know</div>
+              <a class="mega-lk" href="rescue.html" style="color:var(--teal);font-weight:700">🐾 Rescue &amp; Success Stories</a>
+              <a class="mega-lk" href="#">Publications &amp; Guides</a>
+              <a class="mega-lk" href="#">Blog &amp; News</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="index.html#services" class="nav-link">Services</a></div>
+      <div class="nav-item"><a href="index.html#founder" class="nav-link">About Us</a></div>
+      <div class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></div>
+    </nav>
+    <div class="h-right">
+      <button class="search-btn" onclick="openSearch()"><svg viewBox="0 0 64 64"><path d="M45.8,25.8c0,11-8.9,20-20,20c-11,0-20-8.9-20-20c0-11,8.9-20,20-20C36.8,5.8,45.8,14.7,45.8,25.8M48.1,38.7c2.2-3.8,3.5-8.2,3.5-12.9C51.6,11.5,40,0,25.8,0C11.5,0,0,11.5,0,25.8C0,40,11.5,51.6,25.8,51.6c4.7,0,9.1-1.3,12.9-3.5L54.6,64l9.4-9.4L48.1,38.7z"/></svg></button>
+      <a href="index.html#contact" class="btn btn-orange">Donate</a>
+      <a href="index.html#contact" class="btn btn-teal">Volunteer</a>
+      <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=1920&h=600&fit=crop" alt="GOCAF Rescue Operations" loading="eager">
+  <div class="page-hero-ov">
+    <div class="page-hero-txt">
+      <div class="tag">🐾 Real Stories. Real Impact.</div>
+      <h1>Rescue &amp; Success Stories</h1>
+      <p>Every rescue is a victory. Every animal saved is proof that structured, compassionate welfare works. These are the stories that drive us forward.</p>
+      <a href="index.html#contact" class="btn btn-orange">Report an Emergency</a>
+    </div>
+  </div>
+</section>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="index.html">GOCAF Home</a>
+    <span>›</span>
+    <a href="#">Campaigns &amp; Topics</a>
+    <span>›</span>
+    <span style="color:#333">Rescue &amp; Success Stories</span>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" data-target="847">0</div><div class="stat-lbl">Animals Rescued</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="312">0</div><div class="stat-lbl">Surgeries Performed</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="94">0</div><div class="stat-lbl">Successful Adoptions</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="156">0</div><div class="stat-lbl">Foster Homes Found</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="500">0</div><div class="stat-lbl">Animals Sterilised</div></div>
+  </div>
+</div>
+
+<!-- FEATURED RESCUE -->
+<section class="featured-rescue">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">⭐ Featured Rescue Story</h2>
+      <p style="font-size:18px;color:#555;max-width:600px;margin:0 auto">Our most impactful rescue mission of 2024 — a story of hope, teamwork, and transformation</p>
+    </div>
+    <div class="featured-grid">
+      <div class="feat-img">
+        <img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" alt="Rocky - rescued dog from abandoned factory" loading="lazy">
+      </div>
+      <div class="feat-content">
+        <span class="feat-tag">🏆 Featured Story – 2024</span>
+        <h2>Rocky's Journey: From an Abandoned Factory to a Forever Home</h2>
+        <div class="feat-meta">
+          <div class="feat-meta-item">📍 Jeedimetla, Hyderabad</div>
+          <div class="feat-meta-item">📅 March 2024</div>
+          <div class="feat-meta-item">🐕 Mixed Breed Dog</div>
+        </div>
+        <p>Rocky was found severely malnourished and injured inside an abandoned industrial unit in Jeedimetla, Hyderabad. Our GOCAF rapid response team received a distress call at 11:30 PM and deployed within 45 minutes. Rocky had a broken hind leg, infected wounds, and had not eaten in days.</p>
+        <div class="outcome-box">
+          <p><strong>✅ Outcome:</strong> After 6 weeks of intensive medical care, physiotherapy, and rehabilitation at our partner clinic, Rocky made a full recovery. He was adopted by a loving family in Banjara Hills in May 2024. Today, Rocky runs, plays, and has a life filled with love and safety.</p>
+        </div>
+        <p>This rescue was possible because of our trained volunteers, partner veterinarians, and your generous donations. <strong>Every rupee donated directly funds missions like Rocky's.</strong></p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+          <a href="index.html#contact" class="btn btn-orange">Donate to Help More Animals</a>
+          <a href="index.html#contact" class="btn btn-outline-teal">Volunteer With Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESCUE STORIES GRID -->
+<section class="rescue-sec">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">More Rescue Stories</h2>
+      <p style="font-size:18px;color:#555;max-width:680px;margin:0 auto">Every animal has a story. Here are some of the lives we've been privileged to change.</p>
+    </div>
+    <div class="rescue-grid">
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Rescued dogs from colony" loading="lazy">
+          <span class="rc-status status-rescued">✅ Rescued</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🏙️ Uppal, Hyderabad</span><span>March 2024</span></div>
+          <h3><a href="#">60 Dogs Rescued from Abandoned Colony</a></h3>
+          <p>A developer demolished a colony without warning, leaving 60+ dogs stranded. GOCAF mobilised 24 volunteers overnight, providing emergency food, water, and medical checks for all animals.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/3299905/pexels-photo-3299905.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Cat rescue operation" loading="lazy">
+          <span class="rc-status status-adopted">💜 Adopted</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🏠 Kondapur, Hyderabad</span><span>January 2024</span></div>
+          <h3><a href="#">Mama Cat &amp; 5 Kittens Saved from Construction Site</a></h3>
+          <p>A mama cat and her 5 newborn kittens were discovered trapped under rubble at a construction site. GOCAF's team carefully extracted the family and placed them in foster care.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Injured dog rescue" loading="lazy">
+          <span class="rc-status status-rescued">✅ Rescued</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🛣️ HITEC City Road</span><span>February 2024</span></div>
+          <h3><a href="#">Bruno – Hit-by-Vehicle Emergency Surgery</a></h3>
+          <p>Bruno was hit by a vehicle on a busy HITEC City road. Passersby called GOCAF. Our team reached within 30 minutes. Bruno underwent emergency surgery and made a miraculous recovery.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Stray dogs feeding programme" loading="lazy">
+          <span class="rc-status status-ongoing">🔄 Ongoing</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🌆 Old City, Hyderabad</span><span>Ongoing 2024</span></div>
+          <h3><a href="#">Old City Feeding Network – 200 Strays Fed Daily</a></h3>
+          <p>GOCAF established a structured feeding network across 14 zones in Old City Hyderabad. 38 registered feeders now provide daily meals to 200+ community animals with full legal documentation.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Animal medical camp" loading="lazy">
+          <span class="rc-status status-rescued">✅ Success</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🏥 LB Nagar</span><span>December 2023</span></div>
+          <h3><a href="#">Free Vaccination Camp – 150 Animals Protected</a></h3>
+          <p>In partnership with Hyderabad Veterinary College, GOCAF organised a free vaccination camp at LB Nagar. 150 community dogs and cats received rabies vaccines and health check-ups in one day.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/1350591/pexels-photo-1350591.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Rescue from flood" loading="lazy">
+          <span class="rc-status status-rescued">✅ Rescued</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🌊 Nadeem Colony</span><span>October 2023</span></div>
+          <h3><a href="#">Flood Relief – 40 Animals Evacuated During Rains</a></h3>
+          <p>During Hyderabad's monsoon flooding, 40 animals were stranded in waterlogged areas. GOCAF deployed boats and volunteers within 2 hours to evacuate animals to higher ground and temporary shelters.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/4587998/pexels-photo-4587998.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Puppy rescue" loading="lazy">
+          <span class="rc-status status-adopted">💜 Adopted</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🏘️ Miyapur</span><span>November 2023</span></div>
+          <h3><a href="#">Litter of 8 Puppies Found in Drain – All Survived</a></h3>
+          <p>8 newborn puppies were found abandoned in a storm drain in Miyapur. GOCAF volunteers worked through the night to warm, feed, and monitor them. All 8 puppies survived and were adopted.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/3756163/pexels-photo-3756163.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Animal cruelty rescue" loading="lazy">
+          <span class="rc-status status-rescued">✅ Rescued</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>⚖️ Secunderabad</span><span>September 2023</span></div>
+          <h3><a href="#">Cruelty Case Intervened – Dog Saved, Perpetrator Reported</a></h3>
+          <p>GOCAF received a report of animal cruelty in Secunderabad. Our team documented the case, rescued the injured animal, provided medical care, and filed a formal complaint under the PCA Act 1960.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+      <div class="rescue-card">
+        <div class="rc-img">
+          <img src="https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=500&h=340&fit=crop" alt="Spay neuter programme" loading="lazy">
+          <span class="rc-status status-ongoing">🔄 Ongoing</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-meta"><span>🏙️ City-Wide</span><span>Year-Round</span></div>
+          <h3><a href="#">City-Wide Spay &amp; Neuter Programme – 500+ Done</a></h3>
+          <p>Our structured sterilisation programme has neutered 500+ community animals across Hyderabad, working with municipal corporations and certified veterinarians. Each animal receives post-op care and monitoring.</p>
+          <hr class="rc-hr"><a href="#" class="rc-more">Read Full Story →</a>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center">
+      <a href="#" class="btn btn-outline-teal" style="margin-right:12px">Load More Stories</a>
+      <a href="index.html#contact" class="btn btn-teal">Report an Emergency</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE RESCUE -->
+<section class="how-sec">
+  <div class="container">
+    <div style="text-align:center">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">How GOCAF Rescues Work</h2>
+      <p style="font-size:18px;color:#555;max-width:680px;margin:0 auto">Our structured rescue protocol ensures every animal gets the fastest, most effective help possible</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div class="how-ico">📞</div>
+        <h3>Report Received</h3>
+        <p>A call or WhatsApp message is received on our 24/7 helpline. Our dispatcher assesses the emergency level and location immediately.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div class="how-ico">🚗</div>
+        <h3>Rapid Deployment</h3>
+        <p>The nearest trained GOCAF volunteer or partner is dispatched within 30–60 minutes with rescue equipment and basic medical supplies.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div class="how-ico">🏥</div>
+        <h3>Medical Assessment</h3>
+        <p>The animal is examined on-site. Injuries are stabilised. For critical cases, the animal is transported immediately to a partner veterinary clinic.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <div class="how-ico">🏠</div>
+        <h3>Rehab &amp; Rehoming</h3>
+        <p>After recovery, animals are either returned to their community area with monitoring, placed in foster care, or matched with permanent adoptive families.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact-sec">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">Our Rescue Impact in Numbers</h2>
+      <p style="font-size:18px;color:#555;max-width:680px;margin:0 auto">Every number represents a life changed — an animal that now lives with dignity and safety</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-ico">🐕</div>
+        <div class="impact-num" data-target="847">0</div>
+        <div class="impact-lbl">Total animals rescued and provided medical care</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-ico">🏥</div>
+        <div class="impact-num" data-target="312">0</div>
+        <div class="impact-lbl">Surgical procedures performed by partner vets</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-ico">💜</div>
+        <div class="impact-num" data-target="94">0</div>
+        <div class="impact-lbl">Successful adoptions into loving homes</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-ico">🏠</div>
+        <div class="impact-num" data-target="156">0</div>
+        <div class="impact-lbl">Foster families providing temporary homes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESCUE TIMELINE -->
+<section class="timeline-sec">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">GOCAF Rescue Journey</h2>
+      <p style="font-size:18px;color:#555;max-width:640px;margin:0 auto">Key milestones in our rescue and animal welfare story across Hyderabad</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">January 2023 – Foundation</div>
+          <h3>GOCAF is Founded in Hyderabad</h3>
+          <p>Deepthika Palati establishes GOCAF with a mission to bring structure, law, and compassion to urban animal welfare in India. First emergency rescue conducted within 2 weeks of founding.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">April 2023 – First Campaign</div>
+          <h3>#EndAbandonment Campaign Launched</h3>
+          <p>GOCAF's first major campaign targets the crisis of animal abandonment across Hyderabad. 200 animals registered under our structured community care programme in the first month.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">August 2023 – Milestone</div>
+          <h3>100th Animal Rescued</h3>
+          <p>GOCAF celebrates rescuing its 100th animal — a senior dog named Dadi rescued from a highway median. The milestone marks rapid growth of our volunteer network to 80+ active members.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">October 2023 – Flood Response</div>
+          <h3>Monsoon Disaster Relief Operation</h3>
+          <p>Hyderabad floods displace thousands of community animals. GOCAF coordinates the city's largest community animal disaster response, evacuating 40+ animals and setting up 3 temporary shelters.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">December 2023 – Partnership</div>
+          <h3>Partnership with Hyderabad Veterinary College</h3>
+          <p>GOCAF signs a formal partnership with Hyderabad Veterinary College, enabling access to specialist medical care, reduced-cost surgeries, and regular vaccination camps for community animals.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">March 2024 – Major Rescue</div>
+          <h3>Rocky's Story Goes Viral – 60 Dogs Rescued</h3>
+          <p>Two landmark rescues in March 2024 bring national attention to GOCAF — Rocky's story and the rescue of 60 dogs from an abandoned colony. Volunteer applications increase by 400%.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">2024 – Ongoing</div>
+          <h3>500+ Animals Sterilised – Policy Framework Submitted</h3>
+          <p>GOCAF reaches 500+ sterilisations through the city-wide Spay &amp; Neuter Programme. Policy framework for structured community animal management submitted to Telangana Government.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-sec">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:8px">
+      <h2 style="font-size:36px;font-weight:900;margin-bottom:8px">What People Say</h2>
+      <p style="font-size:18px;color:#555;max-width:640px;margin:0 auto">Voices from volunteers, adopters, and community members whose lives GOCAF has touched</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-txt">I called GOCAF at midnight when I found an injured puppy. They arrived within 40 minutes. The professionalism, compassion, and speed was unlike anything I had seen. The puppy fully recovered. GOCAF gives me hope that Hyderabad can be a humane city.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👩</div>
+          <div><div class="testi-name">Priya Sharma</div><div class="testi-role">Resident, Kondapur</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-txt">As a feeder for 8 years, I was always alone and afraid of legal trouble. GOCAF gave me legal protection, a feeding schedule, and a community. I am no longer a lone wolf. We are an army of compassion now. What GOCAF has built is truly remarkable.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">🧓</div>
+          <div><div class="testi-name">Mohammed Rafiq</div><div class="testi-role">Community Feeder, Old City</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-txt">We adopted Bruno from GOCAF after seeing his story on Instagram. He was hit by a vehicle, they saved his life. Now he runs around our garden every morning. He is the most loving dog. GOCAF doesn't just rescue animals — they change whole families' lives.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👨‍👩‍👧</div>
+          <div><div class="testi-name">The Reddy Family</div><div class="testi-role">Adopters, Banjara Hills</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Every Animal Deserves a Second Chance</h2>
+    <p>Your support — whether through donation, volunteering, fostering, or simply sharing our stories — creates real, lasting change for community animals across India.</p>
+    <div class="cta-band-btns">
+      <a href="index.html#contact" class="btn btn-white" style="font-size:18px;padding:13px 36px">Donate Now</a>
+      <a href="index.html#contact" class="btn btn-outline-white" style="font-size:18px;padding:13px 36px">Volunteer With Us</a>
+      <a href="tel:+919390189589" class="btn btn-orange" style="font-size:18px;padding:13px 36px">🚨 Report Emergency</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo"><img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF Logo"></div>
+    <hr class="footer-hr">
+    <div class="footer-cities">
+      <a href="#">Hyderabad</a><a href="#">Bengaluru</a><a href="#">Chennai</a>
+      <a href="#">Mumbai</a><a href="#">Delhi</a><a href="#">Pune</a>
+      <a href="#">Vijayawada</a><a href="#">Warangal</a>
+    </div>
+    <hr class="footer-hr">
+    <p class="footer-addr">
+      <strong style="color:#ccc">GOCAF – Global Organization For Community Animal Freedom Foundation</strong><br>
+      Hyderabad, Telangana, India – 502032 | <a href="mailto:info@gocaf.global">info@gocaf.global</a> | <a href="tel:+919390189589">+91 9390189589</a>
+    </p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a><a href="#">Accessibility</a><a href="index.html">Home</a>
+    </div>
+    <p class="footer-copy">© 2025 GOCAF – Global Organization For Community Animal Freedom Foundation. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY -->
+<div class="sticky-mob">
+  <a href="index.html#contact" style="background:var(--orange)">Donate</a>
+  <a href="tel:+919390189589" style="background:var(--teal)">🚨 Emergency</a>
+</div>
+<button id="go-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+<script>
+function openMob(){document.getElementById('mob-menu').classList.add('show');document.getElementById('mobOv').classList.add('show');document.body.style.overflow='hidden'}
+function closeMob(){document.getElementById('mob-menu').classList.remove('show');document.getElementById('mobOv').classList.remove('show');document.body.style.overflow=''}
+function openSearch(){document.getElementById('searchOv').classList.add('show')}
+function closeSearch(){document.getElementById('searchOv').classList.remove('show')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch()});
+const goTop=document.getElementById('go-top');
+window.addEventListener('scroll',()=>goTop.classList.toggle('show',window.scrollY>400),{passive:true});
+
+/* COUNTERS */
+document.querySelectorAll('[data-target]').forEach(el=>{
+  let done=false;
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting&&!done){
+        done=true;
+        const t=+el.dataset.target;let v=0;
+        const s=Math.max(1,Math.ceil(t/80));
+        const tm=setInterval(()=>{v=Math.min(v+s,t);el.textContent=v.toLocaleString()+'+';if(v>=t)clearInterval(tm)},20);
+      }
+    });
+  },{threshold:0.5}).observe(el);
+});
+
+/* MEGA MENU POSITION */
+function setMegaPos(){const h=document.getElementById('header').getBoundingClientRect().bottom;document.querySelectorAll('.mega').forEach(m=>m.style.top=h+'px')}
+window.addEventListener('scroll',setMegaPos,{passive:true});
+window.addEventListener('resize',setMegaPos);
+setMegaPos();
+
+/* IMG FALLBACK */
+document.querySelectorAll('img').forEach(img=>{
+  img.addEventListener('error',function(){this.src='https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop'});
+});
+</script>
+</body>
+</html>

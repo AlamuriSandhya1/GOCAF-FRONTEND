@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHIELD – Community Animal Safety & Protection | GOCAF</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;color:#333;background:#fff;overflow-x:hidden;line-height:1.5}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+:root{
+  --brand:#8e44ad;--brand-dark:#6c3483;--brand-light:#f3e5fa;
+  --grad:linear-gradient(135deg,#C8375A 0%,#9B2E8A 50%,#6B3FA0 100%);
+  --black:#1C1C1C;--gray:#f5f7f9;--shadow:0 4px 20px rgba(0,0,0,.08);--radius:8px;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;padding:13px 32px;font-size:15px;font-weight:700;border-radius:4px;cursor:pointer;border:0;font-family:inherit;text-transform:uppercase;letter-spacing:.5px;transition:all .2s}
+
+/* Top bar */
+.topbar{background:var(--grad);height:36px;display:flex;align-items:center}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;width:100%}
+.topbar a{color:rgba(255,255,255,.85);font-size:13px;padding:0 10px;height:36px;line-height:36px}
+.topbar a:hover{background:rgba(255,255,255,.15);color:#fff}
+.topbar-left{color:rgba(255,255,255,.9);font-size:13px}
+.topbar-right{display:flex}
+
+/* Site nav */
+.sitenav{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.1);position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-logo img{height:64px}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:14px;color:#333;padding:8px 14px;border-radius:4px;font-weight:500;transition:all .2s}
+.nav-links a:hover{background:var(--brand-light);color:var(--brand)}
+.nav-links a.active{background:var(--brand);color:#fff}
+.nav-cta{display:flex;gap:8px}
+.nav-cta a{font-size:13px;font-weight:700;padding:8px 18px;border-radius:4px}
+.nc-donate{background:var(--brand);color:#fff}.nc-donate:hover{background:var(--brand-dark);color:#fff}
+.nc-vol{border:2px solid var(--brand);color:var(--brand)}.nc-vol:hover{background:var(--brand);color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#8e44ad 0%,#6c3483 100%);color:#fff;padding:88px 0 88px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.05)}
+.hero::after{content:'';position:absolute;left:-100px;bottom:-100px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04)}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:center}
+.hero-text{max-width:none}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.75);font-size:14px;margin-bottom:24px;transition:color .2s}
+.back-link:hover{color:#fff}
+.project-label{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.95);margin-bottom:20px}
+.hero-acronym{font-size:84px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:6px}
+.hero-fullname{font-size:16px;font-weight:400;opacity:.88;margin-bottom:22px;letter-spacing:.3px}
+.hero-tagline{font-size:30px;font-weight:900;line-height:1.22;margin-bottom:16px;max-width:520px}
+.hero-desc{font-size:16px;line-height:1.8;opacity:.92;max-width:540px}
+.hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hero .btn-hero{background:#fff;color:var(--brand);padding:14px 30px}
+.hero .btn-hero:hover{background:var(--brand-light)}
+.hero .btn-hero-outline{border:2px solid #fff;background:transparent;color:#fff;padding:12px 28px}
+.hero .btn-hero-outline:hover{background:#fff;color:var(--brand)}
+
+/* Hero visual — clean professional poster frame */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-visual::before{content:'';position:absolute;width:92%;height:92%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 70%);z-index:0}
+.hero-visual img{position:relative;z-index:1;width:100%;max-width:480px;height:auto;display:block;border-radius:18px;background:#fff;box-shadow:0 30px 70px rgba(0,0,0,.30),0 8px 20px rgba(0,0,0,.18)}
+
+/* Sections */
+.what-sec{padding:72px 0}
+.sec-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--brand);margin-bottom:10px}
+.sec-title{font-size:32px;font-weight:900;color:var(--black);margin-bottom:12px;line-height:1.2}
+.sec-body{font-size:16px;line-height:1.85;color:#555;max-width:780px;margin-bottom:32px}
+
+/* What features */
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.feat{padding:22px 24px;border-radius:var(--radius);background:var(--gray);border-left:4px solid var(--brand);display:flex;gap:14px;align-items:flex-start;transition:all .2s}
+.feat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.feat-ico{font-size:28px;flex-shrink:0}
+.feat-title{font-size:15px;font-weight:800;color:var(--black);margin-bottom:4px}
+.feat-desc{font-size:14px;line-height:1.6;color:#555}
+
+/* Steps */
+.how-sec{background:var(--gray);padding:72px 0}
+.steps{display:grid;gap:14px;margin-top:32px}
+.step{display:flex;gap:20px;background:#fff;padding:22px 24px;border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.05);align-items:flex-start;transition:transform .2s}
+.step:hover{transform:translateX(4px)}
+.step-num{width:46px;height:46px;flex-shrink:0;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff}
+.step-title{font-size:16px;font-weight:800;color:var(--black);margin-bottom:5px}
+.step-desc{font-size:14px;line-height:1.65;color:#555;margin-bottom:6px}
+.step ul{margin-top:6px}
+.step ul li{padding:3px 0;font-size:13.5px;color:#555;display:flex;gap:8px;align-items:flex-start}
+.step ul li::before{content:'•';color:var(--brand);font-weight:900}
+
+/* What makes different + Why love */
+.diff-sec{padding:72px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+.two-col h3{font-size:22px;font-weight:900;margin-bottom:16px;color:var(--black)}
+.two-col ul li{padding:11px 0;font-size:15px;color:#444;display:flex;gap:12px;align-items:center;border-bottom:1px solid #ececec}
+.two-col ul li:last-child{border-bottom:none}
+.two-col ul li .li-ico{font-size:18px;color:var(--brand);font-weight:900;flex-shrink:0}
+
+/* Why Indian Dogs */
+.indie-sec{background:linear-gradient(135deg,#8e44ad 0%,#6c3483 100%);color:#fff;padding:72px 0}
+.indie-sec .sec-eyebrow{color:rgba(255,255,255,.8)}
+.indie-sec .sec-title{color:#fff}
+.indie-sec .sec-body{color:rgba(255,255,255,.92)}
+.indie-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:32px}
+.indie-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:24px 16px;border-radius:var(--radius);text-align:center;transition:all .2s}
+.indie-card:hover{background:rgba(255,255,255,.2);transform:translateY(-3px)}
+.indie-ico{font-size:36px;margin-bottom:8px}
+.indie-name{font-size:16px;font-weight:900}
+
+/* Discipline policy */
+.policy-sec{padding:72px 0}
+.policy-card{background:var(--brand-light);border:2px solid var(--brand);border-radius:12px;padding:36px;margin-top:24px}
+.policy-list{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.policy-list li{padding:14px 18px;background:#fff;border-radius:6px;font-size:15px;font-weight:700;color:#333;display:flex;gap:10px;align-items:center}
+.policy-list li.no{border-left:4px solid #c0392b}
+.policy-list li.yes{border-left:4px solid var(--brand);grid-column:1/-1}
+.policy-list li .p-ico{font-size:20px}
+
+/* Impact */
+.impact-sec{background:var(--gray);padding:72px 0}
+.impact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px}
+.impact-box{text-align:center;padding:24px 14px;border-radius:var(--radius);background:#fff;border-top:4px solid var(--brand);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.impact-ico{font-size:32px;margin-bottom:8px}
+.impact-lbl{font-size:13px;color:#444;line-height:1.5;font-weight:700}
+
+/* Who should register */
+.who-sec{padding:72px 0}
+.who-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px}
+.who-card{background:var(--brand-light);padding:24px 16px;border-radius:var(--radius);text-align:center;border:2px solid transparent;transition:all .2s}
+.who-card:hover{border-color:var(--brand);transform:translateY(-3px)}
+.who-ico{font-size:36px;margin-bottom:8px}
+.who-name{font-size:14px;font-weight:900;color:var(--brand-dark)}
+
+/* Other programs */
+.other-sec{padding:64px 0;background:var(--gray)}
+.other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.other-card{padding:20px;border-radius:var(--radius);border:2px solid #eee;text-align:center;transition:all .2s;display:block;background:#fff}
+.other-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.oc-ico{font-size:32px;margin-bottom:8px}
+.oc-name{font-size:16px;font-weight:800;margin-bottom:4px}
+.oc-domain{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.7}
+
+/* CTA banner */
+.cta-banner{background:linear-gradient(135deg,#8e44ad 0%,#6c3483 100%);color:#fff;padding:80px 0;text-align:center}
+.cta-banner h2{font-size:38px;font-weight:900;margin-bottom:14px}
+.cta-banner p{font-size:18px;opacity:.92;margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.6;font-weight:600}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#fff;color:var(--brand)}
+.btn-primary:hover{background:var(--brand-light)}
+.btn-outline{border:2px solid #fff;background:transparent;color:#fff;padding:11px 30px}
+.btn-outline:hover{background:#fff;color:var(--brand)}
+
+/* Contact */
+.contact-sec{padding:60px 0;text-align:center}
+.contact-card{display:inline-block;background:var(--gray);padding:32px 48px;border-radius:12px;border-top:4px solid var(--brand)}
+.contact-card h3{font-size:22px;font-weight:900;margin-bottom:14px;color:var(--black)}
+.contact-card p{font-size:15px;color:#555;margin:6px 0;display:flex;align-items:center;gap:10px;justify-content:center}
+.contact-card a{color:var(--brand);font-weight:700}
+
+/* Footer */
+footer{background:#0d0d0d;padding:40px 0 20px;text-align:center;color:#fff}
+.ft-logo img{height:56px;margin:0 auto 16px}
+.ft-tagline{font-size:14px;font-style:italic;color:#aaa;margin-bottom:18px;font-weight:600}
+.ft-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-bottom:14px}
+.ft-links a{color:#888;font-size:13px}.ft-links a:hover{color:var(--brand)}
+.ft-copy{font-size:11px;color:#4d4d4d;line-height:1.6}
+
+@media(max-width:1024px){
+  .hero{padding:64px 0 64px}
+  .hero-inner{grid-template-columns:1fr;gap:44px;text-align:center}
+  .hero-text{max-width:680px;margin:0 auto}
+  .hero-tagline,.hero-desc{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .hero-visual img{max-width:440px;margin:0 auto}
+}
+@media(max-width:900px){
+  .features-grid,.two-col{grid-template-columns:1fr}
+  .indie-grid,.impact-grid,.who-grid,.other-grid{grid-template-columns:1fr 1fr}
+  .policy-list{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .indie-grid,.impact-grid,.who-grid,.other-grid{grid-template-columns:1fr}
+  .hero-acronym{font-size:56px;letter-spacing:-2px}
+  .hero-tagline{font-size:24px}
+  .hero-visual img{max-width:340px}
+  .nav-links{display:none}
+  .topbar .container{flex-direction:column;height:auto;padding:6px 12px}
+  .topbar{height:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left"> GOCAF International – Hyderabad, India</span>
+    <div class="topbar-right">
+      <a href="mailto:support@gocaf.org">support@gocaf.org</a>
+      <a href="https://wa.me/919390189589" target="_blank"> +91 93901 89589</a>
+    </div>
+  </div>
+</div>
+
+<nav class="sitenav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    </a>
+    <div class="nav-links">
+      <a href="save.html">SAVE</a>
+      <!-- <a href="care.html">CARE</a> -->
+      <a href="safeabc.html">SAFE-ABC</a>
+      <a href="shield.html" class="active">SHIELD</a>
+      <!-- <a href="careplus.html">CARE+</a> -->
+    </div>
+    <div class="nav-cta">
+      <a href="#register" class="nc-donate">Register</a>
+      <a href="https://wa.me/919390189589" target="_blank" class="nc-vol">Volunteer</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <a href="index.html" class="back-link">← Back to GOCAF Home</a>
+        <!-- <div class="project-label"> Project 4 of 5 &nbsp;|&nbsp; Community Safety</div> -->
+        <div class="hero-acronym">SHIELD</div>
+        <div class="hero-fullname">Smart Human-Animal Integration for Environmental Local Defense</div>
+        <div class="hero-tagline">Community Animal Safety &amp; Protection Program</div>
+        <p class="hero-desc">Project SHIELD is a community-led safety program that ensures community animals participate in formative, peaceful, and protected coexistence with the people they live among.</p>
+        <div class="hero-ctas">
+          <a href="#register" class="btn btn-hero">Register for Community →</a>
+          <a href="https://wa.me/919390189589?text=I%20want%20to%20Volunteer%20to%20Protect" target="_blank" class="btn btn-hero-outline">Partner With Us</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="sheid-poster.jpeg" alt="GOCAF SHIELD — Community Animal Safety &amp; Protection Program">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS SHIELD -->
+<section class="what-sec">
+  <div class="container">
+    <div class="sec-eyebrow">About the Programme</div>
+    <div class="sec-title"> What is Project SHIELD?</div>
+    <p class="sec-body">Project SHIELD is a community-driven shield system where community animals participate in safe, structured, and supervised integration with the people they share neighborhoods with. We:</p>
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Identify and register community dogs</div>
+          <p class="feat-desc">Each animal in the area is recorded and assigned to a local caregiver.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Ensure complete medical care &amp; sterilization</div>
+          <p class="feat-desc">Every dog receives vaccinations, sterilization, and ongoing health support.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico">🩺</div>
+        <div>
+          <div class="feat-title">Health monitoring &amp; rabies prevention</div>
+          <p class="feat-desc">Continuous health tracking through the SAVE system protects animals and the community.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Provide safe shelter &amp; basic protection</div>
+          <p class="feat-desc">Designated safe spaces, feeding zones, and weather protection for community dogs.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Train friendly animals to live safely with humans</div>
+          <p class="feat-desc">Behavioral preparation that helps dogs and people coexist peacefully and confidently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Process</div>
+    <div class="sec-title"> How It Works</div>
+    <p class="sec-body" style="margin-bottom:0">Five structured steps that turn community concerns into community pride.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title"> Community Registration</div>
+          <p class="step-desc">The starting point — every animal entering the program is officially recorded.</p>
+          <ul>
+            <li>Caregivers register their dogs</li>
+            <li>Dogs assigned to a particular zone</li>
+            <li>Community-led approach with localized accountability</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title"> Health &amp; Safety Check</div>
+          <p class="step-desc">A clean bill of health makes for a safer community.</p>
+          <ul>
+            <li>Vet checkup &amp; health-based registration</li>
+            <li>Vaccination</li>
+            <li>Rabies prevention</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title"> Training Program</div>
+          <p class="step-desc">Friendly behavior, never forced — only positive, gradual preparation.</p>
+          <ul>
+            <li>Behavior training &amp; bite prevention</li>
+            <li>Trust building with humans</li>
+            <li>Step-by-step monitoring &amp; preparation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title"> Community Integration</div>
+          <p class="step-desc">Dogs return to their environment — now safer for everyone.</p>
+          <ul>
+            <li>Dogs are reintegrated into their zone</li>
+            <li>Community awareness sessions</li>
+            <li>Safe co-existence with residents</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title"> Active Monitoring</div>
+          <p class="step-desc">Long-term tracking to keep both animals and people safe.</p>
+          <ul>
+            <li>Continuous tracking through SAVE system</li>
+            <li>Behavior tracking</li>
+            <li>Periodic health &amp; safety reviews</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MAKES SHIELD DIFFERENT + WHY LOVE -->
+<section class="diff-sec">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="sec-eyebrow">The SHIELD Difference</div>
+        <h3> What Makes SHIELD Different?</h3>
+        <ul>
+          <li><span class="li-ico"></span> No aggressive training — only friendly, positive methods</li>
+          <li><span class="li-ico"></span> Humane approach for everyone, no judgement</li>
+          <li><span class="li-ico"></span> Government coordination &amp; compliance</li>
+          <li><span class="li-ico"></span> Medical care &amp; sterilization included</li>
+          <li><span class="li-ico"></span> Lifelong tracking &amp; monitoring through SAVE system</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-eyebrow">Community Voice</div>
+        <h3> Why Communities Love SHIELD</h3>
+        <ul>
+          <li><span class="li-ico"></span> Naturally lower environmental conflict</li>
+          <li><span class="li-ico"></span> Healthy animals = peaceful surroundings</li>
+          <li><span class="li-ico"></span> Reduces dog bites significantly</li>
+          <li><span class="li-ico"></span> Children &amp; seniors feel safer</li>
+          <li><span class="li-ico"></span> Builds community responsibility</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INDIAN DOGS -->
+<section class="indie-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Our Heroes</div>
+    <div class="sec-title">🇮🇳 Why Indian Dogs?</div>
+    <p class="sec-body">Indian dogs are the unsung heroes of our streets. They are:</p>
+    <div class="indie-grid">
+      <div class="indie-card"><div class="indie-ico"></div><div class="indie-name">Loyal</div></div>
+      <div class="indie-card"><div class="indie-ico"></div><div class="indie-name">Strong</div></div>
+      <div class="indie-card"><div class="indie-ico"></div><div class="indie-name">Adaptable</div></div>
+      <div class="indie-card"><div class="indie-ico"></div><div class="indie-name">Intelligent</div></div>
+      <div class="indie-card"><div class="indie-ico"></div><div class="indie-name">Made for Our Climate</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCIPLINE & PROTECTION POLICY -->
+<section class="policy-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Our Commitment</div>
+    <div class="sec-title"> Discipline &amp; Protection Policy</div>
+    <p class="sec-body">GOCAF supports and enforces a strict, ethical policy for every animal in the program.</p>
+    <div class="policy-card">
+      <ul class="policy-list">
+        <li class="no"><span class="p-ico"></span> No relocation</li>
+        <li class="no"><span class="p-ico"></span> No abandonment</li>
+        <li class="no"><span class="p-ico"></span> No abuse / no harm</li>
+        <li class="no"><span class="p-ico"></span> No unnecessary capture</li>
+        <li class="yes"><span class="p-ico"></span> Protect with awareness, knowledge, and education</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Real Outcomes</div>
+    <div class="sec-title"> Impact You Create</div>
+    <p class="sec-body">Become part of the solution and create lasting impact for animals and people alike.</p>
+    <div class="impact-grid">
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Reduces human-animal conflict</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Builds community awareness</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Bigger animal protection</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Saves lives daily</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Builds harmony</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO SHOULD REGISTER -->
+<section id="register" class="who-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Who Should Register?</div>
+    <div class="sec-title"> If You Have or Care for Dogs in Your Area</div>
+    <p class="sec-body">SHIELD is open to everyone who wants to make their community safer for both people and animals.</p>
+    <div class="who-grid">
+      <div class="who-card"><div class="who-ico"></div><div class="who-name">Pet Owners</div></div>
+      <div class="who-card"><div class="who-ico"></div><div class="who-name">Caregivers</div></div>
+      <div class="who-card"><div class="who-ico"></div><div class="who-name">Animal Lovers</div></div>
+      <div class="who-card"><div class="who-ico"></div><div class="who-name">Community Members</div></div>
+      <div class="who-card"><div class="who-ico"></div><div class="who-name">NGOs / Welfare Groups</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PROGRAMS -->
+<section class="other-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Explore More</div>
+    <div class="sec-title"> Part of the SAVE Ecosystem</div>
+    <div class="other-grid">
+      <a href="save.html" class="other-card" style="border-color:#e8f4f8">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#1a6b8a">SAVE</div>
+        <div class="oc-domain" style="color:#1a6b8a">Standards &amp; Records</div>
+      </a>
+      <a href="care.html" class="other-card" style="border-color:#e0f5e9">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#27ae60">CARE</div>
+        <div class="oc-domain" style="color:#27ae60">Treatment &amp; Rehabilitation</div>
+      </a>
+      <a href="safeabc.html" class="other-card" style="border-color:#fde8d8">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#d35400">SAFE-ABC</div>
+        <div class="oc-domain" style="color:#d35400">Population Control</div>
+      </a>
+      <a href="careplus.html" class="other-card" style="border-color:#fce8ef">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#b5366a">CARE+</div>
+        <div class="oc-domain" style="color:#b5366a">Shelter &amp; Protection</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2> Build a Safer, Kinder Community — Starting Today</h2>
+    <p>Every registration, every volunteer, every voice makes the streets safer for animals and humans alike.</p>
+    <div class="cta-btns">
+      <a href="#register" class="btn btn-primary">Register Your Community</a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20Become%20a%20SHIELD%20Volunteer" target="_blank" class="btn btn-outline">Become a Volunteer</a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20Support%20the%20SHIELD%20Mission" target="_blank" class="btn btn-outline">Support the Mission</a>
+      <a href="https://wa.me/919390189589?text=Tell%20me%20more%20about%20SHIELD" target="_blank" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec">
+  <div class="container">
+    <div class="contact-card">
+      <h3> Contact Us</h3>
+      <p> <strong>GOCAF NGO</strong></p>
+      <p> <a href="mailto:support@gocaf.org">support@gocaf.org</a></p>
+      <p> <a href="https://wa.me/919390189589" target="_blank">+91 93901 89589</a></p>
+      <p> Hyderabad, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo"><img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF"></div>
+  <div class="ft-tagline">"Protection through compassion. Safety through community."</div>
+  <div class="ft-links">
+    <a href="index.html">Home</a>
+    <a href="save.html">SAVE</a>
+    <a href="care.html">CARE</a>
+    <a href="safeabc.html">SAFE-ABC</a>
+    <a href="shield.html">SHIELD</a>
+    <a href="careplus.html">CARE+</a>
+    <a href="mailto:support@gocaf.org">Contact</a>
+  </div>
+  <div class="ft-copy">
+     info@gocaf.org &nbsp;|&nbsp;  +91 93901 89589 &nbsp;|&nbsp;  Hyderabad, India<br>
+    © 2025 GOCAF – Global Organization For Community Animal Freedom Foundation. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
