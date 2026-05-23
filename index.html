@@ -29,6 +29,112 @@ ul{list-style:none}
   --cream:#FDF8FC;--navy:#2A1040;
   --grad:linear-gradient(135deg,#C8375A 0%,#9B2E8A 50%,#6B3FA0 100%);
 }
+
+
+
+/* MEGA MENU */
+.mega{display:none;position:fixed;left:0;right:0;background:#fff;border-top:3px solid var(--teal);border-bottom:1px solid var(--gray);padding:28px 0 34px;z-index:4000;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.nav-item:hover .mega{display:block}
+.mega-wrap{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;gap:24px}
+.m4{grid-template-columns:repeat(4,1fr)}
+.m2{grid-template-columns:repeat(2,1fr)}
+.mega-hd{font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;padding-bottom:5px;border-bottom:2px solid var(--teal-light)}
+.ml{display:block;font-size:14px;color:#444;padding:4px 0;transition:all .2s}
+.ml:hover{color:var(--teal);padding-left:5px}
+
+/* LOST & FOUND SIMPLE DROPDOWN */
+.lf-drop{display:none;position:absolute;top:84px;left:0;width:220px;background:#fff;border-top:3px solid var(--teal);box-shadow:0 12px 40px rgba(0,0,0,.12);z-index:4001}
+.nav-item:hover .lf-drop{display:block}
+.lf-drop a{display:block;padding:10px 18px;font-size:14px;color:#444;border-bottom:1px solid #f0f0f0;transition:all .2s}
+.lf-drop a:hover{background:var(--teal-light);color:var(--teal)}
+
+/* H-RIGHT */
+.h-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.h-right-sep{width:1px;height:28px;background:var(--gray);margin:0 8px}
+.h-right .btn{padding:10px 18px;font-size:13px;letter-spacing:.6px;border-radius:var(--radius)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:8px;border-radius:6px;transition:background .2s}
+.hamburger:hover{background:var(--teal-light)}
+.hamburger span{display:block;width:22px;height:2.5px;background:var(--black);border-radius:2px}
+
+/* MOBILE MENU */
+.mob-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:5000}
+.mob-ov.show{display:block}
+#mob-menu{position:fixed;top:0;right:-100%;width:82%;max-width:340px;height:100%;background:#fff;z-index:5001;overflow-y:auto;transition:right .3s}
+#mob-menu.show{right:0}
+.mob-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--teal)}
+.mob-head img{height:42px;filter:brightness(0) invert(1)}
+.mob-close{font-size:26px;cursor:pointer;background:none;border:0;color:#fff}
+.mob-link{display:block;padding:13px 18px;border-bottom:1px solid var(--gray);font-size:15px;color:var(--black);font-weight:600;transition:background .2s}
+.mob-link:hover,.mob-link:focus{background:var(--teal-light);color:var(--teal)}
+.mob-link.highlight{color:var(--teal)}
+.mob-link.emergency{color:#dc2626}
+.mob-btns{padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--gray-light)}
+
+/* SERVICE TICKER */
+.service-ticker{background:var(--navy);color:#fff;height:48px;display:flex;align-items:center;overflow:hidden}
+.ticker-track{display:flex;white-space:nowrap;animation:tickerScroll 28s linear infinite;align-items:center}
+.service-ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 40px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:color .2s;text-decoration:none}
+.ticker-item:hover{color:#FFD6EC}
+.ticker-icon{font-size:20px;line-height:1;flex-shrink:0}
+.ticker-label{display:flex;flex-direction:column;line-height:1.15}
+.ticker-main{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:#fff}
+.ticker-sub{font-size:11px;font-weight:400;color:rgba(255,255,255,.75)}
+.ticker-sep{color:rgba(255,255,255,.35);font-size:20px;flex-shrink:0;padding:0 10px}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:#111}
+.hero-track{display:flex;transition:transform .85s cubic-bezier(.4,0,.2,1)}
+.hero-slide{min-width:100%;position:relative}
+.hero-slide img{width:100%;height:580px;object-fit:cover;display:block}
+.hero-dk{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.68) 40%,rgba(0,0,0,.12))}
+.hero-cap{position:absolute;top:50%;transform:translateY(-50%);left:0;right:0;padding:0 70px;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 14px;border-radius:2px;margin-bottom:14px}
+.hero-hl{font-size:46px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;max-width:680px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero-sub{font-size:21px;color:rgba(255,255,255,.92);line-height:1.4;margin-bottom:26px;max-width:580px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
+.hero-dot{width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.7);background:transparent;cursor:pointer;transition:.3s}
+.hero-dot.on{background:#fff;border-color:#fff}
+.h-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:26px;padding:9px 15px;cursor:pointer;z-index:10;transition:background .2s;line-height:1}
+.h-arr:hover{background:rgba(255,255,255,.3)}
+.arr-l{left:14px}.arr-r{right:14px}
+
+
+.hero{position:relative;overflow:hidden;background:#111}
+.hero-track{display:flex;transition:transform .85s cubic-bezier(.4,0,.2,1)}
+.hero-slide{min-width:100%;position:relative}
+.hero-slide img{width:100%;height:580px;object-fit:cover;display:block}
+.hero-dk{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.68) 40%,rgba(0,0,0,.12))}
+.hero-cap{position:absolute;top:50%;transform:translateY(-50%);left:0;right:0;padding:0 70px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:5px 14px;border-radius:2px;margin-bottom:14px}
+.hero-hl{font-size:46px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:12px;max-width:680px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero-sub{font-size:21px;color:rgba(255,255,255,.92);line-height:1.4;margin-bottom:26px;max-width:580px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:7px}
+.hero-dot{width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.7);background:transparent;cursor:pointer;transition:.3s}
+.hero-dot.on{background:#fff;border-color:#fff}
+.h-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:26px;padding:9px 15px;cursor:pointer;z-index:10;transition:background .2s;line-height:1}
+.h-arr:hover{background:rgba(255,255,255,.3)}
+.arr-l{left:14px}.arr-r{right:14px}
+
+/* MISSION BAND */
+.mission-band{background:var(--grad);color:#fff;padding:64px 24px;text-align:center}
+.mission-band h2{font-size:34px;font-weight:900;max-width:880px;margin:0 auto 14px;line-height:1.2}
+.mission-band .sub{font-size:20px;font-weight:600;max-width:800px;margin:0 auto 12px;color:rgba(255,255,255,.95)}
+.mission-band .desc{font-size:17px;max-width:800px;margin:0 auto 40px;line-height:1.75;color:rgba(255,255,255,.9)}
+.m-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1000px;margin:0 auto 48px;text-align:left}
+.m-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:24px;border-radius:8px;color:#fff;transition:background .2s}
+.m-card:hover{background:rgba(255,255,255,.18)}
+.m-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.m-card p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:12px}
+.m-card span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.m-stats{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.mstat-num{font-size:46px;font-weight:900;line-height:1}
+.mstat-lbl{font-size:13px;color:rgba(255,255,255,.8);margin-top:4px}
+
+
  
 /* ============================================================
    UTILITY
@@ -65,19 +171,17 @@ ul{list-style:none}
 /* ============================================================
    MAIN NAV
    ============================================================ */
-.header-main{display:flex;align-items:center;justify-content:space-between;height:84px;gap:16px}
-.logo-wrap{display:flex;align-items:center;flex-shrink:0;transition:opacity .2s}
-.logo-wrap:hover{opacity:.85}
+.header-main{display:flex;align-items:center;justify-content:space-between;height:84px;gap:16px;max-width:1180px;margin:0 auto;padding:0 24px}
 .logo-wrap img{height:62px;width:auto;display:block}
 .desktop-nav{display:flex;flex:1;justify-content:center;align-items:center}
 .nav-item{position:relative}
-.nav-link{display:flex;align-items:center;gap:5px;height:84px;padding:0 16px;font-size:14.5px;color:var(--black);cursor:pointer;font-weight:600;white-space:nowrap;position:relative;letter-spacing:.2px;transition:color .2s;}
-.nav-link::after{content:'';position:absolute;bottom:18px;left:50%;transform:translateX(-50%) scaleX(0);width:calc(100% - 32px);height:2px;background:var(--teal);transition:transform .3s ease;border-radius:2px;transform-origin:center;}
+.nav-link{display:flex;align-items:center;gap:5px;height:84px;padding:0 16px;font-size:14.5px;color:var(--black);cursor:pointer;font-weight:600;white-space:nowrap;position:relative;transition:color .2s}
+.nav-link::after{content:'';position:absolute;bottom:18px;left:50%;transform:translateX(-50%) scaleX(0);width:calc(100% - 32px);height:2px;background:var(--teal);transition:transform .3s;border-radius:2px}
 .nav-item:hover .nav-link{color:var(--teal)}
 .nav-item:hover .nav-link::after{transform:translateX(-50%) scaleX(1)}
-.nav-arr{font-size:10px;color:var(--gray-mid);transition:transform .25s,color .2s;display:inline-block}
+.nav-arr{font-size:10px;color:var(--gray-mid);transition:transform .25s;display:inline-block}
 .nav-item:hover .nav-arr{color:var(--teal);transform:rotate(180deg)}
- 
+
 /* MEGA MENU */
 .mega{display:none;position:fixed;left:0;right:0;background:#fff;border-top:3px solid var(--teal);border-bottom:1px solid var(--gray);padding:28px 0 34px;z-index:4000;box-shadow:0 12px 40px rgba(0,0,0,.12);}
 .nav-item:hover .mega{display:block}
@@ -281,6 +385,9 @@ ul{list-style:none}
 .ci-lbl{font-size:15px;line-height:1.6;color:#444}
 .ci-lbl a{color:var(--teal);font-weight:600}
  
+
+
+
 /* ============================================================
    ACTION CARDS
    ============================================================ */
@@ -858,77 +965,17 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 </div>
  
 <!-- MOBILE OVERLAY -->
- 
-<div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
-<div id="mob-menu">
-  <div class="mob-head">
-    <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
-    <button class="mob-close" onclick="closeMob()">&#x2715;</button>
-  </div>
-  
-  <div class="mob-tog" onclick="togSub(this)">Campaigns &amp; Topics ▾</div>
-  <div class="mob-sub">
-    <a href="rescue.html">🐾 Rescue &amp; Success Stories</a>
-    <a href="#campaigns">#EndAbandonment</a><a href="#campaigns">#StructuredFeeding</a>
-    <a href="#campaigns">#HumaneCoexistence</a><a href="#campaigns">#ProtectFeeders</a>
-    <a href="#campaigns">#Spay &amp; Neuter Drive</a><a href="#campaigns">#All Campaigns</a>
-  </div>
- <div class="mob-tog" onclick="togSub(this)">Projects ▾</div>
-<div class="mob-sub">
-   <a href="save.html">🐾 SAVE – Identity &amp; Tracking</a> 
-  <!-- <a href="care.html">🏥 CARE – Rehabilitation &amp; Recovery</a> -->
-  <!-- <a href="safeabc.html">✂️ SAFE-ABC – Population Control</a> -->
-  <!-- <a href="shield.html">🛡️ SHIELD – Community Safety</a>
-  <a href="careplus.html">🏠 CARE+ – Shelter &amp; Protection</a> -->
-</div>
-  <!-- <div class="mob-tog" onclick="togSub(this)">Animals ▾</div>
-  <div class="mob-sub">
-    <a href="#"> Dogs</a><a href="#"> Cats</a><a href="#"> Cattle</a>
-    <a href="#"> Horses</a><a href="#"> Birds</a><a href="#"> Rabbits</a>
-  </div> -->
-
-  <div class="mob-tog" onclick="togSub(this)">Get Involved ▾</div>
-  <div class="mob-sub">
-    <a href="#donate">Donate</a><a href="#contact">Volunteer</a>
-    <a href="#contact">Report Emergency</a><a href="#contact">GOCAF Academy</a>
-  </div>
-
-  <div class="mob-tog" onclick="togSub(this)">About Us ▾</div>
-  <div class="mob-sub">
-    <a href="#about">About GOCAF</a><a href="#founder">Founder</a>
-    <a href="#contact">Contact</a><a href="#">Jobs</a>
-  </div>
-  <a class="mob-lk" href="#register-save"> Register for SAVE</a>
-  <a class="mob-lk" href="#gallery">Gallery</a>
-  <a class="mob-lk" href="#">Jobs</a><a class="mob-lk" href="#">Press</a>
-  <a class="mob-lk" href="#contact">Newsletter</a>
-  <div class="mob-btns">
-    <a href="#donate" class="btn btn-orange" style="width:100%;text-align:center">Donate</a>
-   <a 
-  href="https://portal-gocaf-958663264478.us-central1.run.app/volunteer-registration"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="volunteer-btn"
->
-  VOLUNTEER
-</a>
-  </div>
-</div>
- 
-<!-- ================================================================
-     HEADER
-     ================================================================ -->
-<header id="header">
- 
-  <!-- TOP BAR -->
+ <div id="header">
   <div class="topbar">
-    <div class="container topbar-inner">
-      <span class="topbar-left">🌍 GOCAF International – Hyderabad, Telangana, India</span>
+    <div class="topbar-inner">
+      <div class="topbar-left">GOCAF – Community Animal Freedom</div>
       <div class="topbar-center">
-        <a href="faq.html">FAQ</a><a href="Press.html">Press</a>
-        <a href="newsletter.html">Newsletter</a><a href="#contact">Contact</a>
+        <a href="https://portal-gocaf-958663264478.us-central1.run.app/admin/login" target="_blank" rel="noopener noreferrer">Admin Portal</a>
+        <a href="#">Press</a>
+        <a href="#">Careers</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="topbar-social">
+       <div class="topbar-social">
         <a href="https://instagram.com" target="_blank" rel="noopener" class="soc" title="Instagram">
           <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
         </a>
@@ -945,61 +992,57 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
           <svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
         </a>
       </div>
+
     </div>
   </div>
- 
-  <!-- MAIN NAV -->
-  <div class="container header-main">
-    <a href="index.html" class="logo-wrap" aria-label="GOCAF Home">
-      <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+  <div class="header-main">
+    <a href="#home" class="logo-wrap">
+      <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF Logo">
     </a>
- 
-    <nav class="desktop-nav" aria-label="Primary">
- 
+    <nav class="desktop-nav">
       <!-- Projects -->
       <div class="nav-item">
-        <span class="nav-link">Projects <span class="nav-arr">▾</span></span> 
-        <div class="mega">
-          <div style="max-width:1180px;margin:0 auto;padding:0 24px">
-            <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px;border-bottom:2px solid var(--teal-light);padding-bottom:6px">Our 5 Core Programmes</div>
-            <div class="mega-proj-wrap">
-               <a class="proj-card" href="save.html">
-                <div class="proj-icon">🐾</div>
-                <div class="proj-card-name">SAVE</div>
-                <div class="proj-card-full">Stray Animal Verification &amp; Enforcement</div>
-                <span class="proj-badge badge-save">Identity &amp; Tracking</span>
-              </a> 
-              <!-- <a class="proj-card" href="safeabc.html">
-                <div class="proj-icon">✂️</div>
-                <div class="proj-card-name">SAFE-ABC</div>
-                <div class="proj-card-full">Systematic Animal Fertility Enforcement – ABC</div>
-                <span class="proj-badge badge-safeabc">Population Control</span>
-              </a> -->
-              <!-- <a class="proj-card" href="care.html">
-          <div class="proj-icon">🏥</div>
-          <div class="proj-card-name">CARE</div>
-          <div class="proj-card-full">Capture, Assess, Rehabilitate &amp; Empower</div>
-          <span class="proj-badge badge-care">Rehabilitation &amp; Recovery</span>
-        </a> 
-        <a class="proj-card" href="shield.html">
-          <div class="proj-icon">🛡️</div>
-          <div class="proj-card-name">SHIELD</div>
-          <div class="proj-card-full">Safety, Harmony &amp; Incident Elimination for Lasting Defence</div>
-          <span class="proj-badge badge-shield">Community Safety</span>
-        </a>
-
-         <a class="proj-card" href="careplus.html">
-          <div class="proj-icon">🏠</div>
-          <div class="proj-card-name">CARE+</div>
-          <div class="proj-card-full">Community Animal Rescue &amp; Extended Protection</div>
-          <span class="proj-badge badge-careplus">Shelter &amp; Protection</span>
-        </a>  -->
-            </div>
+        <span class="nav-link">Projects <span class="nav-arr">▾</span></span>
+        <div class="mega"><div class="mega-wrap m4">
+          <div>
+            <div class="mega-hd">SAVE</div>
+             <!-- Project Card -->
+            <a class="proj-card" href="save.html">
+              <div class="proj-icon">🐾</div>
+              <div class="proj-card-name">SAVE</div>
+              <div class="proj-card-full">
+                Stray Animal Verification &amp; Enforcement
+              </div>
+            <a class="ml" href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank">Stray Animal Verification</a>
+            <a class="ml" href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank">Register Your Animal</a>
           </div>
+          <!-- <div>
+            <div class="mega-hd">CARE & CARE+</div>
+            <a class="ml" href="#contact">Health & Rescue</a>
+            <a class="ml" href="#contact">Shelter Bookings</a>
+          </div>
+          <div>
+            <div class="mega-hd">SAFE-ABC</div>
+            <a class="ml" href="#campaigns">Animal Birth Control</a>
+            <a class="ml" href="#campaigns">Spay & Neuter Drive</a>
+          </div>
+          <div>
+            <div class="mega-hd">SHIELD</div>
+            <a class="ml" href="#campaigns">Anti-Cruelty</a>
+            <a class="ml" href="#campaigns">Legal Protection</a>
+          </div> -->
+        </div></div>
+      </div>
+      <!-- Lost & Found -->
+      <div class="nav-item">
+        <span class="nav-link">Lost & Found <span class="nav-arr">▾</span></span>
+        <div class="lf-drop">
+          <a href="https://portal-gocaf-958663264478.us-central1.run.app/lost-found" target="_blank" rel="noopener noreferrer">Lost & Found Portal</a>
+          <a href="https://portal-gocaf-958663264478.us-central1.run.app/report-lost" target="_blank" rel="noopener noreferrer">Report Lost</a>
+          <a href="https://portal-gocaf-958663264478.us-central1.run.app/report-found" target="_blank" rel="noopener noreferrer">Report Found</a>
         </div>
       </div>
- 
-      <!-- Campaigns & Topics -->
+      <!-- Campaigns -->
       <div class="nav-item">
         <span class="nav-link">Campaigns &amp; Topics <span class="nav-arr">▾</span></span>
         <div class="mega"><div class="mega-wrap m4">
@@ -1010,63 +1053,51 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
             <a class="ml" href="#campaigns">#StructuredFeeding</a>
             <a class="ml" href="#campaigns">#HumaneCoexistence</a>
             <a class="ml" href="#campaigns">#ProtectFeeders</a>
-            <a class="ml" href="#campaigns">#Spay &amp; Neuter Drive</a>
-            <a class="ml" href="#campaigns">#Anti-Cruelty Campaign</a>
-            <a class="ml" href="#campaigns">#Stray Animal Welfare</a>
-            <a class="ml" href="#campaigns">#GOCAF4Animals</a>
+            <a class="ml" href="#campaigns">Spay &amp; Neuter Drive</a>
           </div>
           <div>
-            <div class="mega-hd"><a href="#">Topics</a></div>
+            <div class="mega-hd">Topics</div>
             <a class="ml" href="#">Animal Welfare &amp; Law</a>
             <a class="ml" href="#">Public Health Interface</a>
             <a class="ml" href="#">Rapid Response</a>
             <a class="ml" href="#">Disaster Relief</a>
             <a class="ml" href="#">Stray Animal Management</a>
-            <a class="ml" href="#">Climate &amp; Animal Welfare</a>
-            <a class="ml" href="#">Companion Animals</a>
           </div>
           <div>
-            <div class="mega-hd"><a href="#">Shelters &amp; Centres</a></div>
+            <div class="mega-hd">Shelters &amp; Centres</div>
             <a class="ml" href="#">GOCAF Rescue Centre – Hyderabad</a>
             <a class="ml" href="#">Community Shelter Network</a>
             <a class="ml" href="#">Foster Care Programme</a>
           </div>
           <div>
-            <div class="mega-hd">More to Know</div>
-            <a class="ml" href="rescue.html">🐾 Rescue &amp; Success Stories</a>
+            <div class="mega-hd">Resources</div>
+            <a class="ml" href="#">Rescue &amp; Success Stories</a>
             <a class="ml" href="#">Publications &amp; Guides</a>
             <a class="ml" href="#">Blog &amp; News</a>
             <a class="ml" href="#">Awareness Resources</a>
-            <a class="ml" href="#">Pet Care Tips</a>
           </div>
         </div></div>
       </div>
- 
       <!-- Get Involved -->
       <div class="nav-item">
         <span class="nav-link">Get Involved <span class="nav-arr">▾</span></span>
         <div class="mega"><div class="mega-wrap m2">
           <div>
             <div class="mega-hd">Take Action</div>
-            <a class="ml" href="#donate"> Donate</a>
-            <a class="ml" href="#contact"> Volunteer</a>
-            <a class="ml" href="#register-save"> Register for SAVE</a>
-            <a class="ml" href="#contact"> Petitions &amp; Sign</a>
-            <a class="ml" href="tel:+919390189589"> Report Animal Emergency</a>
-            <a class="ml" href="#contact"> Leave a Gift in Your Will</a>
-            <a class="ml" href="#contact"> Events &amp; Webinars</a>
+            <a class="ml" href="#donate">Donate</a>
+            <a class="ml" href="https://portal-gocaf-958663264478.us-central1.run.app/volunteer-registration" target="_blank">Volunteer</a>
+            <a class="ml" href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank">Register for SAVE</a>
+            <a class="ml" href="https://portal-gocaf-958663264478.us-central1.run.app/emergency-support" target="_blank">Report Animal Emergency</a>
           </div>
           <div>
             <div class="mega-hd">More Ways to Help</div>
-            <a class="ml" href="#contact">Animal Welfare in Practice</a>
-            <a class="ml" href="#contact"> Become an Ambassador</a>
-            <a class="ml" href="#contact"> Partner with GOCAF</a>
-            <a class="ml" href="#contact"> Corporate CSR</a>
-            <a class="ml" href="#contact"> GOCAF Academy – Free Training</a>
+            <a class="ml" href="#contact">Become an Ambassador</a>
+            <a class="ml" href="#contact">Partner with GOCAF</a>
+            <a class="ml" href="#contact">Corporate CSR</a>
+            <a class="ml" href="#contact">GOCAF Academy</a>
           </div>
         </div></div>
       </div>
- 
       <!-- About Us -->
       <div class="nav-item">
         <span class="nav-link">About Us <span class="nav-arr">▾</span></span>
@@ -1077,9 +1108,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
             <a class="ml" href="#founder">Founder – Deepthika Palati</a>
             <a class="ml" href="#contact">Contact Us</a>
             <a class="ml" href="#">GOCAF City Offices</a>
-            <a class="ml" href="#">Policies &amp; Standards</a>
-            <a class="ml" href="#contact">Culture</a>
-            <a class="ml" href="#contact">Value</a>
           </div>
           <div>
             <div class="mega-hd">Media &amp; Reports</div>
@@ -1087,123 +1115,62 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
             <a class="ml" href="#">FAQs</a>
             <a class="ml" href="#">Annual Report</a>
             <a class="ml" href="#">Press Releases</a>
-            <a class="ml" href="#contact">Mission</a>
-            <a class="ml" href="#contact">Vision</a>
           </div>
         </div></div>
       </div>
- 
-      <!-- Gallery -->
+      <!-- Partner -->
       <div class="nav-item">
-        <span class="nav-link">Gallery <span class="nav-arr">▾</span></span>
-        <div class="gdrop">
-          <div class="gprev">
-            <div class="gthumb" onclick="lbOpen(0)"><img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(1)"><img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(2)"><img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(3)"><img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(4)"><img src="https://images.pexels.com/photos/3299905/pexels-photo-3299905.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(5)"><img src="https://images.pexels.com/photos/4587998/pexels-photo-4587998.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-          </div>
-          <a href="#gallery" class="g-more">View Full Gallery →</a>
-        </div>
+        <a href="#contact" class="nav-link">Partner with Us</a>
       </div>
- 
-      <!-- Partner with Us -->
-      <div class="nav-item">
-        <a href="#partner" class="nav-link">Partner with Us</a>
-      </div>
- 
     </nav>
- 
-    <!-- ============================================================
-         FIX: Added separator + gap between nav and action buttons
-         ============================================================ -->
     <div class="h-right">
       <div class="h-right-sep"></div>
-      <a href="#donate" class="btn btn-orange">Donate</a>
-      <a href="https://wa.me/919390189589?text=I%20want%20to%20become%20the%20Volunteer%20for%20GOCAF" target="_blank" class="btn btn-teal">Volunteer</a>
+      <a href="https://portal-gocaf-958663264478.us-central1.run.app/animal-search" target="_blank" rel="noopener noreferrer" class="btn btn-outline-teal" style="padding:8px 16px;font-size:12px">Search Animal</a>
+      <a href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank" rel="noopener noreferrer" class="btn btn-teal" style="padding:8px 16px;font-size:12px">Register</a>
+      <a href="#donate" class="btn btn-orange" style="padding:8px 16px;font-size:12px">Donate</a>
+      <a href="https://portal-gocaf-958663264478.us-central1.run.app/volunteer-registration" target="_blank" rel="noopener noreferrer" class="btn btn-purple" style="padding:8px 16px;font-size:12px">Volunteer</a>
       <button class="hamburger" onclick="openMob()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
- 
-  </div>
-</header>
- 
-<!-- ================================================================
-     SERVICE TICKER BANNER
-     ================================================================ -->
-<div class="service-ticker" role="marquee" aria-label="GOCAF Services">
-  <div class="ticker-track" id="tickerTrack">
-    <!-- SET 1 -->
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">🏠</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Temporary Shelter</span>
-        <span class="ticker-sub">Safe haven for strays in need</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">🐾</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Get Your Stray Registered</span>
-        <span class="ticker-sub">Save your pets / track them</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">💉</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Stray Health Checkup</span>
-        <span class="ticker-sub">Prevention is better than cure</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">✂️</span>
-      <span class="ticker-label">
-        <span class="ticker-main">ABC Support</span>
-        <span class="ticker-sub">Animal Birth Control Programme</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <!-- SET 2 — duplicate for seamless loop -->
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">🏠</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Temporary Shelter</span>
-        <span class="ticker-sub">Safe haven for strays in need</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">🐾</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Get Your Stray Registered</span>
-        <span class="ticker-sub">Save your pets / track them</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">💉</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Stray Health Checkup</span>
-        <span class="ticker-sub">Prevention is better than cure</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">✂️</span>
-      <span class="ticker-label">
-        <span class="ticker-main">ABC Support</span>
-        <span class="ticker-sub">Animal Birth Control Programme</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
   </div>
 </div>
+
+<!-- ============================================================ MOBILE MENU -->
+<div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
+<div id="mob-menu">
+  <div class="mob-head">
+    <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    <button class="mob-close" onclick="closeMob()">✕</button>
+  </div>
+  <a href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank" class="mob-link highlight">Register Animal</a>
+  <a href="https://portal-gocaf-958663264478.us-central1.run.app/animal-search" target="_blank" class="mob-link highlight">Search Animal</a>
+  <a href="https://portal-gocaf-958663264478.us-central1.run.app/lost-found" target="_blank" class="mob-link highlight">Lost &amp; Found</a>
+  <a href="https://portal-gocaf-958663264478.us-central1.run.app/report-lost" target="_blank" class="mob-link" style="padding-left:34px;font-size:13px;color:#777">→ Report Lost</a>
+  <a href="https://portal-gocaf-958663264478.us-central1.run.app/report-found" target="_blank" class="mob-link" style="padding-left:34px;font-size:13px;color:#777">→ Report Found</a>
+  <a href="#" class="mob-link emergency" onclick="closeMob();openEmg()">🚨 Emergency Support</a>
+  <a href="#campaigns" class="mob-link" onclick="closeMob()">Campaigns &amp; Topics</a>
+  <a href="#about" class="mob-link" onclick="closeMob()">About GOCAF</a>
+  <a href="#contact" class="mob-link" onclick="closeMob()">Contact</a>
+  <div class="mob-btns">
+    <a href="#donate" class="btn btn-purple" style="text-align:center;display:block" onclick="closeMob()">Donate</a>
+    <a href="https://portal-gocaf-958663264478.us-central1.run.app/volunteer-registration" target="_blank" class="btn btn-orange" style="text-align:center;display:block">Volunteer</a>
+    <!-- <a href="https://portal-gocaf-958663264478.us-central1.run.app/admin/login" target="_blank" style="display:block;text-align:center;padding:11px;border:2px solid #ddd;border-radius:4px;font-size:13px;font-weight:700;color:#444">Admin Login</a> -->
+  </div>
+</div>
+
+<!-- ============================================================ SERVICE TICKER -->
+<div class="service-ticker" role="marquee">
+  <div class="ticker-track">
+    <a href="#contact" class="ticker-item"><span class="ticker-icon">🏠</span><span class="ticker-label"><span class="ticker-main">Book Temporary Shelter</span><span class="ticker-sub">Safe haven for strays in need</span></span></a>
+    <span class="ticker-sep">◆</span>
+    <a href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank" class="ticker-item"><span class="ticker-icon">🐾</span><span class="ticker-label"><span class="ticker-main">Get Your Stray Registered</span><span class="ticker-sub">Save your pets / track them</span></span></a>
+    <span class="ticker-sep">◆</span>
+    <a href="#contact" class="ticker-item"><span class="ticker-icon">💉</span><span class="ticker-label"><span class="ticker-main">Book Stray Health Checkup</span><span class="ticker-sub">Prevention is better than cure</span></span></a>
+    <span class="ticker-sep">◆</span>
+    <a href="https://portal-gocaf-958663264478.us-central1.run.app/saveregistration" target="_blank" class="ticker-item"><span class="ticker-icon">✂️</span><span class="ticker-label"><span class="ticker-main">ABC Support</span><span class="ticker-sub">Animal Birth Control Programme</span></span></a>
+    <span class="ticker-sep">◆</span>
+    <a href="https://portal-gocaf-958663264478.us-central1.run.app/lost-found" target="_blank" class="ticker-item"><span class="ticker-icon">🔍</span><span class="ticker-label"><span class="ticker-main">Lost & Found Portal</span>
  
 <!-- ================================================================
      HERO
@@ -1257,10 +1224,94 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
         <p class="hero-sub">Supported by structured, lawful, and compassionate human systems</p>
         <div class="hero-btns">
           <a href="#vision" class="btn btn-white btn-lg">Our Vision</a>
-          <a href="https://wa.me/919390189589?text=I%20want%20to%20become%20the%20Volunteer%20for%20GOCAF" target="_blank" class="btn btn-orange btn-lg">Volunteer Now</a>
+          <a
+href="https://portal-gocaf-958663264478.us-central1.run.app/volunteer-registration"
+target="_blank"
+rel="noopener noreferrer"
+class="volunteer-btn"
+>
+VOLUNTEER
+</a>
         </div>
       </div>
     </div>
+  </div>
+  <button class="h-arr arr-l" onclick="hNav(-1)">&#8249;</button>
+  <button class="h-arr arr-r" onclick="hNav(1)">&#8250;</button>
+  <div class="hero-dots" id="heroDots">
+    <span class="hero-dot on" onclick="hGo(0)"></span>
+    <span class="hero-dot" onclick="hGo(1)"></span>
+    <span class="hero-dot" onclick="hGo(2)"></span>
+    <span class="hero-dot" onclick="hGo(3)"></span>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     HERO
+     ================================================================ -->
+<section class="hero" id="home">
+  <div class="hero-track" id="heroTrack">
+ 
+    <!-- Slide 1 -->
+    <div class="hero-slide">
+      <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1920&h=700&fit=crop" alt="Community animals" loading="eager">
+      <div class="hero-dk"></div>
+      <div class="hero-cap">
+        <div class="hero-badge">🌍 Global Initiative – India</div>
+        <h1 class="hero-hl">Transforming Animal Welfare<br>Through Structure &amp; Compassion</h1>
+        <p class="hero-sub">Building humane cities where people and community animals thrive together</p>
+        <div class="hero-btns">
+          <a href="#about" class="btn btn-white btn-lg">Learn More</a>
+          <a href="#contact" class="btn btn-outline-white btn-lg">Join Us</a>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=1920&h=700&fit=crop" alt="Dog rescue" loading="lazy">
+      <div class="hero-dk"></div>
+      <div class="hero-cap">
+        <div class="hero-badge">🎯 Our Mission</div>
+        <h2 class="hero-hl">We Don't React to Cruelty.<br>We Prevent It.</h2>
+        <p class="hero-sub">Through structured, lawful, and compassionate systems across India</p>
+        <div class="hero-btns">
+          <a href="#campaigns" class="btn btn-teal btn-lg">Our Campaigns</a>
+          <a href="rescue.html" class="btn btn-outline-white btn-lg">Rescue Stories</a>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <img src="https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=1920&h=700&fit=crop" alt="Stray animals" loading="lazy">
+      <div class="hero-dk"></div>
+      <div class="hero-cap">
+        <div class="hero-badge">🐾 Zero Abandonment</div>
+        <h2 class="hero-hl">No Animal Left Behind.<br>No Feeder Stands Alone.</h2>
+        <p class="hero-sub">No society left confused. No law violated. Structured welfare for all.</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/919390189589" target="_blank" class="btn btn-orange btn-lg">💬 Join GOCAF on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Slide 4 -->
+    <div class="hero-slide">
+      <img src="https://images.pexels.com/photos/1350591/pexels-photo-1350591.jpeg?auto=compress&cs=tinysrgb&w=1920&h=700&fit=crop" alt="Volunteers" loading="lazy">
+      <div class="hero-dk"></div>
+      <div class="hero-cap">
+        <div class="hero-badge">💙 Be the Change</div>
+        <h2 class="hero-hl">Every Animal Deserves<br>Safety &amp; Dignity</h2>
+        <p class="hero-sub">Supported by structured, lawful, and compassionate human systems</p>
+        <div class="hero-btns">
+          <a href="#vision" class="btn btn-white btn-lg">Our Vision</a>
+          <a href="https://portal-gocaf-958663264478.us-central1.run.app/volunteer-registration" target="_blank" rel="noopener noreferrer" class="volunteer-btn">Volunteer</a>
+        </div>
+      </div>
+    </div>
+ 
   </div>
   <button class="h-arr arr-l" onclick="hNav(-1)">&#8249;</button>
   <button class="h-arr arr-r" onclick="hNav(1)">&#8250;</button>
@@ -2633,3 +2684,11 @@ renderTestis();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
