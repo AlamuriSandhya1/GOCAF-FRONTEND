@@ -829,6 +829,145 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   .ecosystem-sec{padding:56px 0 52px}
   .eco-tagline{font-size:17px}
 }
+
+
+    .donate-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .donate-overlay.active {
+      display: flex;
+    }
+ 
+    /* ===== MODAL CARD ===== */
+    .donate-modal {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      animation: popIn 0.25s ease;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+ 
+    /* ===== CLOSE BUTTON ===== */
+    .donate-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #888;
+      line-height: 1;
+    }
+    .donate-close:hover { color: #333; }
+ 
+    /* ===== BADGE ===== */
+    .donate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f0eeff;
+      border-radius: 999px;
+      padding: 5px 16px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #534AB7;
+    }
+ 
+    /* ===== TITLE ===== */
+    .donate-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 4px;
+    }
+    .donate-sub {
+      font-size: 13px;
+      color: #888;
+      margin: 0 0 18px;
+    }
+ 
+    /* ===== QR CODE ===== */
+    .donate-qr-wrap {
+      background: #fff;
+      border: 1.5px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 14px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .donate-qr-wrap img {
+      width: 160px;
+      height: auto;
+      display: block;
+    }
+ 
+    /* ===== AMOUNT PILL ===== */
+    .donate-amount {
+      display: inline-block;
+      background: #e9f5dd;
+      color: #3B6D11;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 7px 22px;
+      margin-bottom: 18px;
+    }
+ 
+    /* ===== UPI BOX ===== */
+    .donate-upi-box {
+      background: #f7f7f7;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+    .donate-upi-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #999;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .donate-upi-id {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .donate-copy-btn {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #555;
+      cursor: pointer;
+    }
+    .donate-copy-btn:hover { background: #f0f0f0; }
+ 
+    /* ===== HEART MESSAGE ===== */
+    .donate-heart-msg {
+      font-size: 13px;
+      color: #993556;
+      margin: 0;
+    }
 </style>
 </head>
 <body>
@@ -858,74 +997,85 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 </div>
  
 <!-- MOBILE OVERLAY -->
- 
-<div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
+ <div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
 <div id="mob-menu">
   <div class="mob-head">
     <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
     <button class="mob-close" onclick="closeMob()">&#x2715;</button>
-  </div>
+  </div> 
   
   <div class="mob-tog" onclick="togSub(this)">Campaigns &amp; Topics ▾</div>
   <div class="mob-sub">
     <a href="rescue.html">🐾 Rescue &amp; Success Stories</a>
-    <a href="#campaigns">#EndAbandonment</a><a href="#campaigns">#StructuredFeeding</a>
-    <a href="#campaigns">#HumaneCoexistence</a><a href="#campaigns">#ProtectFeeders</a>
-    <a href="#campaigns">#Spay &amp; Neuter Drive</a><a href="#campaigns">#All Campaigns</a>
+    <a href="#campaigns">#EndAbandonment</a>
+    <a href="#campaigns">#StructuredFeeding</a>
+    <a href="#campaigns">#HumaneCoexistence</a>
+    <a href="#campaigns">#ProtectFeeders</a>
+    <a href="#campaigns">#Spay &amp; Neuter Drive</a>
+    <a href="#campaigns">#All Campaigns</a>
   </div>
+
  <div class="mob-tog" onclick="togSub(this)">Projects ▾</div>
-<div class="mob-sub">
-  <!-- <a href="save.html">🐾 SAVE – Identity &amp; Tracking</a> --> 
-  <!-- <a href="care.html">🏥 CARE – Rehabilitation &amp; Recovery</a> -->
-  <!-- <a href="safeabc.html">✂️ SAFE-ABC – Population Control</a> -->
-  <!-- <a href="shield.html">🛡️ SHIELD – Community Safety</a>
-  <a href="careplus.html">🏠 CARE+ – Shelter &amp; Protection</a> -->
-</div>
-  <!-- <div class="mob-tog" onclick="togSub(this)">Animals ▾</div>
   <div class="mob-sub">
-    <a href="#"> Dogs</a><a href="#"> Cats</a><a href="#"> Cattle</a>
-    <a href="#"> Horses</a><a href="#"> Birds</a><a href="#"> Rabbits</a>
-  </div> -->
+    <a href="save.html">🐾 SAVE – Identity &amp; Tracking</a>
+  </div> 
 
   <div class="mob-tog" onclick="togSub(this)">Get Involved ▾</div>
   <div class="mob-sub">
-    <a href="#donate">Donate</a><a href="#contact">Volunteer</a>
-    <a href="#contact">Report Emergency</a><a href="#contact">GOCAF Academy</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Volunteer</a>
+    <a href="#contact">Report Emergency</a>
+    <a href="#contact">GOCAF Academy</a>
   </div>
 
-  <div class="mob-tog" onclick="togSub(this)">About Us ▾</div>
-  <div class="mob-sub">
-    <a href="#about">About GOCAF</a><a href="#founder">Founder</a>
-    <a href="#contact">Contact</a><a href="#">Jobs</a>
-  </div>
-  <a class="mob-lk" href="#register-save"> Register for SAVE</a>
-  <a class="mob-lk" href="#gallery">Gallery</a>
-  <a class="mob-lk" href="#">Jobs</a><a class="mob-lk" href="#">Press</a>
-  <a class="mob-lk" href="#contact">Newsletter</a>
-  <div class="mob-btns">
-    <a href="#donate" class="btn btn-orange" style="width:100%;text-align:center">Donate</a>
-    <a href="https://wa.me/919390189589?text=I%20want%20to%20become%20the%20Volunteer%20for%20GOCAF" target="_blank" class="btn btn-teal" style="width:100%;text-align:center">Volunteer</a>
-  </div>
+<div class="mob-tog" onclick="togSub(this)">About Us ▾</div>
+<div class="mob-sub">
+    <a href="#who-we-are">Who We Are</a>
+    <a href="#mission-vision">Mission & Vision</a>
+    <a href="#projects">Projects</a>
+    <a href="#impact">Impact</a>
+    <a href="#technology">Technology</a>
+    <a href="#partners">Partners</a>
+    <a href="#founder-message">Founder Message</a>
+    <a href="#careers">Careers</a>
+    <a href="#contact">Contact Us</a>
 </div>
- 
-<!-- ================================================================
-     HEADER
-     ================================================================ -->
+  <a class="mob-lk" href="#register-save">Register for SAVE</a>
+  <a class="mob-lk" href="#gallery">Gallery</a>
+  <a class="mob-lk" href="#">Jobs</a>
+  <a class="mob-lk" href="#">Press</a>
+  <a class="mob-lk" href="#contact">Newsletter</a> 
+
+  <!-- CTA buttons at bottom of mobile drawer -->
+  <div class="mob-cta">
+    <button onclick="openDonateModal(); closeMob();" class="mob-donate-btn">DONATE</button>
+    <a href="https://portal-gocaf-958663264478.us-central1.run.app//volunteer-registration" 
+       target="_blank" class="mob-volunteer-btn">Volunteer</a>
+  </div>
+</div> 
+<!-- HEADER -->
 <header id="header">
- 
+
   <!-- TOP BAR -->
   <div class="topbar">
     <div class="container topbar-inner">
       <span class="topbar-left">🌍 GOCAF International – Hyderabad, Telangana, India</span>
       <div class="topbar-center">
-        <a href="faq.html">FAQ</a><a href="Press.html">Press</a>
-        <a href="newsletter.html">Newsletter</a><a href="#contact">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="Press.html">Press</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="#contact">Contact</a>
+        <a href="#partner" class="nav-link">Partner with Us</a>
+        <a href="#partner" class="nav-link">Gallery</a>
+        
+
+        
       </div>
       <div class="topbar-social">
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="soc" title="Instagram">
+        <a href="https://www.instagram.com/gocafglobal/" target="_blank" rel="noopener" class="soc" title="Instagram">
           <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
         </a>
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="soc" title="YouTube">
+        <a href="https://www.youtube.com/@GOCAFOfficial" target="_blank" rel="noopener" class="soc" title="YouTube">
           <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
         </a>
         <a href="https://facebook.com" target="_blank" rel="noopener" class="soc" title="Facebook">
@@ -934,273 +1084,526 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
         <a href="https://linkedin.com" target="_blank" rel="noopener" class="soc" title="LinkedIn">
           <svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener" class="soc" title="X / Twitter">
+        <a href="https://x.com/GOCAFIndia" target="_blank" rel="noopener" class="soc" title="X / Twitter">
           <svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
         </a>
       </div>
     </div>
   </div>
+
+
+
+  <div class="donate-overlay" id="donateModal" onclick="closeDonateModalOnOverlay(event)">
+    <div class="donate-modal"> 
  
-  <!-- MAIN NAV -->
-  <div class="container header-main">
-    <a href="index.html" class="logo-wrap" aria-label="GOCAF Home">
+      <!-- Close -->
+      <button class="donate-close" onclick="closeDonateModal()" aria-label="Close">&times;</button>
+ 
+      <!-- Badge -->
+      <div class="donate-badge">
+        &#9829; GOCAF Elite Volunteer
+      </div>
+ 
+      <!-- Title -->
+      <p class="donate-title">Contribute to Animal Welfare</p>
+      <p class="donate-sub">Scan the QR code using any UPI app</p>
+ 
+      <!-- QR Code — replace src with your actual QR image path -->
+      <div class="donate-qr-wrap">
+        <img
+          src="data:image/png;base64,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" alt="PhonePe QR Code – PALATI DEEPTHIKA" style="width:220px;height:auto;margin:0 auto 16px;border-radius:8px">
+
+        <!-- 
+          TO USE YOUR EXISTING QR (from the website code):
+          Replace src above with: data:image/png;base64,/9j/4AAQSkZJRg...
+          (paste the full base64 string from your existing HTML)
+        -->
+      </div> 
+ 
+      Amount
+      <div class="donate-amount">Scan &amp; Contribute &#8377;650</div>
+ 
+      <!-- UPI Box -->
+      <div class="donate-upi-box">
+        <div class="donate-upi-label">UPI ID</div>
+        <div class="donate-upi-id">deepthikapalati@ybl</div>
+        <button class="donate-copy-btn" onclick="copyUPI(this)">&#128203; Copy UPI ID</button>
+      </div>
+ 
+      <!-- Heart Message -->
+      <p class="donate-heart-msg">
+        &#9829; Your contribution helps support community animal welfare across India.
+      </p>
+ 
+    </div>
+  </div> 
+ 
+<!--
+=================================================================
+  GOCAF NAVBAR — Updated Structure
+  STEP 1: Replace your existing <div class="container header-main">
+          block with this entire code block.
+  STEP 2: Add the CSS patch below into your stylesheet.
+  Portal: https://portal-gocaf-877998128684.us-central1.run.app
+=================================================================
+-->
+
+<!--
+==================================================================
+  GOCAF NAVBAR — Self-Contained (No CSS Conflicts)
+  Paste this ENTIRE block (style + HTML) right before your closing
+  </header> tag, then REMOVE your old nav block.
+  Works independently — no changes to your existing CSS needed.
+==================================================================
+-->
+<style>
+/* ── GOCAF NAV RESET ─────────────────────────────────── */
+.gn-wrap *,.gn-wrap *::before,.gn-wrap *::after{box-sizing:border-box}
+.gn-wrap{font-family:'Segoe UI',Arial,sans-serif;background:#fff;border-bottom:1.5px solid #e5f7f5;box-shadow:0 2px 18px rgba(13,148,136,.08);position:sticky;top:0;z-index:9000}
+
+/* Header row */
+.gn-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:66px;display:flex;align-items:center;gap:0}
+.gn-logo img{height:44px;width:auto;display:block}
+.gn-logo{flex-shrink:0;margin-right:16px;text-decoration:none}
+
+/* Nav */
+.gn-nav{display:flex;align-items:stretch;flex:1;height:66px}
+.gn-item{position:relative;display:flex;align-items:center}
+.gn-link{display:flex;align-items:center;gap:4px;padding:0 11px;height:100%;font-size:13px;font-weight:600;color:#1a2a2a;cursor:pointer;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:color .18s,border-color .18s;user-select:none;letter-spacing:.01em}
+.gn-link:hover,.gn-item:hover>.gn-link{color:#0d9488;border-bottom-color:#0d9488}
+.gn-link.donate{color:#534AB7;font-weight:700}
+.gn-link.donate:hover,.gn-item:hover>.gn-link.donate{color:#3d36a0;border-bottom-color:#534AB7}
+.gn-arr{font-size:9px;opacity:.5;transition:transform .2s;margin-top:1px}
+.gn-item:hover .gn-arr{transform:rotate(180deg);opacity:.8}
+
+/* Dropdowns */
+.gn-drop,.gn-mega{display:none;position:absolute;top:100%;left:0;background:#fff;border:1.5px solid #e5f7f5;border-top:3px solid #0d9488;border-radius:0 0 12px 12px;box-shadow:0 16px 48px rgba(0,0,0,.11);z-index:9100;animation:gnIn .16s ease}
+@keyframes gnIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.gn-item:hover>.gn-drop,.gn-item:hover>.gn-mega{display:block}
+
+/* Simple dropdown */
+.gn-drop{min-width:230px;padding:6px 0}
+.gn-drop a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13.5px;color:#374151;text-decoration:none;transition:background .13s,color .13s;line-height:1.3}
+.gn-drop a:hover{background:#f0fdfb;color:#0d9488}
+.gn-drop-divider{height:1px;background:#f3f4f6;margin:4px 0}
+.gn-ico{width:30px;height:30px;background:#f0fdfb;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background .13s}
+.gn-drop a:hover .gn-ico{background:rgba(13,148,136,.15)}
+
+/* Mega panel */
+.gn-mega{width:max-content;min-width:600px;max-width:900px;padding:24px 28px}
+.gn-mega-grid{display:grid;gap:0 32px}
+.gn-mega-grid.c2{grid-template-columns:repeat(2,1fr)}
+.gn-mega-grid.c4{grid-template-columns:repeat(4,1fr)}
+.gn-mhd{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:#0d9488;margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid #99f6e4}
+.gn-mhd a{color:inherit;text-decoration:none}
+.gn-ml{display:block;padding:5px 0;font-size:13px;color:#374151;text-decoration:none;transition:color .13s,padding-left .13s}
+.gn-ml:hover{color:#0d9488;padding-left:5px}
+
+/* Projects cards */
+.gn-proj-wrap{display:flex;flex-direction:column;gap:8px}
+.gn-proj{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1.5px solid #e5f7f5;border-radius:10px;text-decoration:none;transition:border-color .17s,box-shadow .17s,background .17s}
+.gn-proj:hover{border-color:#0d9488;box-shadow:0 4px 16px rgba(13,148,136,.12);background:#f0fdfb}
+.gn-proj-icon{width:40px;height:40px;background:#f0fdfb;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.gn-proj-name{font-size:13px;font-weight:700;color:#1a2a2a;margin-bottom:2px}
+.gn-proj-desc{font-size:11.5px;color:#6b7280;line-height:1.4}
+.gn-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;background:#d1fae5;color:#065f46;flex-shrink:0}
+.gn-soon{background:#e5e7eb;color:#374151}
+
+/* Right side */
+.gn-right{display:flex;align-items:center;gap:7px;margin-left:10px;flex-shrink:0}
+.gn-sep{width:1px;height:26px;background:#e5f7f5;margin:0 3px}
+.gn-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;border:none;white-space:nowrap;transition:all .15s;letter-spacing:.015em}
+.gn-btn-outline{background:transparent;color:#0d9488;border:1.5px solid #0d9488}
+.gn-btn-outline:hover{background:#f0fdfb}
+.gn-btn-teal{background:#0d9488;color:#fff;box-shadow:0 2px 8px rgba(13,148,136,.25)}
+.gn-btn-teal:hover{background:#0a7c72;box-shadow:0 4px 14px rgba(13,148,136,.35);transform:translateY(-1px)}
+.gn-btn-purple{background:#534AB7;color:#fff;box-shadow:0 2px 8px rgba(83,74,183,.25)}
+.gn-btn-purple:hover{background:#3d36a0;box-shadow:0 4px 14px rgba(83,74,183,.35);transform:translateY(-1px)}
+
+/* Ticker */
+.gn-ticker{background:linear-gradient(90deg,#0a7c72,#0d9488);height:36px;overflow:hidden;display:flex;align-items:center}
+.gn-ticker-track{display:flex;align-items:center;white-space:nowrap;animation:gnTick 30s linear infinite}
+@keyframes gnTick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.gn-tick-item{display:inline-flex;align-items:center;gap:8px;padding:0 26px;text-decoration:none;color:#fff}
+.gn-tick-main{font-size:12.5px;font-weight:700}
+.gn-tick-sub{font-size:10.5px;opacity:.82;margin-left:5px}
+.gn-tick-sep{color:rgba(255,255,255,.35);padding:0 4px}
+
+/* Hamburger */
+.gn-ham{display:none;flex-direction:column;gap:5px;background:none;border:1.5px solid #e5f7f5;border-radius:8px;padding:7px 9px;cursor:pointer}
+.gn-ham span{display:block;width:20px;height:2px;background:#374151;border-radius:2px}
+
+@media(max-width:1020px){.gn-nav{display:none}.gn-ham{display:flex}.gn-right .gn-btn-outline{display:none}}
+</style>
+
+<!-- NAVBAR WRAPPER -->
+<div class="gn-wrap">
+
+  <!-- Main header row -->
+  <div class="gn-inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="gn-logo" aria-label="GOCAF Home">
       <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
     </a>
- 
-    <nav class="desktop-nav" aria-label="Primary">
- 
-      <!-- Projects -->
-      <div class="nav-item">
-        <span class="nav-link">Projects <span class="nav-arr">▾</span></span>
-        <div class="mega">
-          <div style="max-width:1180px;margin:0 auto;padding:0 24px">
-            <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px;border-bottom:2px solid var(--teal-light);padding-bottom:6px">Our 5 Core Programmes</div>
-            <div class="mega-proj-wrap">
-              <a class="proj-card" href="save.html">
-                <div class="proj-icon">🐾</div>
-                <div class="proj-card-name">SAVE</div>
-                <div class="proj-card-full">Stray Animal Verification &amp; Enforcement</div>
-                <span class="proj-badge badge-save">Identity &amp; Tracking</span>
-              </a>
-              <!-- <a class="proj-card" href="safeabc.html">
-                <div class="proj-icon">✂️</div>
-                <div class="proj-card-name">SAFE-ABC</div>
-                <div class="proj-card-full">Systematic Animal Fertility Enforcement – ABC</div>
-                <span class="proj-badge badge-safeabc">Population Control</span>
-              </a> -->
-              <!-- <a class="proj-card" href="care.html">
-          <div class="proj-icon">🏥</div>
-          <div class="proj-card-name">CARE</div>
-          <div class="proj-card-full">Capture, Assess, Rehabilitate &amp; Empower</div>
-          <span class="proj-badge badge-care">Rehabilitation &amp; Recovery</span>
-        </a> 
-        <a class="proj-card" href="shield.html">
-          <div class="proj-icon">🛡️</div>
-          <div class="proj-card-name">SHIELD</div>
-          <div class="proj-card-full">Safety, Harmony &amp; Incident Elimination for Lasting Defence</div>
-          <span class="proj-badge badge-shield">Community Safety</span>
-        </a>
 
-         <a class="proj-card" href="careplus.html">
-          <div class="proj-icon">🏠</div>
-          <div class="proj-card-name">CARE+</div>
-          <div class="proj-card-full">Community Animal Rescue &amp; Extended Protection</div>
-          <span class="proj-badge badge-careplus">Shelter &amp; Protection</span>
-        </a>  -->
+    <!-- Desktop nav -->
+    <nav class="gn-nav" aria-label="Primary">
+
+      <!-- Projects -->
+      <div class="gn-item">
+        <span class="gn-link">Projects <span class="gn-arr">▾</span></span>
+        <div class="gn-mega" style="min-width:460px">
+          <div style="font-size:10.5px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.9px;margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid #99f6e4">Our Core Programmes</div>
+          <div class="gn-proj-wrap">
+            <a class="gn-proj" href="save.html">
+              <div class="gn-proj-icon">🐾</div>
+              <div><div class="gn-proj-name">SAVE</div><div class="gn-proj-desc">Stray Animal Verification &amp; Enforcement</div></div>
+              <span class="gn-badge">Identity &amp; Tracking</span>
+            </a>
+            <a class="gn-proj" href="#safeabc" style="opacity:.5;pointer-events:none">
+              <div class="gn-proj-icon">✂️</div>
+              <div><div class="gn-proj-name">SAFE-ABC</div><div class="gn-proj-desc">Systematic Animal Fertility Enforcement</div></div>
+              <span class="gn-badge gn-soon">Coming Soon</span>
+            </a>
+            <a class="gn-proj" href="#care" style="opacity:.5;pointer-events:none">
+              <div class="gn-proj-icon">🏥</div>
+              <div><div class="gn-proj-name">CARE</div><div class="gn-proj-desc">Capture, Assess, Rehabilitate &amp; Empower</div></div>
+              <span class="gn-badge gn-soon">Coming Soon</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register -->
+      <div class="gn-item">
+        <span class="gn-link">Register <span class="gn-arr">▾</span></span>
+        <div class="gn-drop">
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/saveregistration" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Register an Animal
+          </a>
+          <a href="#abc-support"><span class="gn-ico"></span>ABC Support</a>
+          <a href="#shelter"><span class="gn-ico"></span>Temporary Shelter</a>
+          <div class="gn-drop-divider"></div>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>As a Feeder / Caretaker
+          </a>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>As a Rescuer
+          </a>
+        </div>
+      </div>
+
+      <!-- Report -->
+      <div class="gn-item">
+        <span class="gn-link">Report <span class="gn-arr">▾</span></span>
+        <div class="gn-drop">
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/report-lost" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Lost Animal
+          </a>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/report-found" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Found Animal
+          </a>
+          <div class="gn-drop-divider"></div>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/emergency-support" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Community Issues
+          </a>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/emergency-support" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Animal Cruelty
+          </a>
+        </div>
+      </div>
+      <div class="gn-item">
+        <a class="gn-link" href="#shelters">Partnered Shelters</a>
+      </div>
+      <!-- Campaigns & Topics -->
+      <div class="gn-item">
+        <span class="gn-link">Campaigns &amp; Topics <span class="gn-arr">▾</span></span>
+        <div class="gn-mega">
+          <div class="gn-mega-grid c4">
+            <div>
+              <div class="gn-mhd"><a href="#campaigns">Campaigns</a></div>
+              <a class="gn-ml" href="#">#NoProof-NoCatch</a>
+              <a class="gn-ml" href="#">#EndAbandonment</a>
+              <a class="gn-ml" href="#">#StructuredFeeding</a>
+              <a class="gn-ml" href="#">#HumaneCoexistence</a>
+              <a class="gn-ml" href="#">#ProtectFeeders</a>
+              <a class="gn-ml" href="#">#Spay &amp; Neuter Drive</a>
+              <a class="gn-ml" href="#">#Anti-Cruelty Campaign</a>
+              <a class="gn-ml" href="#">#GOCAF4Animals</a>
+            </div>
+            <div>
+              <div class="gn-mhd"><a href="#">Topics</a></div>
+              <a class="gn-ml" href="#">Animal Welfare &amp; Law</a>
+              <a class="gn-ml" href="#">Public Health Interface</a>
+              <a class="gn-ml" href="#">Rapid Response</a>
+              <a class="gn-ml" href="#">Disaster Relief</a>
+              <a class="gn-ml" href="#">Stray Animal Management</a>
+              <a class="gn-ml" href="#">Climate &amp; Animal Welfare</a>
+              <a class="gn-ml" href="#">Companion Animals</a>
+            </div>
+            <div>
+              <div class="gn-mhd"><a href="#">Shelters &amp; Centres</a></div>
+              <a class="gn-ml" href="#">GOCAF Rescue Centre – Hyderabad</a>
+              <a class="gn-ml" href="#">Community Shelter Network</a>
+              <a class="gn-ml" href="#">Foster Care Programme</a>
+              <div class="gn-mhd" style="margin-top:18px">Resources</div>
+              <a class="gn-ml" href="#">Publications &amp; Guides</a>
+              <a class="gn-ml" href="#">Awareness Materials</a>
+              <a class="gn-ml" href="#">Pet Care Tips</a>
+            </div>
+            <div>
+              <div class="gn-mhd">More to Know</div>
+              <a class="gn-ml" href="rescue.html"> Rescue &amp; Success Stories</a>
+              <a class="gn-ml" href="#">Blog &amp; News</a>
+              <a class="gn-ml" href="#">Annual Report</a>
+              <a class="gn-ml" href="#">Press Releases</a>
+              <a class="gn-ml" href="#">FAQs</a>
             </div>
           </div>
         </div>
       </div>
- 
-      <!-- Campaigns & Topics -->
-      <div class="nav-item">
-        <span class="nav-link">Campaigns &amp; Topics <span class="nav-arr">▾</span></span>
-        <div class="mega"><div class="mega-wrap m4">
-          <div>
-            <div class="mega-hd"><a href="#campaigns">Campaigns</a></div>
-            <a class="ml" href="#campaigns">#NoProof-NoCatch</a>
-            <a class="ml" href="#campaigns">#EndAbandonment</a>
-            <a class="ml" href="#campaigns">#StructuredFeeding</a>
-            <a class="ml" href="#campaigns">#HumaneCoexistence</a>
-            <a class="ml" href="#campaigns">#ProtectFeeders</a>
-            <a class="ml" href="#campaigns">#Spay &amp; Neuter Drive</a>
-            <a class="ml" href="#campaigns">#Anti-Cruelty Campaign</a>
-            <a class="ml" href="#campaigns">#Stray Animal Welfare</a>
-            <a class="ml" href="#campaigns">#GOCAF4Animals</a>
-          </div>
-          <div>
-            <div class="mega-hd"><a href="#">Topics</a></div>
-            <a class="ml" href="#">Animal Welfare &amp; Law</a>
-            <a class="ml" href="#">Public Health Interface</a>
-            <a class="ml" href="#">Rapid Response</a>
-            <a class="ml" href="#">Disaster Relief</a>
-            <a class="ml" href="#">Stray Animal Management</a>
-            <a class="ml" href="#">Climate &amp; Animal Welfare</a>
-            <a class="ml" href="#">Companion Animals</a>
-          </div>
-          <div>
-            <div class="mega-hd"><a href="#">Shelters &amp; Centres</a></div>
-            <a class="ml" href="#">GOCAF Rescue Centre – Hyderabad</a>
-            <a class="ml" href="#">Community Shelter Network</a>
-            <a class="ml" href="#">Foster Care Programme</a>
-          </div>
-          <div>
-            <div class="mega-hd">More to Know</div>
-            <a class="ml" href="rescue.html">🐾 Rescue &amp; Success Stories</a>
-            <a class="ml" href="#">Publications &amp; Guides</a>
-            <a class="ml" href="#">Blog &amp; News</a>
-            <a class="ml" href="#">Awareness Resources</a>
-            <a class="ml" href="#">Pet Care Tips</a>
-          </div>
-        </div></div>
-      </div>
- 
-      <!-- Get Involved -->
-      <div class="nav-item">
-        <span class="nav-link">Get Involved <span class="nav-arr">▾</span></span>
-        <div class="mega"><div class="mega-wrap m2">
-          <div>
-            <div class="mega-hd">Take Action</div>
-            <a class="ml" href="#donate"> Donate</a>
-            <a class="ml" href="#contact"> Volunteer</a>
-            <a class="ml" href="#register-save"> Register for SAVE</a>
-            <a class="ml" href="#contact"> Petitions &amp; Sign</a>
-            <a class="ml" href="tel:+919390189589"> Report Animal Emergency</a>
-            <a class="ml" href="#contact"> Leave a Gift in Your Will</a>
-            <a class="ml" href="#contact"> Events &amp; Webinars</a>
-          </div>
-          <div>
-            <div class="mega-hd">More Ways to Help</div>
-            <a class="ml" href="#contact">Animal Welfare in Practice</a>
-            <a class="ml" href="#contact"> Become an Ambassador</a>
-            <a class="ml" href="#contact"> Partner with GOCAF</a>
-            <a class="ml" href="#contact"> Corporate CSR</a>
-            <a class="ml" href="#contact"> GOCAF Academy – Free Training</a>
-          </div>
-        </div></div>
-      </div>
- 
+
+      <!-- Partnered Shelters -->
+
+
+      <!-- Donate -->
+      <!-- <div class="gn-item">
+        <a class="gn-link donate" href="#donate">Donate</a>
+      </div> -->
+
       <!-- About Us -->
-      <div class="nav-item">
-        <span class="nav-link">About Us <span class="nav-arr">▾</span></span>
-        <div class="mega"><div class="mega-wrap m2">
-          <div>
-            <div class="mega-hd">Organisation</div>
-            <a class="ml" href="#about">About GOCAF</a>
-            <a class="ml" href="#founder">Founder – Deepthika Palati</a>
-            <a class="ml" href="#contact">Contact Us</a>
-            <a class="ml" href="#">GOCAF City Offices</a>
-            <a class="ml" href="#">Policies &amp; Standards</a>
-            <a class="ml" href="#contact">Culture</a>
-            <a class="ml" href="#contact">Value</a>
+      <div class="gn-item">
+        <span class="gn-link">About Us <span class="gn-arr">▾</span></span>
+        <div class="gn-mega" style="min-width:500px">
+          <div class="gn-mega-grid c2">
+            <div>
+              <div class="gn-mhd">Who We Are</div>
+              <a class="gn-ml" href="#about">Mission &amp; Vision</a>
+              <a class="gn-ml" href="#founder">Projects</a>
+              <a class="gn-ml" href="#contact">Impact</a>
+              <a class="gn-ml" href="#">Partners</a>
+              <a class="gn-ml" href="#">Founder Message</a>
+              <a class="gn-ml" href="#contact">Careers</a>
+              <a class="gn-ml" href="#contact">Contact Us</a>
+            </div>
+            <div>
+              <div class="gn-mhd">Media &amp; Reports</div>
+              <a class="gn-ml" href="#">Annual Report</a>
+              <a class="gn-ml" href="#">Press Releases</a>
+              <a class="gn-ml" href="#">Blog &amp; News</a>
+              <a class="gn-ml" href="#">Jobs at GOCAF</a>
+              <a class="gn-ml" href="#">FAQs</a>
+              <div style="margin-top:16px;padding:12px;background:#f0fdfb;border-radius:9px">
+                <div style="font-size:10.5px;font-weight:700;color:#0d9488;margin-bottom:4px">📞 Emergency Helpline</div>
+                <a href="tel:+919390189589" style="font-size:14px;font-weight:700;color:#1a2a2a;text-decoration:none">+91 93901 89589</a>
+              </div>
+            </div>
           </div>
-          <div>
-            <div class="mega-hd">Media &amp; Reports</div>
-            <a class="ml" href="#">Jobs at GOCAF</a>
-            <a class="ml" href="#">FAQs</a>
-            <a class="ml" href="#">Annual Report</a>
-            <a class="ml" href="#">Press Releases</a>
-            <a class="ml" href="#contact">Mission</a>
-            <a class="ml" href="#contact">Vision</a>
-          </div>
-        </div></div>
-      </div>
- 
-      <!-- Gallery -->
-      <div class="nav-item">
-        <span class="nav-link">Gallery <span class="nav-arr">▾</span></span>
-        <div class="gdrop">
-          <div class="gprev">
-            <div class="gthumb" onclick="lbOpen(0)"><img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(1)"><img src="https://images.pexels.com/photos/2607544/pexels-photo-2607544.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(2)"><img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(3)"><img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(4)"><img src="https://images.pexels.com/photos/3299905/pexels-photo-3299905.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-            <div class="gthumb" onclick="lbOpen(5)"><img src="https://images.pexels.com/photos/4587998/pexels-photo-4587998.jpeg?auto=compress&cs=tinysrgb&w=260&h=160&fit=crop" alt="" loading="lazy"></div>
-          </div>
-          <a href="#gallery" class="g-more">View Full Gallery →</a>
         </div>
       </div>
- 
-      <!-- Partner with Us -->
-      <div class="nav-item">
-        <a href="#partner" class="nav-link">Partner with Us</a>
+
+      <!-- Search -->
+      <div class="gn-item">
+        <span class="gn-link">Search <span class="gn-arr">▾</span></span>
+        <div class="gn-drop">
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Registered Animal
+          </a>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/volunteer/login" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Volunteer
+          </a>
+          <div class="gn-drop-divider"></div>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Feeders by Location
+          </a>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Rescuers by Location
+          </a>
+          <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" rel="noopener">
+            <span class="gn-ico"></span>Shelters by Location
+          </a>
+        </div>
       </div>
- 
+
     </nav>
- 
-    <!-- ============================================================
-         FIX: Added separator + gap between nav and action buttons
-         ============================================================ -->
-    <div class="h-right">
-      <div class="h-right-sep"></div>
-      <a href="#donate" class="btn btn-orange">Donate</a>
-      <a href="https://portal-gocaf-958663264478.us-central1.run.app//volunteer-registration" target="_blank" class="btn btn-teal">Volunteer</a>
-      <button class="hamburger" onclick="openMob()" aria-label="Menu">
+
+    <!-- Right actions -->
+    <div class="gn-right">
+      <div class="gn-sep"></div>
+      <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" rel="noopener" class="gn-btn gn-btn-outline">🔍 Search Animal</a>
+      <a href="https://portal-gocaf-877998128684.us-central1.run.app/saveregistration" target="_blank" rel="noopener" class="gn-btn gn-btn-teal">Register</a>
+      <button onclick="openDonateModal()" class="gn-btn gn-btn-purple">♥ Donate</button>
+      <button class="gn-ham" onclick="this.closest('.gn-wrap').querySelector('.gn-drawer').style.display='flex'" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
- 
   </div>
-</header>
- 
-<!-- ================================================================
-     SERVICE TICKER BANNER
-     ================================================================ -->
-<div class="service-ticker" role="marquee" aria-label="GOCAF Services">
-  <div class="ticker-track" id="tickerTrack">
-    <!-- SET 1 -->
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">🏠</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Temporary Shelter</span>
-        <span class="ticker-sub">Safe haven for strays in need</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">🐾</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Get Your Stray Registered</span>
-        <span class="ticker-sub">Save your pets / track them</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">💉</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Stray Health Checkup</span>
-        <span class="ticker-sub">Prevention is better than cure</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">✂️</span>
-      <span class="ticker-label">
-        <span class="ticker-main">ABC Support</span>
-        <span class="ticker-sub">Animal Birth Control Programme</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <!-- SET 2 — duplicate for seamless loop -->
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">🏠</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Temporary Shelter</span>
-        <span class="ticker-sub">Safe haven for strays in need</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">🐾</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Get Your Stray Registered</span>
-        <span class="ticker-sub">Save your pets / track them</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#contact" class="ticker-item">
-      <span class="ticker-icon">💉</span>
-      <span class="ticker-label">
-        <span class="ticker-main">Book Stray Health Checkup</span>
-        <span class="ticker-sub">Prevention is better than cure</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
-    <a href="#register-save" class="ticker-item">
-      <span class="ticker-icon">✂️</span>
-      <span class="ticker-label">
-        <span class="ticker-main">ABC Support</span>
-        <span class="ticker-sub">Animal Birth Control Programme</span>
-      </span>
-    </a>
-    <span class="ticker-sep">◆</span>
+
+  <!-- Ticker -->
+  <div class="gn-ticker" aria-label="GOCAF services">
+    <div class="gn-ticker-track">
+      <a href="#" class="gn-tick-item">🏠 <span class="gn-tick-main">Book Temporary Shelter</span><span class="gn-tick-sub">Safe haven for strays in need</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">🐾 <span class="gn-tick-main">Get Your Stray Registered</span><span class="gn-tick-sub">Save your pets / track them</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">💉 <span class="gn-tick-main">Book Stray Health Checkup</span><span class="gn-tick-sub">Prevention is better than cure</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">✂️ <span class="gn-tick-main">ABC Support</span><span class="gn-tick-sub">Animal Birth Control Programme</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">🚨 <span class="gn-tick-main">Emergency Support</span><span class="gn-tick-sub">Immediate help for animals in crisis</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <!-- duplicate for seamless loop -->
+      <a href="#" class="gn-tick-item">🏠 <span class="gn-tick-main">Book Temporary Shelter</span><span class="gn-tick-sub">Safe haven for strays in need</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">🐾 <span class="gn-tick-main">Get Your Stray Registered</span><span class="gn-tick-sub">Save your pets / track them</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">💉 <span class="gn-tick-main">Book Stray Health Checkup</span><span class="gn-tick-sub">Prevention is better than cure</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">✂️ <span class="gn-tick-main">ABC Support</span><span class="gn-tick-sub">Animal Birth Control Programme</span></a>
+      <span class="gn-tick-sep">◆</span>
+      <a href="#" class="gn-tick-item">🚨 <span class="gn-tick-main">Emergency Support</span><span class="gn-tick-sub">Immediate help for animals in crisis</span></a>
+      <span class="gn-tick-sep">◆</span>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="gn-drawer" style="display:none;position:fixed;inset:0;z-index:9200">
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,.5)" onclick="this.closest('.gn-drawer').style.display='none'"></div>
+    <div style="position:absolute;top:0;right:0;bottom:0;width:300px;background:#fff;display:flex;flex-direction:column;box-shadow:-8px 0 32px rgba(0,0,0,.15)">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f3f4f6">
+        <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF" style="height:34px">
+        <button onclick="this.closest('.gn-drawer').style.display='none'" style="background:#f9fafb;border:none;border-radius:8px;width:32px;height:32px;font-size:16px;cursor:pointer;color:#374151">✕</button>
+      </div>
+      <div style="overflow-y:auto;flex:1">
+        <details style="border-bottom:1px solid #f3f4f6">
+          <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Projects <span>▾</span></summary>
+          <div style="padding:0 0 8px">
+            <a href="save.html" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🐾 SAVE – Identity &amp; Tracking</a>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #f3f4f6">
+          <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Register <span>▾</span></summary>
+          <div style="padding:0 0 8px">
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/saveregistration" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🐾 Register an Animal</a>
+            <a href="#abc-support" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">✂️ ABC Support</a>
+            <a href="#shelter" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🏠 Temporary Shelter</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🌿 As a Feeder / Caretaker</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🚑 As a Rescuer</a>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #f3f4f6">
+          <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Report <span>▾</span></summary>
+          <div style="padding:0 0 8px">
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/report-lost" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🔍 Lost Animal</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/report-found" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">📍 Found Animal</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/emergency-support" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">⚠️ Community Issues</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/emergency-support" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🚨 Animal Cruelty</a>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #f3f4f6">
+          <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Search <span>▾</span></summary>
+          <div style="padding:0 0 8px">
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🐾 Registered Animal</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/volunteer/login" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">👤 Volunteer</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">📍 Feeders by Location</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🚑 Rescuers by Location</a>
+            <a href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">🏠 Shelters by Location</a>
+          </div>
+        </details>
+        <a href="#shelters" style="display:block;padding:14px 20px;font-size:14px;font-weight:600;color:#1a2a2a;text-decoration:none;border-bottom:1px solid #f3f4f6">Partnered Shelters</a>
+        <a href="#donate" style="display:block;padding:14px 20px;font-size:14px;font-weight:700;color:#534AB7;text-decoration:none;border-bottom:1px solid #f3f4f6">♥ Donate</a>
+        <details style="border-bottom:1px solid #f3f4f6">
+          <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">About Us <span>▾</span></summary>
+          <div style="padding:0 0 8px">
+            <a href="#about" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">Mission &amp; Vision</a>
+            <a href="#contact" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">Contact Us</a>
+          </div>
+        </details>
+      </div>
+      <div style="padding:16px 20px;border-top:1px solid #f3f4f6;display:flex;flex-direction:column;gap:10px">
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/saveregistration" target="_blank" class="gn-btn gn-btn-teal" style="justify-content:center">🐾 Register Animal</a>
+        <a href="#donate" class="gn-btn gn-btn-purple" style="justify-content:center">♥ Donate</a>
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank" class="gn-btn gn-btn-outline" style="justify-content:center">Volunteer</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- END GOCAF NAVBAR -->
+
+
+
+
+<style>
+.gn-donate-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:99999;align-items:center;justify-content:center;padding:1rem}
+.gn-donate-overlay.active{display:flex}
+.gn-donate-modal{background:#fff;border-radius:20px;padding:32px 28px;max-width:370px;width:100%;text-align:center;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.22);animation:gnDnPop .25s ease}
+@keyframes gnDnPop{from{transform:scale(.86);opacity:0}to{transform:scale(1);opacity:1}}
+.gn-dn-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;color:#9ca3af;line-height:1}
+.gn-dn-close:hover{color:#374151}
+.gn-dn-badge{display:inline-flex;align-items:center;gap:6px;background:#f0fdfb;border:1.5px solid #99f6e4;border-radius:999px;padding:5px 16px;margin-bottom:14px;font-size:13px;font-weight:700;color:#0d9488}
+.gn-dn-title{font-size:21px;font-weight:800;color:#1a2a2a;margin:0 0 4px}
+.gn-dn-sub{font-size:13px;color:#9ca3af;margin:0 0 20px}
+.gn-dn-qr-wrap{background:#fff;border:1.5px solid #e5f7f5;border-radius:14px;padding:16px;display:inline-block;margin-bottom:16px;box-shadow:0 4px 16px rgba(13,148,136,.08)}
+.gn-dn-qr-wrap img{width:160px;height:auto;display:block;border-radius:6px}
+.gn-dn-pill{display:inline-block;background:linear-gradient(135deg,#0d9488,#0a7c72);color:#fff;font-size:15px;font-weight:700;border-radius:999px;padding:8px 24px;margin-bottom:20px;box-shadow:0 4px 14px rgba(13,148,136,.3)}
+.gn-dn-upi{background:#f8fffe;border:1.5px solid #e5f7f5;border-radius:12px;padding:12px 16px;margin-bottom:18px}
+.gn-dn-upi-lbl{font-size:10.5px;font-weight:700;color:#9ca3af;letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px}
+.gn-dn-upi-id{font-size:17px;font-weight:800;color:#1a2a2a;margin-bottom:10px;letter-spacing:.4px}
+.gn-dn-copy{background:#fff;border:1.5px solid #e5e7eb;border-radius:8px;padding:7px 18px;font-size:13px;font-weight:600;color:#374151;cursor:pointer;transition:all .2s}
+.gn-dn-copy:hover{background:#f0fdfb;border-color:#901927;color:#ac1620}
+.gn-dn-copy.copied{background:#7a0813;border-color:#940d35;color:#410909}
+.gn-dn-heart{font-size:12.5px;color:#0d9488;margin:0;font-weight:500}
+</style>
+
+<div class="gn-donate-overlay" id="gnDonateModal" onclick="if(event.target===this)closeDonateModal()">
+  <div class="gn-donate-modal">
+    <button class="gn-dn-close" onclick="closeDonateModal()" aria-label="Close">&times;</button>
+
+    <div class="gn-dn-badge">&#9829; GOCAF Animal Welfare</div>
+
+    <p class="gn-dn-title">Contribute to Animal Welfare</p>
+    <p class="gn-dn-sub">Scan the QR code using any UPI app</p>
+
+    <!-- QR CODE: replace YOUR_QR_CODE_IMAGE.png with your actual QR image path -->
+    <div class="gn-dn-qr-wrap">
+      <img src="YOUR_QR_CODE_IMAGE.png" alt="PhonePe QR – PALATI DEEPTHIKA">
+    </div>
+
+    <div class="gn-dn-pill">🐾 Scan &amp; Contribute</div>
+
+    <div class="gn-dn-upi">
+      <div class="gn-dn-upi-lbl">UPI ID</div>
+      <div class="gn-dn-upi-id">deepthikapalati@ybl</div>
+      <button class="gn-dn-copy" id="gnCopyBtn" onclick="gnCopyUPI()">&#128203; Copy UPI ID</button>
+    </div>
+
+    <p class="gn-dn-heart">&#9829; Your contribution helps support community animal welfare across India.</p>
   </div>
 </div>
- 
-<!-- ================================================================
-     HERO
-     ================================================================ -->
+
+<script>
+function openDonateModal(){
+  document.getElementById('gnDonateModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeDonateModal(){
+  document.getElementById('gnDonateModal').classList.remove('active');
+  document.body.style.overflow='';
+}
+function gnCopyUPI(){
+  navigator.clipboard.writeText('deepthikapalati@ybl').then(function(){
+    var btn=document.getElementById('gnCopyBtn');
+    btn.textContent='✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){btn.textContent='📋 Copy UPI ID';btn.classList.remove('copied');},2500);
+  });
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDonateModal();});
+</script>
+<!-- END GOCAF NAVBAR -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-track" id="heroTrack">
     <div class="hero-slide">
@@ -2618,6 +3021,35 @@ document.querySelectorAll('img').forEach(img=>{
     this.src='https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop';
   });
 });
+ function openDonateModal() {
+      document.getElementById('donateModal').classList.add('active');
+      document.body.style.overflow = 'hidden'; // prevent background scroll
+    }
+ 
+    function closeDonateModal() {
+      document.getElementById('donateModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+ 
+    // Close when clicking outside the modal card
+    function closeDonateModalOnOverlay(event) {
+      if (event.target === document.getElementById('donateModal')) {
+        closeDonateModal();
+      }
+    }
+ 
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeDonateModal();
+    });
+ 
+    // Copy UPI ID to clipboard
+    function copyUPI(btn) {
+      navigator.clipboard.writeText('deepthikapalati@ybl').then(() => {
+        btn.textContent = '✓ Copied!';
+        setTimeout(() => { btn.textContent = '📋 Copy UPI ID'; }, 2000);
+      });
+    }
 
 /* ----------------------------------------------------------------
    INIT — renderTestis() is now async (fetches from JSONBin)
