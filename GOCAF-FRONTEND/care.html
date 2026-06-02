@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CARE – Community Animal Rehabilitation &amp; Excellence | GOCAF</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;color:#333;background:#fff;overflow-x:hidden;line-height:1.5}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+:root{
+  --brand:#27ae60;--brand-dark:#1e8449;--brand-light:#e0f5e9;
+  --grad:linear-gradient(135deg,#C8375A 0%,#9B2E8A 50%,#6B3FA0 100%);
+  --black:#1C1C1C;--gray:#f5f7f9;--shadow:0 4px 20px rgba(0,0,0,.08);--radius:8px;
+}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.btn{display:inline-block;padding:13px 32px;font-size:15px;font-weight:700;border-radius:4px;cursor:pointer;border:0;font-family:inherit;text-transform:uppercase;letter-spacing:.5px;transition:all .2s}
+
+/* Top bar */
+.topbar{background:var(--grad);height:36px;display:flex;align-items:center}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;width:100%}
+.topbar a{color:rgba(255,255,255,.85);font-size:13px;padding:0 10px;height:36px;line-height:36px}
+.topbar a:hover{background:rgba(255,255,255,.15);color:#fff}
+.topbar-left{color:rgba(255,255,255,.9);font-size:13px}
+.topbar-right{display:flex}
+
+/* Site nav */
+.sitenav{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.1);position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:1100px;margin:0 auto;padding:0 24px}
+.nav-logo img{height:64px}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:14px;color:#333;padding:8px 14px;border-radius:4px;font-weight:500;transition:all .2s}
+.nav-links a:hover{background:var(--brand-light);color:var(--brand)}
+.nav-links a.active{background:var(--brand);color:#fff}
+.nav-cta{display:flex;gap:8px}
+.nav-cta a{font-size:13px;font-weight:700;padding:8px 18px;border-radius:4px}
+.nc-donate{background:var(--brand);color:#fff}.nc-donate:hover{background:var(--brand-dark);color:#fff}
+.nc-vol{border:2px solid var(--brand);color:var(--brand)}.nc-vol:hover{background:var(--brand);color:#fff}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#27ae60 0%,#1e8449 100%);color:#fff;padding:88px 0 88px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-80px;top:-80px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.05)}
+.hero::after{content:'';position:absolute;left:-100px;bottom:-100px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04)}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:center}
+.hero-text{max-width:none}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.75);font-size:14px;margin-bottom:24px;transition:color .2s}
+.back-link:hover{color:#fff}
+.project-label{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.95);margin-bottom:20px}
+.hero-acronym{font-size:84px;font-weight:900;line-height:1;letter-spacing:-3px;margin-bottom:6px}
+.hero-fullname{font-size:17px;font-weight:400;opacity:.88;margin-bottom:22px;letter-spacing:.3px}
+.hero-tagline{font-size:30px;font-weight:900;line-height:1.22;margin-bottom:16px;max-width:520px}
+.hero-desc{font-size:16px;line-height:1.8;opacity:.92;max-width:540px}
+.hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.hero .btn-hero{background:#fff;color:var(--brand);padding:14px 30px}
+.hero .btn-hero:hover{background:var(--brand-light)}
+.hero .btn-hero-outline{border:2px solid #fff;background:transparent;color:#fff;padding:12px 28px}
+.hero .btn-hero-outline:hover{background:#fff;color:var(--brand)}
+
+/* Hero visual — clean, professional poster frame */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-visual::before{content:'';position:absolute;width:92%;height:92%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.18) 0%,rgba(255,255,255,0) 70%);z-index:0}
+.hero-visual img{position:relative;z-index:1;width:100%;max-width:480px;height:auto;display:block;border-radius:18px;background:#fff;padding:0;box-shadow:0 30px 70px rgba(0,0,0,.30),0 8px 20px rgba(0,0,0,.18);transition:transform .35s ease}
+
+/* Sections */
+.what-sec{padding:72px 0}
+.sec-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--brand);margin-bottom:10px}
+.sec-title{font-size:32px;font-weight:900;color:var(--black);margin-bottom:12px;line-height:1.2}
+.sec-body{font-size:16px;line-height:1.85;color:#555;max-width:780px;margin-bottom:32px}
+
+/* Features grid (What is CARE) */
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.feat{padding:22px 24px;border-radius:var(--radius);background:var(--gray);border-left:4px solid var(--brand);display:flex;gap:14px;align-items:flex-start;transition:all .2s}
+.feat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.feat-ico{font-size:28px;flex-shrink:0}
+.feat-title{font-size:15px;font-weight:800;color:var(--black);margin-bottom:4px}
+.feat-desc{font-size:14px;line-height:1.6;color:#555}
+
+/* Why rehab + When animals need (two-col) */
+.why-sec{background:var(--gray);padding:72px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+.two-col h3{font-size:22px;font-weight:900;margin-bottom:16px;color:var(--black)}
+.two-col ul li{padding:11px 0;font-size:15px;color:#444;display:flex;gap:12px;align-items:center;border-bottom:1px solid #ececec}
+.two-col ul li:last-child{border-bottom:none}
+.two-col ul li .li-ico{font-size:18px;color:var(--brand);font-weight:900;flex-shrink:0}
+
+/* Why community helps */
+.community-sec{padding:72px 0}
+.community-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.com-card{padding:26px;border-radius:var(--radius);background:var(--brand-light);border-top:4px solid var(--brand)}
+.com-ico{font-size:32px;margin-bottom:10px}
+.com-title{font-size:16px;font-weight:800;color:var(--black);margin-bottom:6px}
+.com-desc{font-size:13.5px;color:#555;line-height:1.6}
+
+/* CARE Journey steps */
+.how-sec{background:var(--gray);padding:72px 0}
+.steps{display:grid;gap:14px;margin-top:32px}
+.step{display:flex;gap:20px;background:#fff;padding:22px 24px;border-radius:var(--radius);box-shadow:0 2px 8px rgba(0,0,0,.05);align-items:flex-start;transition:transform .2s}
+.step:hover{transform:translateX(4px)}
+.step-num{width:46px;height:46px;flex-shrink:0;border-radius:50%;background:var(--brand);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:#fff}
+.step-title{font-size:16px;font-weight:800;color:var(--black);margin-bottom:5px}
+.step-desc{font-size:14px;line-height:1.65;color:#555}
+
+/* Why support matters */
+.support-sec{padding:72px 0}
+.support-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px}
+.sup-card{background:var(--gray);padding:24px 14px;border-radius:var(--radius);text-align:center;border-top:4px solid var(--brand)}
+.sup-ico{font-size:32px;margin-bottom:8px}
+.sup-name{font-size:14px;font-weight:800;color:var(--black);line-height:1.4}
+
+/* Sponsor tiers */
+.sponsor-sec{background:linear-gradient(135deg,#27ae60 0%,#1e8449 100%);color:#fff;padding:80px 0;text-align:center}
+.sponsor-sec .sec-eyebrow{color:rgba(255,255,255,.85)}
+.sponsor-sec .sec-title{color:#fff}
+.sponsor-sec .sec-body{color:rgba(255,255,255,.92);max-width:640px;margin:0 auto 36px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:0 auto}
+.tier{background:rgba(255,255,255,.1);padding:32px 24px;border-radius:12px;border:1px solid rgba(255,255,255,.2);transition:all .2s}
+.tier:hover{background:rgba(255,255,255,.15);transform:translateY(-4px)}
+.tier.featured{background:#fff;color:var(--brand);transform:scale(1.05)}
+.tier .tier-ico{font-size:36px;margin-bottom:14px}
+.tier .tier-amt{font-size:34px;font-weight:900;margin-bottom:6px}
+.tier .tier-lbl{font-size:14px;font-weight:700;opacity:.9;margin-bottom:14px}
+.tier .tier-btn{display:inline-block;background:rgba(255,255,255,.2);color:#fff;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border:1px solid rgba(255,255,255,.3)}
+.tier .tier-btn:hover{background:rgba(255,255,255,.3)}
+.tier.featured .tier-btn{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tier.featured .tier-btn:hover{background:var(--brand-dark)}
+
+/* Become CARE partner */
+.partner-sec{padding:72px 0;background:var(--gray)}
+.partner-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px}
+.partner-card{background:#fff;padding:24px 16px;border-radius:var(--radius);text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04);border:2px solid transparent;transition:all .2s}
+.partner-card:hover{border-color:var(--brand);transform:translateY(-3px)}
+.partner-ico{font-size:36px;margin-bottom:10px}
+.partner-name{font-size:14px;font-weight:900;color:var(--black)}
+
+/* Transparency */
+.trans-sec{padding:72px 0}
+.trans-card{background:var(--brand-light);border:2px solid var(--brand);border-radius:12px;padding:36px;margin-top:24px}
+.trans-list{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.trans-list li{padding:14px 16px;background:#fff;border-radius:6px;font-size:14px;font-weight:700;color:#333;display:flex;gap:8px;align-items:center;justify-content:center;text-align:center;border-left:4px solid var(--brand)}
+.trans-list li .t-ico{font-size:18px}
+
+/* Impact */
+.impact-sec{padding:72px 0;background:var(--gray)}
+.impact-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px}
+.impact-box{text-align:center;padding:24px 14px;border-radius:var(--radius);background:#fff;border-top:4px solid var(--brand);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.impact-ico{font-size:32px;margin-bottom:8px}
+.impact-lbl{font-size:13px;color:#444;line-height:1.5;font-weight:700}
+
+/* Other programs */
+.other-sec{padding:64px 0}
+.other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.other-card{padding:20px;border-radius:var(--radius);border:2px solid #eee;text-align:center;transition:all .2s;display:block;background:#fff}
+.other-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.oc-ico{font-size:32px;margin-bottom:8px}
+.oc-name{font-size:16px;font-weight:800;margin-bottom:4px}
+.oc-domain{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.7}
+
+/* CTA banner */
+.cta-banner{background:linear-gradient(135deg,#27ae60 0%,#1e8449 100%);color:#fff;padding:80px 0;text-align:center}
+.cta-banner h2{font-size:38px;font-weight:900;margin-bottom:14px}
+.cta-banner p{font-size:18px;opacity:.92;margin-bottom:32px;max-width:620px;margin-left:auto;margin-right:auto;line-height:1.6;font-weight:600}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:#fff;color:var(--brand)}
+.btn-primary:hover{background:var(--brand-light)}
+.btn-outline{border:2px solid #fff;background:transparent;color:#fff;padding:11px 30px}
+.btn-outline:hover{background:#fff;color:var(--brand)}
+
+/* Contact */
+.contact-sec{padding:60px 0;text-align:center}
+.contact-card{display:inline-block;background:var(--gray);padding:32px 48px;border-radius:12px;border-top:4px solid var(--brand)}
+.contact-card h3{font-size:22px;font-weight:900;margin-bottom:14px;color:var(--black)}
+.contact-card p{font-size:15px;color:#555;margin:6px 0;display:flex;align-items:center;gap:10px;justify-content:center}
+.contact-card a{color:var(--brand);font-weight:700}
+
+/* Footer */
+footer{background:#0d0d0d;padding:40px 0 20px;text-align:center;color:#fff}
+.ft-logo img{height:56px;margin:0 auto 16px}
+.ft-tagline{font-size:14px;font-style:italic;color:#aaa;margin-bottom:18px;font-weight:600}
+.ft-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;margin-bottom:14px}
+.ft-links a{color:#888;font-size:13px}.ft-links a:hover{color:var(--brand)}
+.ft-copy{font-size:11px;color:#4d4d4d;line-height:1.6}
+@media(max-width:1024px){
+  .hero{padding:64px 0 64px}
+  .hero-inner{grid-template-columns:1fr;gap:44px;text-align:center}
+  .hero-text{max-width:680px;margin:0 auto}
+  .hero-tagline,.hero-desc{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .hero-visual img{max-width:440px;margin:0 auto}
+}
+@media(max-width:900px){
+  .features-grid,.two-col,.tiers{grid-template-columns:1fr}
+  .community-grid,.support-grid,.partner-grid,.trans-list,.impact-grid,.other-grid{grid-template-columns:1fr 1fr}
+  .tier.featured{transform:none}
+}
+@media(max-width:600px){
+  .community-grid,.support-grid,.partner-grid,.trans-list,.impact-grid,.other-grid{grid-template-columns:1fr}
+  .hero-acronym{font-size:60px;letter-spacing:-2px}
+  .hero-tagline{font-size:24px}
+  .hero-visual img{max-width:340px}
+  .nav-links{display:none}
+  .topbar .container{flex-direction:column;height:auto;padding:6px 12px}
+  .topbar{height:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span class="topbar-left"> GOCAF International – Hyderabad, India</span>
+    <div class="topbar-right">
+      <a href="mailto:support@gocaf.org">support@gocaf.org</a>
+      <a href="https://wa.me/919390189589" target="_blank"> +91 93901 89589</a>
+    </div>
+  </div>
+</div>
+
+<nav class="sitenav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    </a>
+    <div class="nav-links">
+      <a href="save.html">SAVE</a>
+      <!-- <a href="care.html" class="active">CARE</a> -->
+      <a href="safeabc.html">SAFE-ABC</a>
+      <a href="shield.html">SHIELD</a>
+      <!-- <a href="careplus.html">CARE+</a> -->
+    </div>
+    
+    <div class="nav-cta">
+      <a href="#sponsor" class="nc-donate">Sponsor</a>
+      <a href="https://wa.me/919390189589" target="_blank" class="nc-vol">Volunteer</a>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <a href="index.html" class="back-link">← Back to GOCAF Home</a>
+        <div class="project-label"> Project 2 of 5 &nbsp;|&nbsp; Treatment &amp; Rehabilitation</div>
+        <div class="hero-acronym">CARE</div>
+        <div class="hero-fullname">Community Animal Rehabilitation &amp; Excellence</div>
+        <div class="hero-tagline">Healing with Compassion. Reviving with Care.</div>
+        <p class="hero-desc">Project CARE is a humane animal recovery support program for community animals — rescued, recovered, monitored, sterilized, and returned to a safe environment.</p>
+        <div class="hero-ctas">
+          <a href="#sponsor" class="btn btn-hero">Sponsor a Recovery →</a>
+          <a href="https://wa.me/919390189589?text=I%20want%20to%20refer%20an%20animal%20for%20CARE" target="_blank" class="btn btn-hero-outline">Request Post-Treatment Care</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="care-poster.jpeg" alt="GOCAF CARE — Community Animal Rehabilitation &amp; Excellence">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS CARE -->
+<section class="what-sec">
+  <div class="container">
+    <div class="sec-eyebrow">About the Programme</div>
+    <div class="sec-title"> What is Project CARE?</div>
+    <p class="sec-body">Project CARE is a structured animal recovery support program for community animals that need more than emergency response — they need rehabilitation. We support animals that:</p>
+    <div class="features-grid">
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Have suffered injury or accidents</div>
+          <p class="feat-desc">Hit by vehicles, attacked, or otherwise hurt and unable to recover on their own.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Need post-surgery monitoring &amp; care</div>
+          <p class="feat-desc">Recovery support after sterilization or other medical procedures.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Have aggression or trauma issues</div>
+          <p class="feat-desc">Animals shaped by past abuse or fear that need patient behavioral work.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Need behavioral rehabilitation</div>
+          <p class="feat-desc">Trust-building, socialization, and gradual preparation for safe release.</p>
+        </div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"></div>
+        <div>
+          <div class="feat-title">Need temporary shelter &amp; return protocol</div>
+          <p class="feat-desc">Short-term safe space, full monitoring, and structured return-to-area planning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY REHABILITATION + WHEN ANIMALS NEED -->
+<section class="why-sec">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="sec-eyebrow">The Need</div>
+        <h3> Why Rehabilitation Matters (Just Like Humans)</h3>
+        <ul>
+          <li><span class="li-ico"></span> Injured / traumatized animals need a safe space</li>
+          <li><span class="li-ico"></span> Stressed bodies and wounds need rest</li>
+          <li><span class="li-ico"></span> Behavioral healing requires time</li>
+          <li><span class="li-ico"></span> Some need slow integration before release</li>
+          <li><span class="li-ico"></span> Some require continuous medication &amp; monitoring</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-eyebrow">Eligibility</div>
+        <h3>🐾 When Animals Need CARE</h3>
+        <ul>
+          <li><span class="li-ico"></span> Hit by vehicle / road accidents</li>
+          <li><span class="li-ico"></span> Severe injury or wound recovery</li>
+          <li><span class="li-ico"></span> Surgery recovery (post-ABC)</li>
+          <li><span class="li-ico"></span> Old or weak strays</li>
+          <li><span class="li-ico"></span> Disease recovery (skin conditions, infections)</li>
+          <li><span class="li-ico"></span> Behavior modification needed</li>
+          <li><span class="li-ico"></span> Special diet &amp; care required</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CARE HELPS COMMUNITIES -->
+<section class="community-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Community Impact</div>
+    <div class="sec-title"> Why CARE Helps Communities</div>
+    <p class="sec-body">Healthier animals build healthier neighborhoods — for everyone.</p>
+    <div class="community-grid">
+      <div class="com-card">
+        <div class="com-ico"></div>
+        <div class="com-title">Safer, Healthier Animals</div>
+        <p class="com-desc">Recovered animals pose no threat and live calm, healthy lives in their territory.</p>
+      </div>
+      <div class="com-card">
+        <div class="com-ico"></div>
+        <div class="com-title">Reduces Conflict &amp; Disease</div>
+        <p class="com-desc">Treated animals reduce the spread of disease and the risk of human-animal incidents.</p>
+      </div>
+      <div class="com-card">
+        <div class="com-ico"></div>
+        <div class="com-title">Supports Caregivers</div>
+        <p class="com-desc">Community feeders and animal lovers gain a structured system to refer cases into.</p>
+      </div>
+      <div class="com-card">
+        <div class="com-ico"></div>
+        <div class="com-title">Long-term Welfare Ecosystem</div>
+        <p class="com-desc">Every recovery feeds back into a stronger, more sustainable welfare network.</p>
+      </div>
+      <div class="com-card">
+        <div class="com-ico"></div>
+        <div class="com-title">Humane, Scientific Recovery</div>
+        <p class="com-desc">Vet-supervised, evidence-based protocols replace ad-hoc or harmful interventions.</p>
+      </div>
+      <div class="com-card">
+        <div class="com-ico"></div>
+        <div class="com-title">Stronger Welfare Standards</div>
+        <p class="com-desc">Every case raises the baseline for what good community animal care looks like.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARE JOURNEY -->
+<section class="how-sec">
+  <div class="container">
+    <div class="sec-eyebrow">The CARE Journey</div>
+    <div class="sec-title"> What We Do — From Intake to Safe Return</div>
+    <p class="sec-body" style="margin-bottom:0">Five carefully designed stages, every animal moved through with patience, dignity, and skill.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title"> Day 1: Safe Intake</div>
+          <p class="step-desc">Animal arrives at the CARE facility. Initial checkup, intake recorded, profile created in the SAVE system.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">🛏️ Step 2: Recovery Environment</div>
+          <p class="step-desc">Calm, clean, low-stress space prepared — the foundation of healing.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title"> Step 3: Rehabilitation &amp; Care</div>
+          <p class="step-desc">Daily medical treatment, nutrition, behavioral work, and supervised recovery activities.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title"> Step 4: Observation &amp; Stability</div>
+          <p class="step-desc">Continuous monitoring of physical health and behavioral stability before any release decision.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title"> Step 5: Safe Return</div>
+          <p class="step-desc">Animal returned to its original territory, caregiver informed, post-release tracking continues via SAVE.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY YOUR SUPPORT MATTERS -->
+<section class="support-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Your Support Matters</div>
+    <div class="sec-title">💚 What Your Contribution Provides</div>
+    <p class="sec-body">Every contribution directly powers an animal's recovery journey.</p>
+    <div class="support-grid">
+      <div class="sup-card"><div class="sup-ico"></div><div class="sup-name">Medical Recovery</div></div>
+      <div class="sup-card"><div class="sup-ico"></div><div class="sup-name">Safe Shelter Space</div></div>
+      <div class="sup-card"><div class="sup-ico"></div><div class="sup-name">Daily Food &amp; Care</div></div>
+      <div class="sup-card"><div class="sup-ico"></div><div class="sup-name">Trained Caretakers</div></div>
+      <div class="sup-card"><div class="sup-ico"></div><div class="sup-name">Long-term Monitoring</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSOR RECOVERY (HIGH CONVERSION) -->
+<section id="sponsor" class="sponsor-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Sponsor a Recovery</div>
+    <div class="sec-title"> Choose Your Impact</div>
+    <p class="sec-body">Every rupee directly funds recovery — food, medication, shelter, and supervision. Pick the level of impact you want to make.</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-ico">🐾</div>
+        <div class="tier-amt">₹500</div>
+        <div class="tier-lbl">Daily Care &amp; Food</div>
+        <a href="https://wa.me/919390189589?text=I%20want%20to%20Sponsor%20Daily%20Care%20(%E2%82%B9500)" target="_blank" class="tier-btn">Sponsor</a>
+      </div>
+      <div class="tier featured">
+        <div class="tier-ico"></div>
+        <div class="tier-amt">₹1,500</div>
+        <div class="tier-lbl">Weekly Recovery Support</div>
+        <a href="https://wa.me/919390189589?text=I%20want%20to%20Sponsor%20Weekly%20Recovery%20(%E2%82%B91500)" target="_blank" class="tier-btn">Sponsor Now</a>
+      </div>
+      <div class="tier">
+        <div class="tier-ico"></div>
+        <div class="tier-amt">₹3,000</div>
+        <div class="tier-lbl">Full Rehabilitation Cycle</div>
+        <a href="https://wa.me/919390189589?text=I%20want%20to%20Sponsor%20a%20Full%20Rehab%20Cycle%20(%E2%82%B93000)" target="_blank" class="tier-btn">Sponsor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BECOME CARE PARTNER -->
+<section class="partner-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Get Involved</div>
+    <div class="sec-title"> Become a CARE Partner</div>
+    <p class="sec-body">There are many ways to be part of CARE. Pick the role that fits you.</p>
+    <div class="partner-grid">
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20Volunteer%20with%20CARE" target="_blank" class="partner-card">
+        <div class="partner-ico"></div>
+        <div class="partner-name">Volunteer</div>
+      </a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20be%20a%20CARE%20Caregiver" target="_blank" class="partner-card">
+        <div class="partner-ico"></div>
+        <div class="partner-name">Caregiver</div>
+      </a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20Sponsor%20a%20CARE%20Recovery" target="_blank" class="partner-card">
+        <div class="partner-ico"></div>
+        <div class="partner-name">Sponsor</div>
+      </a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20be%20an%20Adoption%20Partner" target="_blank" class="partner-card">
+        <div class="partner-ico"></div>
+        <div class="partner-name">Adoption Partner</div>
+      </a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20be%20a%20Vet%20Partner%20with%20CARE" target="_blank" class="partner-card">
+        <div class="partner-ico">🩺</div>
+        <div class="partner-name">Vet Partner</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY & ETHICS -->
+<section class="trans-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Transparency &amp; Ethical Commitment</div>
+    <div class="sec-title"> Every Animal Under CARE Is</div>
+    <p class="sec-body">Our promise to every animal — and every supporter who makes their recovery possible.</p>
+    <div class="trans-card">
+      <ul class="trans-list">
+        <li><span class="t-ico"></span> Treated humanely</li>
+        <li><span class="t-ico"></span> Monitored continuously</li>
+        <li><span class="t-ico"></span> Recorded in SAVE system</li>
+        <li><span class="t-ico"></span> Released with dignity</li>
+        <li><span class="t-ico"></span> Tracked for life</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Real Outcomes</div>
+    <div class="sec-title"> Impact You Create</div>
+    <p class="sec-body">Every contribution and every referral creates a ripple of positive change.</p>
+    <div class="impact-grid">
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Saves lives</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Reduces suffering</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Builds healthier communities</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Promotes humane recovery</div>
+      </div>
+      <div class="impact-box">
+        <div class="impact-ico"></div>
+        <div class="impact-lbl">Strengthens welfare ecosystem</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER PROGRAMS -->
+<section class="other-sec">
+  <div class="container">
+    <div class="sec-eyebrow">Explore More</div>
+    <div class="sec-title"> Part of the SAVE Ecosystem</div>
+    <div class="other-grid">
+      <a href="save.html" class="other-card" style="border-color:#e8f4f8">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#1a6b8a">SAVE</div>
+        <div class="oc-domain" style="color:#1a6b8a">Standards &amp; Records</div>
+      </a>
+      <a href="safeabc.html" class="other-card" style="border-color:#fde8d8">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#d35400">SAFE-ABC</div>
+        <div class="oc-domain" style="color:#d35400">Population Control</div>
+      </a>
+      <a href="shield.html" class="other-card" style="border-color:#f3e5fa">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#8e44ad">SHIELD</div>
+        <div class="oc-domain" style="color:#8e44ad">Community Safety</div>
+      </a>
+      <a href="careplus.html" class="other-card" style="border-color:#fce8ef">
+        <div class="oc-ico"></div>
+        <div class="oc-name" style="color:#b5366a">CARE+</div>
+        <div class="oc-domain" style="color:#b5366a">Shelter &amp; Protection</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2> Be the Reason an Animal Heals Today</h2>
+    <p>Sponsor a recovery. Refer an animal in need. Volunteer your time. Every action saves a life and strengthens a community.</p>
+    <div class="cta-btns">
+      <a href="#sponsor" class="btn btn-primary">Sponsor a Recovery</a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20refer%20an%20animal%20for%20CARE" target="_blank" class="btn btn-outline">Refer an Animal</a>
+      <a href="https://wa.me/919390189589?text=I%20want%20to%20Volunteer%20with%20CARE" target="_blank" class="btn btn-outline">Volunteer</a>
+      <a href="https://wa.me/919390189589?text=Tell%20me%20more%20about%20Project%20CARE" target="_blank" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec">
+  <div class="container">
+    <div class="contact-card">
+      <h3> Contact Us</h3>
+      <p> <strong>GOCAF NGO</strong></p>
+      <p> <a href="mailto:support@gocaf.org">support@gocaf.org</a></p>
+      <p> <a href="https://wa.me/919390189589" target="_blank">+91 93901 89589</a></p>
+      <p> Hyderabad, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo"><img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF"></div>
+  <div class="ft-tagline">"Healing today, hope for tomorrow."</div>
+  <div class="ft-links">
+    <a href="index.html">Home</a>
+    <a href="save.html">SAVE</a>
+    <a href="care.html">CARE</a>
+    <a href="safeabc.html">SAFE-ABC</a>
+    <a href="shield.html">SHIELD</a>
+    <a href="careplus.html">CARE+</a>
+    <a href="mailto:support@gocaf.org">Contact</a>
+  </div>
+  <div class="ft-copy">
+     support@gocaf.org &nbsp;|&nbsp; 📱 +91 93901 89589 &nbsp;|&nbsp;  Hyderabad, India<br>
+    © 2025 GOCAF – Global Organization For Community Animal Freedom Foundation. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>

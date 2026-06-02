@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press & Media – GOCAF Animal Welfare</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Roboto',sans-serif;color:#333;background:#fff}
+a{text-decoration:none;color:inherit}
+:root{--teal:#B5366A;--teal-dark:#8C1F50;--teal-light:#F9E8F0;--orange:#F4821F;--gray:#F5F5F5;--shadow:0 4px 20px rgba(0,0,0,.1)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* TOPBAR */
+.topbar{background:var(--teal);height:38px}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:38px;max-width:1180px;margin:0 auto;padding:0 24px}
+.topbar-left{font-size:13px;color:rgba(255,255,255,.9)}
+.topbar-links{display:flex}
+.topbar-links a{color:rgba(255,255,255,.85);font-size:13px;height:38px;line-height:38px;padding:0 12px}
+.topbar-links a:hover,.topbar-links a.active{background:rgba(255,255,255,.15);color:#fff}
+.soc-row{display:flex;gap:5px}
+.soc{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
+.soc:hover{background:rgba(255,255,255,.3)}
+.soc svg{width:13px;height:13px;fill:currentColor}
+
+/* HEADER */
+.header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:0 24px}
+.header-inner{display:flex;align-items:center;height:80px;max-width:1180px;margin:0 auto;justify-content:space-between}
+.logo img{height:64px}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:14px;color:#333;padding:8px 14px;border-radius:4px;font-weight:500}
+.nav-links a:hover{background:var(--teal-light);color:var(--teal)}
+.hdr-btns{display:flex;gap:8px}
+.btn{display:inline-block;padding:10px 22px;font-size:14px;font-weight:700;text-transform:uppercase;border:0;cursor:pointer;border-radius:3px;font-family:inherit}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-teal{background:var(--teal);color:#fff}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;padding:56px 24px 48px;text-align:center}
+.page-hero h1{font-size:42px;font-weight:900;margin-bottom:10px}
+.page-hero p{font-size:18px;color:rgba(255,255,255,.88);max-width:680px;margin:0 auto;line-height:1.6}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:14px}
+.breadcrumb a{color:rgba(255,255,255,.8)}
+
+/* CONTENT */
+.page-body{padding:56px 0 72px}
+
+/* PRESS CONTACT BOX */
+.press-contact{background:var(--teal-light);border:2px solid var(--teal);border-radius:8px;padding:28px 32px;margin-bottom:44px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.press-contact h3{font-size:20px;font-weight:700;color:var(--teal);margin-bottom:6px}
+.press-contact p{font-size:14px;color:#444;line-height:1.7}
+.press-contact a.btn-teal{display:inline-block;padding:11px 26px;border-radius:4px;color:#fff;font-size:14px;font-weight:700;text-transform:uppercase;white-space:nowrap}
+
+/* SECTION TITLE */
+.sec-title{font-size:26px;font-weight:900;color:#111;margin-bottom:6px}
+.sec-sub{font-size:15px;color:#666;margin-bottom:28px}
+.sec-divider{border:none;border-top:2px solid var(--teal-light);margin:44px 0}
+
+/* PRESS RELEASES */
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:32px}
+.pr-card{background:#fff;border:1.5px solid #e8e8e8;border-radius:8px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.pr-card:hover{box-shadow:var(--shadow);border-color:var(--teal)}
+.pr-img{height:170px;overflow:hidden}
+.pr-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pr-card:hover .pr-img img{transform:scale(1.05)}
+.pr-body{padding:18px}
+.pr-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 9px;border-radius:12px;margin-bottom:8px;color:#fff}
+.pt-rescue{background:#E74C3C}.pt-policy{background:#2980B9}.pt-campaign{background:var(--teal)}.pt-award{background:#F4821F}.pt-training{background:#8E44AD}
+.pr-date{font-size:12px;color:#aaa;margin-bottom:6px}
+.pr-body h3{font-size:15px;font-weight:700;color:#111;margin-bottom:6px;line-height:1.4}
+.pr-body p{font-size:13px;color:#666;line-height:1.6;margin-bottom:12px}
+.pr-link{font-size:13px;color:var(--teal);font-weight:700}
+.pr-link:hover{text-decoration:underline}
+
+/* MEDIA KIT */
+.kit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+.kit-item{background:var(--gray);border-radius:6px;padding:20px 16px;text-align:center;border:1.5px solid #e0e0e0;transition:border-color .2s,box-shadow .2s}
+.kit-item:hover{border-color:var(--teal);box-shadow:var(--shadow)}
+.kit-ico{font-size:36px;margin-bottom:10px}
+.kit-item h4{font-size:14px;font-weight:700;color:var(--teal);margin-bottom:5px}
+.kit-item p{font-size:12px;color:#666;line-height:1.5;margin-bottom:12px}
+.kit-btn{display:inline-block;font-size:12px;font-weight:700;color:var(--teal);border:2px solid var(--teal);padding:5px 14px;border-radius:3px;text-transform:uppercase;transition:all .2s}
+.kit-btn:hover{background:var(--teal);color:#fff}
+
+/* COVERAGE */
+.cov-list{list-style:none}
+.cov-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid #eee}
+.cov-item:last-child{border-bottom:none}
+.cov-src{font-size:11px;font-weight:700;text-transform:uppercase;color:var(--teal);min-width:90px;flex-shrink:0;margin-top:2px}
+.cov-txt{flex:1}
+.cov-txt h4{font-size:15px;font-weight:600;color:#111;margin-bottom:3px}
+.cov-txt p{font-size:13px;color:#666}
+
+/* SPOKESPERSON */
+.spokesperson-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:32px}
+.sp-card{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1.5px solid #e8e8e8;border-radius:8px;padding:20px}
+.sp-av{width:64px;height:64px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;font-weight:700;flex-shrink:0}
+.sp-info h4{font-size:16px;font-weight:700;color:#111;margin-bottom:3px}
+.sp-info p{font-size:13px;color:#666;margin-bottom:6px;line-height:1.5}
+.sp-info a{font-size:13px;color:var(--teal);font-weight:600}
+
+footer{background:#1a1a1a;padding:28px 0;text-align:center}
+footer p{font-size:13px;color:#666}
+footer a{color:var(--teal)}
+
+@media(max-width:800px){
+  .pr-grid{grid-template-columns:1fr 1fr}
+  .kit-grid{grid-template-columns:1fr 1fr}
+  .press-contact{grid-template-columns:1fr}
+  .spokesperson-grid{grid-template-columns:1fr}
+  .topbar-links{display:none}
+}
+@media(max-width:540px){
+  .pr-grid{grid-template-columns:1fr}
+  .kit-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-left">🌍 GOCAF International – Hyderabad, Telangana, India</span>
+    <div class="topbar-links">
+      <a href="jobs.html">Jobs</a>
+      <a href="press.html" class="active">Press</a>
+      <a href="faq.html">FAQ</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="soc-row">
+      <a href="https://instagram.com" target="_blank" class="soc"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8s-26.8-12-26.8-26.8 12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/></svg></a>
+      <a href="https://youtube.com" target="_blank" class="soc"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205z"/></svg></a>
+      <a href="https://facebook.com" target="_blank" class="soc"><svg viewBox="0 0 320 512"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4.4 37 1.2V7.9C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4v42.1H14v97.8z"/></svg></a>
+      <a href="https://linkedin.com" target="_blank" class="soc"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+      <a href="https://twitter.com" target="_blank" class="soc"><svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF"></a>
+    <div class="nav-links">
+      <a href="index.html#campaigns">Campaigns</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="hdr-btns">
+      <a href="index.html#contact" class="btn btn-orange">Donate</a>
+      <a href="index.html#contact" class="btn btn-teal">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Press &amp; Media</div>
+  <h1>Press &amp; Media</h1>
+  <p>Official press releases, media coverage, spokesperson contacts, and downloadable assets for journalists and media partners.</p>
+</div>
+
+<!-- BODY -->
+<div class="page-body">
+  <div class="container">
+
+    <!-- PRESS CONTACT -->
+    <div class="press-contact">
+      <div>
+        <h3>📞 Media Enquiries</h3>
+        <p>For interviews, statements, expert quotes on animal welfare, or media partnerships, contact our Communications team directly. We respond within 4 hours on weekdays.</p>
+        <p style="margin-top:8px"><strong>Email:</strong> <a href="mailto:alamurisandhya22@gmail.com" style="color:var(--teal)">info@gocaf.global</a> &nbsp;|&nbsp; <strong>WhatsApp:</strong> <a href="https://wa.me/919390189589" target="_blank" style="color:var(--teal)">+91 93901 89589</a></p>
+      </div>
+      <a href="mailto:alamurisandhya22@gmail.com?subject=Media Enquiry – GOCAF" class="btn-teal">Contact Press Team</a>
+    </div>
+
+    <!-- PRESS RELEASES -->
+    <h2 class="sec-title">📄 Latest Press Releases</h2>
+    <p class="sec-sub">Official statements and announcements from GOCAF</p>
+    <div class="pr-grid">
+      <div class="pr-card">
+        <div class="pr-img"><img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=440&h=260&fit=crop" alt="" loading="lazy"></div>
+        <div class="pr-body">
+          <span class="pr-tag pt-campaign">Campaign</span>
+          <div class="pr-date">April 15, 2025</div>
+          <h3>GOCAF Launches City-Wide Spay &amp; Neuter Drive Across 14 Zones of Hyderabad</h3>
+          <p>In partnership with GHMC and 8 certified veterinary clinics, GOCAF has completed 500+ sterilisations across Hyderabad in Q1 2025.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Press Release Request: Spay Drive" class="pr-link">Request Full Release →</a>
+        </div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-img"><img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=440&h=260&fit=crop" alt="" loading="lazy"></div>
+        <div class="pr-body">
+          <span class="pr-tag pt-rescue">Rescue</span>
+          <div class="pr-date">March 28, 2025</div>
+          <h3>GOCAF Rapid Response Team Saves 60 Dogs from Abandoned Colony in Kondapur</h3>
+          <p>After receiving a distress call, GOCAF's emergency team deployed within 40 minutes and successfully evacuated and rehabilitated 60 community dogs.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Press Release Request: Kondapur Rescue" class="pr-link">Request Full Release →</a>
+        </div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-img"><img src="https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=440&h=260&fit=crop" alt="" loading="lazy"></div>
+        <div class="pr-body">
+          <span class="pr-tag pt-policy">Policy</span>
+          <div class="pr-date">February 10, 2025</div>
+          <h3>GOCAF Submits Comprehensive Community Animal Management Policy to Telangana Government</h3>
+          <p>GOCAF has submitted a 48-page policy framework to the Telangana Animal Husbandry Department advocating structured feeder protection and ABC programme expansion.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Press Release Request: Telangana Policy" class="pr-link">Request Full Release →</a>
+        </div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-img"><img src="https://images.pexels.com/photos/3280908/pexels-photo-3280908.jpeg?auto=compress&cs=tinysrgb&w=440&h=260&fit=crop" alt="" loading="lazy"></div>
+        <div class="pr-body">
+          <span class="pr-tag pt-training">Training</span>
+          <div class="pr-date">January 20, 2025</div>
+          <h3>GOCAF Academy Launches Free Volunteer Training Programme — 300+ Graduates in First Month</h3>
+          <p>GOCAF Academy's first cohort of 300+ trained volunteers across Hyderabad, covering first aid, legal rights, and emergency response protocols.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Press Release Request: Academy Launch" class="pr-link">Request Full Release →</a>
+        </div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-img"><img src="https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&w=440&h=260&fit=crop" alt="" loading="lazy"></div>
+        <div class="pr-body">
+          <span class="pr-tag pt-campaign">Campaign</span>
+          <div class="pr-date">December 5, 2024</div>
+          <h3>GOCAF's #ProtectFeeders Campaign Registers 80+ Community Feeders in Hyderabad</h3>
+          <p>A landmark milestone for feeder protection rights — 80 registered feeders now operate under legal documentation and GOCAF's support network.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Press Release Request: ProtectFeeders" class="pr-link">Request Full Release →</a>
+        </div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-img"><img src="https://images.pexels.com/photos/4587998/pexels-photo-4587998.jpeg?auto=compress&cs=tinysrgb&w=440&h=260&fit=crop" alt="" loading="lazy"></div>
+        <div class="pr-body">
+          <span class="pr-tag pt-rescue">Rescue</span>
+          <div class="pr-date">November 18, 2024</div>
+          <h3>GOCAF Completes 847th Emergency Rescue of 2024 — Sets City Record for Animal Welfare Response</h3>
+          <p>GOCAF's rapid response network has responded to 847 animal emergencies in 2024 with an average response time of 45 minutes across all Hyderabad zones.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Press Release Request: 847 Rescues" class="pr-link">Request Full Release →</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <!-- MEDIA KIT -->
+    <h2 class="sec-title">📦 Media Kit & Assets</h2>
+    <p class="sec-sub">Download official logos, photos, bios, and brand guidelines for media use</p>
+    <div class="kit-grid">
+      <div class="kit-item">
+        <div class="kit-ico">🖼️</div>
+        <h4>Logo Pack</h4>
+        <p>GOCAF logos in PNG, SVG, and PDF — light, dark, and colour variants</p>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Media Kit Request: Logo Pack" class="kit-btn">Request</a>
+      </div>
+      <div class="kit-item">
+        <div class="kit-ico">📸</div>
+        <h4>Photo Library</h4>
+        <p>High-resolution photos from rescue operations, campaigns, and events</p>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Media Kit Request: Photo Library" class="kit-btn">Request</a>
+      </div>
+      <div class="kit-item">
+        <div class="kit-ico">🎤</div>
+        <h4>Founder Bio & Photo</h4>
+        <p>Official biography and headshot of Deepthika Palati, Founder & Director</p>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Media Kit Request: Founder Bio" class="kit-btn">Request</a>
+      </div>
+      <div class="kit-item">
+        <div class="kit-ico">📋</div>
+        <h4>Brand Guidelines</h4>
+        <p>GOCAF brand colours, typography, and usage rules for media partners</p>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Media Kit Request: Brand Guidelines" class="kit-btn">Request</a>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <!-- SPOKESPEOPLE -->
+    <h2 class="sec-title">🎙️ Spokespeople</h2>
+    <p class="sec-sub">Available for interviews, expert quotes, and media appearances</p>
+    <div class="spokesperson-grid">
+      <div class="sp-card">
+        <div class="sp-av">D</div>
+        <div class="sp-info">
+          <h4>Deepthika Palati</h4>
+          <p>Founder &amp; Director, GOCAF. Expert in community animal welfare, feeder rights, and urban animal management policy. Available for TV, print, digital media, and academic forums.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Interview Request: Deepthika Palati">Request Interview →</a>
+        </div>
+      </div>
+      <div class="sp-card">
+        <div class="sp-av">G</div>
+        <div class="sp-info">
+          <h4>GOCAF Communications Team</h4>
+          <p>Available for rapid statements on animal welfare news, cruelty cases, policy developments, and community animal management across Hyderabad and Telangana.</p>
+          <a href="mailto:alamurisandhya22@gmail.com?subject=Media Statement Request">Request Statement →</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sec-divider">
+
+    <!-- MEDIA COVERAGE -->
+    <h2 class="sec-title">📰 Media Coverage</h2>
+    <p class="sec-sub">Where GOCAF has been featured</p>
+    <ul class="cov-list">
+      <li class="cov-item"><span class="cov-src">The Hindu</span><div class="cov-txt"><h4>Hyderabad NGO's structured feeding programme gives legal protection to community animal feeders</h4><p>December 2024 – Coverage of GOCAF's feeder registration initiative and legal support network</p></div></li>
+      <li class="cov-item"><span class="cov-src">Deccan Chronicle</span><div class="cov-txt"><h4>GOCAF saves 60 dogs from abandoned Kondapur colony — city's fastest animal rescue on record</h4><p>March 2025 – Emergency rescue coverage</p></div></li>
+      <li class="cov-item"><span class="cov-src">Times of India</span><div class="cov-txt"><h4>Telangana animal welfare NGO submits policy framework to government for structured stray management</h4><p>February 2025 – Policy advocacy coverage</p></div></li>
+      <li class="cov-item"><span class="cov-src">Hyderabad Mirror</span><div class="cov-txt"><h4>GOCAF Academy trains 300 volunteers in first month — Hyderabad's animal welfare movement grows</h4><p>January 2025 – Academy launch coverage</p></div></li>
+    </ul>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 GOCAF – <a href="index.html">Global Organization For Community Animal Freedom Foundation</a> | <a href="mailto:alamurisandhya22@gmail.com">info@gocaf.global</a></p>
+</footer>
+</body>
+</html>

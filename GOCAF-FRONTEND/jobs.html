@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jobs at GOCAF – Animal Welfare Careers</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Roboto',sans-serif;color:#333;background:#fff}
+a{text-decoration:none;color:inherit}
+:root{--teal:#B5366A;--teal-dark:#8C1F50;--teal-light:#F9E8F0;--orange:#F4821F;--gray:#F5F5F5;--shadow:0 4px 20px rgba(0,0,0,.1)}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* TOPBAR */
+.topbar{background:var(--teal);height:38px;display:flex;align-items:center}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:38px;width:100%;padding:0 24px;max-width:1180px;margin:0 auto}
+.topbar-left{font-size:13px;color:rgba(255,255,255,.9)}
+.topbar-links{display:flex}
+.topbar-links a{color:rgba(255,255,255,.85);font-size:13px;height:38px;line-height:38px;padding:0 12px}
+.topbar-links a:hover,.topbar-links a.active{background:rgba(255,255,255,.15);color:#fff}
+.soc-row{display:flex;gap:5px}
+.soc{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
+.soc:hover{background:rgba(255,255,255,.3)}
+.soc svg{width:13px;height:13px;fill:currentColor}
+
+/* HEADER */
+.header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:0 24px}
+.header-inner{display:flex;align-items:center;height:80px;max-width:1180px;margin:0 auto;justify-content:space-between}
+.logo img{height:64px}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:14px;color:#333;padding:8px 14px;border-radius:4px;font-weight:500}
+.nav-links a:hover{background:var(--teal-light);color:var(--teal)}
+.hdr-btns{display:flex;gap:8px}
+.btn{display:inline-block;padding:10px 22px;font-size:14px;font-weight:700;text-transform:uppercase;border:0;cursor:pointer;border-radius:3px;font-family:inherit}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-teal{background:var(--teal);color:#fff}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;padding:56px 24px 48px;text-align:center}
+.page-hero h1{font-size:42px;font-weight:900;margin-bottom:10px}
+.page-hero p{font-size:18px;color:rgba(255,255,255,.88);max-width:680px;margin:0 auto;line-height:1.6}
+.breadcrumb{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:14px}
+.breadcrumb a{color:rgba(255,255,255,.8)}
+.breadcrumb a:hover{color:#fff}
+
+/* CONTENT */
+.page-body{padding:56px 0 72px}
+
+/* JOB CARDS */
+.job-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.jf-btn{padding:8px 18px;border:2px solid var(--gray);border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;background:#fff;color:#555;font-family:inherit;transition:all .2s}
+.jf-btn.on,.jf-btn:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.jobs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:40px}
+.job-card{background:#fff;border:1.5px solid #e8e8e8;border-radius:8px;padding:24px;transition:box-shadow .2s,border-color .2s}
+.job-card:hover{box-shadow:var(--shadow);border-color:var(--teal)}
+.job-dept{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;padding:3px 10px;border-radius:12px;margin-bottom:10px;color:#fff}
+.jd-ops{background:#27AE60}.jd-comms{background:#2980B9}.jd-vol{background:#8E44AD}.jd-prog{background:var(--teal)}.jd-legal{background:#D35400}
+.job-card h3{font-size:17px;font-weight:700;margin-bottom:6px;color:#111}
+.job-card p{font-size:13px;color:#666;line-height:1.6;margin-bottom:12px}
+.job-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.jm{font-size:12px;font-weight:600;color:var(--teal);background:var(--teal-light);padding:3px 10px;border-radius:12px}
+.apply-btn{display:inline-block;padding:9px 20px;background:var(--teal);color:#fff;font-size:13px;font-weight:700;border-radius:4px;transition:background .2s}
+.apply-btn:hover{background:var(--teal-dark);color:#fff}
+
+/* VOLUNTEER */
+.vol-box{background:var(--teal-light);border-radius:8px;padding:32px;margin-bottom:32px}
+.vol-box h3{font-size:22px;font-weight:700;color:var(--teal);margin-bottom:10px}
+.vol-box p{font-size:15px;color:#444;line-height:1.7;margin-bottom:16px}
+.vol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.vol-item{background:#fff;border-radius:6px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.vol-item-ico{font-size:32px;margin-bottom:8px}
+.vol-item h4{font-size:14px;font-weight:700;color:var(--teal);margin-bottom:4px}
+.vol-item p{font-size:12px;color:#666;line-height:1.5}
+
+/* INTERN */
+.intern-box{background:#fff;border:2px solid var(--orange);border-radius:8px;padding:28px;margin-bottom:32px}
+.intern-box h3{font-size:20px;font-weight:700;color:var(--orange);margin-bottom:10px}
+.intern-box p{font-size:15px;color:#444;line-height:1.7}
+
+/* CTA */
+.page-cta{background:var(--teal);color:#fff;border-radius:8px;padding:36px;text-align:center}
+.page-cta h3{font-size:26px;font-weight:900;margin-bottom:10px}
+.page-cta p{font-size:16px;color:rgba(255,255,255,.88);margin-bottom:20px}
+.cta-btn{display:inline-block;padding:12px 32px;background:#fff;color:var(--teal);font-size:16px;font-weight:700;border-radius:4px;text-transform:uppercase}
+.cta-btn:hover{background:var(--teal-light)}
+
+/* FOOTER */
+footer{background:#1a1a1a;padding:28px 0;text-align:center}
+footer p{font-size:13px;color:#666}
+footer a{color:var(--teal)}
+
+@media(max-width:700px){
+  .jobs-grid{grid-template-columns:1fr}
+  .vol-grid{grid-template-columns:1fr 1fr}
+  .topbar-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-left">🌍 GOCAF International – Hyderabad, Telangana, India</span>
+    <div class="topbar-links">
+      <a href="jobs.html" class="active">Jobs</a>
+      <a href="press.html">Press</a>
+      <a href="faq.html">FAQ</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="soc-row">
+      <a href="https://instagram.com" target="_blank" class="soc"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8s-26.8-12-26.8-26.8 12-26.8 26.8-26.8 26.8 12 26.8 26.8z"/></svg></a>
+      <a href="https://youtube.com" target="_blank" class="soc"><svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205z"/></svg></a>
+      <a href="https://facebook.com" target="_blank" class="soc"><svg viewBox="0 0 320 512"><path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4.4 37 1.2V7.9C291.4 4 256.4 0 236.2 0 129.3 0 80 50.5 80 159.4v42.1H14v97.8z"/></svg></a>
+      <a href="https://linkedin.com" target="_blank" class="soc"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+      <a href="https://twitter.com" target="_blank" class="soc"><svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF"></a>
+    <div class="nav-links">
+      <a href="index.html#campaigns">Campaigns</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="hdr-btns">
+      <a href="index.html#contact" class="btn btn-orange">Donate</a>
+      <a href="index.html#contact" class="btn btn-teal">Volunteer</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Jobs</div>
+  <h1>Jobs at GOCAF</h1>
+  <p>Join a team that believes every animal deserves safety, dignity, and freedom. Build your career while making a real difference in animal welfare across India.</p>
+</div>
+
+<!-- BODY -->
+<div class="page-body">
+  <div class="container">
+
+    <!-- FILTER -->
+    <div class="job-filter">
+      <button class="jf-btn on" onclick="filterJobs('all',this)">All Positions</button>
+      <button class="jf-btn" onclick="filterJobs('Operations',this)">Operations</button>
+      <button class="jf-btn" onclick="filterJobs('Communications',this)">Communications</button>
+      <button class="jf-btn" onclick="filterJobs('Volunteer',this)">Volunteer</button>
+      <button class="jf-btn" onclick="filterJobs('Programme',this)">Programme</button>
+      <button class="jf-btn" onclick="filterJobs('Legal',this)">Legal</button>
+    </div>
+
+    <!-- JOB LISTINGS -->
+    <div class="jobs-grid" id="jobsGrid">
+      <div class="job-card" data-dept="Operations">
+        <span class="job-dept jd-ops">Operations</span>
+        <h3>Rapid Response Coordinator</h3>
+        <p>Coordinate 24/7 animal emergency response across Hyderabad. Manage volunteer deployment, track rescue operations, and liaise with partner veterinarians and shelters.</p>
+        <div class="job-meta"><span class="jm">📍 Hyderabad</span><span class="jm">⏱️ Full-time</span><span class="jm">🏠 Hybrid</span></div>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Application: Rapid Response Coordinator" class="apply-btn">Apply Now →</a>
+      </div>
+      <div class="job-card" data-dept="Communications">
+        <span class="job-dept jd-comms">Communications</span>
+        <h3>Social Media & Content Manager</h3>
+        <p>Manage GOCAF's social presence across Instagram, YouTube, Facebook, LinkedIn, and X. Create compelling animal welfare content that drives awareness and donations.</p>
+        <div class="job-meta"><span class="jm">📍 Hyderabad</span><span class="jm">⏱️ Full-time</span><span class="jm">🏠 Remote OK</span></div>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Application: Social Media Manager" class="apply-btn">Apply Now →</a>
+      </div>
+      <div class="job-card" data-dept="Programme">
+        <span class="job-dept jd-prog">Programme</span>
+        <h3>Spay-Neuter Programme Officer</h3>
+        <p>Plan and execute sterilisation camps across zones in collaboration with GHMC, veterinarians, and community volunteers. Track data and publish programme reports.</p>
+        <div class="job-meta"><span class="jm">📍 Hyderabad</span><span class="jm">⏱️ Full-time</span><span class="jm">💰 Stipend Provided</span></div>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Application: Spay-Neuter Programme Officer" class="apply-btn">Apply Now →</a>
+      </div>
+      <div class="job-card" data-dept="Legal">
+        <span class="job-dept jd-legal">Legal</span>
+        <h3>Animal Welfare Legal Associate</h3>
+        <p>Assist community feeders in exercising their legal rights under the PCA Act 1960 and PFA Rules. Draft complaints, attend hearings, and build our legal case database.</p>
+        <div class="job-meta"><span class="jm">📍 Hyderabad</span><span class="jm">⏱️ Part-time / Intern</span><span class="jm">📚 LLB Required</span></div>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Application: Legal Associate" class="apply-btn">Apply Now →</a>
+      </div>
+      <div class="job-card" data-dept="Operations">
+        <span class="job-dept jd-ops">Operations</span>
+        <h3>Shelter & Foster Network Manager</h3>
+        <p>Expand GOCAF's shelter and foster partner network across Hyderabad. Manage intake records, coordinate adoptions, and support foster families with training.</p>
+        <div class="job-meta"><span class="jm">📍 Hyderabad</span><span class="jm">⏱️ Full-time</span><span class="jm">🐾 Animal Experience Required</span></div>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Application: Shelter Network Manager" class="apply-btn">Apply Now →</a>
+      </div>
+      <div class="job-card" data-dept="Programme">
+        <span class="job-dept jd-prog">Programme</span>
+        <h3>Community Outreach Coordinator</h3>
+        <p>Build relationships with RWAs, housing societies, schools, and businesses. Run awareness workshops, feeder registration drives, and conflict resolution sessions.</p>
+        <div class="job-meta"><span class="jm">📍 Hyderabad</span><span class="jm">⏱️ Full-time</span><span class="jm">🗣️ Telugu + English</span></div>
+        <a href="mailto:alamurisandhya22@gmail.com?subject=Application: Outreach Coordinator" class="apply-btn">Apply Now →</a>
+      </div>
+    </div>
+
+    <!-- VOLUNTEER -->
+    <div class="vol-box">
+      <h3>🙋 Volunteer with GOCAF</h3>
+      <p>Can't commit full-time? Join our volunteer network and contribute your skills whenever you can. No experience required — only compassion and commitment.</p>
+      <div class="vol-grid">
+        <div class="vol-item"><div class="vol-item-ico">🚑</div><h4>Rescue Volunteer</h4><p>On-ground rescue support for emergency calls and follow-up care</p></div>
+        <div class="vol-item"><div class="vol-item-ico">🍽️</div><h4>Community Feeder</h4><p>Register and manage a feeding zone for community animals near you</p></div>
+        <div class="vol-item"><div class="vol-item-ico">📸</div><h4>Content Creator</h4><p>Document rescues, create reels, and tell stories that move people</p></div>
+        <div class="vol-item"><div class="vol-item-ico">⚖️</div><h4>Legal Aid Volunteer</h4><p>Help feeders and welfare workers navigate animal protection laws</p></div>
+        <div class="vol-item"><div class="vol-item-ico">🎓</div><h4>GOCAF Academy Trainer</h4><p>Teach first aid, animal behaviour, and welfare skills at workshops</p></div>
+        <div class="vol-item"><div class="vol-item-ico">💻</div><h4>Tech Volunteer</h4><p>Build tools, manage our website, and help us scale with technology</p></div>
+      </div>
+      <a href="mailto:alamurisandhya22@gmail.com?subject=Volunteer Application – GOCAF" class="apply-btn">Volunteer with GOCAF →</a>
+    </div>
+
+    <!-- INTERNSHIP -->
+    <div class="intern-box">
+      <h3>🎓 Internship Programme</h3>
+      <p>GOCAF offers structured 2–6 month internships for students and recent graduates across animal welfare, communications, legal aid, data management, and community outreach. Interns receive hands-on field experience, mentorship, and a formal certificate. Email your CV and area of interest to <a href="mailto:alamurisandhya22@gmail.com" style="color:var(--teal);font-weight:700">alamurisandhya22@gmail.com</a> with subject line "GOCAF Internship Application".</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="page-cta">
+      <h3>Don't See the Right Role?</h3>
+      <p>We are always looking for passionate people. Send us your CV and tell us how you'd like to contribute.</p>
+      <a href="mailto:alamurisandhya22@gmail.com?subject=Open Application – GOCAF" class="cta-btn">Send Open Application</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 GOCAF – <a href="index.html">Global Organization For Community Animal Freedom Foundation</a> | <a href="mailto:alamurisandhya22@gmail.com">info@gocaf.global</a></p>
+</footer>
+
+<script>
+function filterJobs(dept, btn){
+  document.querySelectorAll('.jf-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.job-card').forEach(c=>{
+    c.style.display = (dept==='all'||c.dataset.dept===dept)?'block':'none';
+  });
+}
+</script>
+</body>
+</html>
