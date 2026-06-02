@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        GOCAF Volunteer Registration
+    </title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-slate-100 min-h-screen p-6">
+
+    <div class="max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+
+        <!-- HEADER -->
+
+        <div class="bg-gradient-to-r from-violet-700 via-fuchsia-600 to-pink-500 text-white p-10">
+
+            <h1 class="text-5xl font-black leading-tight">
+
+                GOCAF VOLUNTEER  REGISTRATION
+
+            </h1>
+
+            <h1 class="text-4xl font-black leading-tight">
+
+                Join The GOCAF Elite Animal Welfare Network — Where Compassion, Leadership & Impact Come Together.      
+
+            </h1>
+
+            <p class="text-xl mt-5 text-pink-100 leading-8 max-w-5xl">
+
+                Become part of an elite community where compassion creates real impact.
+                Support rescue, healthcare, feeding and protection initiatives for community animals across India.
+
+            </p>
+
+        </div>
+
+        <!-- CONTENT -->
+
+        <div class="p-8">
+
+            <!-- HERO -->
+
+            <div class="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-violet-600 rounded-[32px] p-8 text-white shadow-2xl mb-12">
+
+                <h2 class="text-4xl font-black leading-tight">
+
+                    🛡️ Become A Voice For Community Animals
+
+                </h2>
+
+                <p class="text-lg mt-6 leading-8 max-w-5xl">
+
+                    GOCAF SAVE volunteers support rescue operations,
+                    feeding activities, healthcare awareness,
+                    vaccination coordination, adoption drives,
+                    emergency welfare support and long-term animal protection.
+
+                </p>
+
+            </div>
+
+            <!-- CONTRIBUTION BOX -->
+
+            <div class="bg-white rounded-[28px] p-6 md:p-7 mt-10 shadow-2xl border border-fuchsia-100 mb-12">
+
+                <div class="flex flex-col md:flex-row items-center gap-6">
+
+                    <div class="bg-pink-100 w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-inner flex-shrink-0">
+
+                        🤝
+
+                    </div>
+
+                    <div class="flex-1 text-center md:text-left">
+
+                        <h3 class="text-4xl md:text-5xl font-black text-fuchsia-600 leading-tight">
+
+                            ₹650
+
+                        </h3>
+
+                        <h4 class="text-2xl md:text-3xl font-black text-violet-700 mt-2">
+
+                            Elite Volunteer Contribution
+
+                        </h4>
+
+                        <p class="text-base md:text-lg text-slate-800 mt-4 leading-8">
+
+                            Your contribution supports community animal feeding,
+                            rescue coordination, volunteer operations,
+                            and creation of your official GOCAF SAVE Elite Volunteer identity profile.
+
+                        </p>
+
+                        <p class="text-lg md:text-xl font-black text-pink-600 mt-6">
+
+                            ❤️ One Registration Helps Feed A Community Animal For A Day.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <form
+                action="/register-volunteer"
+                method="POST"
+                enctype="multipart/form-data"
+                class="space-y-8"
+            >
+
+                <!-- PERSONAL DETAILS -->
+
+                <section class="bg-slate-50 rounded-2xl p-6">
+
+                    <h2 class="text-3xl font-bold mb-6">
+
+                        👤 Volunteer Details
+
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                        <input
+                            type="text"
+                            name="Full Name"
+                            required
+                            placeholder="Full Name"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                        <input
+                            type="tel"
+                            name="Phone Number"
+                            required
+                            placeholder="Phone Number"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                        <input
+                            type="email"
+                            name="Email Address"
+                            required
+                            placeholder="Email Address"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                        <input
+                            type="number"
+                            name="Age"
+                            required
+                            placeholder="Age"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                        <input
+                            type="text"
+                            name="Occupation"
+                            required
+                            placeholder="Occupation"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                        <select
+                            name="Volunteer Mode"
+                            required
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                            <option value="">
+                                Preferred Volunteering Type
+                            </option>
+
+                            <option>
+                                Online Volunteering
+                            </option>
+
+                            <option>
+                                Offline Volunteering
+                            </option>
+
+                            <option>
+                                Both Online & Offline
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </section>
+
+                <!-- LOCATION -->
+
+                <section class="bg-slate-50 rounded-2xl p-6">
+
+                    <h2 class="text-3xl font-bold mb-6">
+
+                        📍 Location Details
+
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                        <input
+                            type="text"
+                            name="Area"
+                            required
+                            placeholder="Area / Locality"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                        <input
+                            type="text"
+                            name="City"
+                            required
+                            placeholder="City"
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                    </div>
+
+                    <textarea
+                        name="Full Address"
+                        required
+                        placeholder="Full Address"
+                        class="w-full rounded-xl border border-slate-300 p-4 min-h-[120px] mt-5"
+                    ></textarea>
+
+                </section>
+
+                <!-- SCREENING -->
+
+                <section class="bg-slate-50 rounded-2xl p-6">
+
+                    <h2 class="text-3xl font-bold mb-6">
+
+                        Volunteer Screening Questions
+
+                    </h2>
+
+                    <div class="space-y-6">
+
+                        <textarea
+                            name="Volunteer Motivation"
+                            required
+                            placeholder="Why do you want to join GOCAF SAVE?"
+                            class="w-full rounded-xl border border-slate-300 p-4 min-h-[120px]"
+                        ></textarea>
+
+                        <textarea
+                            name="Previous Experience"
+                            required
+                            placeholder="Have you previously helped animals or volunteered before?"
+                            class="w-full rounded-xl border border-slate-300 p-4 min-h-[120px]"
+                        ></textarea>
+
+                        <select
+                            name="Volunteer Hours"
+                            required
+                            class="w-full rounded-xl border border-slate-300 p-4"
+                        >
+
+                            <option value="">
+                                Select Hours Per Week
+                            </option>
+
+                            <option>
+                                1-2 Hours
+                            </option>
+
+                            <option>
+                                3-5 Hours
+                            </option>
+
+                            <option>
+                                5-10 Hours
+                            </option>
+
+                            <option>
+                                10+ Hours
+                            </option>
+
+                        </select>
+
+                        <textarea
+                            name="Volunteer Interests"
+                            required
+                            placeholder="What areas are you interested in helping with?"
+                            class="w-full rounded-xl border border-slate-300 p-4 min-h-[120px]"
+                        ></textarea>
+
+                        <textarea
+                            name="Future Goals"
+                            required
+                            placeholder="What are your future goals in animal welfare?"
+                            class="w-full rounded-xl border border-slate-300 p-4 min-h-[120px]"
+                        ></textarea>
+
+                    </div>
+
+                </section>
+
+                <!-- VERIFICATION -->
+
+                <section class="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+
+                    <h2 class="text-3xl font-bold text-blue-900 mb-6">
+
+                        🪪 Volunteer Verification
+
+                    </h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                        <select
+                            name="ID Proof Type"
+                            required
+                            class="w-full rounded-xl border border-blue-300 p-4"
+                        >
+
+                            <option value="">
+                                Select ID Type
+                            </option>
+
+                            <option>
+                                Aadhaar Card
+                            </option>
+
+                            <option>
+                                PAN Card
+                            </option>
+
+                            <option>
+                                Driving License
+                            </option>
+
+                            <option>
+                                Voter ID
+                            </option>
+
+                        </select>
+
+                        <input
+                            type="text"
+                            name="ID Number"
+                            required
+                            placeholder="Government ID Number"
+                            class="w-full rounded-xl border border-blue-300 p-4"
+                        >
+
+                    </div>
+
+                    <div class="mt-6">
+
+                        <label class="block mb-3 font-semibold text-blue-900">
+
+                            Upload ID Proof
+
+                        </label>
+
+                        <input
+                            type="file"
+                            name="Volunteer ID Upload"
+                            required
+                            class="w-full rounded-xl border border-blue-300 p-4 bg-white"
+                        >
+
+                    </div>
+
+                </section>
+
+                <!-- PAYMENT -->
+
+                <section class="bg-orange-50 border border-orange-200 rounded-2xl p-6">
+
+                    <h2 class="text-2xl font-bold text-orange-900 mb-4">
+
+                        ❤️ Elite Volunteer Contribution
+
+                    </h2>
+
+                    <p class="text-orange-800 text-lg leading-8 mb-6">
+
+                        Your ₹650 contribution helps support:
+
+                        <br><br>
+
+                        • Community Animal Feeding
+                        <br>
+                        • Rescue & Welfare Operations
+                        <br>
+                        • Volunteer Welfare Activities
+                        <br>
+                        • GOCAF Elite Volunteer Identity
+                        <br>
+                        • Animal Healthcare Support
+
+                    </p>
+
+                    <!-- PAYMENT BUTTON -->
+
+                    <button
+                        type="button"
+                        onclick="openVolunteerPaymentModal()"
+                        class="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-5 rounded-2xl text-2xl shadow-lg transition duration-300"
+                    >
+
+                        🛡️ Become An Elite Volunteer • Support Animal Welfare ❤️ Contribute your bit ❤️
+
+                    </button>
+
+                    <!-- UPI -->
+
+                    <div class="bg-white rounded-2xl border border-orange-200 p-5 mt-6">
+
+                        <p class="text-orange-900 font-bold text-lg">
+
+                            UPI ID
+
+                        </p>
+
+                        <p class="text-orange-700 text-xl mt-2 font-semibold">
+
+                            deepthikapalati@ybl
+
+                        </p>
+
+                    </div>
+
+                    <!-- TRANSACTION -->
+
+                    <div class="mt-6">
+
+                        <label class="block mb-2 font-semibold text-orange-900">
+
+                            UPI Transaction ID
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Volunteer Transaction ID"
+                            placeholder="Enter payment transaction ID"
+                            class="w-full rounded-xl border border-orange-300 p-4"
+                            required
+                        >
+
+                    </div>
+
+                </section>
+
+                <!-- CONSENT -->
+
+                <section class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6">
+
+                    <label class="flex items-start gap-4 text-lg leading-8 text-emerald-900">
+
+                        <input
+                            type="checkbox"
+                            required
+                            class="mt-2 w-6 h-6"
+                        >
+
+                        I confirm that all information provided is accurate and I agree to support GOCAF SAVE welfare initiatives responsibly and ethically.
+
+                    </label>
+
+                </section>
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="w-full bg-gradient-to-r from-pink-500 via-fuchsia-500 to-violet-600 hover:opacity-90 text-white text-2xl font-black py-5 rounded-2xl shadow-2xl transition duration-300"
+                >
+
+                     ❤️ I Contributed • It Bought A Meal ❤️ • Get My Elite Volunteer ID
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- SCRIPT -->
+
+    <script>
+
+        function openVolunteerPaymentModal() {
+
+            document
+                .getElementById(
+                    'volunteerPaymentModal'
+                )
+                .classList
+                .remove('hidden')
+        }
+
+        function closeVolunteerPaymentModal() {
+
+            document
+                .getElementById(
+                    'volunteerPaymentModal'
+                )
+                .classList
+                .add('hidden')
+        }
+
+    </script>
+
+    <!-- PAYMENT MODAL -->
+
+    <div
+        id="volunteerPaymentModal"
+        class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+    >
+
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center relative">
+
+            <button
+                onclick="closeVolunteerPaymentModal()"
+                class="absolute top-4 right-4 text-2xl"
+            >
+                ✖
+            </button>
+
+            <h2 class="text-3xl font-bold mb-6 leading-10">
+
+                🤝 GOCAF Elite Volunteer Contribution
+
+            </h2>
+
+            <img
+                src="/static/images/gocaf-upi-qr.jpeg"
+                alt="GOCAF UPI QR"
+                class="w-72 h-72 object-contain mx-auto rounded-2xl shadow-lg border"
+            >
+
+            <p class="mt-6 text-xl font-semibold">
+
+                Scan & Contribute ₹650
+
+            </p>
+
+            <p class="text-slate-600 mt-2">
+
+                UPI ID: deepthikapalati@ybl
+
+            </p>
+
+            <p class="text-pink-600 font-bold mt-6 text-lg leading-8">
+
+                ❤️ Your contribution helps support
+                community animal welfare across India.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        GOCAF Admin Login
+    </title>
+
+    <!-- GOOGLE FONT -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- TAILWIND -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+    </style>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-violet-950 to-fuchsia-900 flex items-center justify-center p-6 overflow-hidden">
+
+    <!-- BACKGROUND GLOW -->
+
+    <div class="absolute inset-0 overflow-hidden">
+
+        <div class="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-fuchsia-500 opacity-20 rounded-full blur-3xl"></div>
+
+        <div class="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-violet-500 opacity-20 rounded-full blur-3xl"></div>
+
+    </div>
+
+    <!-- LOGIN CARD -->
+
+    <div class="relative z-10 w-full max-w-md">
+
+        <div class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[40px] shadow-[0_20px_80px_rgba(0,0,0,0.4)] overflow-hidden">
+
+            <!-- HEADER -->
+
+            <div class="bg-gradient-to-r from-fuchsia-600 via-pink-500 to-violet-600 p-10 text-center text-white">
+
+                <div class="text-7xl mb-5">
+
+                    🛡️
+
+                </div>
+
+                <h1 class="text-4xl font-black leading-tight">
+
+                    GOCAF SAVE
+
+                </h1>
+
+                <p class="mt-4 text-lg font-medium text-pink-100">
+
+                    Elite Admin Control Center
+
+                </p>
+
+            </div>
+
+            <!-- FORM -->
+
+            <div class="p-10">
+
+                <h2 class="text-3xl font-black text-white text-center">
+
+                    Admin Login
+
+                </h2>
+
+                <p class="text-slate-300 text-center mt-3 leading-8">
+
+                    Secure access for GOCAF welfare operations,
+                    volunteer verification and animal protection systems.
+
+                </p>
+
+                <!-- LOGIN FORM -->
+
+                <form
+                    action="/admin/login"
+                    method="POST"
+                    class="mt-10 space-y-6"
+                >
+
+                    <!-- EMAIL -->
+
+                    <div>
+
+                        <label class="text-white font-semibold block mb-3">
+
+                            Admin Email
+
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            placeholder="Enter admin email"
+                            class="w-full bg-white/10 border border-white/20 text-white placeholder:text-slate-300 rounded-2xl p-4 outline-none focus:border-fuchsia-400"
+                        >
+
+                    </div>
+
+                    <!-- PASSWORD -->
+
+                    <div>
+
+                        <label class="text-white font-semibold block mb-3">
+
+                            Password
+
+                        </label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            required
+                            placeholder="Enter password"
+                            class="w-full bg-white/10 border border-white/20 text-white placeholder:text-slate-300 rounded-2xl p-4 outline-none focus:border-fuchsia-400"
+                        >
+
+                    </div>
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-fuchsia-600 via-pink-500 to-violet-600 hover:scale-[1.02] transition-all duration-300 text-white text-xl font-black py-5 rounded-2xl shadow-2xl"
+                    >
+
+                        🔐 Access GOCAF Admin
+
+                    </button>
+
+                </form>
+
+                <!-- FOOTER -->
+
+                <div class="mt-10 text-center">
+
+                    <p class="text-slate-400 text-sm leading-7">
+
+                        Authorized personnel only •
+                        GOCAF SAVE Welfare Infrastructure
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

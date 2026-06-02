@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        GOCAF SAVE Admin
+    </title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e293b
+            );
+            color: white;
+            padding: 35px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #cbd5e1;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            flex: 1;
+        }
+
+        input,
+        textarea,
+        select {
+
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            font-size: 16px;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 100px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #374151;
+        }
+
+        button {
+            background: #111827;
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-btn {
+            min-width: 220px;
+        }
+
+        .update-btn {
+            width: 100%;
+            margin-top: 35px;
+            padding: 18px;
+            font-size: 18px;
+        }
+
+        .dog-header {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            padding: 30px;
+            border-radius: 20px;
+            background: linear-gradient(
+                135deg,
+                #eff6ff,
+                #f8fafc
+            );
+            margin-bottom: 30px;
+        }
+
+        .dog-image img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 6px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .dog-info h1 {
+            margin: 0;
+            font-size: 60px;
+            color: #0f172a;
+        }
+
+        .dog-info p {
+            font-size: 20px;
+            color: #475569;
+            margin-top: 15px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 18px;
+            background: #22c55e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 999px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .section {
+            background: #f9fafb;
+            border-radius: 18px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .audit-box {
+            margin-top: 25px;
+            padding: 18px;
+            background: #eef2ff;
+            border-radius: 14px;
+            color: #3730a3;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #e5e7eb;
+        }
+
+        @media(max-width: 768px) {
+
+            .dog-header {
+                flex-direction: column;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .dog-info h1 {
+                font-size: 42px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="header">
+
+            <div class="title">
+                GOCAF SAVE Admin
+            </div>
+
+            <div class="subtitle">
+                Animal Registry Management Platform
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <!-- SEARCH -->
+
+            <form
+                method="POST"
+                action="/admin/search"
+            >
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        name="scan_code"
+                        placeholder="Enter Scan Code"
+                        required
+                    >
+
+                    <button
+                        class="search-btn"
+                    >
+                        Search Animal
+                    </button>
+
+                </div>
+
+            </form>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+
+                {% if messages %}
+
+                    {% for category, message in messages[-1:] %}
+
+                        <div class="mb-6">
+
+                            <div class="bg-green-100 border border-green-300 text-green-900 px-6 py-4 rounded-2xl font-semibold text-lg">
+
+                                {{ message }}
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% endwith %}
+
+                {% if messages %}
+
+                    {% for category, message in messages %}
+
+                        <div class="{{ category }}">
+
+                            {{ message }}
+
+                        </div>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% if error %}
+
+                <div class="error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+            {% if success %}
+
+                <div class="success">
+                    {{ success }}
+                </div>
+
+            {% endif %}
+
+            {% if animal %}
+
+                <!-- HEADER -->
+
+                <div class="dog-header">
+
+                    <div class="dog-image">
+
+                        <img
+                            src="{{ animal['Upload Animal Photos'] }}"
+                        >
+
+                    </div>
+
+                    <div class="dog-info">
+
+                        <h1>
+                            🐶 {{ animal['Animal Name'] }}
+                        </h1>
+
+                        <p>
+
+                            {{ animal['Animal Type'] }}
+                            •
+
+                            {{ animal['Gender'] }}
+                            •
+
+                            {{ animal['Approx Age'] }}
+                            Years
+
+                        </p>
+
+                        <div class="badge">
+
+                            {{ animal['Vaccination Status'] }}
+
+                        </div>
+
+                        <p>
+                            SAVE ID:
+                            <strong>
+                                {{ animal['save_id'] }}
+                            </strong>
+                        </p>
+
+                        <p>
+                            Scan Code:
+                            <strong>
+                                {{ animal['short_save_id'] }}
+                            </strong>
+                        </p>
+
+                        <p>
+                            Condition:
+                            <strong>
+                                {{ animal['Current Condition'] }}
+                            </strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- UPDATE FORM -->
+
+                <form
+                    method="POST"
+                    action="/admin/update"
+                >
+
+                    <!-- IMPORTANT HIDDEN FIELDS -->
+
+                    <input
+                        type="hidden"
+                        name="short_save_id"
+                        value="{{ animal['short_save_id'] }}"
+                        required
+                    >
+
+                    <input
+                        type="hidden"
+                        name="internal_id"
+                        value="{{ animal['internal_id'] }}"
+                        required
+                    >
+
+                    <!-- CARETAKER -->
+
+                    <div class="section">
+
+                        <div class="section-title">
+                            👤 Caretaker Details Update
+                        </div>
+
+                        <div class="grid">
+
+                            <div>
+
+                                <label>
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Full Name"
+                                    value="{{ animal['Full Name'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Phone Number"
+                                    value="{{ animal['Phone Number'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Email ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Email ID"
+                                    value="{{ animal['Email ID'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Role
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Role"
+                                    value="{{ animal['Role'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Feeding Frequency
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Feeding Frequency"
+                                    value="{{ animal['Feeding Frequency'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Animals In Same Area
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Number of Animals in Same Area"
+                                    value="{{ animal['Number of Animals in Same Area'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ANIMAL -->
+
+                    <div class="section">
+
+                        <div class="section-title">
+                            🐾 Animal Details Update
+                        </div>
+
+                        <div class="grid">
+
+                            <div>
+
+                                <label>
+                                    Animal Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Animal Name"
+                                    value="{{ animal['Animal Name'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Animal Type
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Animal Type"
+                                    value="{{ animal['Animal Type'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Gender
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Gender"
+                                    value="{{ animal['Gender'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Approx Age
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Approx Age"
+                                    value="{{ animal['Approx Age'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- HEALTH -->
+
+                    <div class="section">
+
+                        <div class="section-title">
+                            💉 Health Details Update
+                        </div>
+
+                        <div class="grid">
+
+                            <div>
+
+                                <label>
+                                    Vaccination Status
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Vaccination Status"
+                                    value="{{ animal['Vaccination Status'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Sterilization Status
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Sterilization Status"
+                                    value="{{ animal['Sterilization Status'] }}"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <label>
+                            Current Condition
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Current Condition"
+                            value="{{ animal['Current Condition'] }}"
+                            required
+                        >
+
+                    </div>
+
+                    <!-- MEDICAL -->
+
+                    <div class="section">
+
+                        <div class="section-title">
+                            🏥 Medical Checkup Update
+                        </div>
+
+                        <div class="grid">
+
+                            <div>
+
+                                <label>
+                                    Temperature
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Temperature"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Weight
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Weight"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    ARV Status
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="ARV Status"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    ARV Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="ARV Date"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Booster Status
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Booster Status"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Booster Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="Booster Date"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Deworming Status
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Deworming Status"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Deworming Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="Deworming Date"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <label>
+                            Medical Condition
+                        </label>
+
+                        <textarea
+                            name="Medical Condition"
+                            required
+                        ></textarea>
+
+                        <label>
+                            Medicines
+                        </label>
+
+                        <textarea
+                            name="Medicines"
+                            required
+                        ></textarea>
+
+                        <div class="grid">
+
+                            <div>
+
+                                <label>
+                                    Dosage
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Dosage"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Treatment Days
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Treatment Days"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Vet Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="Vet Name"
+                                    required
+                                >
+
+                            </div>
+
+                            <div>
+
+                                <label>
+                                    Next Visit Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="Next Visit Date"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- MEDICAL HISTORY -->
+
+                    <div class="section">
+
+                        <div class="section-title">
+                            📜 Medical History
+                        </div>
+
+                        {% if medical_history %}
+
+                            <table>
+
+                                <tr>
+
+                                    <th>Date</th>
+                                    <th>Temperature</th>
+                                    <th>Weight</th>
+                                    <th>ARV</th>
+                                    <th>Condition</th>
+                                    <th>Medicines</th>
+
+                                </tr>
+
+                                {% for record in medical_history %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ record['Updated At'] }}
+                                    </td>
+
+                                    <td>
+                                        {{ record['Temperature'] }}
+                                    </td>
+
+                                    <td>
+                                        {{ record['Weight'] }}
+                                    </td>
+
+                                    <td>
+                                        {{ record['ARV Status'] }}
+                                    </td>
+
+                                    <td>
+                                        {{ record['Medical Condition'] }}
+                                    </td>
+
+                                    <td>
+                                        {{ record['Medicines'] }}
+                                    </td>
+
+                                </tr>
+
+                                {% endfor %}
+
+                            </table>
+
+                        {% else %}
+
+                            <p>
+                                No Medical Records Found
+                            </p>
+
+                        {% endif %}
+
+                    </div>
+
+                    <!-- AUDIT -->
+
+                    <div class="audit-box">
+
+                        <strong>
+                            Updated By:
+                        </strong>
+
+                        admin@save.org
+
+                        <br>
+
+                        <strong>
+                            Updated At:
+                        </strong>
+
+                        Auto Generated During Update
+
+                    </div>
+
+                    <button
+                        class="update-btn"
+                    >
+                        Update Animal Details
+                    </button>
+
+                </form>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
