@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate – GOCAF Animal Welfare</title>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --teal:#B5366A;--teal-dark:#8C1F50;--teal-light:#F9E8F0;
+    --purple:#6B2FA0;
+    --grad:linear-gradient(135deg,#C8375A 0%,#9B2E8A 50%,#6B3FA0 100%);
+    --white:#fff;--black:#1C1C1C;--gray:#666;--gray-light:#f8f5fa;
+    --radius:8px;--shadow:0 4px 24px rgba(0,0,0,.1);
+  }
+  body{font-family:'Roboto',sans-serif;background:var(--gray-light);min-height:100vh;color:var(--black)}
+
+  .header{background:var(--grad);color:#fff;padding:16px 24px;display:flex;align-items:center;gap:14px}
+  .header .brand{font-size:22px;font-weight:900;letter-spacing:.5px}
+  .header .tagline{font-size:13px;opacity:.85}
+
+  .hero-band{background:var(--grad);padding:48px 24px 56px;text-align:center;color:#fff;position:relative;overflow:hidden}
+  .hero-band::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:40px;background:var(--gray-light);clip-path:ellipse(55% 100% at 50% 100%)}
+  .hero-band h1{font-size:38px;font-weight:900;line-height:1.1;margin-bottom:10px}
+  .hero-band p{font-size:17px;opacity:.9;max-width:560px;margin:0 auto;line-height:1.6}
+
+  .page-wrap{max-width:620px;margin:-20px auto 60px;padding:0 16px;position:relative;z-index:1}
+  .card{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+
+  .card-section{padding:28px 32px;border-bottom:1px solid #f0eaf5}
+  .card-section:last-child{border-bottom:none}
+  .section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--teal);margin-bottom:16px}
+
+  .amount-presets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .preset{padding:14px 8px;border:2px solid #e8dff2;border-radius:var(--radius);background:#fff;font-size:18px;font-weight:700;color:var(--black);cursor:pointer;text-align:center;transition:all .2s;line-height:1.2}
+  .preset small{display:block;font-size:11px;font-weight:400;color:var(--gray);margin-top:2px}
+  .preset:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-light)}
+  .preset.active{border-color:var(--teal);background:var(--teal-light);color:var(--teal)}
+
+  .custom-row{display:flex;align-items:center;border:2px solid #e8dff2;border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+  .custom-row:focus-within{border-color:var(--teal)}
+  .custom-prefix{padding:12px 14px;background:#f8f5fa;font-size:18px;font-weight:700;color:var(--gray);flex-shrink:0}
+  .custom-row input{flex:1;border:none;outline:none;padding:12px 14px;font-size:18px;font-weight:700;font-family:inherit;color:var(--black)}
+
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+  .field-row.single{grid-template-columns:1fr}
+  .field label{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray);margin-bottom:6px}
+  .field input{width:100%;padding:11px 14px;border:2px solid #e8dff2;border-radius:var(--radius);font-size:15px;font-family:inherit;color:var(--black);outline:none;transition:border-color .2s}
+  .field input:focus{border-color:var(--teal)}
+  .field input::placeholder{color:#bbb}
+
+  .donate-btn{width:100%;padding:18px;background:var(--grad);color:#fff;border:none;border-radius:var(--radius);font-size:18px;font-weight:900;font-family:inherit;text-transform:uppercase;letter-spacing:.8px;cursor:pointer;transition:opacity .2s,transform .2s;margin-top:4px}
+  .donate-btn:hover{opacity:.92;transform:translateY(-1px)}
+  .donate-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+  .trust-row{display:flex;justify-content:center;gap:24px;padding:20px 24px;background:#fdf8fc;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--gray);font-weight:500}
+  .trust-item svg{width:16px;height:16px;flex-shrink:0}
+
+  .success-wrap{display:none;padding:40px 32px;text-align:center}
+  .success-wrap.show{display:block}
+  .success-icon{width:72px;height:72px;background:linear-gradient(135deg,#22c55e,#16a34a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
+  .success-icon svg{width:36px;height:36px;fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  @keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+  .success-wrap h2{font-size:28px;font-weight:900;color:var(--black);margin-bottom:8px}
+  .success-wrap p{color:var(--gray);font-size:16px;line-height:1.6;margin-bottom:6px}
+  .success-amount{font-weight:700;font-size:20px;color:var(--teal);margin-top:8px}
+  .payment-id{font-size:12px;color:#bbb;margin-top:12px;font-family:monospace}
+  .donate-again{margin-top:24px;padding:12px 28px;background:var(--teal-light);color:var(--teal);border:2px solid var(--teal);border-radius:var(--radius);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all .2s}
+  .donate-again:hover{background:var(--teal);color:#fff}
+
+  .wa-btn{margin-top:12px;padding:12px 28px;background:#25D366;color:#fff;border:none;border-radius:var(--radius);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s}
+  .wa-btn:hover{opacity:.88}
+
+  .error-msg{background:#fff0f3;border:1px solid #fca5a5;color:#b91c1c;padding:12px 16px;border-radius:var(--radius);font-size:14px;margin-top:12px;display:none}
+  .error-msg.show{display:block}
+
+  .impact-section{max-width:620px;margin:0 auto 60px;padding:0 16px}
+  .impact-section h2{text-align:center;font-size:22px;font-weight:900;color:var(--black);margin-bottom:20px}
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .impact-card{background:#fff;border-radius:12px;padding:20px 16px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+  .impact-amount{font-size:22px;font-weight:900;color:var(--teal);margin-bottom:6px}
+  .impact-desc{font-size:13px;color:var(--gray);line-height:1.5}
+
+  @media(max-width:520px){
+    .hero-band h1{font-size:28px}
+    .card-section{padding:22px 20px}
+    .preset{font-size:15px;padding:12px 6px}
+    .field-row{grid-template-columns:1fr}
+    .impact-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <div class="brand">🐾 GOCAF</div>
+    <div class="tagline">Global Organization For Community Animal Freedom Foundation</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero-band">
+  <h1>Every Rupee Saves a Life</h1>
+  <p>Your donation directly supports rescued animals, emergency veterinary care, and community animal welfare programs across India.</p>
+</div>
+
+<!-- DONATION CARD -->
+<div class="page-wrap">
+  <div class="card">
+
+    <!-- Step 1: Choose Amount -->
+    <div class="card-section" id="form-wrap">
+      <div class="section-label">Choose Amount</div>
+      <div class="amount-presets">
+        <button class="preset" data-amount="50000">₹500<small>Basic care</small></button>
+        <button class="preset active" data-amount="100000">₹1,000<small>Vet visit</small></button>
+        <button class="preset" data-amount="200000">₹2,000<small>Treatment</small></button>
+        <button class="preset" data-amount="500000">₹5,000<small>Surgery</small></button>
+        <button class="preset" data-amount="1000000">₹10,000<small>Full rescue</small></button>
+        <button class="preset" data-amount="custom">Other</button>
+      </div>
+      <div class="custom-row" id="custom-row" style="display:none">
+        <span class="custom-prefix">₹</span>
+        <input type="number" id="custom-amount" placeholder="Enter amount" min="1">
+      </div>
+    </div>
+
+    <!-- Step 2: Donor Details -->
+    <div class="card-section" id="details-wrap">
+      <div class="section-label">Your Details</div>
+      <div class="field-row">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" id="donor-name" placeholder="Rahul Sharma">
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" id="donor-phone" placeholder="9876543210">
+        </div>
+      </div>
+      <div class="field-row single">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="donor-email" placeholder="you@example.com">
+        </div>
+      </div>
+      <button class="donate-btn" id="donate-btn" onclick="startDonation()">
+        Donate Now &ndash; <span id="btn-amount">₹1,000</span>
+      </button>
+      <div class="error-msg" id="error-msg"></div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-row">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% Secure
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#6B2FA0" stroke-width="2.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        Razorpay Encrypted
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B5366A" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        80G Tax Benefit
+      </div>
+    </div>
+
+    <!-- Success Screen -->
+    <div class="success-wrap" id="success-wrap">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Thank You! </h2>
+      <p>Your donation has been received successfully.<br>You're making a real difference for community animals across India.</p>
+      <p class="success-amount" id="success-amount"></p>
+      <p class="payment-id" id="payment-id"></p>
+      <br>
+      <button class="wa-btn" id="wa-share-btn" onclick="shareOnWhatsApp()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.849L.057 23.886a.5.5 0 00.606.61l6.201-1.63A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-5.031-1.383l-.36-.215-3.733.982.996-3.648-.235-.373A9.778 9.778 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Share on WhatsApp
+      </button>
+      <br>
+      <button class="donate-again" onclick="resetForm()">Donate Again</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- IMPACT SECTION -->
+<div class="impact-section">
+  <h2>Your Impact</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-amount">₹500</div>
+      <div class="impact-desc">Feeds and cares for one stray animal for a month</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-amount">₹2,000</div>
+      <div class="impact-desc">Covers full vaccination and deworming for one animal</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-amount">₹10,000</div>
+      <div class="impact-desc">Funds emergency surgery and post-op recovery care</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ══════════════════════════════════════════════════════
+  //  👇 REPLACE THIS WITH YOUR RAZORPAY KEY ID
+  //  Get it from: https://dashboard.razorpay.com
+  //  Settings → API Keys → Copy Key ID
+  //  Use rzp_test_... while testing, rzp_live_... for production
+  // ══════════════════════════════════════════════════════
+  var RAZORPAY_KEY_ID = "rzp_test_T1lzEQqRiDddYx";
+  // ══════════════════════════════════════════════════════
+
+  var selectedAmount = 100000; // ₹1,000 default (in paise)
+  var lastPaymentId = "";
+
+  // Preset amount buttons
+  document.querySelectorAll('.preset').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.preset').forEach(function(b){ b.classList.remove('active'); });
+      this.classList.add('active');
+      var val = this.getAttribute('data-amount');
+      var customRow = document.getElementById('custom-row');
+      if (val === 'custom') {
+        customRow.style.display = 'flex';
+        document.getElementById('custom-amount').focus();
+        selectedAmount = 0;
+        updateBtn(0);
+      } else {
+        customRow.style.display = 'none';
+        selectedAmount = parseInt(val);
+        updateBtn(selectedAmount);
+      }
+    });
+  });
+
+  // Custom amount input
+  document.getElementById('custom-amount').addEventListener('input', function() {
+    var rupees = parseFloat(this.value) || 0;
+    selectedAmount = Math.round(rupees * 100);
+    updateBtn(selectedAmount);
+  });
+
+  function updateBtn(paise) {
+    var rupees = paise / 100;
+    var formatted = rupees >= 1 ? '₹' + rupees.toLocaleString('en-IN') : '—';
+    var span = document.getElementById('btn-amount');
+    if (span) span.textContent = formatted;
+  }
+
+  function startDonation() {
+    hideError();
+    var name  = document.getElementById('donor-name').value.trim();
+    var email = document.getElementById('donor-email').value.trim();
+    var phone = document.getElementById('donor-phone').value.trim();
+    var btn   = document.getElementById('donate-btn');
+
+    if (selectedAmount < 100) {
+      showError('Please enter a valid donation amount (minimum ₹1).');
+      return;
+    }
+    if (!name) {
+      showError('Please enter your full name.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Opening payment…';
+
+    var options = {
+      key: RAZORPAY_KEY_ID,
+      amount: selectedAmount,
+      currency: 'INR',
+      name: 'GOCAF – Animal Welfare',
+      description: 'Donation for community animal welfare',
+      image: 'https://gocaf.global/favicon.ico',
+      prefill: {
+        name: name,
+        email: email,
+        contact: phone
+      },
+      notes: {
+        purpose: 'GOCAF Donation',
+        donor_name: name
+      },
+      theme: {
+        color: '#B5366A'
+      },
+      modal: {
+        ondismiss: function() {
+          btn.disabled = false;
+          btn.innerHTML = 'Donate Now &ndash; <span id="btn-amount">' + fmt(selectedAmount) + '</span>';
+        }
+      },
+      handler: function(response) {
+        lastPaymentId = response.razorpay_payment_id || '';
+        showSuccess(selectedAmount, lastPaymentId);
+      }
+    };
+
+    var rzp = new window.Razorpay(options);
+    rzp.on('payment.failed', function(response) {
+      showError('Payment failed: ' + (response.error.description || 'Please try again.'));
+      btn.disabled = false;
+      btn.innerHTML = 'Donate Now &ndash; <span id="btn-amount">' + fmt(selectedAmount) + '</span>';
+    });
+    rzp.open();
+  }
+
+  function fmt(paise) {
+    return '₹' + (paise / 100).toLocaleString('en-IN');
+  }
+
+  function showSuccess(paise, paymentId) {
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('details-wrap').style.display = 'none';
+    document.getElementById('success-wrap').classList.add('show');
+    document.getElementById('success-amount').textContent = 'You donated ' + fmt(paise) + ' 🐾';
+    if (paymentId) {
+      document.getElementById('payment-id').textContent = 'Payment ID: ' + paymentId;
+    }
+  }
+
+  function shareOnWhatsApp() {
+    var amount = fmt(selectedAmount);
+    var msg = encodeURIComponent(
+      'I just donated ' + amount + ' to GOCAF – Global Organization For Community Animal Freedom Foundation! 🐾\n\n' +
+      'Join me in supporting community animal welfare across India.\n\n' +
+      'Donate here: https://gocaf.global/donate.html'
+    );
+    window.open('https://wa.me/?text=' + msg, '_blank');
+  }
+
+  function resetForm() {
+    document.getElementById('form-wrap').style.display = '';
+    document.getElementById('details-wrap').style.display = '';
+    document.getElementById('success-wrap').classList.remove('show');
+    var btn = document.getElementById('donate-btn');
+    btn.disabled = false;
+    btn.innerHTML = 'Donate Now &ndash; <span id="btn-amount">' + fmt(selectedAmount) + '</span>';
+  }
+
+  function showError(msg) {
+    var el = document.getElementById('error-msg');
+    el.textContent = msg;
+    el.classList.add('show');
+  }
+
+  function hideError() {
+    document.getElementById('error-msg').classList.remove('show');
+  }
+</script>
+</body>
+</html>
