@@ -1300,6 +1300,220 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 
 </style>
 
+
+<style>
+/* ============================================================
+   MOBILE HEADER — two-row sticky nav (logo + pills + hamburger)
+   Shown only on mobile/tablet (≤1020px)
+   ============================================================ */
+.mob-header{
+  display:none;
+  position:sticky;
+  top:0;
+  z-index:9500;
+  background:#fff;
+  box-shadow:0 2px 12px rgba(181,54,106,.12);
+}
+
+/* Row 1 — logo + hamburger */
+.mob-header-row1{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 14px;
+  border-bottom:1px solid #f3e8f2;
+}
+.mob-header-logo img{height:38px;width:auto;display:block}
+
+/* Hamburger button */
+.mob-ham{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:1.5px solid #e8d5f0;
+  border-radius:8px;
+  padding:8px 10px;
+  cursor:pointer;
+}
+.mob-ham span{
+  display:block;
+  width:20px;
+  height:2.5px;
+  background:#B5366A;
+  border-radius:2px;
+  transition:.3s;
+}
+
+/* Row 2 — horizontally scrollable pill buttons */
+.mob-header-row2{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.mob-header-row2::-webkit-scrollbar{display:none}
+
+.mob-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  white-space:nowrap;
+  flex-shrink:0;
+  padding:7px 14px;
+  border-radius:30px;
+  font-size:12.5px;
+  font-weight:700;
+  text-decoration:none;
+  border:1.5px solid;
+  transition:all .18s;
+  font-family:'Roboto',sans-serif;
+  cursor:pointer;
+  background:none;
+}
+.mob-pill-outline{
+  color:#B5366A;
+  border-color:#B5366A;
+  background:#fff;
+}
+.mob-pill-outline:hover{background:#FDE8F0}
+.mob-pill-teal{
+  color:#fff;
+  border-color:#B5366A;
+  background:#B5366A;
+}
+.mob-pill-teal:hover{background:#8C1F50;border-color:#8C1F50}
+.mob-pill-donate{
+  color:#fff;
+  border-color:transparent;
+  background:linear-gradient(135deg,#C8375A 0%,#9B2E8A 55%,#6B3FA0 100%);
+}
+.mob-pill-donate:hover{opacity:.9}
+
+/* ─── Mobile drawer (slide-in from right) ─── */
+.mob-drawer-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  z-index:9600;
+}
+.mob-drawer-overlay.mob-open{display:block}
+
+.mob-drawer{
+  position:fixed;
+  top:0;right:0;bottom:0;
+  width:300px;
+  max-width:90vw;
+  background:#fff;
+  z-index:9700;
+  transform:translateX(100%);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+  display:flex;
+  flex-direction:column;
+  box-shadow:-8px 0 32px rgba(0,0,0,.15);
+}
+.mob-drawer.mob-open{transform:translateX(0)}
+
+/* Drawer header */
+.mob-drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+  border-bottom:1px solid #f3e8f2;
+  flex-shrink:0;
+}
+.mob-drawer-head img{height:34px}
+.mob-drawer-close{
+  background:#f9f5fc;
+  border:none;
+  border-radius:8px;
+  width:32px;height:32px;
+  font-size:17px;
+  cursor:pointer;
+  color:#374151;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Drawer scrollable body */
+.mob-drawer-body{overflow-y:auto;flex:1}
+
+/* Accordion item */
+.mob-acc-item{border-bottom:1px solid #f3e8f2}
+.mob-acc-trigger{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 18px;
+  font-size:14px;
+  font-weight:700;
+  color:#1a2a2a;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-family:'Roboto',sans-serif;
+  text-align:left;
+}
+.mob-acc-trigger:hover{background:#fdf5fc;color:#B5366A}
+.mob-acc-arr{font-size:11px;transition:transform .22s;flex-shrink:0}
+.mob-acc-item.mob-acc-open .mob-acc-arr{transform:rotate(180deg)}
+.mob-acc-panel{
+  display:none;
+  padding:0 0 8px;
+  background:#faf5fc;
+}
+.mob-acc-item.mob-acc-open .mob-acc-panel{display:block}
+.mob-acc-panel a{
+  display:block;
+  padding:9px 18px 9px 32px;
+  font-size:13px;
+  color:#374151;
+  text-decoration:none;
+  border-bottom:1px solid #f0e8f5;
+}
+.mob-acc-panel a:hover{color:#B5366A;background:#fde8f0}
+
+/* Plain drawer links */
+.mob-drawer-link{
+  display:block;
+  padding:14px 18px;
+  font-size:14px;
+  font-weight:600;
+  color:#1a2a2a;
+  text-decoration:none;
+  border-bottom:1px solid #f3e8f2;
+}
+.mob-drawer-link:hover{background:#fdf5fc;color:#B5366A}
+
+/* Drawer CTA buttons */
+.mob-drawer-cta{
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  border-top:1px solid #f3e8f2;
+  flex-shrink:0;
+}
+.mob-drawer-cta .mob-pill{width:100%;justify-content:center;font-size:14px;padding:11px}
+
+/* On desktop — hide mob-header, show gn-wrap */
+@media(min-width:1021px){
+  .mob-header{display:none!important}
+  .mob-drawer-overlay,.mob-drawer{display:none!important}
+}
+
+/* On mobile — show mob-header, hide gn-wrap */
+@media(max-width:1020px){
+  .mob-header{display:block}
+  .gn-wrap{display:none!important}
+  #header .topbar{display:none}
+}
+</style>
 </head>
 
 
@@ -1572,6 +1786,116 @@ document.addEventListener('keydown', function(e) {
 
 <!-- ── END GOCAF VIDEO POPUP ─────────────────────────────── -->
 <body>
+
+<!-- ================================================================
+     MOBILE HEADER — sticky two-row nav (mobile/tablet only)
+     Row 1: logo + hamburger
+     Row 2: horizontally scrollable action pills
+     ================================================================ -->
+
+<!-- Drawer overlay backdrop -->
+<div class="mob-drawer-overlay" id="mobDrawerOv" onclick="closeMobDrawer()"></div>
+
+<!-- Slide-in accordion drawer -->
+<div class="mob-drawer" id="mobDrawer">
+  <div class="mob-drawer-head">
+    <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    <button class="mob-drawer-close" onclick="closeMobDrawer()">&#x2715;</button>
+  </div>
+  <div class="mob-drawer-body">
+
+    <!-- Register accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Register <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/saveregistration" target="_blank">Register an Animal</a>
+        <a href="#abc-support">ABC Support</a>
+        <a href="#shelter">Temporary Shelter</a>
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank">As a Feeder / Caretaker</a>
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/register-volunteer" target="_blank">As a Rescuer</a>
+      </div>
+    </div>
+
+    <!-- Lost & Found accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Lost &amp; Found <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/lost-found" target="_blank">Lost &amp; Found Portal</a>
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/report-lost" target="_blank">Report Lost Animal</a>
+        <a href="https://portal-gocaf-877998128684.us-central1.run.app/report-found" target="_blank">Report Found Animal</a>
+      </div>
+    </div>
+
+    <!-- About Us accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        About Us <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="#about">Mission &amp; Vision</a>
+        <a href="#impact">Impact in Numbers</a>
+        <a href="#shelters">Our Partners</a>
+        <a href="#volunteers">Our Volunteers</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Campaigns accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Campaigns <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="rescue.html">Rescue &amp; Success Stories</a>
+        <a href="#campaigns">#EndAbandonment</a>
+        <a href="#campaigns">#StructuredFeeding</a>
+        <a href="#campaigns">#HumaneCoexistence</a>
+        <a href="#campaigns">#ProtectFeeders</a>
+        <a href="#campaigns">Spay &amp; Neuter Drive</a>
+      </div>
+    </div>
+
+    <!-- Plain links -->
+    <a class="mob-drawer-link" href="#shelters">Partnered Shelters</a>
+    <a class="mob-drawer-link" href="rescue.html">Rescue Stories</a>
+    <a class="mob-drawer-link" href="#gallery">Gallery</a>
+    <a class="mob-drawer-link" href="#contact">Newsletter</a>
+
+  </div><!-- /mob-drawer-body -->
+
+  <!-- Bottom CTA buttons -->
+  <div class="mob-drawer-cta">
+    <button class="mob-pill mob-pill-outline" onclick="openDonateModal();closeMobDrawer()">&#10084; Donate</button>
+    <a class="mob-pill mob-pill-teal" href="https://portal-gocaf-877998128684.us-central1.run.app/volunteer-registration" target="_blank" onclick="closeMobDrawer()">Volunteer Now</a>
+  </div>
+</div>
+
+<!-- The sticky two-row mobile header bar -->
+<header class="mob-header" id="mobHeader">
+  <!-- Row 1: logo + hamburger -->
+  <div class="mob-header-row1">
+    <a href="index.html" class="mob-header-logo" aria-label="GOCAF Home">
+      <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+    </a>
+    <button class="mob-ham" onclick="openMobDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <!-- Row 2: scrollable pill action buttons -->
+  <div class="mob-header-row2" role="navigation" aria-label="Quick actions">
+    <a class="mob-pill mob-pill-outline" href="Municipal-letter.pdf" target="_blank">&#128196; Municipal Letter</a>
+    <a class="mob-pill mob-pill-teal" href="https://portal-gocaf-877998128684.us-central1.run.app/saveregistration" target="_blank">Register Animal</a>
+    <a class="mob-pill mob-pill-outline" href="https://portal-gocaf-877998128684.us-central1.run.app/volunteer-registration" target="_blank">Volunteer</a>
+    <a class="mob-pill mob-pill-outline" href="https://portal-gocaf-877998128684.us-central1.run.app/animal-search" target="_blank">&#128269; Search Animal</a>
+    <button class="mob-pill mob-pill-donate" onclick="openDonateModal()">&#10084; Donate</button>
+  </div>
+</header>
+<!-- END MOBILE HEADER -->
+
  
 <!-- LIGHTBOX -->
 <div class="lb" id="lb">
@@ -3845,5 +4169,37 @@ document.querySelectorAll('.hic-num[data-target]').forEach(el=>{
 
 renderTestis();
 </script>
+
+<script>
+/* ── Mobile Drawer ── */
+function openMobDrawer(){
+  document.getElementById('mobDrawer').classList.add('mob-open');
+  document.getElementById('mobDrawerOv').classList.add('mob-open');
+  document.body.style.overflow='hidden';
+}
+function closeMobDrawer(){
+  document.getElementById('mobDrawer').classList.remove('mob-open');
+  document.getElementById('mobDrawerOv').classList.remove('mob-open');
+  document.body.style.overflow='';
+}
+function toggleMobAcc(btn){
+  const item=btn.closest('.mob-acc-item');
+  const isOpen=item.classList.contains('mob-acc-open');
+  /* Close all first */
+  document.querySelectorAll('.mob-acc-item.mob-acc-open').forEach(i=>i.classList.remove('mob-acc-open'));
+  if(!isOpen) item.classList.add('mob-acc-open');
+}
+/* Close drawer links navigate away */
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.mob-drawer-body a, .mob-drawer-link').forEach(function(a){
+    a.addEventListener('click',closeMobDrawer);
+  });
+});
+/* Escape key closes drawer */
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeMobDrawer();
+});
+</script>
+
 </body>
 </html>
