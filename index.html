@@ -442,7 +442,7 @@ ul{list-style:none}
 /* ============================================================
    LOGO-BG INFO SECTIONS
    ============================================================ */
-.logo-bg-sec{position:relative;padding:72px 0;overflow:hidden;}
+.logo-bg-sec{position:relative;padding:82px 0;overflow:hidden;}
 .logo-bg-sec::before{content:'';position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png');background-repeat:no-repeat;background-position:center center;background-size:55%;opacity:0.07;pointer-events:none;z-index:0;}
 .logo-bg-sec .container{position:relative;z-index:1}
 .lbs-dark{background:linear-gradient(135deg,#1C2B3A 0%,#2A3D52 100%);color:#fff}
@@ -726,14 +726,15 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
    (replaces the old "everything is a pill button" look)
    ============================================================ */
 .gn-util-link{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:8px 10px;
-  font-size:13px;font-weight:600;color:#4b5563;
-  text-decoration:none;white-space:nowrap;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  padding:6px 10px;
+  font-size:11.5px;font-weight:600;color:#4b5563;
+  text-decoration:none;white-space:nowrap;text-align:center;line-height:1.25;
   border-radius:6px;
   transition:color .15s,background .15s;
 }
 .gn-util-link:hover{color:#0d9488;background:#f5fafa}
+.gn-util-ico{font-size:17px;line-height:1}
 .gn-btn-outline{
   background:transparent;color:#0d9488 !important;
   border:1.5px solid #cdece8;
@@ -1320,14 +1321,19 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-wrap *,.gn-wrap *::before,.gn-wrap *::after{box-sizing:border-box}
   .gn-wrap{font-family:'Segoe UI',Arial,sans-serif;background:#fff;border-bottom:1.5px solid #e5f7f5;box-shadow:0 2px 18px rgba(13,148,136,.08);position:sticky;top:0;z-index:9000}
   .gn-inner{max-width:1280px;margin:0 auto;padding:0 20px;height:66px;display:flex;align-items:center;gap:0}
-  .gn-logo img{height:44px;width:auto;display:block}
-  .gn-logo{flex-shrink:0;margin-right:16px;text-decoration:none}
+  .gn-logo img{height:56px;width:auto;display:block}
+  .gn-logo{flex-shrink:0;margin-right:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
+  .gn-logo-wordmark{display:flex;flex-direction:column;line-height:1.15}
+  .gn-logo-title{font-size:19px;font-weight:900;color:#8C1F50;letter-spacing:.3px}
+  .gn-logo-sub{font-size:10.5px;font-weight:600;color:#6b7280;letter-spacing:.1px;line-height:1.3}
   .gn-nav{display:flex;align-items:stretch;flex:1;height:66px}
   .gn-item{position:relative;display:flex;align-items:center}
-  .gn-link{display:flex;align-items:center;gap:4px;padding:0 11px;height:100%;font-size:13px;font-weight:600;color:#1a2a2a;cursor:pointer;white-space:nowrap;position:relative;letter-spacing:.01em;transition:color .18s,border-color .18s;border-bottom:3px solid transparent}
+  .gn-link{display:flex;align-items:center;gap:6px;padding:0 11px;height:100%;font-size:13px;font-weight:600;color:#1a2a2a;cursor:pointer;white-space:nowrap;position:relative;letter-spacing:.01em;transition:color .18s,border-color .18s;border-bottom:3px solid transparent}
   .gn-link:hover,.gn-item:hover>.gn-link{color:#0d9488;border-bottom-color:#0d9488}
   .gn-link.donate{color:#D4286C;font-weight:700}
   .gn-link.donate:hover,.gn-item:hover>.gn-link.donate{color:#b8205c;border-bottom-color:#D4286C}
+  .gn-link-ico{display:inline-flex;flex-shrink:0;color:#B5366A}
+  .gn-link-ico svg{width:15px;height:15px;display:block}
   .gn-arr{font-size:9px;opacity:.5;transition:transform .2s;margin-top:1px}
   .gn-item:hover .gn-arr{transform:rotate(180deg);opacity:.8}
   .gn-drop,.gn-mega{display:none;position:absolute;top:100%;left:0;background:#fff;border:1.5px solid #e5f7f5;border-top:3px solid #0d9488;border-radius:0 0 12px 12px;box-shadow:0 16px 48px rgba(0,0,0,.11);z-index:9100;animation:gnIn .16s ease}
@@ -1361,7 +1367,24 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-soon{background:#e5e7eb;color:#374151}
   .gn-right{display:flex;align-items:center;gap:4px;margin-left:10px;flex-shrink:0}
   .gn-sep{width:1px;height:26px;background:#e5f7f5;margin:0 3px}
-  .gn-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;border:none;white-space:nowrap;transition:all .15s;letter-spacing:.015em}
+
+  /* Utility links (Municipal Letter / Search Animal / Volunteer) —
+     stacked icon-over-label style to match reference screenshot */
+  .gn-util-link{
+    display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    padding:6px 10px;
+    font-size:11.5px;font-weight:600;color:#4b5563;
+    text-decoration:none;white-space:nowrap;text-align:center;line-height:1.25;
+    border-radius:6px;
+    transition:color .15s,background .15s;
+  }
+  .gn-util-link:hover{color:#0d9488;background:#f5fafa}
+  .gn-util-ico{display:inline-flex;color:#B5366A;margin-bottom:1px}
+  .gn-util-ico svg{width:18px;height:18px;display:block}
+  .gn-btn-outline .gn-link-ico,.gn-btn-outline .gn-link-ico svg{color:#0d9488}
+  .gn-btn-purple .gn-link-ico,.gn-btn-purple .gn-link-ico svg{color:#fff}
+
+  .gn-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;border:none;white-space:nowrap;transition:all .15s;letter-spacing:.015em}
   .gn-btn-outline{background:transparent;color:#0d9488;border:1.5px solid #0d9488}
   .gn-btn-outline:hover{background:#f0fdfb}
   .gn-btn-teal{background:#0d9488;color:#fff;box-shadow:0 2px 8px rgba(13,148,136,.25)}
@@ -1385,13 +1408,17 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     <div class="gn-inner">
       <a href="index.html" class="gn-logo" aria-label="GOCAF Home">
         <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
+        <span class="gn-logo-wordmark">
+          <span class="gn-logo-title">GOCAF</span>
+          <span class="gn-logo-sub">Global Organization for<br>Community Animal Freedom</span>
+        </span>
       </a>
 
       <nav class="gn-nav" aria-label="Primary">
 
         <!-- Projects -->
         <div class="gn-item">
-          <span class="gn-link">Projects <span class="gn-arr">▾</span></span>
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Projects <span class="gn-arr">▾</span></span>
           <div class="gn-mega" style="min-width:460px">
             <div style="font-size:10.5px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.9px;margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid #99f6e4">Our Core Programmes</div>
             <div class="gn-proj-wrap">
@@ -1416,7 +1443,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
 
         <!-- Register -->
         <div class="gn-item">
-          <span class="gn-link">Register <span class="gn-arr">▾</span></span>
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg></span>Register <span class="gn-arr">▾</span></span>
           <div class="gn-drop">
             <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener">Register an Animal</a>
             <a href="#abc-support">ABC Support</a>
@@ -1444,7 +1471,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         </div> -->
 
         <div class="gn-item">
-          <a class="gn-link" href="#shelters">Partnered Shelters</a>
+          <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Partnered Shelters</a>
         </div>
 
         <!-- Campaigns & Topics -->
@@ -1494,10 +1521,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
             </div>
           </div>
         </div> -->
-
+<!-- 
         <div class="gn-item">
-          <a class="gn-link" href="#shelters">Our Partners</a>
-        </div>
+          <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Our Partners</a>
+        </div> -->
 
         <!-- Donate nav link -->
         <!-- <div class="gn-item">
@@ -1506,7 +1533,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
 
         <!-- About Us -->
         <div class="gn-item">
-          <span class="gn-link">About Us <span class="gn-arr">▾</span></span>
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>About Us <span class="gn-arr">▾</span></span>
           <div class="gn-mega" style="min-width:500px">
             <div class="gn-mega-grid c2">
               <div>
@@ -1556,14 +1583,14 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       <div class="gn-right">
         <div class="gn-sep"></div>
 
-        <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-util-link">Municipal Letter</a>
-        <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-util-link">Search Animal</a>
-        <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener" class="gn-util-link">Volunteer</a>
+        <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>Municipal<br>Letter</a>
+        <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search<br>Animal</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Volunteer</a>
 
         <div class="gn-sep"></div>
 
-        <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener" class="gn-btn gn-btn-outline">Register Animal</a>
-        <a href="donate.html" class="gn-btn gn-btn-purple">Donate</a>
+        <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener" class="gn-btn gn-btn-outline"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Register Animal</a>
+        <a href="donate.html" class="gn-btn gn-btn-purple"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Donate</a>
 
         <button class="gn-ham" onclick="this.closest('.gn-wrap').querySelector('.gn-drawer').style.display='flex'" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -1657,76 +1684,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     </div>
 
   </div>
-  <!-- END GOCAF NAVBAR -->
 
-
-<style>
-.gn-donate-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:99999;align-items:center;justify-content:center;padding:1rem}
-.gn-donate-overlay.active{display:flex}
-.gn-donate-modal{background:#fff;border-radius:20px;padding:32px 28px;max-width:370px;width:100%;text-align:center;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.22);animation:gnDnPop .25s ease}
-@keyframes gnDnPop{from{transform:scale(.86);opacity:0}to{transform:scale(1);opacity:1}}
-.gn-dn-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;color:#9ca3af;line-height:1}
-.gn-dn-close:hover{color:#374151}
-.gn-dn-badge{display:inline-flex;align-items:center;gap:6px;background:#f0fdfb;border:1.5px solid #99f6e4;border-radius:999px;padding:5px 16px;margin-bottom:14px;font-size:13px;font-weight:700;color:#0d9488}
-.gn-dn-title{font-size:21px;font-weight:800;color:#1a2a2a;margin:0 0 4px}
-.gn-dn-sub{font-size:13px;color:#9ca3af;margin:0 0 20px}
-.gn-dn-qr-wrap{background:#fff;border:1.5px solid #e5f7f5;border-radius:14px;padding:16px;display:inline-block;margin-bottom:16px;box-shadow:0 4px 16px rgba(13,148,136,.08)}
-.gn-dn-qr-wrap img{width:160px;height:auto;display:block;border-radius:6px}
-.gn-dn-pill{display:inline-block;background:linear-gradient(135deg,#0d9488,#0a7c72);color:#fff;font-size:15px;font-weight:700;border-radius:999px;padding:8px 24px;margin-bottom:20px;box-shadow:0 4px 14px rgba(13,148,136,.3)}
-.gn-dn-upi{background:#f8fffe;border:1.5px solid #e5f7f5;border-radius:12px;padding:12px 16px;margin-bottom:18px}
-.gn-dn-upi-lbl{font-size:10.5px;font-weight:700;color:#9ca3af;letter-spacing:.6px;text-transform:uppercase;margin-bottom:4px}
-.gn-dn-upi-id{font-size:17px;font-weight:800;color:#1a2a2a;margin-bottom:10px;letter-spacing:.4px}
-.gn-dn-copy{background:#fff;border:1.5px solid #e5e7eb;border-radius:8px;padding:7px 18px;font-size:13px;font-weight:600;color:#374151;cursor:pointer;transition:all .2s}
-.gn-dn-copy:hover{background:#f0fdfb;border-color:#0d9488;color:#0d9488}
-.gn-dn-copy.copied{background:#0d9488;border-color:#0d9488;color:#fff}
-.gn-dn-heart{font-size:12.5px;color:#0d9488;margin:0;font-weight:500}
-</style>
-
-<div class="gn-donate-overlay" id="gnDonateModal" onclick="if(event.target===this)closeDonateModal()">
-  <div class="gn-donate-modal">
-    <button class="gn-dn-close" onclick="closeDonateModal()" aria-label="Close">&times;</button>
-
-    <div class="gn-dn-badge">&#9829; GOCAF Animal Welfare</div>
-
-    <p class="gn-dn-title">Contribute to Animal Welfare</p>
-    <p class="gn-dn-sub">Scan the QR code using any UPI app</p>
-
-    <!-- QR CODE: replace YOUR_QR_CODE_IMAGE.png with your actual QR image path -->
-    <div class="gn-dn-qr-wrap">
-      <img src="YOUR_QR_CODE_IMAGE.png" alt="PhonePe QR – PALATI DEEPTHIKA">
-    </div>
-
-    <div class="gn-dn-pill"> Scan &amp; Contribute</div>
-
-    <div class="gn-dn-upi">
-      <div class="gn-dn-upi-lbl">UPI ID</div>
-      <div class="gn-dn-upi-id">deepthikapalati@ybl</div>
-      <button class="gn-dn-copy" id="gnCopyBtn" onclick="gnCopyUPI()">&#128203; Copy UPI ID</button>
-    </div>
-
-    <p class="gn-dn-heart">&#9829; Your contribution helps support community animal welfare across India.</p>
-  </div>
-</div>
-
-<script>
-function openDonateModal(){
-  document.getElementById('gnDonateModal').classList.add('active');
-  document.body.style.overflow='hidden';
-}
-function closeDonateModal(){
-  document.getElementById('gnDonateModal').classList.remove('active');
-  document.body.style.overflow='';
-}
-function gnCopyUPI(){
-  navigator.clipboard.writeText('deepthikapalati@ybl').then(function(){
-    var btn=document.getElementById('gnCopyBtn');
-    btn.textContent='✓ Copied!';
-    btn.classList.add('copied');
-    setTimeout(function(){btn.textContent='📋 Copy UPI ID';btn.classList.remove('copied');},2500);
-  });
-}
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDonateModal();});
-</script>
 <!-- END GOCAF NAVBAR -->
 
 
