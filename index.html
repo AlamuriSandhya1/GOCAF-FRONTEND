@@ -716,17 +716,41 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .gn-proj-icon{background:#FDE8F0 !important;}
 .gn-proj-name{color:#1a2a2a;}
 .gn-badge{background:#F9C6D8;color:#8C1F50;}
-.gn-btn-teal{background:linear-gradient(135deg,#C8375A 0%,#B5366A 100%) !important;color:#fff !important;box-shadow:0 2px 10px rgba(181,54,106,.28) !important;}
-.gn-btn-teal:hover{background:linear-gradient(135deg,#A82B50 0%,#8C1F50 100%) !important;box-shadow:0 4px 16px rgba(181,54,106,.42) !important;transform:translateY(-1px) !important;}
-.gn-btn-outline{color:#B5366A !important;border-color:#B5366A !important;}
-.gn-btn-outline:hover{background:#FDE8F0 !important;}
-.gn-btn-purple{background:linear-gradient(135deg,#C8375A 0%,#9B2E8A 55%,#6B3FA0 100%) !important;box-shadow:0 2px 12px rgba(181,54,106,.35) !important;}
-.gn-btn-purple:hover{background:linear-gradient(135deg,#A82B50 0%,#7B1F70 55%,#5B2F90 100%) !important;box-shadow:0 4px 18px rgba(181,54,106,.5) !important;transform:translateY(-1px) !important;}
-.gn-right .gn-btn,.gn-right a.gn-btn{padding:9px 16px !important;font-size:12.5px !important;font-weight:700 !important;border-radius:8px !important;height:36px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;white-space:nowrap !important;line-height:1 !important;}
 .gn-ticker{background:linear-gradient(90deg,#8B0000 0%,#B22222 50%,#6B0000 100%) !important;box-shadow:0 3px 12px rgba(139,0,0,.45) !important;}
 .gn-link.donate{color:#B5366A !important;font-weight:700;}
 .gn-link.donate:hover,.gn-item:hover>.gn-link.donate{color:#8C1F50 !important;border-bottom-color:#B5366A !important;}
 .gn-mega div[style*="f0fdfb"]{background:#FDE8F0 !important;}
+
+/* ============================================================
+   GOCAF NAV — PROFESSIONAL RIGHT-SIDE ACTIONS
+   (replaces the old "everything is a pill button" look)
+   ============================================================ */
+.gn-util-link{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 10px;
+  font-size:13px;font-weight:600;color:#4b5563;
+  text-decoration:none;white-space:nowrap;
+  border-radius:6px;
+  transition:color .15s,background .15s;
+}
+.gn-util-link:hover{color:#0d9488;background:#f5fafa}
+.gn-btn-outline{
+  background:transparent;color:#0d9488 !important;
+  border:1.5px solid #cdece8;
+  padding:8px 16px;border-radius:6px;
+  font-size:13px;font-weight:700;
+  box-shadow:none !important;
+}
+.gn-btn-outline:hover{border-color:#0d9488;background:#f0fdfb}
+.gn-btn-purple{
+  background:#8C1F50 !important;color:#fff !important;
+  padding:9px 20px;border-radius:6px;
+  font-size:13px;font-weight:700;
+  box-shadow:none !important;border:none;
+}
+.gn-btn-purple:hover{background:#6d1840 !important;box-shadow:none !important;transform:none !important}
+.gn-right .gn-btn,.gn-right a.gn-btn{padding:8px 16px !important;font-size:13px !important;font-weight:700 !important;border-radius:6px !important;height:36px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;white-space:nowrap !important;line-height:1 !important;}
+.gn-sep{width:1px;height:24px;background:#e5e7eb;margin:0 6px}
 
 /* ============================================================
    MOBILE HEADER — two-row sticky nav
@@ -773,9 +797,7 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   transition:.3s;
 }
 
-/* ============================================================
-   FIX: Row 2 — scrollable pill row
-   ============================================================ */
+/* Row 2 — scrollable pill row */
 .mob-header-row2-wrap{position:relative;overflow:hidden;}
 .mob-header-row2{
   display:flex;
@@ -798,42 +820,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   pointer-events:none;
   z-index:1;
 }
-
-/* ============================================================
-   FIX: Mobile Ticker — shown below pill row on mobile
-   ============================================================ */
-.mob-ticker{
-  background:linear-gradient(90deg,#8B0000 0%,#B22222 50%,#6B0000 100%);
-  overflow:hidden;
-  height:34px;
-  display:flex;
-  align-items:center;
-  border-top:1px solid rgba(255,255,255,.1);
-}
-.mob-ticker-track{
-  display:flex;
-  align-items:center;
-  white-space:nowrap;
-  animation:mobTickerScroll 25s linear infinite;
-}
-.mob-ticker:hover .mob-ticker-track{animation-play-state:paused}
-.mob-tick-item{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:0 20px;
-  color:#fff;
-  font-size:11.5px;
-  font-weight:700;
-  text-decoration:none;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-.mob-tick-item:hover{color:#FFD6EC}
-.mob-tick-sub{font-size:10px;font-weight:400;opacity:.78;text-transform:none;letter-spacing:.1px;margin-left:3px;}
-.mob-tick-sep{color:rgba(255,255,255,.4);font-size:14px;flex-shrink:0;padding:0 2px;}
-@keyframes mobTickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* Pills */
 .mob-pill{
@@ -1147,7 +1133,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   </div>
 </div>
 
-<!-- The sticky two-row + ticker mobile header bar -->
+<!-- The sticky two-row mobile header bar -->
 <header class="mob-header" id="mobHeader">
   <!-- Row 1: logo + hamburger -->
   <div class="mob-header-row1">
@@ -1173,32 +1159,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       <button class="mob-pill mob-pill-donate" onclick="openDonateModal()">&#10084; Donate</button>
     </div>
     <span class="mob-row2-fade" aria-hidden="true"></span>
-  </div>
-  <!-- Mobile Ticker -->
-  <div class="mob-ticker" aria-label="GOCAF services ticker">
-    <div class="mob-ticker-track">
-      <a href="https://save.gocaf.global/saveregistration" target="_blank" class="mob-tick-item"> <span>Register Animal</span><span class="mob-tick-sub">Save your pets / track them</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="#" class="mob-tick-item"> <span>Temporary Shelter</span><span class="mob-tick-sub">Safe haven for strays</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="#" class="mob-tick-item"> <span>ABC Support</span><span class="mob-tick-sub">Animal Birth Control</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="https://wa.me/919390189589" target="_blank" class="mob-tick-item"> <span>Emergency Support</span><span class="mob-tick-sub">Immediate help</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="https://save.gocaf.global/volunteer-registration" target="_blank" class="mob-tick-item"> <span>Become a Volunteer</span><span class="mob-tick-sub">Join our mission</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <!-- duplicate for seamless loop -->
-      <a href="https://save.gocaf.global/saveregistration" target="_blank" class="mob-tick-item"> <span>Register Animal</span><span class="mob-tick-sub">Save your pets / track them</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="#" class="mob-tick-item"> <span>Temporary Shelter</span><span class="mob-tick-sub">Safe haven for strays</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="#" class="mob-tick-item"> <span>ABC Support</span><span class="mob-tick-sub">Animal Birth Control</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="https://wa.me/919390189589" target="_blank" class="mob-tick-item"> <span>Emergency Support</span><span class="mob-tick-sub">Immediate help</span></a>
-      <span class="mob-tick-sep">◆</span>
-      <a href="https://save.gocaf.global/volunteer-registration" target="_blank" class="mob-tick-item"> <span>Become a Volunteer</span><span class="mob-tick-sub">Join our mission</span></a>
-      <span class="mob-tick-sep">◆</span>
-    </div>
   </div>
 </header>
 <!-- END MOBILE HEADER -->
@@ -1247,6 +1207,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   <!-- <div class="mob-tog" onclick="togSub(this)">Projects ▾</div>
   <div class="mob-sub">
     <a href="save.html"> SAVE – Identity &amp; Tracking</a>
+    <a href="care.html"> SAVE – Identity &amp; Tracking</a>
   </div> -->
   <div class="mob-tog" onclick="togSub(this)">Get Involved ▾</div>
   <div class="mob-sub">
@@ -1363,7 +1324,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-logo{flex-shrink:0;margin-right:16px;text-decoration:none}
   .gn-nav{display:flex;align-items:stretch;flex:1;height:66px}
   .gn-item{position:relative;display:flex;align-items:center}
-  .gn-link{display:flex;align-items:center;gap:4px;padding:0 11px;height:100%;font-size:13px;font-weight:600;color:#1a2a2a;cursor:pointer;white-space:nowrap;text-decoration:none;border-bottom:3px solid transparent;transition:color .18s,border-color .18s;user-select:none;letter-spacing:.01em}
+  .gn-link{display:flex;align-items:center;gap:4px;padding:0 11px;height:100%;font-size:13px;font-weight:600;color:#1a2a2a;cursor:pointer;white-space:nowrap;position:relative;letter-spacing:.01em;transition:color .18s,border-color .18s;border-bottom:3px solid transparent}
   .gn-link:hover,.gn-item:hover>.gn-link{color:#0d9488;border-bottom-color:#0d9488}
   .gn-link.donate{color:#D4286C;font-weight:700}
   .gn-link.donate:hover,.gn-item:hover>.gn-link.donate{color:#b8205c;border-bottom-color:#D4286C}
@@ -1398,7 +1359,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-proj-desc{font-size:11.5px;color:#6b7280;line-height:1.4}
   .gn-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;background:#d1fae5;color:#065f46;flex-shrink:0}
   .gn-soon{background:#e5e7eb;color:#374151}
-  .gn-right{display:flex;align-items:center;gap:7px;margin-left:10px;flex-shrink:0}
+  .gn-right{display:flex;align-items:center;gap:4px;margin-left:10px;flex-shrink:0}
   .gn-sep{width:1px;height:26px;background:#e5f7f5;margin:0 3px}
   .gn-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;border:none;white-space:nowrap;transition:all .15s;letter-spacing:.015em}
   .gn-btn-outline{background:transparent;color:#0d9488;border:1.5px solid #0d9488}
@@ -1429,7 +1390,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       <nav class="gn-nav" aria-label="Primary">
 
         <!-- Projects -->
-        <!-- <div class="gn-item">
+        <div class="gn-item">
           <span class="gn-link">Projects <span class="gn-arr">▾</span></span>
           <div class="gn-mega" style="min-width:460px">
             <div style="font-size:10.5px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.9px;margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid #99f6e4">Our Core Programmes</div>
@@ -1451,7 +1412,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
               </a>
             </div>
           </div>
-        </div> -->
+        </div>
 
         <!-- Register -->
         <div class="gn-item">
@@ -1568,7 +1529,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
                 <div style="margin-top:16px;padding:12px;background:#f0fdfb;border-radius:9px">
                   <div style="font-size:10.5px;font-weight:700;color:#0d9488;margin-bottom:4px">Emergency Helpline</div>
                   <a href="https://wa.me/919390189589" target="_blank" style="font-size:14px;font-weight:700;color:#0d9488;text-decoration:none">WhatsApp Us</a>
+                  
                 </div>
+                
               </div>
             </div>
           </div>
@@ -1589,27 +1552,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
 
       </nav>
 
-      <!-- Right actions -->
+      <!-- Right actions — utility links (plain text) + ONE outline step + ONE primary CTA -->
       <div class="gn-right">
         <div class="gn-sep"></div>
 
-        <!-- Quick Links dropdown -->
-        <!-- <div class="gn-item gn-more-item">
-          <span class="gn-btn gn-btn-outline gn-more-trigger">Quick Links <span class="gn-arr">▾</span></span>
-          <div class="gn-drop gn-more-drop">
-            <a href="Municipal-letter.pdf" target="_blank">📄 Municipal Letter</a>
-            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener">🤝 Volunteer</a>
-            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener">🔍 Search Animal</a>
-            <div class="gn-drop-divider"></div>
-            <a href="https://wa.me/919390189589" target="_blank" style="color:#B91C1C;font-weight:700">🚨 Emergency Support</a>
-          </div>
-        </div> -->
-        <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-btn gn-btn-purple"> Municipal Letter</a>  
-        <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener" class="gn-btn gn-btn-teal">Register Animal</a>
-        <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener" class="gn-btn gn-btn-teal">Volunteer</a>
-        <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-btn gn-btn-outline">🔍 Search Animal</a>
-        <!-- <button onclick="openDonateModal()" class="gn-btn gn-btn-purple">❤ Donate</button> -->
-        <a href="donate.html" class="gn-btn gn-btn-purple">❤ Donate</a>
+        <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-util-link">Municipal Letter</a>
+        <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-util-link">Search Animal</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener" class="gn-util-link">Volunteer</a>
+
+        <div class="gn-sep"></div>
+
+        <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener" class="gn-btn gn-btn-outline">Register Animal</a>
+        <a href="donate.html" class="gn-btn gn-btn-purple">Donate</a>
 
         <button class="gn-ham" onclick="this.closest('.gn-wrap').querySelector('.gn-drawer').style.display='flex'" aria-label="Menu">
           <span></span><span></span><span></span>
@@ -1618,31 +1572,20 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     </div>
 
     <!-- Desktop Ticker -->
-    <div class="gn-ticker" aria-label="GOCAF services">
+    <!-- <div class="gn-ticker" aria-label="GOCAF services">
       <div class="gn-ticker-track">
         <a href="#" class="gn-tick-item"><span class="gn-tick-main">Book Temporary Shelter</span><span class="gn-tick-sub">Safe haven for strays in need</span></a>
         <span class="gn-tick-sep">◆</span>
         <a href="https://save.gocaf.global/saveregistration" target="_blank" class="gn-tick-item"><span class="gn-tick-main">Get Your Stray Registered</span><span class="gn-tick-sub">Save your pets / track them</span></a>
         <span class="gn-tick-sep">◆</span>
-        <!-- <a href="#" class="gn-tick-item"><span class="gn-tick-main">Book Stray Health Checkup</span><span class="gn-tick-sub">Prevention is better than cure</span></a>
-        <span class="gn-tick-sep">◆</span> -->
-        <a href="#" class="gn-tick-item"><span class="gn-tick-main">ABC Support</span><span class="gn-tick-sub">Animal Birth Control Programme</span></a>
-        <span class="gn-tick-sep">◆</span>
-        <a href="https://wa.me/919390189589" target="_blank" class="gn-tick-item"><span class="gn-tick-main">🚨 Emergency Support</span><span class="gn-tick-sub">Immediate help for animals in crisis</span></a>
-        <span class="gn-tick-sep">◆</span>
-        <!-- duplicate for seamless loop -->
-        <a href="#" class="gn-tick-item"><span class="gn-tick-main">Book Temporary Shelter</span><span class="gn-tick-sub">Safe haven for strays in need</span></a>
-        <span class="gn-tick-sep">◆</span>
-        <a href="https://save.gocaf.global/saveregistration" target="_blank" class="gn-tick-item"><span class="gn-tick-main">Get Your Stray Registered</span><span class="gn-tick-sub">Save your pets / track them</span></a>
-        <span class="gn-tick-sep">◆</span>
-        <a href="#" class="gn-tick-item"><span class="gn-tick-main">Book Stray Health Checkup</span><span class="gn-tick-sub">Prevention is better than cure</span></a>
+       <a href="#" class="gn-tick-item"><span class="gn-tick-main">Book Stray Health Checkup</span><span class="gn-tick-sub">Prevention is better than cure</span></a>
         <span class="gn-tick-sep">◆</span>
         <a href="#" class="gn-tick-item"><span class="gn-tick-main">ABC Support</span><span class="gn-tick-sub">Animal Birth Control Programme</span></a>
         <span class="gn-tick-sep">◆</span>
         <a href="https://wa.me/919390189589" target="_blank" class="gn-tick-item"><span class="gn-tick-main">🚨 Emergency Support</span><span class="gn-tick-sub">Immediate help for animals in crisis</span></a>
         <span class="gn-tick-sep">◆</span>
       </div>
-    </div>
+    </div> -->
 
     <!-- Mobile drawer (inside gn-wrap for desktop hamburger) -->
     <div class="gn-drawer" style="display:none;position:fixed;inset:0;z-index:9200">
@@ -1708,15 +1651,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
           <!-- <a href="https://save.gocaf.global/lost-found" target="_blank" class="gn-btn gn-btn-teal" style="justify-content:center;background:#0d9488">Lost &amp; Found</a> -->
           <!-- <a href="#donate" class="gn-btn gn-btn-purple" style="justify-content:center">❤ Donate</a> -->
           <a href="https://save.gocaf.global/volunteer-registration" target="_blank" class="gn-btn gn-btn-outline" style="justify-content:center">Become a Volunteer</a>
-          <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-btn gn-btn-outline">🔍 Search Animal</a>
+          <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-btn gn-btn-outline" style="justify-content:center">🔍 Search Animal</a>
         </div>
       </div>
     </div>
 
   </div>
   <!-- END GOCAF NAVBAR -->
-
-
 
 
 <style>
