@@ -9,9 +9,6 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   ROOT & RESET
-   ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Roboto',sans-serif;color:#333;background:#FDF8FC;overflow-x:hidden}
@@ -29,10 +26,6 @@ ul{list-style:none}
   --cream:#FDF8FC;--navy:#2A1040;
   --grad:linear-gradient(135deg,#C8375A 0%,#9B2E8A 50%,#6B3FA0 100%);
 }
-
-/* ============================================================
-   UTILITY
-   ============================================================ */
 .container{max-width:1180px;margin:0 auto;padding:0 24px}
 .btn{display:inline-block;padding:11px 28px;font-size:15px;font-weight:700;line-height:1.2;text-transform:uppercase;cursor:pointer;border:0;transition:all .25s;font-family:inherit;letter-spacing:.5px;border-radius:var(--radius)}
 .btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal-dark);color:#fff;transform:translateY(-1px)}
@@ -46,10 +39,6 @@ ul{list-style:none}
 .sec-title{font-size:34px;font-weight:900;color:var(--black);margin-bottom:10px;line-height:1.15}
 .sec-sub{font-size:18px;color:var(--gray-mid);max-width:780px;margin:0 auto;line-height:1.6}
 .sec-center{text-align:center;padding:10px 0 28px}
-
-/* ============================================================
-   TOPBAR
-   ============================================================ */
 #header{position:sticky;top:0;background:#fff;z-index:3000;box-shadow:0 1px 0 rgba(0,0,0,.04),0 4px 20px rgba(0,0,0,.06)}
 .topbar{background:var(--grad);color:#fff;height:36px;overflow:hidden}
 .topbar-inner{display:flex;align-items:center;height:36px;}
@@ -61,10 +50,6 @@ ul{list-style:none}
 .soc{width:28px;height:28px;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.14);color:rgba(255,255,255,.95);transition:background .2s,transform .2s;cursor:pointer;}
 .soc:hover{background:rgba(255,255,255,.28);color:#fff;transform:translateY(-1px)}
 .soc svg{width:13px;height:13px;fill:currentColor;pointer-events:none;display:block}
-
-/* ============================================================
-   MAIN NAV
-   ============================================================ */
 .header-main{display:flex;align-items:center;justify-content:space-between;height:84px;gap:16px}
 .logo-wrap{display:flex;align-items:center;flex-shrink:0;transition:opacity .2s}
 .logo-wrap:hover{opacity:.85}
@@ -77,8 +62,6 @@ ul{list-style:none}
 .nav-item:hover .nav-link::after{transform:translateX(-50%) scaleX(1)}
 .nav-arr{font-size:10px;color:var(--gray-mid);transition:transform .25s,color .2s;display:inline-block}
 .nav-item:hover .nav-arr{color:var(--teal);transform:rotate(180deg)}
-
-/* MEGA MENU */
 .mega{display:none;position:fixed;left:0;right:0;background:#fff;border-top:3px solid var(--teal);border-bottom:1px solid var(--gray);padding:28px 0 34px;z-index:4000;box-shadow:0 12px 40px rgba(0,0,0,.12);}
 .nav-item:hover .mega{display:block}
 .mega-wrap{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;gap:24px}
@@ -88,8 +71,6 @@ ul{list-style:none}
 .mega-hd a{color:var(--teal)}
 .ml{display:block;font-size:14px;color:#444;padding:4px 0;line-height:1.45;transition:all .2s}
 .ml:hover{color:var(--teal);padding-left:5px}
-
-/* Gallery dropdown */
 .gdrop{display:none;position:fixed;left:0;right:0;background:#fff;border-top:3px solid var(--orange);padding:24px 0;z-index:4000;box-shadow:0 12px 40px rgba(0,0,0,.12)}
 .nav-item:hover .gdrop{display:block}
 .gprev{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
@@ -97,11 +78,8 @@ ul{list-style:none}
 .gthumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .gthumb:hover img{transform:scale(1.1)}
 .g-more{display:block;text-align:center;margin:12px auto 0;font-size:14px;font-weight:700;color:var(--orange)}
-
-/* Header Right */
 .h-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .h-right-sep{width:1px;height:28px;background:var(--gray);margin:0 8px;flex-shrink:0}
-
 .search-btn{background:none;border:0;cursor:pointer;color:var(--gray-mid);padding:8px;display:flex;align-items:center;border-radius:50%;transition:background .2s,color .2s}
 .search-btn svg{width:18px;height:18px;fill:currentColor}
 .search-btn:hover{color:var(--teal);background:var(--teal-light)}
@@ -112,8 +90,6 @@ ul{list-style:none}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:8px;border-radius:6px;transition:background .2s}
 .hamburger:hover{background:var(--teal-light)}
 .hamburger span{display:block;width:22px;height:2.5px;background:var(--black);border-radius:2px;transition:.3s}
-
-/* Search overlay */
 .search-ov{display:none;position:fixed;inset:0;background:rgba(181,54,106,.92);z-index:6000;align-items:center;justify-content:center}
 .search-ov.show{display:flex}
 .s-box{width:90%;max-width:600px;text-align:center}
@@ -122,8 +98,6 @@ ul{list-style:none}
 .s-row input{flex:1;padding:14px 18px;font-size:16px;border:0;outline:none;font-family:inherit}
 .s-row button{padding:14px 22px;background:var(--orange);border:0;cursor:pointer;color:#fff;font-size:20px}
 .s-close{position:absolute;top:22px;right:30px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
-
-/* Mobile overlay */
 .mob-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:5000}
 .mob-ov.show{display:block}
 #mob-menu{display:none;position:fixed;top:0;right:0;width:82%;max-width:340px;height:100%;background:#fff;z-index:5001;overflow-y:auto}
@@ -140,10 +114,6 @@ ul{list-style:none}
 .mob-lk{display:block;padding:13px 18px;border-bottom:1px solid var(--gray);font-size:15px;color:var(--black)}
 .mob-lk:hover{background:var(--teal-light);color:var(--teal)}
 .mob-btns{padding:18px;display:flex;flex-direction:column;gap:10px}
-
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero{position:relative;overflow:hidden;background:#111}
 .hero-track{display:flex;transition:transform .85s cubic-bezier(.4,0,.2,1)}
 .hero-slide{min-width:100%;position:relative}
@@ -160,20 +130,12 @@ ul{list-style:none}
 .h-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:26px;padding:9px 15px;cursor:pointer;z-index:10;transition:background .2s;line-height:1}
 .h-arr:hover{background:rgba(255,255,255,.3)}
 .arr-l{left:14px}.arr-r{right:14px}
-
-/* ============================================================
-   MISSION BAND
-   ============================================================ */
 .mission-band{background:var(--grad);color:#fff;padding:46px 24px;text-align:center}
 .mission-band h1{font-size:34px;font-weight:900;max-width:880px;margin:0 auto 14px;line-height:1.2}
 .mission-band p{font-size:17px;max-width:800px;margin:0 auto;line-height:1.75;color:rgba(255,255,255,.92)}
 .m-stats{display:flex;justify-content:center;gap:40px;margin-top:34px;flex-wrap:wrap}
 .mstat-num{font-size:42px;font-weight:900;line-height:1}
 .mstat-lbl{font-size:13px;color:rgba(255,255,255,.8);margin-top:4px}
-
-/* ============================================================
-   CARDS
-   ============================================================ */
 .news-sec{background:#fff;padding:12px 0 36px}
 .news-gray{background:var(--gray-light)}
 .card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px}
@@ -191,10 +153,6 @@ ul{list-style:none}
 .card-hr{border:none;border-top:1px solid var(--gray);margin:8px 0}
 .card-more{font-size:13px;color:var(--teal);font-weight:600}
 .card-more:hover{text-decoration:underline}
-
-/* ============================================================
-   TESTIMONIALS
-   ============================================================ */
 .testi-sec{background:#fff;padding:72px 0}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
 .tcard{background:var(--gray-light);padding:28px;border-radius:8px;box-shadow:var(--shadow);position:relative;border-top:4px solid var(--teal)}
@@ -206,10 +164,6 @@ ul{list-style:none}
 .tcard-name{font-weight:700;font-size:14px;color:var(--black)}
 .tcard-role{font-size:12px;color:var(--gray-mid)}
 .testi-empty{text-align:center;color:var(--gray-mid);padding:32px;grid-column:1/-1}
-
-/* ============================================================
-   FEEDBACK MODAL
-   ============================================================ */
 .fb-trigger-bar{background:var(--grad);padding:18px 24px}
 .fb-trigger-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .fb-trigger-inner strong{display:block;font-size:16px;font-weight:700;color:#fff}
@@ -245,10 +199,6 @@ ul{list-style:none}
 .fb-modal-body .star-wrap label{font-size:26px}
 .fb-note{font-size:12px;color:var(--gray-mid);text-align:center;margin-top:12px}
 .fb-note a{color:var(--teal);font-weight:700}
-
-/* ============================================================
-   CAMPAIGNS
-   ============================================================ */
 .camp-sec{background:#fff;padding:64px 0}
 .camp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
 .cc{border-radius:8px;overflow:hidden;box-shadow:var(--shadow);background:#fff;transition:transform .3s}
@@ -266,10 +216,6 @@ ul{list-style:none}
 .cc-stat{font-size:11px;font-weight:700;color:var(--teal);background:var(--teal-light);padding:3px 10px;border-radius:12px}
 .cc-body a{font-size:13px;color:var(--teal);font-weight:700}
 .cc-body a:hover{text-decoration:underline}
-
-/* ============================================================
-   COUNTER
-   ============================================================ */
 .ctr-sec{background:#F9E8F0;padding:64px 0 48px}
 .ctr-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin-top:28px}
 .ci{text-align:center;flex:0 0 calc(33% - 30px);max-width:290px}
@@ -277,10 +223,6 @@ ul{list-style:none}
 .ci-num{font-size:46px;font-weight:900;color:var(--teal);line-height:1;margin-bottom:10px}
 .ci-lbl{font-size:15px;line-height:1.6;color:#444}
 .ci-lbl a{color:var(--teal);font-weight:600}
-
-/* ============================================================
-   ACTION CARDS
-   ============================================================ */
 .action-sec{background:#fff;padding:64px 0}
 .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .ac{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -291,10 +233,6 @@ ul{list-style:none}
 .ac-ico{font-size:40px;color:#fff;margin-bottom:8px}
 .ac-ttl{font-size:20px;font-weight:900;color:#fff;margin-bottom:5px}
 .ac-sub{font-size:13px;color:rgba(255,255,255,.88);margin-bottom:14px;line-height:1.4}
-
-/* ============================================================
-   STORYTELLING
-   ============================================================ */
 .story-sec{background:var(--gray-light);padding:36px 0 20px}
 .si{display:grid;grid-template-columns:1fr 1fr;background:#fff;margin-bottom:14px;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .si-con{padding:42px 50px;display:flex;flex-direction:column;justify-content:center}
@@ -303,16 +241,8 @@ ul{list-style:none}
 .si-txt{font-size:15px;line-height:1.8;color:#555;margin-bottom:20px}
 .si-img img{width:100%;height:360px;object-fit:cover;display:block}
 .si.rev .si-img{order:-1}
-
-/* ============================================================
-   TOPICS
-   ============================================================ */
 .topics-sec{background:var(--gray-light);padding:16px 0 32px}
 .topics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
-
-/* ============================================================
-   GALLERY
-   ============================================================ */
 .gallery-sec{background:var(--gray-light);padding:64px 0}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:10px;margin-top:28px;}
 .g-item{overflow:hidden;border-radius:var(--radius);cursor:pointer;position:relative}
@@ -326,8 +256,6 @@ ul{list-style:none}
 .g-item:hover .g-ov-icon{opacity:1}
 .g-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);color:#fff;font-size:12px;padding:20px 12px 10px;opacity:0;transition:opacity .3s;font-weight:600;}
 .g-item:hover .g-caption{opacity:1}
-
-/* LIGHTBOX */
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:7000;align-items:center;justify-content:center}
 .lb.show{display:flex}
 .lb-img{max-width:90vw;max-height:88vh;border-radius:4px;object-fit:contain;box-shadow:0 8px 40px rgba(0,0,0,.5)}
@@ -337,28 +265,16 @@ ul{list-style:none}
 .lb-arr:hover{background:rgba(255,255,255,.25)}
 .lb-prev{left:14px}.lb-next{right:14px}
 .lb-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:14px;font-weight:600;background:rgba(0,0,0,.4);padding:5px 14px;border-radius:20px}
-
-/* ============================================================
-   FULLWIDTH BANNER
-   ============================================================ */
 .fw{position:relative;overflow:hidden}
 .fw img{width:100%;height:440px;object-fit:cover;display:block}
 .fw-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(181,54,106,.86) 0%,rgba(0,0,0,.52) 100%);display:flex;align-items:center;justify-content:center;text-align:center}
 .fw-txt{color:#fff;padding:24px;max-width:760px}
 .fw-txt h2{font-size:42px;font-weight:900;margin-bottom:12px;line-height:1.1}
 .fw-txt p{font-size:20px;margin-bottom:24px;line-height:1.5;color:rgba(255,255,255,.92)}
-
-/* ============================================================
-   VISION
-   ============================================================ */
 .vision-sec{background:#fff;padding:72px 0}
 .v-inner{max-width:820px;margin:0 auto;text-align:center}
 .v-inner p{font-size:17px;line-height:1.9;color:#444;margin-bottom:16px}
 .v-quote{font-size:20px;font-weight:700;color:var(--black);border-left:4px solid var(--teal);padding-left:18px;text-align:left;margin:28px 0;line-height:1.5;font-style:italic}
-
-/* ============================================================
-   FOUNDER
-   ============================================================ */
 .founder-sec{background:var(--gray-light);padding:64px 0}
 .f-grid{display:grid;grid-template-columns:270px 1fr;gap:52px;align-items:start}
 .f-img img{width:100%;border-radius:8px;box-shadow:var(--shadow)}
@@ -368,10 +284,6 @@ ul{list-style:none}
 .f-list li::before{content:'→';position:absolute;left:0;color:var(--teal);font-weight:700}
 .f-sig{font-size:16px;font-weight:700;margin-top:22px;line-height:2;border-top:2px solid var(--teal-light);padding-top:14px}
 .f-sig span{font-size:20px;color:var(--teal)}
-
-/* ============================================================
-   PARTICIPATE
-   ============================================================ */
 .par-sec{background:var(--teal);padding:50px 0;color:#fff}
 .par-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .par-box{padding:28px;border-radius:var(--radius);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14)}
@@ -386,10 +298,6 @@ ul{list-style:none}
 .soc-lk svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
 .soc-ig{background:#C13584}.soc-yt{background:#FF0000}.soc-fb{background:#1877F2}
 .soc-li{background:#0A66C2}.soc-wa{background:#25D366}.soc-tw{background:#1DA1F2}
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
 .contact-sec{background:#2A1040;color:#fff;padding:64px 0}
 .contact-sec h2{font-size:34px;font-weight:900;margin-bottom:8px}
 .contact-sec>.container>p{font-size:16px;max-width:660px;line-height:1.6;margin-bottom:30px;color:rgba(255,255,255,.75)}
@@ -413,8 +321,6 @@ ul{list-style:none}
 .c-soc-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:var(--radius);font-size:12px;font-weight:700;color:#fff;cursor:pointer;transition:opacity .2s}
 .c-soc-btn:hover{opacity:.85;color:#fff}
 .c-soc-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
-
-/* WhatsApp CTA */
 .wa-cta-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;background:rgba(37,211,102,.07);border:2px solid rgba(37,211,102,.25);border-radius:16px}
 .wa-icon-wrap{margin-bottom:20px}
 .wa-logo{width:90px;height:90px;filter:drop-shadow(0 6px 24px rgba(37,211,102,.45))}
@@ -423,10 +329,6 @@ ul{list-style:none}
 .wa-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:16px 32px;border-radius:50px;font-size:18px;font-weight:800;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s;box-shadow:0 6px 28px rgba(37,211,102,.4);letter-spacing:.3px}
 .wa-btn:hover{background:#1ebe5d;color:#fff;transform:translateY(-2px);box-shadow:0 10px 36px rgba(37,211,102,.55)}
 .wa-note{font-size:13px;color:rgba(255,255,255,.45);margin-top:16px;letter-spacing:.2px}
-
-/* ============================================================
-   CULTURE / VISION helpers
-   ============================================================ */
 .culture-head{text-align:center;margin-bottom:30px}
 .culture-sec{padding:50px 0;background:#f9fbfb}
 .culture-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
@@ -438,10 +340,6 @@ ul{list-style:none}
 .vision-desc{text-align:center;color:#555;margin-bottom:25px}
 .vision-list{display:grid;gap:12px}
 .vision-list div{background:#f5f7f8;padding:12px 15px;border-radius:6px}
-
-/* ============================================================
-   LOGO-BG INFO SECTIONS
-   ============================================================ */
 .logo-bg-sec{position:relative;padding:82px 0;overflow:hidden;}
 .logo-bg-sec::before{content:'';position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png');background-repeat:no-repeat;background-position:center center;background-size:55%;opacity:0.07;pointer-events:none;z-index:0;}
 .logo-bg-sec .container{position:relative;z-index:1}
@@ -473,10 +371,6 @@ ul{list-style:none}
 .lbs-power{text-align:center;font-size:21px;font-weight:900;font-style:italic;padding:20px 28px;border-radius:10px;margin-top:8px}
 .lbs-dark .lbs-power{background:rgba(193,123,58,.15);color:var(--orange);border:2px solid rgba(193,123,58,.3)}
 .lbs-light .lbs-power{background:var(--teal);color:#fff}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
 footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .ft-logo img{height:60px;margin:0 auto 20px}
 .ft-hr{border:none;border-top:1px solid #2d2d2d;width:88%;margin:0 auto 18px}
@@ -491,28 +385,12 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .ft-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;margin-bottom:10px}
 .ft-legal a{font-size:12px;color:#666}
 .ft-copy{font-size:11px;color:#4d4d4d}
-
-/* ============================================================
-   TOAST
-   ============================================================ */
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;padding:14px 26px;border-radius:6px;font-size:15px;font-weight:600;z-index:9000;opacity:0;transition:opacity .4s;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.2);white-space:nowrap;max-width:90vw;text-align:center;}
 .toast.show{opacity:1}
-
-/* ============================================================
-   MOBILE STICKY
-   ============================================================ */
 .sticky-mob{display:none;position:fixed;bottom:0;left:0;width:100%;z-index:2500}
 .sticky-mob a{display:block;width:50%;text-align:center;padding:13px;font-size:15px;font-weight:700;text-transform:uppercase;color:#fff}
-
-/* ============================================================
-   SCROLL TOP
-   ============================================================ */
 #go-top{position:fixed;bottom:48px;right:30px;width:40px;height:40px;background:var(--teal);color:#fff;border:0;cursor:pointer;font-size:17px;line-height:40px;text-align:center;opacity:0;transition:opacity .3s,transform .3s;z-index:1000;border-radius:50%;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 #go-top.show{opacity:1}#go-top:hover{transform:translateY(-2px)}
-
-/* ============================================================
-   PROJECT CARDS
-   ============================================================ */
 .proj-card{display:block;padding:14px;border-radius:8px;border:1.5px solid #eee;transition:all .22s;cursor:pointer;background:#fff;text-decoration:none}
 .proj-card:hover{border-color:var(--teal);background:var(--teal-light);transform:translateY(-2px);box-shadow:0 4px 16px rgba(181,54,106,.15)}
 .proj-icon{font-size:28px;margin-bottom:8px;line-height:1}
@@ -525,10 +403,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .mega-proj-wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:8px 0}
 .mega-view-all{display:block;text-align:center;margin-top:14px;font-size:13px;font-weight:700;color:var(--teal);text-decoration:none}
 .mega-view-all:hover{text-decoration:underline}
-
-/* ============================================================
-   MISSION WRAP
-   ============================================================ */
 .mission-wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
 .mission-left h1{font-size:34px;margin-bottom:15px}
 .mission-highlight{font-size:18px;font-weight:600;margin-bottom:10px}
@@ -544,18 +418,7 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .mi-cta{font-size:12px;font-weight:700;color:rgba(255,255,255,0.85);text-transform:uppercase;letter-spacing:0.6px;white-space:nowrap;display:flex;align-items:center;gap:4px;transition:color 0.2s,transform 0.25s;flex-shrink:0}
 .mission-item:hover .mi-cta{color:#fff;transform:translateX(3px)}
 .m-stats{margin-top:40px;display:flex;justify-content:space-around;text-align:center}
-
-/* ============================================================
-   TICKER — Desktop (inside gn-wrap, flows naturally)
-   ============================================================ */
-.service-ticker{
-  background:linear-gradient(90deg,#ab1a1a 0%,#ac2121 45%,#3a0303 100%);
-  overflow:hidden;
-  height:38px;
-  display:flex;
-  align-items:center;
-  box-shadow:0 4px 18px rgba(152,181,48,0.45);
-}
+.service-ticker{background:linear-gradient(90deg,#ab1a1a 0%,#ac2121 45%,#3a0303 100%);overflow:hidden;height:38px;display:flex;align-items:center;box-shadow:0 4px 18px rgba(152,181,48,0.45);}
 .ticker-track{display:flex;white-space:nowrap;animation:tickerScroll 28s linear infinite;align-items:center}
 .service-ticker:hover .ticker-track{animation-play-state:paused}
 .ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 40px;color:#ffffff;font-size:15px;font-weight:700;font-family:'Roboto',sans-serif;letter-spacing:.3px;cursor:pointer;transition:color .2s;text-decoration:none}
@@ -566,10 +429,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .ticker-sub{font-size:11px;font-weight:400;color:rgba(255,255,255,.75);letter-spacing:.2px;text-transform:none}
 .ticker-sep{color:rgba(255,255,255,.35);font-size:20px;flex-shrink:0;user-select:none}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ============================================================
-   ECOSYSTEM
-   ============================================================ */
 .ecosystem-sec{background:linear-gradient(180deg,#f2eaf8 0%,#fff 100%);padding:80px 0 72px;position:relative;overflow:hidden}
 .ecosystem-sec::before{content:'';position:absolute;right:-120px;top:-120px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(181,54,106,.07) 0%,transparent 70%);pointer-events:none}
 .ecosystem-sec::after{content:'';position:absolute;left:-80px;bottom:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(107,63,160,.06) 0%,transparent 70%);pointer-events:none}
@@ -597,10 +456,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .eco-partner-actions{display:flex;gap:8px;flex-wrap:wrap}
 .eco-partner-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28);transition:all .2s;cursor:pointer}
 .eco-partner-btn:hover{background:rgba(255,255,255,.32);color:#fff}
-
-/* ============================================================
-   SAVE REGISTRATION FORM SECTION
-   ============================================================ */
 .save-form-sec{position:relative;padding:80px 0;background:linear-gradient(135deg,#1a0533 0%,#3B1070 35%,#8C1F50 70%,#C8375A 100%);overflow:hidden;}
 .save-form-sec::before{content:'';position:absolute;top:-120px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);pointer-events:none;}
 .save-form-sec::after{content:'';position:absolute;bottom:-100px;left:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);pointer-events:none;}
@@ -635,10 +490,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .save-btn-volunteer:hover{background:rgba(255,255,255,0.22);transform:translateY(-2px);color:#fff}
 .save-paws{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:0;}
 .save-paw{position:absolute;font-size:60px;opacity:0.04;user-select:none;}
-
-/* ============================================================
-   DONATE MODAL
-   ============================================================ */
 .donate-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;padding:1rem;}
 .donate-overlay.active{display:flex;}
 .donate-modal{background:#ffffff;border-radius:20px;padding:32px 28px;max-width:360px;width:100%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.25);animation:popIn 0.25s ease;}
@@ -657,10 +508,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .donate-copy-btn{background:#fff;border:1px solid #ddd;border-radius:8px;padding:6px 16px;font-size:13px;color:#555;cursor:pointer;}
 .donate-copy-btn:hover{background:#f0f0f0;}
 .donate-heart-msg{font-size:13px;color:#993556;margin:0;}
-
-/* ============================================================
-   IMPACT SECTION
-   ============================================================ */
 #impact.ctr-sec{background:linear-gradient(135deg,#1a0533 0%,#6B2FA0 40%,#B5366A 75%,#C8375A 100%) !important;padding:80px 0 64px !important;position:relative;overflow:hidden;}
 #impact.ctr-sec::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.07) 0%,transparent 70%);pointer-events:none;}
 #impact.ctr-sec::after{content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 70%);pointer-events:none;}
@@ -676,10 +523,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 #impact .ci-lbl{color:rgba(255,255,255,.88) !important;font-size:15px !important;line-height:1.65 !important;}
 #impact .ci-lbl a{color:#FFD6EC !important;font-weight:700 !important;text-decoration:underline;text-decoration-color:rgba(255,214,236,.4);}
 #impact .sec-head{padding-top:0 !important;}
-
-/* ============================================================
-   HERO IMPACT CARD
-   ============================================================ */
 .hero-impact-card{position:absolute;top:50%;right:56px;transform:translateY(-50%);z-index:10;width:290px;border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:0 16px 50px rgba(0,0,0,.55),0 0 0 1.5px rgba(200,55,90,.35);animation:hicFadeIn .8s cubic-bezier(.4,0,.2,1) .3s both;transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s;}
 .hero-impact-card:hover{transform:translateY(calc(-50% - 5px));box-shadow:0 24px 64px rgba(0,0,0,.65),0 0 0 2px rgba(200,55,90,.6);}
 @keyframes hicFadeIn{from{opacity:0;transform:translateY(calc(-50% + 22px));}to{opacity:1;transform:translateY(-50%);}}
@@ -699,10 +542,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .hic-watch-row{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#F48CB0;transition:gap .2s;}
 .hero-impact-card:hover .hic-watch-row{gap:10px;}
 @media(max-width:900px){.hero-impact-card{display:none;}}
-
-/* ============================================================
-   GOCAF NAVBAR COLOUR OVERRIDES
-   ============================================================ */
 .gn-link:hover,.gn-item:hover>.gn-link{color:#B5366A !important;border-bottom-color:#B5366A !important;}
 .gn-item:hover .gn-arr{opacity:.9;}
 .gn-drop,.gn-mega{border-top-color:#B5366A !important;}
@@ -720,11 +559,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .gn-link.donate{color:#B5366A !important;font-weight:700;}
 .gn-link.donate:hover,.gn-item:hover>.gn-link.donate{color:#8C1F50 !important;border-bottom-color:#B5366A !important;}
 .gn-mega div[style*="f0fdfb"]{background:#FDE8F0 !important;}
-
-/* ============================================================
-   GOCAF NAV — PROFESSIONAL RIGHT-SIDE ACTIONS
-   (replaces the old "everything is a pill button" look)
-   ============================================================ */
 .gn-util-link{
   display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
   padding:6px 10px;
@@ -752,10 +586,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .gn-btn-purple:hover{background:#6d1840 !important;box-shadow:none !important;transform:none !important}
 .gn-right .gn-btn,.gn-right a.gn-btn{padding:8px 16px !important;font-size:13px !important;font-weight:700 !important;border-radius:6px !important;height:36px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;white-space:nowrap !important;line-height:1 !important;}
 .gn-sep{width:1px;height:24px;background:#e5e7eb;margin:0 6px}
-
-/* ============================================================
-   MOBILE HEADER — two-row sticky nav
-   ============================================================ */
 .mob-header{
   display:none;
   position:sticky;
@@ -764,8 +594,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   background:#fff;
   box-shadow:0 2px 12px rgba(181,54,106,.12);
 }
-
-/* Row 1 — logo + hamburger */
 .mob-header-row1{
   display:flex;
   align-items:center;
@@ -778,7 +606,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .mob-header-wordmark{display:flex;flex-direction:column;line-height:1.1}
 .mob-wm-title{font-size:15px;font-weight:900;color:#8C1F50;letter-spacing:.3px}
 .mob-wm-sub{font-size:9.5px;font-weight:600;color:#9ca3af;letter-spacing:.2px}
-
 .mob-ham{
   display:flex;
   flex-direction:column;
@@ -797,8 +624,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   border-radius:2px;
   transition:.3s;
 }
-
-/* Row 2 — scrollable pill row */
 .mob-header-row2-wrap{position:relative;overflow:hidden;}
 .mob-header-row2{
   display:flex;
@@ -821,8 +646,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   pointer-events:none;
   z-index:1;
 }
-
-/* Pills */
 .mob-pill{
   display:inline-flex;
   align-items:center;
@@ -849,8 +672,6 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .mob-pill-donate:hover{opacity:.9}
 .mob-pill-emergency{color:#fff;border-color:#B91C1C;background:#B91C1C;animation:mobPulseEm 2.2s ease-in-out infinite;}
 @keyframes mobPulseEm{0%,100%{box-shadow:0 0 0 0 rgba(185,28,28,.35)}50%{box-shadow:0 0 0 5px rgba(185,28,28,0)}}
-
-/* Mobile drawer */
 .mob-drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9600;}
 .mob-drawer-overlay.mob-open{display:block}
 .mob-drawer{position:fixed;top:0;right:0;bottom:0;width:300px;max-width:90vw;background:#fff;z-index:9700;transform:translateX(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 32px rgba(0,0,0,.15);}
@@ -872,21 +693,8 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 .mob-drawer-link:hover{background:#fdf5fc;color:#B5366A}
 .mob-drawer-cta{padding:16px 18px;display:flex;flex-direction:column;gap:10px;border-top:1px solid #f3e8f2;flex-shrink:0;}
 .mob-drawer-cta .mob-pill{width:100%;justify-content:center;font-size:14px;padding:11px}
-
-/* Show/hide */
-@media(min-width:1021px){
-  .mob-header{display:none!important}
-  .mob-drawer-overlay,.mob-drawer{display:none!important}
-}
-@media(max-width:1020px){
-  .mob-header{display:block}
-  .gn-wrap{display:none!important}
-  #header .topbar{display:none}
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+@media(min-width:1021px){.mob-header{display:none!important}.mob-drawer-overlay,.mob-drawer{display:none!important}}
+@media(max-width:1020px){.mob-header{display:block}.gn-wrap{display:none!important}#header .topbar{display:none}}
 @media(max-width:1100px){
   .card-grid,.topics-grid{grid-template-columns:repeat(2,1fr)}
   .action-grid,.camp-grid{grid-template-columns:repeat(2,1fr)}
@@ -967,14 +775,14 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   .eco-tagline{font-size:17px}
 }
 </style>
-
+ 
 <!-- ── FLOATING TRIGGER BUTTON ─────────────────────────── -->
 <button id="gocaf-vid-btn" onclick="openVideoPopup()" aria-label="Watch awareness video" style="display:none">
   <span class="gvb-pulse"></span>
   <span class="gvb-icon"></span>
   <!-- <span class="gvb-label">See Our Impact</span> -->
 </button>
-
+ 
 <!-- ── VIDEO POPUP OVERLAY ──────────────────────────────── -->
 <div id="gocaf-vid-overlay" role="dialog" aria-modal="true" aria-label="Awareness video">
   <div id="gocaf-vid-modal">
@@ -998,7 +806,7 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
     </p>
   </div>
 </div>
-
+ 
 <style>
 #gocaf-vid-btn{display:none !important;position:fixed;bottom:28px;left:24px;z-index:4500;display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#C8375A 0%,#9B2E8A 60%,#6B3FA0 100%);color:#fff;border:none;border-radius:50px;padding:13px 22px 13px 16px;font-size:14px;font-weight:700;font-family:'Roboto',sans-serif;cursor:pointer;box-shadow:0 6px 28px rgba(181,54,106,.45);transition:transform .2s,box-shadow .2s;letter-spacing:.3px;}
 #gocaf-vid-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 36px rgba(181,54,106,.6);}
@@ -1024,7 +832,7 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 #gocaf-vid-note a:hover{text-decoration:underline;}
 @media(max-width:600px){#gocaf-vid-btn{padding:11px 16px 11px 13px;font-size:13px;bottom:72px;}.gvh-title{font-size:18px;}#gocaf-vid-modal{border-radius:14px;}}
 </style>
-
+ 
 <script>
 function openVideoPopup(){var o=document.getElementById('gocaf-vid-overlay');o.classList.add('open');document.body.style.overflow='hidden';}
 function closeVideoPopup(){var o=document.getElementById('gocaf-vid-overlay');var v=document.getElementById('gocaf-video');o.classList.remove('open');v.pause();document.body.style.overflow='';}
@@ -1032,17 +840,17 @@ document.getElementById('gocaf-vid-overlay').addEventListener('click',function(e
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPopup();});
 </script>
 <!-- END GOCAF VIDEO POPUP -->
-
+ 
 </head>
 <body>
-
+ 
 <!-- ================================================================
      MOBILE HEADER — sticky two-row nav (mobile/tablet only)
      ================================================================ -->
-
+ 
 <!-- Drawer overlay backdrop -->
 <div class="mob-drawer-overlay" id="mobDrawerOv" onclick="closeMobDrawer()"></div>
-
+ 
 <!-- Slide-in accordion drawer -->
 <div class="mob-drawer" id="mobDrawer">
   <div class="mob-drawer-head">
@@ -1050,7 +858,32 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     <button class="mob-drawer-close" onclick="closeMobDrawer()">&#x2715;</button>
   </div>
   <div class="mob-drawer-body">
-
+ 
+    <!-- Home -->
+    <a class="mob-drawer-link" href="index.html"> Home</a>
+ 
+    <!-- Projects accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+         Projects <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="save.html">SAVE</a>
+      </div>
+    </div>
+ 
+    <!-- Services accordion (Register Animal / Report Pickup / Become Volunteer) -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Protect<br>Animals <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="https://save.gocaf.global/saveregistration" target="_blank"> Register Animal</a>
+        <a href="https://save.gocaf.global/register-pickup"> Report Pickup</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank"> Become Volunteer</a>
+      </div>
+    </div>
+ 
     <!-- Register accordion -->
     <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
@@ -1064,7 +897,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         <a href="https://save.gocaf.global/volunteer-registration" target="_blank">As a Rescuer</a> -->
       </div>
     </div>
-
+ 
     <!-- Lost & Found accordion -->
     <!-- <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
@@ -1076,11 +909,20 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         <a href="https://save.gocaf.global/report-found" target="_blank">Report Found Animal</a>
       </div>
     </div> -->
-
+ 
+    <!-- Shelters -->
+    <a class="mob-drawer-link" href="#shelters"> Shelters</a>
+ 
+    <!-- Municipalities -->
+    <a class="mob-drawer-link" href="#municipalities"> Municipalities Support</a>
+ 
+    <!-- Search Animal -->
+    <a class="mob-drawer-link" href="https://save.gocaf.global/animal-search" target="_blank"> Search Animal</a>
+ 
     <!-- About Us accordion -->
     <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
-        About Us <span class="mob-acc-arr">&#9662;</span>
+        About GOCAF <span class="mob-acc-arr">&#9662;</span>
       </button>
       <div class="mob-acc-panel">
         <a href="#about">Mission &amp; Vision</a>
@@ -1090,7 +932,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         <a href="#contact">Contact Us</a>
       </div>
     </div>
-
+ 
     <!-- Campaigns accordion -->
     <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
@@ -1105,7 +947,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         <a href="#campaigns">Spay &amp; Neuter Drive</a>
       </div>
     </div>
-
+ 
     <!-- Quick Links accordion -->
     <!-- <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
@@ -1118,22 +960,22 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         <a href="https://wa.me/919390189589" target="_blank" style="color:#B91C1C;font-weight:700">🚨 Emergency Support</a>
       </div>
     </div> -->
-
+ 
     <!-- Plain links -->
     <a class="mob-drawer-link" href="#shelters">Partnered Shelters</a>
     <a class="mob-drawer-link" href="rescue.html">Rescue Stories</a>
     <a class="mob-drawer-link" href="#gallery">Gallery</a>
     <a class="mob-drawer-link" href="#contact">Newsletter</a>
-
+ 
   </div><!-- /mob-drawer-body -->
-
+ 
   <!-- Bottom CTA buttons -->
   <div class="mob-drawer-cta">
     <button class="mob-pill mob-pill-outline" onclick="openDonateModal();closeMobDrawer()">&#10084; Donate</button>
     <!-- <a class="mob-pill mob-pill-teal" href="https://save.gocaf.global/volunteer-registration" target="_blank" onclick="closeMobDrawer()">Volunteer Now</a> -->
   </div>
 </div>
-
+ 
 <!-- The sticky two-row mobile header bar -->
 <header class="mob-header" id="mobHeader">
   <!-- Row 1: logo + hamburger -->
@@ -1153,9 +995,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   <div class="mob-header-row2-wrap">
     <div class="mob-header-row2" role="navigation" aria-label="Quick actions">
       <!-- <a class="mob-pill mob-pill-emergency" href="https://wa.me/919390189589" target="_blank">&#128680; Emergency</a> -->
-      <a class="mob-pill mob-pill-teal" href="https://save.gocaf.global/saveregistration" target="_blank">Register Animal</a>
-      <a class="mob-pill mob-pill-outline" href="Municipal-letter.pdf" target="_blank">&#128196; Municipal Letter</a>
-      <a class="mob-pill mob-pill-outline" href="https://save.gocaf.global/volunteer-registration" target="_blank">Volunteer</a>
+      <a class="mob-pill mob-pill-teal" href="https://save.gocaf.global/saveregistration" target="_blank"> Register Animal</a>
+      <a class="mob-pill mob-pill-outline" href="#pickup"> Report Pickup</a>
+      <a class="mob-pill mob-pill-outline" href="https://save.gocaf.global/volunteer-registration" target="_blank"> Become Volunteer</a>
       <a class="mob-pill mob-pill-outline" href="https://save.gocaf.global/animal-search" target="_blank">&#128269; Search Animal</a>
       <button class="mob-pill mob-pill-donate" onclick="openDonateModal()">&#10084; Donate</button>
     </div>
@@ -1163,7 +1005,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   </div>
 </header>
 <!-- END MOBILE HEADER -->
-
+ 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb">
   <button class="lb-close" onclick="lbClose()">&#x2715;</button>
@@ -1172,10 +1014,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   <button class="lb-arr lb-next" onclick="lbNav(1)">&#8250;</button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
-
+ 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
-
+ 
 <!-- SEARCH OVERLAY -->
 <div class="search-ov" id="searchOv">
   <button class="s-close" onclick="closeSearch()">&#x2715;</button>
@@ -1187,7 +1029,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     </div>
   </div>
 </div>
-
+ 
 <!-- MOBILE OVERLAY (legacy) -->
 <div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
 <div id="mob-menu">
@@ -1240,7 +1082,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     <a href="https://save.gocaf.global/volunteer-registration" target="_blank" class="mob-volunteer-btn">Volunteer</a>
   </div>
 </div>
-
+ 
 <!-- HEADER — Desktop Only -->
 <header id="header">
   <!-- TOP BAR -->
@@ -1289,7 +1131,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       </div>
     </div>
   </div>
-
+ 
   <!-- DONATE MODAL -->
   <div class="donate-overlay" id="donateModal" onclick="closeDonateModalOnOverlay(event)">
     <div class="donate-modal">
@@ -1310,7 +1152,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       <p class="donate-heart-msg">&#9829; Your contribution helps support community animal welfare across India.</p>
     </div>
   </div>
-
+ 
   <!--
   =================================================================
     GOCAF NAVBAR — Self-Contained (No CSS Conflicts)
@@ -1345,7 +1187,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-drop-divider{height:1px;background:#f3f4f6;margin:4px 0}
   .gn-ico{width:30px;height:30px;background:#f0fdfb;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background .13s}
   .gn-drop a:hover .gn-ico{background:rgba(13,148,136,.15)}
-  /* More/Quick Links dropdown — opens to the left so it stays on-screen */
   .gn-more-item{position:relative}
   .gn-more-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
   .gn-more-drop{left:auto;right:0;border-radius:12px}
@@ -1367,9 +1208,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-soon{background:#e5e7eb;color:#374151}
   .gn-right{display:flex;align-items:center;gap:4px;margin-left:10px;flex-shrink:0}
   .gn-sep{width:1px;height:26px;background:#e5f7f5;margin:0 3px}
-
-  /* Utility links (Municipal Letter / Search Animal / Volunteer) —
-     stacked icon-over-label style to match reference screenshot */
   .gn-util-link{
     display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
     padding:6px 10px;
@@ -1383,7 +1221,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-util-ico svg{width:18px;height:18px;display:block}
   .gn-btn-outline .gn-link-ico,.gn-btn-outline .gn-link-ico svg{color:#0d9488}
   .gn-btn-purple .gn-link-ico,.gn-btn-purple .gn-link-ico svg{color:#fff}
-
   .gn-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 15px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;cursor:pointer;border:none;white-space:nowrap;transition:all .15s;letter-spacing:.015em}
   .gn-btn-outline{background:transparent;color:#0d9488;border:1.5px solid #0d9488}
   .gn-btn-outline:hover{background:#f0fdfb}
@@ -1402,58 +1239,72 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-ham span{display:block;width:20px;height:2px;background:#374151;border-radius:2px}
   @media(max-width:1020px){.gn-nav{display:none}.gn-ham{display:flex}.gn-right .gn-btn-outline{display:none}}
   </style>
-
+ 
   <!-- DESKTOP NAVBAR WRAPPER -->
   <div class="gn-wrap">
     <div class="gn-inner">
-      <a href="index.html" class="gn-logo" aria-label="GOCAF Home">
+      <a href="index.html" class="gn-logo">
         <img src="https://static.wixstatic.com/media/ed3891_0bf3bc61c6fa485b8221cc8dd06a6164~mv2.png" alt="GOCAF">
         <span class="gn-logo-wordmark">
           <span class="gn-logo-title">GOCAF</span>
           <span class="gn-logo-sub">Global Organization for<br>Community Animal Freedom</span>
         </span>
       </a>
-
+ 
       <nav class="gn-nav" aria-label="Primary">
-
-        <!-- Projects -->
+ 
+        <!-- Home -->
+        <!-- <div class="gn-item">
+          <a class="gn-link" href="index.html"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span></a>
+        </div> -->
+ 
+  
+        <!-- Services (Register Animal / Report Pickup / Become Volunteer) -->
         <div class="gn-item">
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>Protect Animals<span class="gn-arr">▾</span></span>
+          <div class="gn-drop">
+            <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener"> Register a animal</a>
+            <a href="https://save.gocaf.global/register-pickup"> Report Animal Pickup</a>
+            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener"> Become a volunteer</a>
+          </div>
+        </div>
+        <!-- Projects -->
+ <div class="gn-item">
           <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Projects <span class="gn-arr">▾</span></span>
           <div class="gn-mega" style="min-width:460px">
             <div style="font-size:10.5px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.9px;margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid #99f6e4">Our Core Programmes</div>
             <div class="gn-proj-wrap">
               <a class="gn-proj" href="save.html">
-                <div class="gn-proj-icon">🐾</div>
+                <div class="gn-proj-icon"></div>
                 <div><div class="gn-proj-name">SAVE</div><div class="gn-proj-desc">Stray Animal Verification &amp; Enforcement</div></div>
                 <span class="gn-badge">Identity &amp; Tracking</span>
               </a>
               <a class="gn-proj" href="#safeabc" style="opacity:.5;pointer-events:none">
-                <div class="gn-proj-icon">💉</div>
+                <div class="gn-proj-icon"></div>
                 <div><div class="gn-proj-name">SAFE-ABC</div><div class="gn-proj-desc">Systematic Animal Fertility Enforcement</div></div>
                 <span class="gn-badge gn-soon">Coming Soon</span>
               </a>
               <a class="gn-proj" href="#care" style="opacity:.5;pointer-events:none">
-                <div class="gn-proj-icon">🏥</div>
+                <div class="gn-proj-icon"></div>
                 <div><div class="gn-proj-name">CARE</div><div class="gn-proj-desc">Capture, Assess, Rehabilitate &amp; Empower</div></div>
                 <span class="gn-badge gn-soon">Coming Soon</span>
               </a>
             </div>
           </div>
         </div>
-
         <!-- Register -->
-        <div class="gn-item">
+        <!-- <div class="gn-item">
           <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg></span>Register <span class="gn-arr">▾</span></span>
           <div class="gn-drop">
             <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener">Register an Animal</a>
             <a href="#abc-support">ABC Support</a>
             <a href="#shelter">Temporary Shelter</a>
-            <div class="gn-drop-divider"></div>
+            <div class="gn-drop-divider"></div> -->
             <!-- <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener">As a Feeder / Caretaker</a>
             <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener">As a Rescuer</a> -->
-          </div>
-        </div>
-
+          <!-- </div>
+        </div> -->
+ 
         <!-- Report -->
         <!-- <div class="gn-item">
           <span class="gn-link">Report <span class="gn-arr">▾</span></span>
@@ -1464,16 +1315,22 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
             <a href="https://save.gocaf.global/emergency-support" target="_blank" rel="noopener">Animal Cruelty</a>
           </div>
         </div> -->
-
+ 
         <!-- Lost & Found -->
         <!-- <div class="gn-item">
           <a class="gn-link" href="https://save.gocaf.global/lost-found" target="_blank" rel="noopener">Lost &amp; Found</a>
         </div> -->
-
+  <!-- Municipalities -->
         <div class="gn-item">
-          <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Partnered Shelters</a>
+          <a class="gn-link" href="#municipalities"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>Municipalities</a>
         </div>
-
+        <!-- Shelters -->
+        <div class="gn-item">
+          <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Shelters</a>
+        </div>
+ 
+  
+ 
         <!-- Campaigns & Topics -->
         <!-- <div class="gn-item">
           <span class="gn-link">Campaigns <span class="gn-arr">▾</span></span>
@@ -1521,19 +1378,21 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
             </div>
           </div>
         </div> -->
-<!-- 
+        <!--
         <div class="gn-item">
           <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Our Partners</a>
         </div> -->
-
+ 
+  
+ 
         <!-- Donate nav link -->
         <!-- <div class="gn-item">
           <a class="gn-link donate" href="#donate">Donate</a>
         </div> -->
-
+ 
         <!-- About Us -->
         <div class="gn-item">
-          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>About Us <span class="gn-arr">▾</span></span>
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>About GOCAF <span class="gn-arr">▾</span></span>
           <div class="gn-mega" style="min-width:500px">
             <div class="gn-mega-grid c2">
               <div>
@@ -1559,11 +1418,17 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
                   
                 </div>
                 
+                
               </div>
+              
             </div>
           </div>
+                <!-- Search Animal -->
+        <div class="gn-item">
+          <a class="gn-link" href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search Animal</a>
         </div>
-
+        </div>
+ 
         <!-- Search -->
         <!-- <div class="gn-item">
           <span class="gn-link">Search <span class="gn-arr">▾</span></span>
@@ -1576,28 +1441,25 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
             <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener">Shelters by Location</a>
           </div>
         </div> -->
-
+ 
       </nav>
-
+ 
       <!-- Right actions — utility links (plain text) + ONE outline step + ONE primary CTA -->
       <div class="gn-right">
         <div class="gn-sep"></div>
-
-        <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>Municipal<br>Letter</a>
-        <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search<br>Animal</a>
-        <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Volunteer</a>
-
+ 
+        <!-- <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>Municipal<br>Letter</a> -->
+ 
         <div class="gn-sep"></div>
-
-        <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener" class="gn-btn gn-btn-outline"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Register Animal</a>
+ 
         <a href="donate.html" class="gn-btn gn-btn-purple"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Donate</a>
-
+ 
         <button class="gn-ham" onclick="this.closest('.gn-wrap').querySelector('.gn-drawer').style.display='flex'" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-
+ 
     <!-- Desktop Ticker -->
     <!-- <div class="gn-ticker" aria-label="GOCAF services">
       <div class="gn-ticker-track">
@@ -1613,7 +1475,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         <span class="gn-tick-sep">◆</span>
       </div>
     </div> -->
-
+ 
     <!-- Mobile drawer (inside gn-wrap for desktop hamburger) -->
     <div class="gn-drawer" style="display:none;position:fixed;inset:0;z-index:9200">
       <div style="position:absolute;inset:0;background:rgba(0,0,0,.5)" onclick="this.closest('.gn-drawer').style.display='none'"></div>
@@ -1624,11 +1486,20 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
         </div>
         <div style="overflow-y:auto;flex:1">
           <a href="https://wa.me/919390189589" target="_blank" style="display:flex;align-items:center;gap:6px;padding:14px 20px;font-size:14px;font-weight:800;color:#B91C1C;text-decoration:none;border-bottom:1px solid #f3f4f6;background:#FEF2F2">🚨 Emergency Support</a>
+          <a href="index.html" style="display:block;padding:14px 20px;font-size:14px;font-weight:600;color:#1a2a2a;text-decoration:none;border-bottom:1px solid #f3f4f6">🏠 Home</a>
           <details style="border-bottom:1px solid #f3f4f6">
             <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Projects <span>▾</span></summary>
             <!-- <div style="padding:0 0 8px">
               <a href="save.html" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">SAVE – Identity &amp; Tracking</a>
             </div> -->
+          </details>
+          <details style="border-bottom:1px solid #f3f4f6">
+            <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Protect<br>Animals <span>▾</span></summary>
+            <div style="padding:0 0 8px">
+              <a href="https://save.gocaf.global/saveregistration" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none"> Register Animal</a>
+              <a href="#pickup" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none"> Report Pickup</a>
+              <a href="https://save.gocaf.global/volunteer-registration" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none"> Become A Volunteer</a>
+            </div>
           </details>
           <details style="border-bottom:1px solid #f3f4f6">
             <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">Register <span>▾</span></summary>
@@ -1662,10 +1533,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
               <a href="https://save.gocaf.global/animal-search" target="_blank" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">Shelters by Location</a>
             </div>
           </details> -->
-          <a href="#shelters" style="display:block;padding:14px 20px;font-size:14px;font-weight:600;color:#1a2a2a;text-decoration:none;border-bottom:1px solid #f3f4f6">Partnered Shelters</a>
+          <a href="#shelters" style="display:block;padding:14px 20px;font-size:14px;font-weight:600;color:#1a2a2a;text-decoration:none;border-bottom:1px solid #f3f4f6">Shelters</a>
+          <a href="#municipalities" style="display:block;padding:14px 20px;font-size:14px;font-weight:600;color:#1a2a2a;text-decoration:none;border-bottom:1px solid #f3f4f6">Municipalities</a>
+          <a href="https://save.gocaf.global/animal-search" target="_blank" style="display:block;padding:14px 20px;font-size:14px;font-weight:600;color:#1a2a2a;text-decoration:none;border-bottom:1px solid #f3f4f6"> Search Animal</a>
           <a href="#donate" style="display:block;padding:14px 20px;font-size:14px;font-weight:700;color:#534AB7;text-decoration:none;border-bottom:1px solid #f3f4f6">❤ Donate</a>
           <details style="border-bottom:1px solid #f3f4f6">
-            <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">About Us <span>▾</span></summary>
+            <summary style="padding:14px 20px;font-size:14px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between">About GOCAF <span>▾</span></summary>
             <div style="padding:0 0 8px">
               <a href="#about" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">Mission &amp; Vision</a>
               <a href="#contact" style="display:block;padding:9px 20px 9px 32px;font-size:13px;color:#374151;text-decoration:none">Contact Us</a>
@@ -1673,16 +1546,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
           </details>
         </div>
         <div style="padding:16px 20px;border-top:1px solid #f3f4f6;display:flex;flex-direction:column;gap:10px">
-          <a href="https://save.gocaf.global/saveregistration" target="_blank" class="gn-btn gn-btn-teal" style="justify-content:center">Register Animal</a>
-          <a href="municipal-letter.html" target="_blank" class="gn-btn gn-btn-outline" style="justify-content:center">📄 Municipal Letter</a>
+          <a href="https://save.gocaf.global/saveregistration" target="_blank" class="gn-btn gn-btn-teal" style="justify-content:center">Register a Animal</a>
+          <!-- <a href="municipal-letter.html" target="_blank" class="gn-btn gn-btn-outline" style="justify-content:center"> Municipal Letter</a> -->
           <!-- <a href="https://save.gocaf.global/lost-found" target="_blank" class="gn-btn gn-btn-teal" style="justify-content:center;background:#0d9488">Lost &amp; Found</a> -->
           <!-- <a href="#donate" class="gn-btn gn-btn-purple" style="justify-content:center">❤ Donate</a> -->
           <a href="https://save.gocaf.global/volunteer-registration" target="_blank" class="gn-btn gn-btn-outline" style="justify-content:center">Become a Volunteer</a>
-          <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-btn gn-btn-outline" style="justify-content:center">🔍 Search Animal</a>
+          <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener" class="gn-btn gn-btn-outline" style="justify-content:center"> Search Animal</a>
         </div>
       </div>
     </div>
-
+ 
   </div>
 
 <!-- END GOCAF NAVBAR -->
