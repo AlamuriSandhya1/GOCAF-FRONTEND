@@ -775,14 +775,14 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
   .eco-tagline{font-size:17px}
 }
 </style>
- 
+
 <!-- ── FLOATING TRIGGER BUTTON ─────────────────────────── -->
 <button id="gocaf-vid-btn" onclick="openVideoPopup()" aria-label="Watch awareness video" style="display:none">
   <span class="gvb-pulse"></span>
   <span class="gvb-icon"></span>
   <!-- <span class="gvb-label">See Our Impact</span> -->
 </button>
- 
+
 <!-- ── VIDEO POPUP OVERLAY ──────────────────────────────── -->
 <div id="gocaf-vid-overlay" role="dialog" aria-modal="true" aria-label="Awareness video">
   <div id="gocaf-vid-modal">
@@ -806,7 +806,7 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
     </p>
   </div>
 </div>
- 
+
 <style>
 #gocaf-vid-btn{display:none !important;position:fixed;bottom:28px;left:24px;z-index:4500;display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,#C8375A 0%,#9B2E8A 60%,#6B3FA0 100%);color:#fff;border:none;border-radius:50px;padding:13px 22px 13px 16px;font-size:14px;font-weight:700;font-family:'Roboto',sans-serif;cursor:pointer;box-shadow:0 6px 28px rgba(181,54,106,.45);transition:transform .2s,box-shadow .2s;letter-spacing:.3px;}
 #gocaf-vid-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 36px rgba(181,54,106,.6);}
@@ -832,7 +832,7 @@ footer{background:#1a1a1a;padding:44px 0 18px;text-align:center}
 #gocaf-vid-note a:hover{text-decoration:underline;}
 @media(max-width:600px){#gocaf-vid-btn{padding:11px 16px 11px 13px;font-size:13px;bottom:72px;}.gvh-title{font-size:18px;}#gocaf-vid-modal{border-radius:14px;}}
 </style>
- 
+
 <script>
 function openVideoPopup(){var o=document.getElementById('gocaf-vid-overlay');o.classList.add('open');document.body.style.overflow='hidden';}
 function closeVideoPopup(){var o=document.getElementById('gocaf-vid-overlay');var v=document.getElementById('gocaf-video');o.classList.remove('open');v.pause();document.body.style.overflow='';}
@@ -840,17 +840,17 @@ document.getElementById('gocaf-vid-overlay').addEventListener('click',function(e
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPopup();});
 </script>
 <!-- END GOCAF VIDEO POPUP -->
- 
+
 </head>
 <body>
- 
+
 <!-- ================================================================
      MOBILE HEADER — sticky two-row nav (mobile/tablet only)
      ================================================================ -->
- 
+
 <!-- Drawer overlay backdrop -->
 <div class="mob-drawer-overlay" id="mobDrawerOv" onclick="closeMobDrawer()"></div>
- 
+
 <!-- Slide-in accordion drawer -->
 <div class="mob-drawer" id="mobDrawer">
   <div class="mob-drawer-head">
@@ -858,124 +858,132 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     <button class="mob-drawer-close" onclick="closeMobDrawer()">&#x2715;</button>
   </div>
   <div class="mob-drawer-body">
- 
+
     <!-- Home -->
-    <a class="mob-drawer-link" href="index.html"> Home</a>
- 
-    <!-- Projects accordion -->
-    <!-- <div class="mob-acc-item">
-      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
-         Projects <span class="mob-acc-arr">&#9662;</span>
-      </button>
-      <div class="mob-acc-panel">
-        <a href="save.html">SAVE</a>
-      </div>
-    </div> -->
- 
-    <!-- Services accordion (Register Animal / Report Pickup / Become Volunteer) -->
-    <div class="mob-acc-item">
-      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
-        Protect<br>Animals <span class="mob-acc-arr">&#9662;</span>
-      </button>
-      <div class="mob-acc-panel">
-        <a href="https://save.gocaf.global/saveregistration" target="_blank"> Register Animal</a>
-        <a href="https://save.gocaf.global/register-pickup"> Report Pickup</a>
-        <a href="https://save.gocaf.global/volunteer-registration" target="_blank"> Become Volunteer</a>
-      </div>
-    </div>
- 
+    <a class="mob-drawer-link" href="index.html">Home</a>
+
     <!-- Register accordion -->
-    <!-- <div class="mob-acc-item">
+    <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
         Register <span class="mob-acc-arr">&#9662;</span>
       </button>
       <div class="mob-acc-panel">
         <a href="https://save.gocaf.global/saveregistration" target="_blank">Register an Animal</a>
-        <a href="#abc-support">ABC Support</a>
-        <a href="#shelter">Temporary Shelter</a> -->
-        <!-- <a href="https://save.gocaf.global/volunteer-registration" target="_blank">As a Feeder / Caretaker</a>
-        <a href="https://save.gocaf.global/volunteer-registration" target="_blank">As a Rescuer</a> -->
-      <!-- </div>
-    </div> -->
- 
-    <!-- Lost & Found accordion -->
-    <!-- <div class="mob-acc-item">
+        <a href="https://save.gocaf.global/abc-registration" target="_blank">Register ABC</a>
+        <a href="https://save.gocaf.global/report-cruelty" target="_blank">Register Cruelty Act</a>
+      </div>
+    </div>
+
+    <!-- Report accordion -->
+    <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
-        Lost &amp; Found <span class="mob-acc-arr">&#9662;</span>
+        Report <span class="mob-acc-arr">&#9662;</span>
       </button>
       <div class="mob-acc-panel">
-        <a href="https://save.gocaf.global/lost-found" target="_blank">Lost &amp; Found Portal</a>
-        <a href="https://save.gocaf.global/report-lost" target="_blank">Report Lost Animal</a>
-        <a href="https://save.gocaf.global/report-found" target="_blank">Report Found Animal</a>
+        <a href="https://save.gocaf.global/report-lost" target="_blank">Lost Animal</a>
+        <a href="https://save.gocaf.global/report-found" target="_blank">Found Animal</a>
+        <a href="https://save.gocaf.global/emergency-support" target="_blank">Report Incident</a>
       </div>
-    </div> -->
- 
-    <!-- Shelters -->
-    <a class="mob-drawer-link" href="#shelters"> Shelters</a>
- 
-    <!-- Municipalities -->
-    <a class="mob-drawer-link" href="#municipalities"> Municipalities Support</a>
- 
-    <!-- Search Animal -->
-    <a class="mob-drawer-link" href="https://save.gocaf.global/animal-search" target="_blank"> Search Animal</a>
- 
-    <!-- About Us accordion -->
+    </div>
+
+    <!-- Search accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Search <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="https://save.gocaf.global/animal-search" target="_blank">Search Animal</a>
+        <a href="https://save.gocaf.global/lost-found" target="_blank">Search for Lost / Found</a>
+        <a href="https://save.gocaf.global/animal-search" target="_blank">Search by Report ID</a>
+        <a href="https://save.gocaf.global/animal-serach" target="_blank">Search by Location</a>
+        <a href="https://save.gocaf.global/animal-serach" target="_blank">Search by Rescuer</a>
+        <a href="https://save.gocaf.global/animal-serach" target="_blank">Search by Caretaker</a>
+        <a href="https://save.gocaf.global/animal-serach" target="_blank">Search Volunteer</a>
+        <a href="https://save.gocaf.global/animal-serach" target="_blank">Search Municipality</a>
+      </div>
+    </div>
+
+    <!-- Projects accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Projects <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="https://gocaf.global/save" target="_blank">SAVE — Animal Identity</a>
+        <a href="https://gocaf.global/care" target="_blank">CARE — Animal Rehabilitation</a>
+        <a href="https://gocaf.global/abc" target="_blank">SAFE-ABC — Sterilization &amp; Animal Family Engagement</a>
+        <a href="https://gocaf.global/shield" target="_blank">SHIELD — Smart Human–Animal Integration</a>
+        <a href="https://gocaf.global/cci" target="_blank">CCI — Compassionate Cities For India</a>
+        <a href="https://gocaf.global/ohp" target="_blank">OHP — One Health Platform</a>
+      </div>
+    </div>
+
+    <!-- Opportunities accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Opportunities <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="#internship">Internship</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank">Volunteering</a>
+        <a href="#part-time">Part-Time</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank">Become a Feeder</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank">Become a Rescuer</a>
+        <a href="https://save.gocaf.global/volunteer-registration" target="_blank">Become an Ambassador</a>
+        <a href="#csr">Corporate / CSR Partnership</a>
+      </div>
+    </div>
+
+    <!-- About GOCAF accordion -->
     <div class="mob-acc-item">
       <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
         About GOCAF <span class="mob-acc-arr">&#9662;</span>
       </button>
       <div class="mob-acc-panel">
+        <a href="#about">About Us</a>
         <a href="#about">Mission &amp; Vision</a>
-        <a href="#impact">Impact in Numbers</a>
-        <a href="#shelters">Our Partners</a>
-        <a href="#volunteers">Our Volunteers</a>
+        <a href="#about">Our Campaigns</a>
+        <a href="#contact">Animal Network</a>
+        <a href="#municipalities">Municipalities &amp; Government</a>
+        <a href="#">Research &amp; Innovation</a>
+        <a href="#impact">Impact &amp; Initiatives</a>
+        <a href="#">Annual Report</a>
+        <a href="#">Press Releases</a>
+        <a href="#">Blog &amp; News</a>
+        <a href="#">Jobs at GOCAF</a>
+        <a href="#">FAQs</a>
         <a href="#contact">Contact Us</a>
       </div>
     </div>
- 
-    <!-- Campaigns accordion -->
-    <div class="mob-acc-item">
-      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
-        Campaigns <span class="mob-acc-arr">&#9662;</span>
-      </button>
-      <div class="mob-acc-panel">
-        <a href="rescue.html">Rescue &amp; Success Stories</a>
-        <a href="#campaigns">#EndAbandonment</a>
-        <a href="#campaigns">#StructuredFeeding</a>
-        <a href="#campaigns">#HumaneCoexistence</a>
-        <a href="#campaigns">#ProtectFeeders</a>
-        <a href="#campaigns">Spay &amp; Neuter Drive</a>
-      </div>
-    </div>
- 
-    <!-- Quick Links accordion -->
-    <!-- <div class="mob-acc-item">
-      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
-        Quick Links <span class="mob-acc-arr">&#9662;</span>
-      </button>
-      <div class="mob-acc-panel">
-        <a href="Municipal-letter.pdf" target="_blank">📄 Municipal Letter</a>
-        <a href="https://save.gocaf.global/volunteer-registration" target="_blank">🤝 Volunteer</a>
-        <a href="https://save.gocaf.global/animal-search" target="_blank">🔍 Search Animal</a>
-        <a href="https://wa.me/919390189589" target="_blank" style="color:#B91C1C;font-weight:700">🚨 Emergency Support</a>
-      </div>
-    </div> -->
- 
+
     <!-- Plain links -->
     <a class="mob-drawer-link" href="#shelters">Partnered Shelters</a>
-    <!-- <a class="mob-drawer-link" href="rescue.html">Rescue Stories</a> -->
     <a class="mob-drawer-link" href="#gallery">Gallery</a>
     <a class="mob-drawer-link" href="#contact">Newsletter</a>
- 
+
+    <!-- Downloads accordion -->
+    <div class="mob-acc-item">
+      <button class="mob-acc-trigger" onclick="toggleMobAcc(this)">
+        Downloads <span class="mob-acc-arr">&#9662;</span>
+      </button>
+      <div class="mob-acc-panel">
+        <a href="Municipal-letter.pdf" target="_blank">Municipal Letter</a>
+        <a href="Rescuers-Manual.pdf" target="_blank">Rescuers Manual</a>
+        <a href="Feeders-Manual.pdf" target="_blank">Feeders Manual</a>
+        <a href="Animal-Welfare-Best-Practices.pdf" target="_blank">Animal Welfare Best Practices</a>
+        <a href="Know-Your-Rights.pdf" target="_blank">Know Your Rights</a>
+      </div>
+    </div>
+
   </div><!-- /mob-drawer-body -->
- 
+
   <!-- Bottom CTA buttons -->
   <div class="mob-drawer-cta">
     <button class="mob-pill mob-pill-outline" onclick="openDonateModal();closeMobDrawer()">&#10084; Donate</button>
     <!-- <a class="mob-pill mob-pill-teal" href="https://save.gocaf.global/volunteer-registration" target="_blank" onclick="closeMobDrawer()">Volunteer Now</a> -->
   </div>
 </div>
- 
+
 <!-- The sticky two-row mobile header bar -->
 <header class="mob-header" id="mobHeader">
   <!-- Row 1: logo + hamburger -->
@@ -995,9 +1003,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   <div class="mob-header-row2-wrap">
     <div class="mob-header-row2" role="navigation" aria-label="Quick actions">
       <!-- <a class="mob-pill mob-pill-emergency" href="https://wa.me/919390189589" target="_blank">&#128680; Emergency</a> -->
-      <a class="mob-pill mob-pill-teal" href="https://save.gocaf.global/saveregistration" target="_blank"> Register Animal</a>
-      <a class="mob-pill mob-pill-outline" href="#pickup"> Report Pickup</a>
-      <a class="mob-pill mob-pill-outline" href="https://save.gocaf.global/volunteer-registration" target="_blank"> Become Volunteer</a>
+      <a class="mob-pill mob-pill-teal" href="https://save.gocaf.global/saveregistration" target="_blank">Register Animal</a>
+      <a class="mob-pill mob-pill-outline" href="#pickup">Report Pickup</a>
+      <a class="mob-pill mob-pill-outline" href="https://save.gocaf.global/volunteer-registration" target="_blank">Become Volunteer</a>
       <a class="mob-pill mob-pill-outline" href="https://save.gocaf.global/animal-search" target="_blank">&#128269; Search Animal</a>
       <button class="mob-pill mob-pill-donate" onclick="openDonateModal()">&#10084; Donate</button>
     </div>
@@ -1005,7 +1013,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   </div>
 </header>
 <!-- END MOBILE HEADER -->
- 
+
 <!-- LIGHTBOX -->
 <div class="lb" id="lb">
   <button class="lb-close" onclick="lbClose()">&#x2715;</button>
@@ -1014,10 +1022,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   <button class="lb-arr lb-next" onclick="lbNav(1)">&#8250;</button>
   <div class="lb-counter" id="lbCounter"></div>
 </div>
- 
+
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
- 
+
 <!-- SEARCH OVERLAY -->
 <div class="search-ov" id="searchOv">
   <button class="s-close" onclick="closeSearch()">&#x2715;</button>
@@ -1029,7 +1037,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     </div>
   </div>
 </div>
- 
+
 <!-- MOBILE OVERLAY (legacy) -->
 <div class="mob-ov" id="mobOv" onclick="closeMob()"></div>
 <div id="mob-menu">
@@ -1071,7 +1079,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     <a href="#careers">Careers</a>
     <a href="#contact">Contact Us</a>
   </div>
-  <a class="mob-lk" href="#register-save">Register for SAVE</a>
+  <!-- <a class="mob-lk" href="#register-save">Register for SAVE</a> -->
   <a class="mob-lk" href="#gallery">Gallery</a>
   <a class="mob-lk" href="#">Jobs</a>
   <a class="mob-lk" href="#">Press</a>
@@ -1082,7 +1090,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
     <a href="https://save.gocaf.global/volunteer-registration" target="_blank" class="mob-volunteer-btn">Volunteer</a>
   </div>
 </div>
- 
+
 <!-- HEADER — Desktop Only -->
 <header id="header">
   <!-- TOP BAR -->
@@ -1131,7 +1139,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       </div>
     </div>
   </div>
- 
+
   <!-- DONATE MODAL -->
   <div class="donate-overlay" id="donateModal" onclick="closeDonateModalOnOverlay(event)">
     <div class="donate-modal">
@@ -1152,7 +1160,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
       <p class="donate-heart-msg">&#9829; Your contribution helps support community animal welfare across India.</p>
     </div>
   </div>
- 
+
   <!--
   =================================================================
     GOCAF NAVBAR — Self-Contained (No CSS Conflicts)
@@ -1185,8 +1193,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-drop a{display:flex;align-items:center;gap:10px;padding:10px 18px;font-size:13.5px;color:#374151;text-decoration:none;transition:background .13s,color .13s;line-height:1.3}
   .gn-drop a:hover{background:#f0fdfb;color:#0d9488}
   .gn-drop-divider{height:1px;background:#f3f4f6;margin:4px 0}
-  .gn-ico{width:30px;height:30px;background:#f0fdfb;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background .13s}
-  .gn-drop a:hover .gn-ico{background:rgba(13,148,136,.15)}
+  .gn-ico{width:32px;height:32px;background:#f0fdfb;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#0d9488;transition:background .13s,color .13s}
+  .gn-ico svg{width:16px;height:16px;display:block}
+  .gn-drop a:hover .gn-ico{background:#0d9488;color:#fff}
+  .gn-drop a{gap:12px;padding:9px 16px}
   .gn-more-item{position:relative}
   .gn-more-trigger{display:inline-flex;align-items:center;gap:4px;cursor:pointer}
   .gn-more-drop{left:auto;right:0;border-radius:12px}
@@ -1198,12 +1208,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-mhd a{color:inherit;text-decoration:none}
   .gn-ml{display:block;padding:5px 0;font-size:13px;color:#374151;text-decoration:none;transition:color .13s,padding-left .13s}
   .gn-ml:hover{color:#0d9488;padding-left:5px}
-  .gn-proj-wrap{display:flex;flex-direction:column;gap:8px}
-  .gn-proj{display:flex;align-items:center;gap:12px;padding:11px 14px;border:1.5px solid #e5f7f5;border-radius:10px;text-decoration:none;transition:border-color .17s,box-shadow .17s,background .17s}
+  .gn-proj-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .gn-proj{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1.5px solid #e5f7f5;border-radius:10px;text-decoration:none;transition:border-color .17s,box-shadow .17s,background .17s}
   .gn-proj:hover{border-color:#0d9488;box-shadow:0 4px 16px rgba(13,148,136,.12);background:#f0fdfb}
-  .gn-proj-icon{width:40px;height:40px;background:#f0fdfb;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .gn-proj-icon{width:38px;height:38px;background:#f0fdfb;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#0d9488}
+  .gn-proj:hover .gn-proj-icon{background:#0d9488;color:#fff}
   .gn-proj-name{font-size:13px;font-weight:700;color:#1a2a2a;margin-bottom:2px}
-  .gn-proj-desc{font-size:11.5px;color:#6b7280;line-height:1.4}
+  .gn-proj-desc{font-size:11px;color:#6b7280;line-height:1.4}
   .gn-badge{font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;background:#d1fae5;color:#065f46;flex-shrink:0}
   .gn-soon{background:#e5e7eb;color:#374151}
   .gn-right{display:flex;align-items:center;gap:4px;margin-left:10px;flex-shrink:0}
@@ -1238,8 +1249,58 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
   .gn-ham{display:none;flex-direction:column;gap:5px;background:none;border:1.5px solid #e5f7f5;border-radius:8px;padding:7px 9px;cursor:pointer}
   .gn-ham span{display:block;width:20px;height:2px;background:#374151;border-radius:2px}
   @media(max-width:1020px){.gn-nav{display:none}.gn-ham{display:flex}.gn-right .gn-btn-outline{display:none}}
+  .gn-downloads{position:relative;display:block;flex:0 0 auto}
+   .gn-downloads .gn-util-link{border:0;background:transparent;font-family:inherit;cursor:pointer}
+   .gn-downloads-menu{
+     display:none;
+     position:absolute;
+     top:calc(100% + 8px);
+     right:0;
+     width:280px;
+     min-width:280px;
+     margin:0;
+     padding:8px 0;
+     background:#fff;
+     border:1.5px solid #e5f7f5;
+     border-top:3px solid #0d9488;
+     border-radius:0 0 12px 12px;
+     box-shadow:0 16px 48px rgba(0,0,0,.16);
+     z-index:99999;
+   }
+   .gn-downloads:hover .gn-downloads-menu,
+   .gn-downloads:focus-within .gn-downloads-menu{display:flex;flex-direction:column}
+   .gn-downloads-menu a{
+     display:flex;
+     width:100%;
+     box-sizing:border-box;
+     align-items:center;
+     gap:10px;
+     padding:11px 16px;
+     margin:0;
+     color:#374151;
+     font-size:13px;
+     font-weight:600;
+     line-height:1.3;
+     white-space:normal;
+     text-decoration:none;
+   }
+   .gn-downloads-menu a:hover{background:#f0fdfb;color:#0d9488}
+   .gn-downloads-menu a::before{
+     content:'↓';
+     display:inline-flex;
+     align-items:center;
+     justify-content:center;
+     width:26px;
+     height:26px;
+     border-radius:7px;
+     background:#f0fdfb;
+     color:#B5366A;
+     font-size:15px;
+     font-weight:800;
+     flex-shrink:0;
+   }
   </style>
- 
+
   <!-- DESKTOP NAVBAR WRAPPER -->
   <div class="gn-wrap">
     <div class="gn-inner">
@@ -1250,215 +1311,208 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeVideoPo
           <span class="gn-logo-sub">Global Organization for<br>Community Animal Freedom</span>
         </span>
       </a>
- 
+
       <nav class="gn-nav" aria-label="Primary">
- 
+
         <!-- Home -->
         <!-- <div class="gn-item">
           <a class="gn-link" href="index.html"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span></a>
         </div> -->
- 
+
   
-        <!-- Services (Register Animal / Report Pickup / Become Volunteer) -->
+        <!-- Register -->
         <div class="gn-item">
-          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>Protect Animals<span class="gn-arr">▾</span></span>
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>Register <span class="gn-arr">▾</span></span>
           <div class="gn-drop">
-            <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener"> Register a animal</a>
-            <a href="https://save.gocaf.global/register-pickup"> Report Animal Pickup</a>
-            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener"> Become a volunteer</a>
+            <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Register an Animal</a>
+            <a href="https://save.gocaf.global/abc-registration" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></span>Register ABC</a>
+            <a href="https://save.gocaf.global/report-cruelty" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>Register Cruelty Act</a>
+          </div>
+        </div>
+        <!-- Report -->
+        <div class="gn-item">
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></span>Report <span class="gn-arr">▾</span></span>
+          <div class="gn-drop">
+            <a href="https://save.gocaf.global/report-lost" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>Lost Animal</a>
+            <a href="https://save.gocaf.global/report-found" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span>Found Animal</a>
+            <a href="https://save.gocaf.global/emergency-support" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>Report Incident</a>
+          </div>
+        </div>
+                        <!-- Search Animal -->
+        <div class="gn-item">
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search <span class="gn-arr">▾</span></span>
+          <div class="gn-drop">
+            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Search Animal</a>
+            <a href="https://save.gocaf.global/lost-found" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search for Lost / Found</a>
+            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg></span>Search by Report ID</a>
+            <a href="https://save.gocaf.global/animal-serach" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>Search by Location</a>
+            <a href="https://save.gocaf.global/animal-serach" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>Search by Rescuer</a>
+            <a href="https://save.gocaf.global/animal-serach" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Search by Caretaker</a>
+            <a href="https://save.gocaf.global/animal-serach" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Search Volunteer</a>
+            <a href="https://save.gocaf.global/animal-serach" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></span>Search Municipality</a>
           </div>
         </div>
         <!-- Projects -->
- <div class="gn-item">
-          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></span>Projects <span class="gn-arr">▾</span></span>
-          <div class="gn-mega" style="min-width:460px">
-            <div style="font-size:10.5px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.9px;margin-bottom:14px;padding-bottom:7px;border-bottom:2px solid #99f6e4">Our Core Programmes</div>
-            <div class="gn-proj-wrap">
-              <a class="gn-proj" href="save.html">
-                <div class="gn-proj-icon"></div>
-                <div><div class="gn-proj-name">SAVE</div><div class="gn-proj-desc">Stray Animal Verification &amp; Enforcement</div></div>
-                <span class="gn-badge">Identity &amp; Tracking</span>
-              </a>
-              <a class="gn-proj" href="#safeabc" style="opacity:.5;pointer-events:none">
-                <div class="gn-proj-icon"></div>
-                <div><div class="gn-proj-name">SAFE-ABC</div><div class="gn-proj-desc">Systematic Animal Fertility Enforcement</div></div>
-                <span class="gn-badge gn-soon">Coming Soon</span>
-              </a>
-              <a class="gn-proj" href="#care" style="opacity:.5;pointer-events:none">
-                <div class="gn-proj-icon"></div>
-                <div><div class="gn-proj-name">CARE</div><div class="gn-proj-desc">Capture, Assess, Rehabilitate &amp; Empower</div></div>
-                <span class="gn-badge gn-soon">Coming Soon</span>
-              </a>
-            </div>
+<div class="gn-item">
+  <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg></span>Projects <span class="gn-arr">▾</span></span>
+  <div class="gn-mega" style="min-width:460px">
+    <div class="gn-proj-wrap">
+      <a class="gn-proj" href="https://gocaf.global/save" target="_blank" rel="noopener">
+        <div class="gn-proj-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
+        <div><div class="gn-proj-name">SAVE</div><div class="gn-proj-desc">Animal Identity &amp; Tracking</div></div>
+      </a>
+      <a class="gn-proj" href="https://gocaf.global/care" target="_blank" rel="noopener">
+        <div class="gn-proj-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></div>
+        <div><div class="gn-proj-name">CARE</div><div class="gn-proj-desc">Animal Rehabilitation</div></div>
+      </a>
+      <a class="gn-proj" href="https://gocaf.global/abc" target="_blank" rel="noopener">
+        <div class="gn-proj-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></div>
+        <div><div class="gn-proj-name">SAFE-ABC</div><div class="gn-proj-desc">Sterilization &amp; Family Engagement</div></div>
+      </a>
+      <a class="gn-proj" href="https://gocaf.global/shield" target="_blank" rel="noopener">
+        <div class="gn-proj-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+        <div><div class="gn-proj-name">SHIELD</div><div class="gn-proj-desc">Human–Animal Integration &amp; Defense</div></div>
+      </a>
+      <a class="gn-proj" href="https://gocaf.global/cci" target="_blank" rel="noopener">
+        <div class="gn-proj-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div>
+        <div><div class="gn-proj-name">CCI</div><div class="gn-proj-desc">Compassionate Cities For India</div></div>
+      </a>
+      <a class="gn-proj" href="https://gocaf.global/ohp" target="_blank" rel="noopener">
+        <div class="gn-proj-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+        <div><div class="gn-proj-name">OHP</div><div class="gn-proj-desc">One Health Platform</div></div>
+      </a>
+    </div>
+  </div>
+</div>
+        <!-- Opportunities -->
+        <div class="gn-item">
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></svg></span>Opportunities <span class="gn-arr">▾</span></span>
+          <div class="gn-drop gn-more-drop">
+            <a href="#internship"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>Internship</a>
+            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>Volunteering</a>
+            <a href="#part-time"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>Part-Time</a>
+            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Become a Feeder</a>
+            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>Become a Rescuer</a>
+            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>Become an Ambassador</a>
+            <a href="#csr"><span class="gn-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>Corporate / CSR Partnership</a>
           </div>
         </div>
-        <!-- Register -->
-        <!-- <div class="gn-item">
-          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4Z"/></svg></span>Register <span class="gn-arr">▾</span></span>
-          <div class="gn-drop">
-            <a href="https://save.gocaf.global/saveregistration" target="_blank" rel="noopener">Register an Animal</a>
-            <a href="#abc-support">ABC Support</a>
-            <a href="#shelter">Temporary Shelter</a>
-            <div class="gn-drop-divider"></div> -->
-            <!-- <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener">As a Feeder / Caretaker</a>
-            <a href="https://save.gocaf.global/volunteer-registration" target="_blank" rel="noopener">As a Rescuer</a> -->
-          <!-- </div>
-        </div> -->
- 
-        <!-- Report -->
-        <!-- <div class="gn-item">
-          <span class="gn-link">Report <span class="gn-arr">▾</span></span>
-          <div class="gn-drop">
-            <a href="https://save.gocaf.global/report-lost" target="_blank" rel="noopener">Lost Animal</a>
-            <a href="https://save.gocaf.global/report-found" target="_blank" rel="noopener">Found Animal</a>
-            <a href="https://save.gocaf.global/emergency-support" target="_blank" rel="noopener">Community Issues</a>
-            <a href="https://save.gocaf.global/emergency-support" target="_blank" rel="noopener">Animal Cruelty</a>
-          </div>
-        </div> -->
- 
-        <!-- Lost & Found -->
-        <!-- <div class="gn-item">
-          <a class="gn-link" href="https://save.gocaf.global/lost-found" target="_blank" rel="noopener">Lost &amp; Found</a>
-        </div> -->
-  <!-- Municipalities -->
-        <div class="gn-item">
-          <a class="gn-link" href="#municipalities"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>Municipalities</a>
-        </div>
-        <!-- Shelters -->
-        <div class="gn-item">
-          <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Shelters</a>
-        </div>
- 
-  
- 
-        <!-- Campaigns & Topics -->
-        <!-- <div class="gn-item">
-          <span class="gn-link">Campaigns <span class="gn-arr">▾</span></span>
-          <div class="gn-mega">
-            <div class="gn-mega-grid c4">
-              <div>
-                <div class="gn-mhd"><a href="#campaigns">Campaigns</a></div>
-                <a class="gn-ml" href="#">#NoProof-NoCatch</a>
-                <a class="gn-ml" href="#">#EndAbandonment</a>
-                <a class="gn-ml" href="#">#StructuredFeeding</a>
-                <a class="gn-ml" href="#">#HumaneCoexistence</a>
-                <a class="gn-ml" href="#">#ProtectFeeders</a>
-                <a class="gn-ml" href="#">#Spay &amp; Neuter Drive</a>
-                <a class="gn-ml" href="#">#Anti-Cruelty Campaign</a>
-                <a class="gn-ml" href="#">#GOCAF4Animals</a>
-              </div>
-              <div>
-                <div class="gn-mhd"><a href="#">Topics</a></div>
-                <a class="gn-ml" href="#">Animal Welfare &amp; Law</a>
-                <a class="gn-ml" href="#">Public Health Interface</a>
-                <a class="gn-ml" href="#">Rapid Response</a>
-                <a class="gn-ml" href="#">Disaster Relief</a>
-                <a class="gn-ml" href="#">Stray Animal Management</a>
-                <a class="gn-ml" href="#">Climate &amp; Animal Welfare</a>
-                <a class="gn-ml" href="#">Companion Animals</a>
-              </div>
-              <div>
-                <div class="gn-mhd"><a href="#">Shelters &amp; Centres</a></div>
-                <a class="gn-ml" href="#">GOCAF Rescue Centre – Hyderabad</a>
-                <a class="gn-ml" href="#">Community Shelter Network</a>
-                <a class="gn-ml" href="#">Foster Care Programme</a>
-                <div class="gn-mhd" style="margin-top:18px">Resources</div>
-                <a class="gn-ml" href="#">Publications &amp; Guides</a>
-                <a class="gn-ml" href="#">Awareness Materials</a>
-                <a class="gn-ml" href="#">Pet Care Tips</a>
-              </div>
-              <div>
-                <div class="gn-mhd">More to Know</div>
-                <a class="gn-ml" href="rescue.html"> Rescue &amp; Success Stories</a>
-                <a class="gn-ml" href="#">Blog &amp; News</a>
-                <a class="gn-ml" href="#">Annual Report</a>
-                <a class="gn-ml" href="#">Press Releases</a>
-                <a class="gn-ml" href="#">FAQs</a>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!--
-        <div class="gn-item">
-          <a class="gn-link" href="#shelters"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Our Partners</a>
-        </div> -->
- 
-  
- 
-        <!-- Donate nav link -->
-        <!-- <div class="gn-item">
-          <a class="gn-link donate" href="#donate">Donate</a>
-        </div> -->
- 
+
         <!-- About Us -->
         <div class="gn-item">
-          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>About GOCAF <span class="gn-arr">▾</span></span>
+          <span class="gn-link"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>GOCAF World <span class="gn-arr">▾</span></span>
           <div class="gn-mega" style="min-width:500px">
             <div class="gn-mega-grid c2">
               <div>
-                <div class="gn-mhd">Who We Are</div>
+                <div class="gn-mhd">Known More</div>
+                <a class="gn-ml" href="#about">About Us</a>
                 <a class="gn-ml" href="#about">Mission &amp; Vision</a>
+               <a class="gn-ml" href="#about">Our Campaigns</a>
                 <!-- <a class="gn-ml" href="#founder">Projects</a> -->
-                <a class="gn-ml" href="#contact">Impact</a>
-                <a class="gn-ml" href="#">Partners</a>
-                <a class="gn-ml" href="#">Founder Message</a>
-                <a class="gn-ml" href="#contact">Careers</a>
-                <a class="gn-ml" href="#contact">Contact Us</a>
-              </div>
+                <a class="gn-ml" href="#contact">Animal Network</a>
+                <a class="gn-ml" href="#">Municipalities & Government</a>
+                <a class="gn-ml" href="#">Research & Innovation</a>
+                <a class="gn-ml" href="#contact">Impact & Initatives</a>
+                
+              <!-- </div>
               <div>
-                <div class="gn-mhd">Media &amp; Reports</div>
+                <div class="gn-mhd">Media &amp; Reports</div> -->
                 <a class="gn-ml" href="#">Annual Report</a>
                 <a class="gn-ml" href="#">Press Releases</a>
                 <a class="gn-ml" href="#">Blog &amp; News</a>
                 <a class="gn-ml" href="#">Jobs at GOCAF</a>
                 <a class="gn-ml" href="#">FAQs</a>
-                <div style="margin-top:16px;padding:12px;background:#f0fdfb;border-radius:9px">
-                  <div style="font-size:10.5px;font-weight:700;color:#0d9488;margin-bottom:4px">Emergency Helpline</div>
-                  <a href="https://wa.me/919390189589" target="_blank" style="font-size:14px;font-weight:700;color:#0d9488;text-decoration:none">WhatsApp Us</a>
-                  
-                </div>
-                
-                
               </div>
-              
             </div>
           </div>
-                <!-- Search Animal -->
-        <div class="gn-item">
-          <a class="gn-link" href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>Search Animal</a>
         </div>
-        </div>
- 
-        <!-- Search -->
-        <!-- <div class="gn-item">
-          <span class="gn-link">Search <span class="gn-arr">▾</span></span>
-          <div class="gn-drop">
-            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener">Registered Animal</a>
-            <a href="https://save.gocaf.global/volunteer/login" target="_blank" rel="noopener">Volunteer Search</a>
-            <div class="gn-drop-divider"></div>
-            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener">Feeders by Location</a>
-            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener">Rescuers by Location</a>
-            <a href="https://save.gocaf.global/animal-search" target="_blank" rel="noopener">Shelters by Location</a>
-          </div>
-        </div> -->
- 
+
       </nav>
- 
+
       <!-- Right actions — utility links (plain text) + ONE outline step + ONE primary CTA -->
+      <!-- Downloads dropdown -->
       <div class="gn-right">
+        <div class="gn-downloads">
+          <button
+            type="button"
+            class="gn-util-link"
+            aria-haspopup="true"
+            aria-controls="downloadsMenu"
+          >
+            <span class="gn-util-ico">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </span>
+            Downloads
+            <span class="gn-arr">▾</span>
+          </button>
+
+          <div
+            class="gn-downloads-menu"
+            id="downloadsMenu"
+            role="menu"
+            aria-label="Downloads"
+          >
+            <a href="Municipal-letter.pdf" target="_blank" rel="noopener" role="menuitem">Municipal Letter</a>
+            <a href="Rescuers-Manual.pdf" target="_blank" rel="noopener" role="menuitem">Rescuers Manual</a>
+            <a href="Feeders-Manual.pdf" target="_blank" rel="noopener" role="menuitem">Feeders Manual</a>
+            <a href="Animal-Welfare-Best-Practices.pdf" target="_blank" rel="noopener" role="menuitem">Animal Welfare Best Practices</a>
+            <a href="Know-Your-Rights.pdf" target="_blank" rel="noopener" role="menuitem">Know Your Rights</a>
+          </div>
+        </div>
+
         <div class="gn-sep"></div>
- 
-        <!-- <a href="Municipal-letter.pdf" target="_blank" rel="noopener" class="gn-util-link"><span class="gn-util-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>Municipal<br>Letter</a> -->
- 
-        <div class="gn-sep"></div>
- 
-        <a href="donate.html" class="gn-btn gn-btn-purple"><span class="gn-link-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></span>Donate</a>
- 
-        <button class="gn-ham" onclick="this.closest('.gn-wrap').querySelector('.gn-drawer').style.display='flex'" aria-label="Menu">
-          <span></span><span></span><span></span>
+
+        <a href="donate.html" class="gn-btn gn-btn-purple">
+          <span class="gn-link-ico">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
+          </span>
+          Donate
+        </a>
+
+        <button
+          class="gn-ham"
+          onclick="this.closest('.gn-wrap').querySelector('.gn-drawer').style.display='flex'"
+          aria-label="Menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </div>
+  </div>
+</header>
+
+<!-- ⚠️ Your page continues here with the hero section, all content sections,
+     footer, and closing scripts — that part wasn't included in what you
+     pasted, so it isn't reproduced above. Paste that portion separately
+     if you'd like it checked or updated too. -->
+
+<!-- ⚠️ Your page continues here with the hero section, all content sections,
+     footer, and closing scripts — that part wasn't included in what you
+     pasted, so it isn't reproduced above. Paste that portion separately
+     if you'd like it checked or updated too. -->
  
     <!-- Desktop Ticker -->
     <!-- <div class="gn-ticker" aria-label="GOCAF services">
